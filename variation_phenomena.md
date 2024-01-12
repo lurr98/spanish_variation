@@ -1,0 +1,257 @@
+# Listing Linguistic Phenomena of Variation in Spanish 
+
+The following list is based on Lipski (1994) "Latin American Spanish"
+
+## General thoughts
+
+In order to represent the variety of Spanish adequately, one important factors is to focus on the properties that really distinguish the different varieties from one another, i.e. it does not make sense to focus on the properties that are shared among different regions but more on those that are unique to certain dialects
+
+Major problem that could arise for distinction using the *voseo*: Spanish is a pro-drop language
+
+Many of the peculiarities occur in vernacluar language, this could pose a problem
+
+## Attempts to classify the different dialects of Spanish
+
+### Five zone classification (Henríquez Ureña) for Latin America
+
+1. Mexico, New Mexico & most of Central America {Nahuatl}
+2. The Caribbean (Antilles & coastal regions of Colombia & Venezuela) {Carib/Arawak}
+3. from Colombia to Bolivia & Northern Chile {Quechua}
+4. Central & Southern Chile {Mapuche/Araucano}
+5. Argentinia, Uruguay & Paraguay {Guaraní}
+
+Main criterion were lexical items!
+
+Critique: Language within the zones is vastly diverse
+
+### Highland, lowland / coastal separation
+
+Phonetic similarity in coastal areas
+
+### Categorization by Rona
+
+1. *zeísmo* (phonetic)
+2. *yeísmo* (phonetic)
+3. presence or absence of *voseo*
+4. verbal morphology which is used together with *vos* if *voseo* is used
+
+*voseo* ==> use of *vos* as the second person singular pronoun instead of *tú*
+
+#### *voseo* types
+
+| Type | -ar  | -er  | ir  |
+|------|------|------|-----|
+| A    | -áis | -éis | -ís |
+| B    | -áis | -ís  | -ís |
+| C    | -ás  | -és  | -ís |
+| D    | -as  | -es  | -is |
+
+In reality, there are more versions of *voseo*.
+
+The use of *voseo* is tied to social factors.
+
+![Classification using voseo types](classification_voseo.png)
+
+### Categorization by Zamora and Guitart
+
+1. velar vs. pharyngeal articulation of /x/
+2. sibilant vs. reduced /s/ in syllable-final position
+3. presence of absence of *vos* as subject pronoun (consider also the coexistence of *tú* and *vos*)
+
+### Categorization by relative chronology of settlement
+
+Areas which had a strong commercial and political relationship show "old" characteristics of Spanish while areas that were "shunted away from principal trade routes" exhibit more "modern" traits.
+
+## Important factors for Diversity in Spanish
+
+- bilingualism (e.g. indigenous & Spanish)
+- influences from
+    - indigenous languages
+    - African languages
+    - Creole / Pidgin (?) languages
+- importance of a region during period of colonialism
+
+## Characteristics of Mexican Spanish
+
+### Morphological characteristics
+
+- frequent use of *no más* for "only", "just"
+- *mero* is used in the sense of "the very same"
+- *ya mero* means "almost"
+- (*hasta* refers to the beginning point of an event rather than to the end)
+- most common diminiutive is *-ito* (in other regions of Mexico (e.g. Chiapas) *-illo* is more frequent)
+
+### Syntactic characteristics
+
+Syntactic peculiarities in Mexico occur mostly among "Spanish-recessive bilinguals or in a few isolated rural regions"
+
+- use of redundant possessive articles (e.g. in Yucatan & Chiapas)
+    - *su* papá de Pedro
+- combination of indefinite article + possessive (e.g. in Yucatan & Chiapas)
+    - le da *una su* pena decírtelo
+- use of pleonastic (unnecessary) *lo* (e.g. by Spanish-recessive bilinguals)
+    - ¿no te *lo* da vergüenza?
+- dialects that exhibit clitic doubling with *lo* often allow for questions being answered by repeating the main verb
+    - ¿Tenés hambre? - Tengo.
+
+
+## Characteristics of Argentinian Spanish
+
+The prototype for Argentine Spanish is the prestigious so-called *porteño* speech of Buenos Aires.
+
+Contemporary Argentina is considered a nation with minimal indigenous presence. Linguistic influences of indigenous languages are present mostly (only?) in the North and West. 
+
+- *Guaraní* (Northeastern Argentina)
+- *Quechua* (extreme Northwestern Argentina)
+
+Considerable influence of African languages in Buenos Aires.
+
+Considerable influence of Italian (due to Italian immigration begun in the late 1800)
+
+### Morphological characteristics
+
+- uniform use of *vos* instead of *tú*
+- most of Argentina employs *lo* as the third person singular direct object clitic for masculine referents (in the Northeast the use of *le* is more common)
+- in Jujuy, *lo* is sometimes used as a dative clitic
+
+### Syntactic characteristics
+
+- clitic doubling of definite personal direct object nouns
+    - *lo conozco a Juan*
+- generic use of *lo* even when no masculine singular reference is present (Quechua-influenced Northwest)
+    - *lo quiere much a su hijita*
+- verb tense usage can diverge from the prescriptive norms, e.g. use of simple preterite instead of present imperfect, even when connection to the present is established
+    - interpreting *Juan no llegó* as *Juan has not arrived \[yet\]*
+- breaking with the so-called "sequence of tenses", e.g. alloing a matrix verb in the past or conditional to freely combine with a subordinate verb in the preent subjunctive
+    - *Juan me dijo que lo haga \[hiciera\] in seguida*
+- in vernacular speech of many regions, *yo* replaces *a mí* in dative-verb constructions
+    - *yo \[a mí\] me parece que me voy*
+- *nos* appears preverbally in exhortative constructions (Northern Argentina)
+    - *nos sentemos \[sentémonos\]*
+- reflexive clitic *se* is used generically (even if no third person reference is present) by less educated speakers
+    - *se \[nos\] llevamos bien*
+- combinations in which a subject precedes a non-finite verb form e.g. gerund or infinitive, more in rural areas of Central Argentina
+    - *al yo venir*
+
+The following characteristics are also shared with Paraguayan Spanish.
+
+- lack of copula combined with subject-final word order
+    - *muy malo vos \[vos sos muy malo\]*
+- redundant possessives with inalienable possession
+    - *de mi cabeza sufro \[sufro de la cabeza\]*
+- preposed (?) double negation
+    - *nadie no está \[no hay nadie\]*
+- absence of reflexive clitics in inalienable possession constructions
+    - *poné tu pollera \[ponete la pollera\]*
+- null direct object
+    - *llevé los papeles para la farmacia y no sé si \[los\] perdí*
+- postposed *eso* to include other members of a group
+    - *mi mamá eso* (my mother and others)
+- use of *grande*  instead of *mucho*
+    - *comió grande* (he ate a lot)
+- use of *ir en* to express motion
+    - *el sé va en \[va a\] Corrientes*
+- *mismo* is often used as an affirmative respones to a question (kinda like *same*)
+
+
+## Characteristics of Bolivian Spanish
+
+The highland dialects of Bolivia have been influenced by the two principal indigenous languages there:
+
+- *Quechua* 
+- *Aymara*
+
+The Spanish in the eastern *laanos*, however, shares more similarities with Paraguyan Spanish.
+
+There is evidence that there existed some Afro-Hispanic language in colonial Bolivia.
+
+### Morphological characteristics
+
+- use of *vos* and *tú*, most of Bolivia uses *vos* in some circumstances (depends geographically, sociolinguistically & ethnolinguistically)
+    - in urban highland areas, monolingual speakers of Spanish use both *vos* (almost always combined with the verb conjugation associated with *tú*, e.g. *vos tienes*) and *tú*
+    - … (check page 190)
+- in the llanos, *-ingo* and *-inga* are used as diminiutive forms in popular speech (*-ongo* for augmentatives)
+- throughout Bolivia, *che* is used as a vocative (as in Argentina and Paraguay)
+- the suffix *-y* may be added to Spanish words in order to give them an affectionate tone (among Quechua speakers)
+    - *herminatay* (dear sister)
+
+### Syntactic characteristics
+
+Syntactic diversions are almost entirely tied to interactions with the two principal indigenous languages
+
+- direct object clitic doubling is very frequent and, among less fluent Spanish speakers, *lo* is the most frequently used clitic
+    - *tú lo tienes la dirección*
+- repetition of clitics in the pre- and postverbal position is common in vernacular speech
+    - *te estoy hablándote yo de acá*
+- direct objects can be unmarked by an overt clitic and preposed direct objects need not be doubled by clitics (?)
+    - *Aquí están los medicamentos.* - *¿Cómo _ has traído?*
+- the infix *-ri-* might be added to Spanish imperative by recessive Quechua speakers to invoke a nuance of polite request
+    - *darime*
+- the use of *en aquí*, *en allá* etc. is quite frequent (is this syntax?)
+- many bilinguals use Spanish words as phrase-final particles, sometimes as calques of the indigenous language they speak
+    - *¿Estas yendo y?*
+- Aymara-speaking (and also some Quechua-speaking) Bolivians make use of *nomás*, *pues*, *pero* and *siempre* as phrase-final particles signalling degree of involvement, effect, etc. This is not exclusive to Bolivian Spanish, however, in Bolivian Spanish *nomás*, *pues* and *pero* can combine two and three at a time to convey subtle shades of meaning
+    - *Dile nomás pues pero*
+- *siempre* can have an additional meaning to "still, after all", in that it simply reinforces the sentence
+    - *Aquí había estado siempre*
+- the use of the gerund in vernacular highland Spanish diverges from the use in monolingual Spanish dialects (most commonly used verb is *diciendo*)
+    - *diciendo me ha dicho* (he told me \[like this\])
+- *dice* and *dizque* are used to report non-experienced events
+    - *extrañaba a sus hijos, dice*
+- use of the Spanish pluperfect even when there is no following event to talk about reported events
+    - *había dejado el paquete en la cocina*
+- use of double possessives, combination of the possessive article with a genitive phrase involving *de* (frequently preposed) (Andean region)
+    - *de la María su casa*
+
+
+## Characteristics of Chilean Spanish
+
+Chilean Spanish shows very little regional variation and striking differences from neighbouring countries, which makes it fairly easy to distinguish.
+
+The most influencial indigenous language in Chile is the *Mapuche* language. In northeastern Chile a small but stable coommunity of *Aymara* speakers exists.
+
+### Morphological characteristics
+
+- both *vos* and *tú* are used in Chile, it is, however, very dependent on the context (e.g. social status)
+    - *tú* can be used with the verbal morphology of *vos*, but the same does not hold vice versa (# *vos tienes*)
+    - second conjugation verbs in *-ís* were becoming more common among the middle class
+
+
+## Characteristics of Colombian Spanish
+
+Many African slaves were shipped to Colombia, which lead to a rather big African population there and thus to an influence on Spanish by the African languages. There is also an Afro-Colombian creole language *Palenquero*. Influence from indigenous populations is minimal in Colombia.
+
+### Morphological characteristics
+
+- *usted* is used as a familiar pronoun in many regions of Colombia
+    - most of the country even rarely uses *tú* as a familiar pronoun, a combination of *usted* and *vos* is preferred
+    - *tú*, however, is used almost exclusively on the Carribean coast
+    - the verb forms accompanying *vos* are usually *-ás*, *-és* and *-ís* (in some dialects *-er* verbs also take the *-ís* ending)
+- in some parts of the highlands, the pronoun *su mercé* / *su merced* is used
+- gives preference to the diminiutive *-ico*, mostly to nouns and adjectives which end with a /t/ or a /d/ (shared with Cuba & Costa Rica)
+- in the Quechua-influenced highland region, diminiutive endings may be attached to clitic pronouns, especially in imperative constructions
+    - *bájemelito*
+- in that same region mentioned above, imperative constructions are sometimes based on the future tense, clitics are attached to the end
+    - *ayudarásle a tu hermano*
+
+### Syntactic characteristics
+
+- common use of the "intensive *ser*" (also found in Ecuador, Panama & Venezuela)
+    - *lo hice fue en el verano*
+- frequent use of preposed pronominal subjects of infinitives
+    - *antes de yo salir de mi país*
+- in the southern Andean region, verbal paraphrases with gerunds appear, e.g. combinations of *venir* + gerund but also others
+    - *deles pasando el cafecito \[páseles\]*
+    - *vine comiendo \[comí ante de venir\]*
+- doubling of direct object clitics
+    - *lo veo el caballo*
+- along the Pacific coast, double negation is frequent
+    - *no hablo inglés no*
+- use of disjunctive subject pronouns for direct objects (might be transferred from vernacular Brazilian Portugese) (?)
+    - *cuando él mira nosotro, eyos juega*
+- in the Amazonian region, repeated use of redundant subject pronouns is common
+    - *Eyos tan saltando y cuando eyos miran que …*
+- in the Colombian Amazon, inanimate direct objects can be omitted
+    - *ustede yevó carne, no me dio [0]*
+- in the same region mentioned above the direct object can be doubled by clitics (often just *lo*)
+    - *lo mató una danta*
