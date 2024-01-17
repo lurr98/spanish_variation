@@ -255,3 +255,73 @@ Many African slaves were shipped to Colombia, which lead to a rather big African
     - *ustede yevó carne, no me dio [0]*
 - in the same region mentioned above the direct object can be doubled by clitics (often just *lo*)
     - *lo mató una danta*
+
+
+## Characteristics of Costa Rican Spanish
+
+Costa Rican Spanish is "radically different" from the two adjacent countries, Panama and Nicaragua.
+
+Influence of indigenous languages on Costa Rican Spanish is minimal, creole English and West Indian English, however, are responsible for notable deviations in the local Spanish.
+
+### Morphological characteristics
+
+- use of the *voseo* and also *usted* even for friends and close family members
+    - along the border with Panama, the *voseo* forms are of type A (diphtongized forms)
+- preference of the diminutive *-ico* when the preceeding consonant is a /t/ or a /d/ or in order to reduplicate *-ito*
+    - *momentico*, *hermanitico*
+- in vernacular speech, collective nouns are often build by adding the suffix *-ada*
+    - *güilada* (group of children) from *güila* (small child)
+- use of the suffix *-era* to refer to the act of doing something, items related to a general activity or a general collective
+    - *conversadera* (having a conversation), *comidera* (food, eating)
+
+
+## Characteristics of Cuban Spanish
+
+Cuban Spanish is noticeably influenced by English due to its close ties with the US. Further, African presence was and is considerable in Cuba which lead to influences of different creole languages as well as a widely spoken Africanized Spanish pidgin on the Cuban Spanish. Black workers from Curacao also introduced the Afro-Iberian creole Papiamento. Due to a large wave of immigration from China, there are linguistic traces of Chinese in Cuban Spanish.  
+
+### Morphological characteristics
+
+- Cuban Spanish uniformly uses *tú* for the familiar pronoun, often also extended to other first-time aquaintances
+- like Costa Rican Spanish, Cuban Spanish prefers to use the diminutive *-ico* 
+    - *momentico*, *chiquitico*
+- suffixes that are derived from place names, usually converge to *-ero*
+    - *habanero*, *santiaguero*
+
+### Syntactic characteristics
+
+- non-inverted WH questions are the rule when the subject is a pronoun
+    - *¿Qué tú quieres?* (instead of *¿Qué quieres tú?*)
+- *más* precedes negative words
+    - *más nunca* (never again), *más nada* (nothing else), *más nadie* (nobody else)
+- lexical subjects of infinitives are common in Cuban Spanish
+    - *¿Qué tú me recomiendas para yo entender la lingüística?*
+
+
+## Characteristics of Dominican Spanish
+
+Spanish of the Dominican Republic shares similarities with Puerto Rico. The most significant extra-Hispanic influence on Dominican Spanish comes from African languages. At the rural border region, there is a small impact of Haitian creole
+
+### Morphological characteristics
+
+- in popular speech, plural of words ending in stressed vowels is often expressed by adding *-ses* instead of *-es* or *-s*
+    - *cafeses* (instead of *cafés*)
+- replacement of indcicative verb forms by subjunctive forms in main clauses. This process is mainly confined to the North of the country and mostly occurs for the first person plural
+    - *tenemos > tengamos*
+- often, the *-s* marking the second person singular verb forms are lost
+    - *tiene(s)*
+
+### Syntactic characteristics
+
+- frequent use of redundant subject pronouns, even for inanimate nouns (which isn't found in other Spanish dialects)
+    - *cuando tú acabe tú me avisa*
+    - *cómprela (las piñas) que ella son bonita*
+- *ello* is used instead of the null expletive in existential and extraposed sentences, also common is *ello sí / no* as an answer to questions
+    - *Ello hay maíz*
+    - *Ello es fácil llegar*
+- non-inverted WH questions are the rule when the subject is a pronoun (like Cuba!)
+    - *¿Qué tú quieres?* (instead of *¿Qué quieres tú?*)
+- common use of overt preposed subjects of infinitives (!), this may extend to gerunds or past participles
+    - *después de tú ido* 
+- use of reduplicated *no* in postposed position
+    - *nosotros no vamos no*
+- in some regions, *su merced* is still used as a form of address (like Colombia!)
