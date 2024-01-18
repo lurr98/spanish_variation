@@ -10,6 +10,8 @@ Major problem that could arise for distinction using the *voseo*: Spanish is a p
 
 Many of the peculiarities occur in vernacluar language, this could pose a problem
 
+Group El Salvador, Guatemala & Honduras?
+
 ## Attempts to classify the different dialects of Spanish
 
 ### Five zone classification (Henríquez Ureña) for Latin America
@@ -325,3 +327,74 @@ Spanish of the Dominican Republic shares similarities with Puerto Rico. The most
 - use of reduplicated *no* in postposed position
     - *nosotros no vamos no*
 - in some regions, *su merced* is still used as a form of address (like Colombia!)
+
+
+## Characteristics of Ecuadorian Spanish
+
+Ecuadorian Spanish exhibits a considerable amount of language contact phenomena with indigenous languages as well as a strong Afro-Hispanic component. Quechua is widely spread in Ecuador and therefore has a considerable linguistic influence, there is even a fairly stable Spanish-Quechua interlanguage (the so-called *media lengua*). 
+
+### Morphological characteristics
+
+- *vos* is widely used in Ecuador, in the coastal area it is usually accompanied with the non-diphtongized verb forms *-á(s)*, *-é(s)*, *-í(s)*. Sometimes, *vos* is combined with the verb forms corresponding to *tú*. Sone speakers also use *tú*, mostly educated urban speakers in the highlands.
+- in vernacular speech, the diminutive suffix *-ito* is sometimes combined with demonstratives, numerals, interrogatives, gerunds, *no más* and more
+    - *¿Quieres estito?*
+    - *cincuentita*
+    - *¿Cuántito es?*
+    - *aquí no masito*
+    - *corriendito*
+
+### Syntactic characteristics
+
+- often times, the present subjunctive form is used in clauses subordinated to verbs in the past or conditional
+    - *quería que lo hagamos en seguida*
+- often, *le* is used as the direct object clitic for masculine singular NPs, this may even be extended to feminine objects
+- permission of "clitic doubling", even for personal nouns (onfined to the Southern Cone & Andean region) and inanimate objects (confined to the Andean region). Doubling clitics is not used when the direct object is left-located though
+    - *le conozco a Juan*
+    - *le veo el carro*
+- in vernacular speech, constructions of indirect and direct object clitics are often avoided
+    - *dame\[lo\]*
+- Ecuadorian Spanish permits null direct objects
+    - *al chofer le di \[0\]*
+- *estar* is often postposed, especially by Quechua-bilinguals
+    - *escuchándote estoy*
+- throughout highland Ecuador, *dar* + gerund is often used as an imperative (possibly a calque from Quechua)
+    - *dame cerrando la puerta*
+- Spanish recessive bilinguals may employ a gerund instead of a conjugated verb
+    - *aquí viniendo a saludar*
+- use of "intensive *ser*" is common in highland Ecuador (also found in Colombia, Panama & Venezuela)
+- sometimes, preposed subjects of infinitives are found
+    - *para usted sacar cualquier cosa del Carchi*
+- use of *no más* as a syntactic particle
+    - *aquí no más vivo*
+
+
+## Characteristics of Salvadorian Spanish
+
+Salvadorian Spanish is rather similar to the dialects of Guatemala and Honduras. El Salvador is very racially and culturally homogeneous. There is evidence that Salvadorian Spanish has been influenced by the Native language *Pipil* (which is a derivative of *Nahuatl*).
+
+### Morphological characteristics
+
+- in El Salvador, both *vos* (*-ás*, *-és*, *-ís*) and *tú* are used, with regard to familiarity (from maximum to minimum) the order is: *vos* -> *tú* -> *usted* 
+
+### Syntactic characteristics
+
+- Salvadorian Spanish exhibits the following construction: `indefinite article + possessive article + noun` (also found in Guatemala, calque from Maya?)
+    - *una mi amiga*
+- pleonastic use of *vos* and *usted* to punctuate a conversation (how about *tú*)!
+    - *¿Vamos a trer las bestias, vos?*
+- combinations with *hasta* are used to mark the beginning of an event
+    - *¿Hasta cuándo viene el jefe?*
+
+
+## Characteristics of Guatemalan Spanish
+
+A large part of the population in Guatemala does not speak Spanish, the indigenous languages are mainly Mayan languages. They have, however, only influenced Guatemalan Spanish minimaly. Even though the presence of African slaves was never strong, some linguistic traits have survived.
+
+### Morphological characteristics
+
+- *vos* and the accompanying verb forms *-ás*, *-és*, *-ís* are used in Guatemala, *tú* carries a higher social value
+
+### Syntactic characteristics
+
+- Guatemalan Spanish exhibits the following construction: `indefinite article + possessive article + noun` (also found in El Salvador)
+    - *una mi amiga*
