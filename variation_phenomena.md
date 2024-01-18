@@ -73,29 +73,6 @@ Areas which had a strong commercial and political relationship show "old" charac
     - Creole / Pidgin (?) languages
 - importance of a region during period of colonialism
 
-## Characteristics of Mexican Spanish
-
-### Morphological characteristics
-
-- frequent use of *no más* for "only", "just"
-- *mero* is used in the sense of "the very same"
-- *ya mero* means "almost"
-- (*hasta* refers to the beginning point of an event rather than to the end)
-- most common diminiutive is *-ito* (in other regions of Mexico (e.g. Chiapas) *-illo* is more frequent)
-
-### Syntactic characteristics
-
-Syntactic peculiarities in Mexico occur mostly among "Spanish-recessive bilinguals or in a few isolated rural regions"
-
-- use of redundant possessive articles (e.g. in Yucatan & Chiapas)
-    - *su* papá de Pedro
-- combination of indefinite article + possessive (e.g. in Yucatan & Chiapas)
-    - le da *una su* pena decírtelo
-- use of pleonastic (unnecessary) *lo* (e.g. by Spanish-recessive bilinguals)
-    - ¿no te *lo* da vergüenza?
-- dialects that exhibit clitic doubling with *lo* often allow for questions being answered by repeating the main verb
-    - ¿Tenés hambre? - Tengo.
-
 
 ## Characteristics of Argentinian Spanish
 
@@ -398,3 +375,48 @@ A large part of the population in Guatemala does not speak Spanish, the indigeno
 
 - Guatemalan Spanish exhibits the following construction: `indefinite article + possessive article + noun` (also found in El Salvador)
     - *una mi amiga*
+
+
+## Characteristics of Honduran Spanish
+
+Honduras is home to a "complex mosaic of ethnolinguistic variation", there are multiple indigenous languages that are still spoken there, among them Sumu, Paya and predominantely Miskito. Creole English is also spoken on the Moskito Coast.
+
+### Morphological characteristics
+
+- Honduran Spanish uses *vos* exclusively (*-ás*, *-és*, *-ís*) instead of *tú*, for some groups *usted* predominates though
+
+### Syntactic characteristics
+
+- combinations with *hasta* are used to mark the beginning of an event (like in El Salvador!)
+    - *¿Hasta cuándo viene el jefe?* 
+- in some areas, the use of pleonastic *lo* is found
+    - *te lo fuistes de mí*
+- occasionally, double possessives are used
+    - *mi casa mía*
+- Honduran Spanish exhibits the following construction: `indefinite article + possessive article + noun`, although not as frequent as in El Salvador or Guatemala
+    - *una mi amiga*
+
+
+!!!!!!!!!!!!!!!!!!!!!!
+## Characteristics of Mexican Spanish
+
+### Morphological characteristics
+
+- frequent use of *no más* for "only", "just"
+- *mero* is used in the sense of "the very same"
+- *ya mero* means "almost"
+- (*hasta* refers to the beginning point of an event rather than to the end)
+- most common diminiutive is *-ito* (in other regions of Mexico (e.g. Chiapas) *-illo* is more frequent)
+
+### Syntactic characteristics
+
+Syntactic peculiarities in Mexico occur mostly among "Spanish-recessive bilinguals or in a few isolated rural regions"
+
+- use of redundant possessive articles (e.g. in Yucatan & Chiapas)
+    - *su papá de Pedro*
+- combination of indefinite article + possessive (e.g. in Yucatan & Chiapas)
+    - le da una su pena decírtelo
+- use of pleonastic (unnecessary) *lo* (e.g. by Spanish-recessive bilinguals)
+    - ¿no te *lo* da vergüenza?
+- dialects that exhibit clitic doubling with *lo* often allow for questions being answered by repeating the main verb
+    - ¿Tenés hambre? - Tengo.
