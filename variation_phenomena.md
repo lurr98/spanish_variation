@@ -12,6 +12,16 @@ Many of the peculiarities occur in vernacluar language, this could pose a proble
 
 Group El Salvador, Guatemala & Honduras?
 
+Southern Cone as a broad linguistic area?
+
+**Possibly good phenomena:**
+
+- *voseo*
+- clitic doubling
+- double possessives
+- use of overt subjects
+- subjects before infinitives
+
 ## Attempts to classify the different dialects of Spanish
 
 ### Five zone classification (Henríquez Ureña) for Latin America
@@ -397,15 +407,17 @@ Honduras is home to a "complex mosaic of ethnolinguistic variation", there are m
     - *una mi amiga*
 
 
-!!!!!!!!!!!!!!!!!!!!!!
 ## Characteristics of Mexican Spanish
+
+Mexican Spanish has been influenced by Native American languages quite considerably. The major contributor has been *Nahuatl*. In coastal areas, some linguistic traces from the former Afro-Hispanic population can still be found.
 
 ### Morphological characteristics
 
+- Mexican Spanish uses *tú* for the familiar singular pronoun, except for the use of *vos* in some parts of Chiapas (with *-ás*, *-és*, *-ís*)
 - frequent use of *no más* for "only", "just"
 - *mero* is used in the sense of "the very same"
 - *ya mero* means "almost"
-- (*hasta* refers to the beginning point of an event rather than to the end)
+- *hasta* refers to the beginning point of an event rather than to the end, not as consistent in Mexico as in Central America
 - most common diminiutive is *-ito* (in other regions of Mexico (e.g. Chiapas) *-illo* is more frequent)
 
 ### Syntactic characteristics
@@ -414,9 +426,183 @@ Syntactic peculiarities in Mexico occur mostly among "Spanish-recessive bilingua
 
 - use of redundant possessive articles (e.g. in Yucatan & Chiapas)
     - *su papá de Pedro*
-- combination of indefinite article + possessive (e.g. in Yucatan & Chiapas)
-    - le da una su pena decírtelo
+- combination of `indefinite article + possessive` (e.g. in Yucatan & Chiapas), more commonly found in Guatemala or El Salvador
+    - *le da una su pena decírtelo*
 - use of pleonastic (unnecessary) *lo* (e.g. by Spanish-recessive bilinguals)
-    - ¿no te *lo* da vergüenza?
+    - *¿no te lo da vergüenza?*
 - dialects that exhibit clitic doubling with *lo* often allow for questions being answered by repeating the main verb
-    - ¿Tenés hambre? - Tengo.
+    - *¿Tenés hambre? - Tengo.*
+
+
+## Characteristics of Nicaraguan Spanish
+
+Even though indigenous languages are rarely spoken in contemporary Nicaragua, the Native American influence on Nicaraguan Spanish is considerable.
+
+### Morphological characteristics
+
+- Nicaraguan Spanish uses only *vos* as the familiar singular pronoun (with *-ás*, *-és*, *-ís*)
+
+### Syntactic characteristics
+
+- *hasta* refers to the beginning point of an event rather than to the end !
+- rural speakers often use a pleonastic *lo*
+    - *lo hay una mata de lirios*
+
+
+## Characteristics of Panamanian Spanish
+
+Even though geographically Panama belongs to Central America, linguistically it is more linked to the Caribbean and South America. Panama has a large population of African origin, but the linguistic influence has been minimal, which is also true for the numerous indigenous languages that are found there. During the construction of the Panama Canal, many West Indian labourers came to Panama, they mainly spoke creole English which is still spoken in some areas of Panama.
+
+### Morphological characteristics
+
+- some regions of Panama still use *vos*, preserving the diphtongs of the *vosotros* forms, but generally it's on the decline. More frequent is the use of *usted*, even among friends ore family members
+- in vernacular speech, the addition of the suffix *vé* to familiar imperatives is quite common
+    - *oyevé*
+
+### Syntactic characteristics
+
+- in Panama city, non-inverted WH-questions are sometimes heard, although not as often as in the Antilles
+    - *¿Qué tú quieres?*
+- subject pronouns are often placed before an infinitive, especially when preceded by a preposition !
+    - *antes de yo venir aquí*
+- use of the pleonastic use of *ser* (intensive *ser*?)
+    - *lo conocí fue en la fiesta*
+
+
+## Characteristics of Paraguayan Spanish
+
+Paraguay is often referred to as a bilingual nation, where Spanish and Guaraní are spoken, and Guaraní definitely has influenced the Spanish lexicon. African slaves have also constituted a considerable portion of the population in the past, it is unclear, however, whether there were any linguistic effects on Spanish. Finally, Paraguay has seen some European immigration over the last two centuries, (probably) resulting in some Italianisms entering Paraguayan Spanish.
+
+Due to the bilingualism in Paraguay, it is very difficult to make a statement about the diversions from Spanish, because a lot of them are very individual. Also, some groups of Paraguayans whose native language is not Spanish may produce a Guaraní-influenced Spanish which is sometimes referred to as *guarañol* and poses the question whether there exists a third language in Paraguay. Due to imperfectly learnt Spanish from some bilinguals, errors of e.g. grammatical agreement are not uncommon.
+
+### Morphological characteristics
+
+- Paraguayan Spanish makes use of the *voseo* using *-ás*, *-és*, *-ís*, among educated speakers the use of *tú* can be found
+- use of *le* and *les* as masculine direct object clitics instead of *lo* and *los*, sometimes they are even used for feminine referents
+
+### Syntactic characteristics
+
+- the combination of `indefinite / indirect article + possessive` is sometimes found, also in parts of Mexico, Guatemala and El Salvador
+    - *un mi amigo*
+- frequent use of passive-like constructions based on *ser* + `past participle`
+    - *si el fuera venido ayer*
+- *todo (ya)* refers to a perfective or recently completed event
+    - *Ya trabajé todo ya \[I have just finished working\]*
+- use of *de* + `pronoun` in context where other Spanish dialects would employ a dative
+    - *se murió de mí mi perrito \[se me murió …\]*
+- Spanish-recessive bilinguals often omit *tan* in a comparison
+    - *mi hermano es \[tan\] alto como el de Juan*
+- definite articles may be omitted sometimes
+    - *el día de hoy es más caluroso que \[el\] de ayer*
+- since Guaraní only has one second person pronoun, Guaraní-dominant Paraguayans may not always master the difference and a sentence may contain morphological markers for both pronouns
+    - *Traiga tu \[su\] poncho, entonces*
+- the copula *ser* may disappear in constructions like:
+    - *eso \[es\] lo que yo te pregunté*
+- clitic doubling is frequent in vernacular speech, but the clitics *le* and *les* are used instead of the correct direct object clitics
+    - *les visité a mis tías*
+- null direct objects are also possible, which is true for most dialects that allow clitic-doubling of direct objects !
+    - *¿Viste mi reloj? - No, no vi.*
+
+
+## Characteristics of Peruvian Spanish
+
+Peru was characterised by an "intense and long-lasting contact" between Spanish and indigenous languages, particularily Quechua. Spanish spoken by bilingual Peruvians often departs noticeably from Spanish norms, also a stable interlanguage has developed. Further, some linguistic traces from Afro-Peruvian or Afro-Hispanic are not to be excluded.
+
+### Morphological characteristics
+
+- *vos* is only used in some regions of Peru, sometimes using *-ìs* as a second verb conjugation suffix, but also *-ès*
+- clitics are sometimes used incorrectly by bilingual speakers, e.g. use of direct clitics for indirect objects or lack of agreement
+    - *el los \[les\] dio algunas instrucciones*
+    - *a Maria nosotros lo \[lo\] adoramos*
+- among bilinguals, there sometimes is a lack of subject-verb or subject-adjective agreement 
+    - *las otras chacras no tiene \[tienen\] riego*
+- combination of *muy* and *-ísimo*
+    - *el niño juega muy poquísimo*
+
+### Syntactic characteristics
+
+- even in formal styles (!), a main verb in the past tense may be followed by a suubjunctive in the present tense
+    - *el quería que lo hagamos*
+- use of `object + verb` word order (from Quechua)
+    - *comida tengo*
+- non-standard use of gerund and other non-finite verb forms ?
+    - *?*
+- clitic doubling (direct objects), but it does not occur when the direct object has been fronted (in contrast to other Spanish dialects that employ clitic doubling)
+    *la ves una señora*
+    *mi letra \[la\] conoce* (no clitic doubling here)
+- use of *lo* for all direct object regardless of grammatical gender or number
+    - *se lo llevo una caja*
+- null direct objects are frequent in highland Peru
+    - *porque siempre nos \[0\] traía*
+- employement of double possessives in vernacular Spanish, combining the possessive article with a prepositional phrase headed by *de* (different from other double possessives!)
+    - *de mi perro su hocico*
+- use of *diciendo* or *dice* mostly in oral narrations
+- omission of articles in the Quechua-Spanish interlanguage
+    - *y cuando tocan \[la\] campana, se entran a su clase*
+- bilingual speakers often prepose *en* to locative adverbs
+    - *vivo en acá*
+- it is common that the present perfect be used instead of the preterite even when the event clearly terminated in the past
+    - *he nacido en 1950*
+- sometimes, pluperfect indicative is used to express events that were not personally witnessed, but not as frequent as in Bolivian
+    - *habías llegado anoche*
+
+
+## Characteristics of Puerto Rican Spanish
+
+Puerto Rico, belonging to the Antillean/Caribbean zone, shares many similarities with the Spanish of the Dominican Republic. Due to slow Spanish settlements, the indigenous language of the native Taíno. Also, due to the large African population at times, a number of Africanisms have entered the Puerto Rican Spanish. Puerto Rican Spanish is also considerably influenced by English.  
+
+### Morphological characteristics
+
+- only *tú* represents the familiar form, *vos* is not found in Puerto Rico
+
+### Syntactic characteristics
+
+ - often, subject pronouns are retained when in other Spanish dialects they are omitted
+ - non-inversion of questions accompanied by subject pronouns !
+    - *¿Qué tú quieres?*
+- personal pronouns frequently predeed infinitives, as in other Spanish dialects, *para* is the most frequent trigger for this
+    - *para yo hacer eso*
+- syntactic calquing or loan translations from English (hard to categorise!, but there is *para atrás*)
+    - *¿Cómo te gustó la playa?* (instead of *¿Te gustó?* or *¿Cómo lo pasaste?*)
+
+
+## Characteristics of Uruguayan Spanish
+
+Uruguayan Spanish is very similar to Argentine Spanish. Since over two thirds live in Montevideo, the local dialect is the principal representative of Uruguayan Spanish, although the border to Brazil is characterised by a fluid bilingualism, namely *fronterizo*. Some lingusitic African influences are also present. 
+
+### Morphological characteristics
+
+- both *vos* and *tú* are used in Uruguayan Spanish, with *tú* holding quite a lot of prestige which lead to the combination of *tú* with *voseo*-related verb forms, the vice-versa is almost non-existent
+- often, a final *-s* is sometimes added to preterite forms
+    *dijistes*
+
+### Morphological characteristics of *fronterizo*
+
+- e.g. word endings such as Spanish *-ón* / Portugese *-ão* or Spanish *-ero* / Portugese *-eiro* fluctuate
+- prefers *tú* to *vos*
+- mixing of Spanish (*los, la, las*) and Portugese (*os, a , as*) articles
+- neutralisation of verb endings in favor of the third person singular
+    - *nós tinha*
+- suspension of plural markings
+    - *tengo unas hermanas, unos tío*
+
+
+## Characteristics of Venezuelan Spanish
+
+Venezuelan Spanish belongs to the Carribean dialect zone. The indigenous languages that were present in Venezuela made little impact on the local Spanish, nowadays, however, there are several indigenous communities that maintain their native languages. African presence was considerable in Venezuela and left some lingusitic traces.
+
+### Morphological characteristics
+
+- Venezuela has two *voseo* zones
+    - in the Andean region, *vos* is combined with *-ás*, *-és*, *-ís* and only used for social inferiors and children, *usted* is used a lot, even among friends or family members
+    - around Maracaibo, *vos* is used with *-ái(s)*, *-éi(s)*, *-í(s)*, sometimes stigmatised but not receding
+
+### Syntactic characteristics
+
+- frequent use of overt redundant subject pronouns
+- use of overt subjects preceeding infinitives !
+    - *antes de yo venir*
+- non-inverted questions !
+    - *¿Qué tú quieres?*
+- use of "emphatic" ("intensive"?) *ser* !
+    - *yo vivo es en Caracas*
