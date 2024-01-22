@@ -14,13 +14,9 @@ Group El Salvador, Guatemala & Honduras?
 
 Southern Cone as a broad linguistic area?
 
-**Possibly good phenomena:**
+Group the Antilles?
 
-- *voseo*
-- clitic doubling
-- double possessives
-- use of overt subjects
-- subjects before infinitives
+Evaluation has to take into account similarity of different dialects, e.g. Venezuela and the Antilles are sometimes more similar 
 
 ## Attempts to classify the different dialects of Spanish
 
@@ -430,6 +426,7 @@ Syntactic peculiarities in Mexico occur mostly among "Spanish-recessive bilingua
     - *le da una su pena decírtelo*
 - use of pleonastic (unnecessary) *lo* (e.g. by Spanish-recessive bilinguals)
     - *¿no te lo da vergüenza?*
+- clitic doubling with inanimate direct objects and using *lo* as as universally marked direct object
 - dialects that exhibit clitic doubling with *lo* often allow for questions being answered by repeating the main verb
     - *¿Tenés hambre? - Tengo.*
 
@@ -521,15 +518,15 @@ Peru was characterised by an "intense and long-lasting contact" between Spanish 
 
 ### Syntactic characteristics
 
-- even in formal styles (!), a main verb in the past tense may be followed by a suubjunctive in the present tense
+- even in formal styles (!), a main verb in the past tense may be followed by a subjunctive in the present tense
     - *el quería que lo hagamos*
 - use of `object + verb` word order (from Quechua)
     - *comida tengo*
 - non-standard use of gerund and other non-finite verb forms ?
     - *?*
 - clitic doubling (direct objects), but it does not occur when the direct object has been fronted (in contrast to other Spanish dialects that employ clitic doubling)
-    *la ves una señora*
-    *mi letra \[la\] conoce* (no clitic doubling here)
+    - *la ves una señora*
+    - *mi letra \[la\] conoce* (no clitic doubling here)
 - use of *lo* for all direct object regardless of grammatical gender or number
     - *se lo llevo una caja*
 - null direct objects are frequent in highland Peru
