@@ -2,22 +2,6 @@
 
 The following list is based on Lipski (1994) "Latin American Spanish"
 
-## General thoughts
-
-In order to represent the variety of Spanish adequately, one important factors is to focus on the properties that really distinguish the different varieties from one another, i.e. it does not make sense to focus on the properties that are shared among different regions but more on those that are unique to certain dialects
-
-Major problem that could arise for distinction using the *voseo*: Spanish is a pro-drop language
-
-Many of the peculiarities occur in vernacluar language, this could pose a problem
-
-Group El Salvador, Guatemala & Honduras?
-
-Southern Cone as a broad linguistic area?
-
-Group the Antilles?
-
-Evaluation has to take into account similarity of different dialects, e.g. Venezuela and the Antilles are sometimes more similar 
-
 ## Attempts to classify the different dialects of Spanish
 
 ### Five zone classification (Henríquez Ureña) for Latin America
@@ -107,7 +91,7 @@ Considerable influence of Italian (due to Italian immigration begun in the late 
     - *lo quiere much a su hijita*
 - verb tense usage can diverge from the prescriptive norms, e.g. use of simple preterite instead of present imperfect, even when connection to the present is established
     - interpreting *Juan no llegó* as *Juan has not arrived \[yet\]*
-- breaking with the so-called "sequence of tenses", e.g. alloing a matrix verb in the past or conditional to freely combine with a subordinate verb in the preent subjunctive
+- breaking with the so-called "sequence of tenses", e.g. allowing a matrix verb in the past or conditional to freely combine with a subordinate verb in the preent subjunctive
     - *Juan me dijo que lo haga \[hiciera\] in seguida*
 - in vernacular speech of many regions, *yo* replaces *a mí* in dative-verb constructions
     - *yo \[a mí\] me parece que me voy*
@@ -603,3 +587,14 @@ Venezuelan Spanish belongs to the Carribean dialect zone. The indigenous languag
     - *¿Qué tú quieres?*
 - use of "emphatic" ("intensive"?) *ser* !
     - *yo vivo es en Caracas*
+
+
+## Characteristics of Spain Spanish compared to the varieties of Latin America
+
+### Morphological characteristics
+
+- Spanish from Peninsular Spain makes use of *vosotros* as the familiar second person plural pronoun, which is not found among the dialects in Latin America
+
+### Syntactic characteristics
+
+- contrary to Latin American varieties, the preterite can only refer to terminated event in Spain Spanish
