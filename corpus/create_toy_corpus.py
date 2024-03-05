@@ -13,5 +13,5 @@ for zip_file in os.listdir(path_to_folder):
                 with zipref.open(file, 'r') as f:
                     file_content = f.read()
 
-                with zipref.open(out_folder + file, 'w') as f:
-                    file_content = f.write()
+                with open(out_folder + file, 'w') as f:
+                    f.write(file_content)
