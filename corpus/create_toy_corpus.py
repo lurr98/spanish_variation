@@ -1,8 +1,8 @@
 import os, re, zipfile
 
-path_to_folder = ''
+path_to_folder = '/projekte/semrel/Resources/Corpora/Corpus-del-Espanol'
 which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
-out_folder = ''
+out_folder = '/projekte/semrel/WORK-AREA/Users/laura/'
 
 for zip_file in os.listdir(path_to_folder):
     # select only the zip files for the specified classes i.e. countries
