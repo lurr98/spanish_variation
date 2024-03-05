@@ -72,3 +72,4 @@
 
 - Black-box model, not explainable. :skull:
 - High time and computational cost. :skull:
+- :warning: BERT could simply make use of topics to determine class, e.g. texts from Panama in the corpus will probably talk about Panama more often than other texts
