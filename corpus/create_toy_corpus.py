@@ -1,3 +1,5 @@
+import os, re, zipfile
+
 path_to_folder = ''
 which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
 out_folder = ''
