@@ -7,13 +7,13 @@
 #       - split the data into paragraphs / chunks / sentences (?)
 #       - preprocess the data ?
 
-import os, re, zipfile
+import os, re, zipfile, string
 
 
 class CorpusReader:
 # define the corpus reader class that will be used by the models to access data
 
-    def __init__(self, path_to_folder, which_country, chunking_type):
+    def __init__(self, path_to_folder, which_country, chunking_type, filter_punct):
 
         def append_id_data(id_data, appropriate_line):
             # helper function to make code look better (and hopefully more efficient)
@@ -35,13 +35,16 @@ class CorpusReader:
                             lines = f.readlines()
 
                         # decode each line bc they are currently bytes
-                        lines = [line.decode('latin-1') for line in lines]
+                        try:
+                            lines = [line.decode('utf-8') for line in lines]
+                        except UnicodeDecodeError:
+                            lines = [line.decode('latin-1').encode().decode('utf-8') for line in lines]
                         # if we want to chunk the text using the predefined paragraphs
                         if chunking_type == 'pars':
 
                             for line in lines:
                                 # if the line defines the start of a paragraph using its id
-                                if re.search('@@\d+', line.split('\t')[2]):
+                                if re.search('@@\\d+', line.split('\t')[2]):
                                     # define exception in case this is the first paragraph
                                     try:
                                         # add data from previous paragraph to dict, add name of file for better mapping
@@ -53,19 +56,23 @@ class CorpusReader:
                                     # three inner lists for token, lemma and pos respectively
                                     id_data = [[], [], []]
                                 else:
-                                    # for every line that is not the paragraph's id, append the content to the appropriate lists
-                                    id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4]])
-                                    # id_data[0].append(line.split('\t')[2])
-                                    # id_data[1].append(line.split('\t')[3])
-                                    # id_data[2].append(line.split('\t')[4])
+                                    if filter_punct:
+                                        # get rid of punctuation
+                                        if not line.split('\t')[2] in set(string.punctuation):
+                                            # for every line that is not the paragraph's id, append the content to the appropriate lists
+                                            id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4].strip()])
+                                    else:
+                                        # for every line that is not the paragraph's id, append the content to the appropriate lists
+                                        id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4].strip()])
 
+                        # TODO: check whether I really need this and if so, update (filter_punct etc.)
                         # if we want to chunk the text by sentences
                         # ! this is a very simple approach, better to use a sentence splitter?
                         if chunking_type == 'sents':
 
                             for i, line in enumerate(lines):
                                 # if the line defines the start of a paragraph using its id
-                                if re.search('@@\d+', line.split('\t')[0]):
+                                if re.search('@@\\d+', line.split('\t')[0]):
                                     # define exception in case this is the first paragraph
                                     try:
                                         # in case there was no delimiter before the start of the new paragraph add the sentence's data to the dict 
@@ -105,10 +112,14 @@ class CorpusReader:
 
 
 if __name__ == "__main__":
-    cr = CorpusReader('../../corpus', ['PA'], 'pars')
+    cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE'], 'pars')
 
     print(type(cr.data))
-    print(list(cr.data['PA'].items())[-2:])
+    print(list(cr.data.keys()))
+    for k,v in cr.data.items():
+        print('Label: {}'.format(k))
+        print('{}'.format(type(v)))
+        print('{}\n'.format(list(v.keys())))
 
     print(type(cr.ids))
-    print(cr.ids['PA'][:10])
+    print(cr.ids['AR'][:10])
