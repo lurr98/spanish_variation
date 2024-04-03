@@ -13,13 +13,20 @@ import os, re, zipfile, string
 class CorpusReader:
 # define the corpus reader class that will be used by the models to access data
 
-    def __init__(self, path_to_folder, which_country, chunking_type, filter_punct):
+    def __init__(self, path_to_folder, which_country, chunking_type, filter_punct=False):
 
         def append_id_data(id_data, appropriate_line):
             # helper function to make code look better (and hopefully more efficient)
             for i, inner_list in enumerate(id_data):
                 inner_list.append(appropriate_line[i])
             return id_data
+        
+        def substitute_null_char(pos):
+
+            if pos.strip() == '\x00':
+                return 'x00'
+            else:
+                return pos.strip()
 
         # define a dictionary that will later contain the class tag as key and the corresponding data as value
         all_data, all_ids = {}, {}
@@ -27,10 +34,13 @@ class CorpusReader:
         for zip_file in os.listdir(path_to_folder):
             # select only the zip files for the specified classes i.e. countries
             if zip_file.endswith('.zip') and re.split('_|-', zip_file)[1] in which_country:
+                print('Unzipping corpus for dialect {}\n--------------------------------------------------------\n'.format(re.split('_|-', zip_file)[1]))
                 class_data = {}
                 # use zipfile to extract the files from the desired zip files, every zip file contains the corpus for one class
                 with zipfile.ZipFile('{}/{}'.format(path_to_folder, zip_file), 'r') as zipref:
-                    for file in zipref.namelist():
+                    for i, file in enumerate(zipref.namelist()):
+                        if i != 0 and i % 5 == 0:
+                            print('Working on file {} out of {}'.format(i, len(zipref.namelist())))
                         with zipref.open(file, 'r') as f:
                             lines = f.readlines()
 
@@ -59,11 +69,15 @@ class CorpusReader:
                                     if filter_punct:
                                         # get rid of punctuation
                                         if not line.split('\t')[2] in set(string.punctuation):
+                                            # make sure the POS tag is not the null character
+                                            pos_tag = substitute_null_char(line.split('\t')[4].strip())
                                             # for every line that is not the paragraph's id, append the content to the appropriate lists
-                                            id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4].strip()])
+                                            id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], pos_tag])
                                     else:
+                                        # make sure the POS tag is not the null character
+                                        pos_tag = substitute_null_char(line.split('\t')[4].strip())
                                         # for every line that is not the paragraph's id, append the content to the appropriate lists
-                                        id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4].strip()])
+                                        id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], pos_tag])
 
                         # TODO: check whether I really need this and if so, update (filter_punct etc.)
                         # if we want to chunk the text by sentences
@@ -104,7 +118,9 @@ class CorpusReader:
                                     id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4]])
 
                 all_data[re.split('_|-', zip_file)[1]] = class_data
-                all_ids[re.split('_|-', zip_file)[1]]  = list(class_data.keys())          
+                all_ids[re.split('_|-', zip_file)[1]]  = list(class_data.keys())
+
+                print('\n--------------------------------------------------------\n')
 
         self.data = all_data
         self.ids = all_ids

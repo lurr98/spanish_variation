@@ -10,9 +10,10 @@ from corpus_reader import CorpusReader
 from collections import Counter
 from nltk import ngrams, FreqDist
 from nltk.corpus import stopwords
-from typing import Type
+from typing import Type, Tuple, Union
 from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.stats import fisher_exact
+from scipy import sparse
 from corpus_similarity import Similarity
 import numpy as np
 import pandas as pd
@@ -22,7 +23,7 @@ nltk.data.path.append('/projekte/semrel/WORK-AREA/Users/laura/')
 
 
 # global variable so that this doesn't have to be passed around all the time
-with open('inverted_POS_tags.json', 'r') as jsn:
+with open('POS_related/inverted_POS_tags.json', 'r') as jsn:
     POS_mapping = json.load(jsn)
 
 
@@ -100,7 +101,9 @@ def most_frequent_ngram(ngram_counts: dict, k: int) -> list:
     # get k most frequent n-grams for the class
     # gram_type specifies which type of data (token, lemma or pos) should be chosen
 
-    return ngram_counts.most_common(k)
+    most_common = ngram_counts.most_common(k)
+
+    return [(' '.join(ngram[0]), most_common[i][1]) for i, ngram in enumerate(most_common)] 
 
 
 def mutual_information(class_ngrams: dict, ooc_ngrams: dict) -> dict:
@@ -119,7 +122,7 @@ def mutual_information(class_ngrams: dict, ooc_ngrams: dict) -> dict:
             sum_all_ooc_data = sum(ooc_ngrams.values())
             first_formula = ngram_count / (ngram_count + (sum_all_class_data - ngram_count))
             second_formula = (sum_all_class_data + sum_all_ooc_data) / (ngram_count + ooc_ngrams[ngram])
-            mutual_information[str(ngram)] = math.log2(first_formula * second_formula)
+            mutual_information[''.join(ngram[0])] = math.log2(first_formula * second_formula)
 
     return mutual_information
 
@@ -142,7 +145,7 @@ def log_likelihood(class_ngrams: dict, ooc_ngrams: dict) -> dict:
         c_plus_d = (c + d)*math.log(c + d)
         big_n = (a + b + c + d)*math.log(a + b + c + d)
         try:
-            log_likelihood[str(ngram)] = 2*(a*math.log(a) + b*math.log(b) + c*math.log(c) + d*math.log(d) - a_plus_b - a_plus_c - b_plus_d - c_plus_d + big_n)
+            log_likelihood[''.join(ngram[0])] = 2*(a*math.log(a) + b*math.log(b) + c*math.log(c) + d*math.log(d) - a_plus_b - a_plus_c - b_plus_d - c_plus_d + big_n)
         except ValueError as e:
             pass
 
@@ -152,7 +155,7 @@ def log_likelihood(class_ngrams: dict, ooc_ngrams: dict) -> dict:
 # TODO: think about whetherit makes sense to compare these stats between all classes in pairs
 
 
-def tf_idf(all_data: dict, gram_type: str, helper: bool=False, n: int=1, k: int=10) -> dict:
+def tf_idf(all_data: dict, gram_type: str, helper: bool=False, n: int=1, k: int=10) -> Union[Tuple[sparse.spmatrix,list],dict]:
     # statistic measure which states how characteristic a term is for a document
 
     label_indices, all_texts = [], []
@@ -182,7 +185,7 @@ def tf_idf(all_data: dict, gram_type: str, helper: bool=False, n: int=1, k: int=
     return tf_idf_dict
 
 
-def fishers_exact_text(class_ngrams: dict, ooc_ngrams: dict) -> dict:
+def fishers_exact_text(class_ngrams: dict, ooc_ngrams: dict, log_likelihoods: list) -> dict:
     # statistical test that determines if two category variables have a significant relationship
     # in this case the variables are is_word_w, is_corpus_X
     # contingency table:
@@ -198,7 +201,7 @@ def fishers_exact_text(class_ngrams: dict, ooc_ngrams: dict) -> dict:
         contingency_table = np.array([[class_ngrams[ngram], ooc_ngrams[ngram]], [sum(class_ngrams.values()) - class_ngrams[ngram], sum(ooc_ngrams.values()) - ooc_ngrams[ngram]]])
         # performing fishers exact test on the data 
         odd_ratio, p_value = fisher_exact(contingency_table)
-        fishers_test[str(ngram)] = (odd_ratio, p_value)
+        fishers_test[' '.join(ngram[0])] = (odd_ratio, p_value)
 
     return fishers_test
 
@@ -226,7 +229,7 @@ def spearmans_rho(all_text_classes: list, gram_type: str) -> int:
     return spearmans_matrix
 
 
-def cosine_similarity_tfidf(all_data: dict, gram_type: str, n: int) -> np.ndarray:
+def cosine_similarity_tfidf(all_data: dict, gram_type: str, n: int) -> Tuple[np.ndarray, list]:
     # measures the pairwise similarity between a set of corpora using TF-IDF vectors
     # see Introduction to Information Retrieval by Christopher Manning
 
@@ -245,22 +248,22 @@ if __name__ == "__main__":
     stats_dict = {}
 
     start = time.time()
-    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', True)
-    # cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', True)
+    # cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', True)
+    cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', True)
     end = time.time()
     print('Corpus reader took {} seconds.'.format(end - start))
 
     overall_start = time.time()
 
     start = time.time()
-    lemma_tf_idf_uni = tf_idf(cr.data, 'lemma', False, 1, 50)
-    lemma_tf_idf_bi = tf_idf(cr.data, 'lemma', False, 2, 50)
+    lemma_tf_idf_uni = tf_idf(cr.data, 'lemma', False, 1, 10)
+    lemma_tf_idf_bi = tf_idf(cr.data, 'lemma', False, 2, 10)
     end = time.time()
     print('TF-IDF for uni- and bigram lemma took {} seconds.'.format(end - start))
 
     start = time.time()
-    pos_tf_idf_bi = tf_idf(cr.data, 'pos', False, 2, 50)
-    pos_tf_idf_tri = tf_idf(cr.data, 'pos', False, 3, 50)
+    pos_tf_idf_bi = tf_idf(cr.data, 'pos', False, 2, 10)
+    pos_tf_idf_tri = tf_idf(cr.data, 'pos', False, 3, 10)
     end = time.time()
     print('TF-IDF for bi- and trigram POS took {} seconds.'.format(end - start))
 
@@ -298,49 +301,51 @@ if __name__ == "__main__":
         stats_dict[label]['average_paragraph_length'] = av_par_length
 
         start = time.time()
-        lemma_uni_most_frequent = most_frequent_ngram(lemma_uni_frequencies, 20)
+        lemma_uni_most_frequent = most_frequent_ngram(lemma_uni_frequencies, 10)
         end = time.time()
         stats_dict[label]['most_frequent'] = {'lemma': {'unigrams': lemma_uni_most_frequent}}
-        print('50 most frequent unigrams took {} seconds.'.format(end - start))
+        print('10 most frequent unigrams took {} seconds.'.format(end - start))
         print('10 most frequent unigrams: {}\n-------------------------------------------------\n'.format(lemma_uni_most_frequent[:10]))
 
         start = time.time()
-        lemma_noun_most_frequent = most_frequent_ngram(noun_lemma_uni_frequencies, 20)
+        lemma_noun_most_frequent = most_frequent_ngram(noun_lemma_uni_frequencies, 10)
         end = time.time()
         stats_dict[label]['most_frequent']['lemma'] = {'noun_unigrams': lemma_noun_most_frequent}
-        print('50 most frequent nouns took {} seconds.'.format(end - start))
+        print('10 most frequent nouns took {} seconds.'.format(end - start))
         print('10 most frequent nouns: {}\n-------------------------------------------------\n'.format(lemma_noun_most_frequent[:10]))
 
         start = time.time()
-        lemma_verb_most_frequent = most_frequent_ngram(verb_lemma_uni_frequencies, 20)
+        lemma_verb_most_frequent = most_frequent_ngram(verb_lemma_uni_frequencies, 10)
         end = time.time()
         stats_dict[label]['most_frequent']['lemma'] = {'verb_unigrams': lemma_verb_most_frequent}
-        print('50 most frequent verbs took {} seconds.'.format(end - start))
+        print('10 most frequent verbs took {} seconds.'.format(end - start))
         print('10 most frequent verbs: {}\n-------------------------------------------------\n'.format(lemma_verb_most_frequent[:10]))
 
+        stats_dict[label]['TF-IDF'] = {'lemma': {'unigrams': [(lemma_tf_idf_uni[label][0][i], tf_idf_lemma) for i, tf_idf_lemma in enumerate(lemma_tf_idf_uni[label][0])]}}
+        stats_dict[label]['TF-IDF']['lemma']['bigrams'] = [(lemma_tf_idf_bi[label][0][i], tf_idf_lemma) for i, tf_idf_lemma in enumerate(lemma_tf_idf_bi[label][0])]
         print('10 unigrams with highest tf-idf score: {}\n-------------------------------------------------\n'.format(lemma_tf_idf_uni[label][0][:10]))
         print('10 bigrams with highest tf-idf score: {}\n-------------------------------------------------\n'.format(lemma_tf_idf_bi[label][0][:10]))
 
         start = time.time()
         lemma_uni_mutual_information = sorted(mutual_information(lemma_uni_frequencies, lemma_ooc_uni_frequencies).items(), key=lambda x:x[1])
         end = time.time()
-        stats_dict[label]['MI'] = {'lemma': {'unigrams': lemma_uni_mutual_information[-20:]}}
+        stats_dict[label]['MI'] = {'lemma': {'unigrams': lemma_uni_mutual_information[-10:]}}
         print('MI took {} seconds.'.format(end - start))
         print('10 unigrams with highest MI score: {}\n-------------------------------------------------\n'.format(lemma_uni_mutual_information[-10:]))
 
         start = time.time()
         lemma_uni_log_likelihood = sorted(log_likelihood(lemma_uni_frequencies, lemma_ooc_uni_frequencies).items(), key=lambda x:x[1])
         end = time.time()
-        stats_dict[label]['LL'] = {'lemma': {'unigrams': lemma_uni_log_likelihood[-20:]}}
+        stats_dict[label]['LL'] = {'lemma': {'unigrams': lemma_uni_log_likelihood[-10:]}}
         print('LL took {} seconds.'.format(end - start))
         print('10 unigrams with highest LL score: {}\n-------------------------------------------------\n'.format(lemma_uni_log_likelihood[-10:]))
 
-        start = time.time()
-        lemma_uni_fishers_exact_test = fishers_exact_text(lemma_uni_frequencies, lemma_ooc_uni_frequencies)
-        end = time.time()
-        stats_dict[label]['fishers_exact_test'] = {'lemma': {'unigrams': lemma_uni_fishers_exact_test}}
-        print('Fishers exact test took {} seconds.'.format(end - start))
-        print('Odd ratio and p value for the 3 unigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-1][0]], lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-2][0]], lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-3][0]]))
+        # start = time.time()
+        # lemma_uni_fishers_exact_test = fishers_exact_text(lemma_uni_frequencies, lemma_ooc_uni_frequencies, lemma_uni_log_likelihood[-10:])
+        # end = time.time()
+        # stats_dict[label]['fishers_exact_test'] = {'lemma': {'unigrams': lemma_uni_fishers_exact_test}}
+        # print('Fishers exact test took {} seconds.'.format(end - start))
+        # print('Odd ratio and p value for the 3 unigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-1][0]], lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-2][0]], lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-3][0]]))
 
         
         # get ngram frequencies for POS
@@ -360,64 +365,65 @@ if __name__ == "__main__":
         pos_ooc_tri_frequencies = get_ngram_frequencies(merged_ooc_dict, 3, 'pos')
 
         start = time.time()
-        pos_bi_most_frequent = most_frequent_ngram(pos_bi_frequencies, 50)
+        pos_bi_most_frequent = most_frequent_ngram(pos_bi_frequencies, 10)
         end = time.time()
         stats_dict[label]['most_frequent']['pos'] = {'bigrams': pos_bi_most_frequent}
         print('10 most frequent POS bigrams took {} seconds.'.format(end - start))
         print('10 most frequent POS bigrams: {}\n-------------------------------------------------\n'.format(pos_bi_most_frequent[:10]))
 
         start = time.time()
-        pos_tri_most_frequent = most_frequent_ngram(pos_tri_frequencies, 50)
+        pos_tri_most_frequent = most_frequent_ngram(pos_tri_frequencies, 10)
         end = time.time()
         stats_dict[label]['most_frequent']['pos'] = {'trigrams': pos_tri_most_frequent}
         print('10 most frequent POS trigrams took {} seconds.'.format(end - start))
         print('10 most frequent POS trigrams: {}\n-------------------------------------------------\n'.format(pos_tri_most_frequent[:10]))
 
+        stats_dict[label]['TF-IDF'] = {'pos': {'bigrams': [(pos_tf_idf_bi[label][0][i], tf_idf_pos) for i, tf_idf_pos in enumerate(pos_tf_idf_bi[label][0])]}}
+        stats_dict[label]['TF-IDF']['pos']['trigrams'] = [(pos_tf_idf_tri[label][0][i], tf_idf_pos) for i, tf_idf_pos in enumerate(pos_tf_idf_tri[label][0])]
         print('10 POS bigrams with highest tf-idf score: {}\n-------------------------------------------------\n'.format(pos_tf_idf_bi[label][0][:10]))
         print('10 POS trigrams with highest tf-idf score: {}\n-------------------------------------------------\n'.format(pos_tf_idf_tri[label][0][:10]))
 
         start = time.time()
         pos_bi_mutual_information = sorted(mutual_information(pos_bi_frequencies, pos_ooc_bi_frequencies).items(), key=lambda x:x[1])
         end = time.time()
-        stats_dict[label]['MI']['pos'] = {'bigrams': pos_bi_mutual_information}
+        stats_dict[label]['MI']['pos'] = {'bigrams': pos_bi_mutual_information[-10:]}
         print('MI for POS bigrams took {} seconds.'.format(end - start))
         print('10 POS bigrams with highest MI score: {}\n-------------------------------------------------\n'.format(pos_bi_mutual_information[-10:]))
 
         start = time.time()
         pos_tri_mutual_information = sorted(mutual_information(pos_tri_frequencies, pos_ooc_tri_frequencies).items(), key=lambda x:x[1])
         end = time.time()
-        stats_dict[label]['MI']['pos'] = {'trigrams': pos_tri_mutual_information}
+        stats_dict[label]['MI']['pos'] = {'trigrams': pos_tri_mutual_information[-10:]}
         print('MI for POS trigrams took {} seconds.'.format(end - start))
         print('10 POS trigrams with highest MI score: {}\n-------------------------------------------------\n'.format(pos_tri_mutual_information[-10:]))
 
         start = time.time()
         pos_bi_log_likelihood = sorted(log_likelihood(pos_bi_frequencies, pos_ooc_bi_frequencies).items(), key=lambda x:x[1])
         end = time.time()
-        stats_dict[label]['LL']['pos'] = {'bigrams': pos_bi_log_likelihood}
+        stats_dict[label]['LL']['pos'] = {'bigrams': pos_bi_log_likelihood[-10:]}
         print('LL for POS bigrams took {} seconds.'.format(end - start))
         print('10 POS bigrams with highest LL score: {}\n-------------------------------------------------\n'.format(pos_bi_log_likelihood[-10:]))
 
         start = time.time()
         pos_tri_log_likelihood = sorted(log_likelihood(pos_tri_frequencies, pos_ooc_tri_frequencies).items(), key=lambda x:x[1])
         end = time.time()
-        stats_dict[label]['LL']['pos'] = {'trigrams': pos_tri_log_likelihood}
+        stats_dict[label]['LL']['pos'] = {'trigrams': pos_tri_log_likelihood[-10:]}
         print('LL for POS trigrams took {} seconds.'.format(end - start))
         print('10 POS trigrams with highest LL score: {}\n-------------------------------------------------\n'.format(pos_tri_log_likelihood[-10:]))
 
-        start = time.time()
-        pos_bi_fishers_exact_test = fishers_exact_text(pos_bi_frequencies, pos_ooc_bi_frequencies)
-        end = time.time()
-        stats_dict[label]['fishers_exact_test']['pos'] = {'bigrams': pos_bi_fishers_exact_test}
-        print('Fishers exact test for POS bigrams took {} seconds.'.format(end - start))
-        print('Odd ratio and p value for the 3 POS bigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(pos_bi_fishers_exact_test[pos_bi_log_likelihood[-1][0]], pos_bi_fishers_exact_test[pos_bi_log_likelihood[-2][0]], pos_bi_fishers_exact_test[pos_bi_log_likelihood[-3][0]]))
+       # start = time.time()
+       # pos_bi_fishers_exact_test = fishers_exact_text(pos_bi_frequencies, pos_ooc_bi_frequencies, pos_bi_log_likelihood[-10:])
+       # end = time.time()
+       # stats_dict[label]['fishers_exact_test']['pos'] = {'bigrams': pos_bi_fishers_exact_test}
+       # print('Fishers exact test for POS bigrams took {} seconds.'.format(end - start))
+       # print('Odd ratio and p value for the 3 POS bigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(pos_bi_fishers_exact_test[pos_bi_log_likelihood[-1][0]], pos_bi_fishers_exact_test[pos_bi_log_likelihood[-2][0]], pos_bi_fishers_exact_test[pos_bi_log_likelihood[-3][0]]))
 
-        start = time.time()
-        pos_tri_fishers_exact_test = fishers_exact_text(pos_tri_frequencies, pos_ooc_tri_frequencies)
-        end = time.time()
-        stats_dict[label]['fishers_exact_test']['pos'] = {'trigrams': pos_tri_fishers_exact_test}
-        print('Fishers exact test for POS trigrams took {} seconds.'.format(end - start))
-        print('Odd ratio and p value for the 3 POS trigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(pos_tri_fishers_exact_test[pos_tri_log_likelihood[-1][0]], pos_tri_fishers_exact_test[pos_tri_log_likelihood[-2][0]], pos_tri_fishers_exact_test[pos_tri_log_likelihood[-3][0]]))
-
+       # start = time.time()
+       # pos_tri_fishers_exact_test = fishers_exact_text(pos_tri_frequencies, pos_ooc_tri_frequencies, pos_tri_log_likelihood[-10:])
+       # end = time.time()
+       # stats_dict[label]['fishers_exact_test']['pos'] = {'trigrams': pos_tri_fishers_exact_test}
+       # print('Fishers exact test for POS trigrams took {} seconds.'.format(end - start))
+       # print('Odd ratio and p value for the 3 POS trigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(pos_tri_fishers_exact_test[pos_tri_log_likelihood[-1][0]], pos_tri_fishers_exact_test[pos_tri_log_likelihood[-2][0]], pos_tri_fishers_exact_test[pos_tri_log_likelihood[-3][0]]))
 
 
     # execute functions that work on all data
