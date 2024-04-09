@@ -122,7 +122,7 @@ def mutual_information(class_ngrams: dict, ooc_ngrams: dict) -> dict:
             sum_all_ooc_data = sum(ooc_ngrams.values())
             first_formula = ngram_count / (ngram_count + (sum_all_class_data - ngram_count))
             second_formula = (sum_all_class_data + sum_all_ooc_data) / (ngram_count + ooc_ngrams[ngram])
-            mutual_information[''.join(ngram[0])] = math.log2(first_formula * second_formula)
+            mutual_information[' '.join(ngram)] = math.log2(first_formula * second_formula)
 
     return mutual_information
 
@@ -145,7 +145,7 @@ def log_likelihood(class_ngrams: dict, ooc_ngrams: dict) -> dict:
         c_plus_d = (c + d)*math.log(c + d)
         big_n = (a + b + c + d)*math.log(a + b + c + d)
         try:
-            log_likelihood[''.join(ngram[0])] = 2*(a*math.log(a) + b*math.log(b) + c*math.log(c) + d*math.log(d) - a_plus_b - a_plus_c - b_plus_d - c_plus_d + big_n)
+            log_likelihood[' '.join(ngram)] = 2*(a*math.log(a) + b*math.log(b) + c*math.log(c) + d*math.log(d) - a_plus_b - a_plus_c - b_plus_d - c_plus_d + big_n)
         except ValueError as e:
             pass
 
@@ -201,7 +201,7 @@ def fishers_exact_text(class_ngrams: dict, ooc_ngrams: dict, log_likelihoods: li
         contingency_table = np.array([[class_ngrams[ngram], ooc_ngrams[ngram]], [sum(class_ngrams.values()) - class_ngrams[ngram], sum(ooc_ngrams.values()) - ooc_ngrams[ngram]]])
         # performing fishers exact test on the data 
         odd_ratio, p_value = fisher_exact(contingency_table)
-        fishers_test[' '.join(ngram[0])] = (odd_ratio, p_value)
+        fishers_test[' '.join(ngram)] = (odd_ratio, p_value)
 
     return fishers_test
 
@@ -211,7 +211,7 @@ def fishers_exact_text(class_ngrams: dict, ooc_ngrams: dict, log_likelihoods: li
 # --------------------------------------------------------------------------------------------------------------
 
 # TODO: this is not efficient!
-def spearmans_rho(all_text_classes: list, gram_type: str) -> int:
+def spearmans_rho(all_text_classes: list) -> int:
     # measures the similarity between two corpora by means of the spearman's rank correlation coefficient
     # see kilgarriff
 
@@ -241,15 +241,15 @@ def cosine_similarity_tfidf(all_data: dict, gram_type: str, n: int) -> Tuple[np.
 
 
 if __name__ == "__main__":
-    # which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
-    which_country = ['CU', 'PA']
+    which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
+    # which_country = ['CU', 'PA']
 
     # initialise dictionary to store results
     stats_dict = {}
 
     start = time.time()
-    # cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', True)
-    cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', True)
+    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', True)
+    # cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', True)
     end = time.time()
     print('Corpus reader took {} seconds.'.format(end - start))
 
@@ -378,8 +378,8 @@ if __name__ == "__main__":
         print('10 most frequent POS trigrams took {} seconds.'.format(end - start))
         print('10 most frequent POS trigrams: {}\n-------------------------------------------------\n'.format(pos_tri_most_frequent[:10]))
 
-        stats_dict[label]['TF-IDF'] = {'pos': {'bigrams': [(pos_tf_idf_bi[label][0][i], tf_idf_pos) for i, tf_idf_pos in enumerate(pos_tf_idf_bi[label][0])]}}
-        stats_dict[label]['TF-IDF']['pos']['trigrams'] = [(pos_tf_idf_tri[label][0][i], tf_idf_pos) for i, tf_idf_pos in enumerate(pos_tf_idf_tri[label][0])]
+        stats_dict[label]['TF-IDF'] = {'pos': {'bigrams': [(pos_tf_idf_bi[label][0][i].upper(), tf_idf_pos) for i, tf_idf_pos in enumerate(pos_tf_idf_bi[label][0])]}}
+        stats_dict[label]['TF-IDF']['pos']['trigrams'] = [(pos_tf_idf_tri[label][0][i].upper(), tf_idf_pos) for i, tf_idf_pos in enumerate(pos_tf_idf_tri[label][0])]
         print('10 POS bigrams with highest tf-idf score: {}\n-------------------------------------------------\n'.format(pos_tf_idf_bi[label][0][:10]))
         print('10 POS trigrams with highest tf-idf score: {}\n-------------------------------------------------\n'.format(pos_tf_idf_tri[label][0][:10]))
 
@@ -393,7 +393,7 @@ if __name__ == "__main__":
         start = time.time()
         pos_tri_mutual_information = sorted(mutual_information(pos_tri_frequencies, pos_ooc_tri_frequencies).items(), key=lambda x:x[1])
         end = time.time()
-        stats_dict[label]['MI']['pos'] = {'trigrams': pos_tri_mutual_information[-10:]}
+        stats_dict[label]['MI']['pos']['trigrams'] = pos_tri_mutual_information[-10:]
         print('MI for POS trigrams took {} seconds.'.format(end - start))
         print('10 POS trigrams with highest MI score: {}\n-------------------------------------------------\n'.format(pos_tri_mutual_information[-10:]))
 
