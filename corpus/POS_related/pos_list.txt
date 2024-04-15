@@ -1,0 +1,426 @@
+\x00
+ADJ
+N   militares
+PN_MISC ningunos
+a   lsa # maybe typo?
+b   ex, mio, semi
+cC_21   es
+cC_22   decir
+cS_21   para, desde, ya, mientras
+cS_22   que, si, acaso
+cS_31   una, de
+cS_32   vez, forma, modo
+cS_33   que
+cS_41   de, en
+cS_42   tal, caso
+cS_43   modo, de
+cS_44   que
+cc  mas, y, pero
+cc- sino
+cs  que, si, auque
+dd  ésta, éste, éstos   demonstratives
+dd- este, esa, esos     demonstratives
+de  delos   (misspelled "de los" -> preposition bc it's the most important pos in this case)
+dp  
+dp- nuestra, nuestro, mi, su    possessives
+dxcp-dem-   tales
+dxcp-ind-   cualesquiera
+dxcs-dem-   tal
+dxcs-ind-   calquier, cada
+dxfp-   mismas, cuantas
+dxfp-ind-   otras, varias, algunas  indefinite pronouns
+dxfp-int-   cuántas interrogative pronoun
+dxfs-   misma
+dxfs-ind-   toda, otra
+dxfs-int-   cuánta
+dxmp-ind-
+dxmp-int-
+dxms-ind-
+e   de, durante, en     prepositions
+e_21    conforme (a), debido (a), gracias (a), frente (a)   adjectives?
+e_22    (desde) hace    adjectives?
+e_31    del
+e_32    orden, (en) tanto
+e_33    que
+e_42    el, la  article
+e_43    espacio, izquierda  noun
+f   yankee, trackback, microblogging    pos tags starting with f are lean words (mostly english)
+fe  
+fj  cute
+fn  hacker
+fnj
+fnp
+fp
+fv  translate, am (as in 5AM)
+fx
+i   no, vamos, jajaja, gracias, hola, sì    interjections
+j   eficaces    adjectives
+jfp
+jfs
+jmp
+jms
+jn
+ld  lo  articles
+ld-fp las
+ld-fs
+ld-mp
+ld-ms
+li  un
+li-fp
+li-fs
+li-mp
+li-ms
+m   ducientos   numbers
+m$  2000
+mc  primer
+mo  noveno
+mo-fp-
+mo-fs- primera
+mo-mp-
+mo-ms-
+n   lipoaspiraci�n, agua    nouns
+nfp
+nfs
+nj balboas
+nmp
+nms
+np
+o   Sheldry proper nouns
+p   entre, mio, ningun, cuanto, dichos  ?
+pd-3cs  esto, eso
+pd-3fp
+pd-3fs
+pd-3mp
+pd-3ms
+pi  nada
+pi-0cn  algo, alguien
+pi-0ms  uno
+pi-3cs  calquiera, nadie
+pi-3ms  ninguno, alguno, poco
+pn  ?
+po  le, les, se, nos    indirect objects
+pp-1cs
+pp-2cp
+pp-2cs  tu, usted   personal pronouns
+pp-2p   vos
+pq-3cn  qué
+pq-3cn" Qué
+pq-3cp  cuáles, quiénes
+pq-3cs
+pq-3ms
+pr-0mp
+pr-3cn"
+pr-3cp
+pr-3cs
+pr-3fp
+pr-3fs
+pr-3fs"
+pr-3mp
+pr-3ms
+prep    enla, delo, segun   typos?
+pron    tigo, l@s, quienquiera  non-standard pronouns?
+ps
+pv
+px  demás, dicho
+px-00   aquél
+px-mp   mismos
+px-ms   mismo
+r   ! en is also tagged as r in combination with esto
+v
+v29
+v30
+v51
+v53
+v60
+vc-1/3s gustería    conditional
+vc-1p
+vc-2p
+vc-2s
+vc-3p
+vif-1p
+vif-1s
+vif-2p
+vif-2s
+vif-3p
+vif-3s
+vii-1/3s
+vii-1p
+vii-2p
+vii-2s
+vii-3p
+vip-1p
+vip-1p/vis-1p
+vip-1s
+vip-2p
+vip-2s
+vip-3p
+vip-3s
+vis-1p
+vis-1s
+vis-2p
+vis-2s
+vis-3p
+vis-3s
+vm-2p
+vm-2s
+vm-3p
+vm-3s
+vpp
+vpp-00
+vps-fp
+vps-fs
+vps-mp
+vps-ms
+vr
+vsf-1/3s
+vsf-1p
+vsf-2p
+vsf-2s
+vsf-3p
+vsi-1/3s
+vsi-1p
+vsi-2p
+vsi-2s
+vsi-3p
+vsj-1/3s
+vsj-1p
+vsj-2p
+vsj-2s
+vsj-3p
+vsp-
+vsp-1/3s
+vsp-1p
+vsp-2p
+vsp-2s
+vsp-3p
+x   de, XIX, molas, Ben, m  unknown words?
+x_sp
+xa
+xb  Buda
+xd
+xe  sopla
+xh
+xm
+xp  PYMES, ANIMALITOS, PROFESSIONALS, HEMOS plural
+xs  FUFO, LAURA, PYME, ESPACIADORA, DAT singular
+xw  Wireless
+xx  sendas  noun and adjective
+xy  Europoort
+y
+
+\x00
+ADJ
+DET_DEM
+N
+PN_MISC
+a
+b
+cC_21
+cC_22
+cS_21
+cS_22
+cS_31
+cS_32
+cS_33
+cS_41
+cS_42
+cS_43
+cS_44
+cc
+cc-
+cs
+dd
+dd-
+de
+dp
+dp-
+dxcp-dem-
+dxcp-ind-
+dxcs-dem-
+dxcs-ind-
+dxfp-
+dxfp-ind-
+dxfp-int-
+dxfs-
+dxfs-ind-
+dxfs-int-
+dxmp-ind-
+dxmp-int-
+dxms-ind-
+e
+e_21
+e_22
+e_31
+e_32
+e_33
+e_42
+e_43
+f
+fe
+fj
+fn
+fnj
+fnp
+fp
+fv
+fx
+i
+j
+jfp
+jfs
+jmp
+jms
+jn
+l   !
+ld
+ld-fp
+ld-fs
+ld-mp
+ld-ms
+li
+li-fp
+li-fs
+li-mp
+li-ms
+m
+m$
+mc
+mo
+mo-fp-
+mo-fs-
+mo-mp-
+mo-ms-
+n
+nfp
+nfs
+nj
+nmp
+nms
+np
+o
+p
+pd-3cs
+pd-3fp
+pd-3fs
+pd-3mp
+pd-3ms
+pi
+pi-0cn
+pi-0ms
+pi-3cs
+pi-3ms
+pn
+po
+pp-1cs
+pp-2cp
+pp-2cs
+pp-2p
+pq-3cn
+pq-3cn"
+pq-3cp
+pq-3cs
+pq-3ms
+pr-0mp
+pr-3cn"
+pr-3cp
+pr-3cs
+pr-3fp
+pr-3fp"
+pr-3fs
+pr-3fs" !
+pr-3mp
+pr-3ms
+pr-3ms" !
+prep
+pron
+ps
+pv
+px
+px-00
+px-mp
+px-ms
+r
+v
+v24
+v29
+v30
+v51
+v53
+v6
+v60
+vc-1/3s
+vc-1p
+vc-2p
+vc-2s
+vc-3p
+vif-1p
+vif-1s
+vif-2p
+vif-2s
+vif-3p
+vif-3s
+vii-1/3s
+vii-1p
+vii-2p
+vii-2s
+vii-3p
+vip-1p
+vip-1p/vis-1p
+vip-1s
+vip-2p
+vip-2s
+vip-3p
+vip-3s
+vis-1p
+vis-1s
+vis-2p
+vis-2s
+vis-3p
+vis-3s
+vm-2p
+vm-2s
+vm-3p
+vm-3s
+vpp
+vpp-00
+vps-fp
+vps-fs
+vps-mp
+vps-ms
+vr
+vsf-1/3s
+vsf-1p
+vsf-2p
+vsf-2s
+vsf-3p
+vsi-1/3s
+vsi-1p
+vsi-2p
+vsi-2s
+vsi-3p
+vsj-1/3s
+vsj-1p
+vsj-2p
+vsj-2s
+vsj-3p
+vsp-
+vsp-1/3s
+vsp-1p
+vsp-2p
+vsp-2s
+vsp-3p
+x
+x_sp
+xa
+xb
+xd
+xe
+xf
+xh
+xm
+xp
+xs
+xw
+xx
+xy
+y

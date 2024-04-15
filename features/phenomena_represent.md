@@ -173,7 +173,6 @@ also make sure that the question is not initiated with "por qué" because invers
 
 :white_check_mark:
 
-
 ## "intensive" *ser*
 
 - Colombia
@@ -202,7 +201,6 @@ look out for the sequence `indefinite / indirect article` + `possessive`, (find 
 appropriate grouped POS tags are `ARTI`, `PP`, `DETP` and `NN` and `NE` for the nouns
 
 :white_check_mark:
-
 
 ## frequency of specific tenses (some varieties prefer specific tenses, e.g. Peruvian Spanish uses perfective instead of preterite a lot)
 

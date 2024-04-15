@@ -5,6 +5,13 @@ The following list is based on Lipski (1994) "Latin American Spanish"
 ## Attempts to classify the different dialects of Spanish
 
 ### Five zone classification (Henríquez Ureña) for Latin America
+# Listing Linguistic Phenomena of Variation in Spanish 
+
+The following list is based on Lipski (1994) "Latin American Spanish"
+
+## Attempts to classify the different dialects of Spanish
+
+### Five zone classification (Henríquez Ureña) for Latin America
 
 1. Mexico, New Mexico & most of Central America {Nahuatl}
 2. The Caribbean (Antilles & coastal regions of Colombia & Venezuela) {Carib/Arawak}

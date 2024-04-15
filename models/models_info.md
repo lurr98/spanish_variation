@@ -73,3 +73,44 @@
 - Black-box model, not explainable. :skull:
 - High time and computational cost. :skull:
 - :warning: BERT could simply make use of topics to determine class, e.g. texts from Panama in the corpus will probably talk about Panama more often than other texts
+
+
+## How to Incorporate Features
+
+### What type of features?
+
+- character ngrams or token ngrams?
+    - high performing approaches have used "word-based" representations (so unigrams?) and character ngrams of higher order (4-, 5-, 6-grams)
+    - when to cut off?
+        - scikit-learn has the *min_df* parameter for *CountVectorizer* which is essentially a cut-off based on **document frequency**
+    - include stop words?
+- the selected linguistically tailored features
+
+### Pipeline for linear models
+
+1. preprocessing
+    - read corpus
+    - tokenisation, lemmatisation and POS-tagging
+    - lowercase everything
+        - since capitalisation only happens for NE in Spanish and these are already tagged anyway, so lowercasing **all** data should not pose a problem
+2. extract features
+    - character ngrams
+        - 4-grams
+        - 5-grams
+        - 6-grams
+    - word ngrams
+        - unigrams
+    - linguistically tailored features :white_check_mark:
+3. split data in train, dev, test
+    - maybe balance data?
+        - undersample?
+            - the **SVM** class has an attribute named *class_weight* which can be set to *balanced*
+            - :warning: this cannot balance out the different average paragraph length though!
+4. combine features
+    - concatenate
+5. train model on data 
+    - SVM 
+    - Decision Tree / Random Forest
+    - experiment with different features
+        - feature engineering
+        - ablation studies
