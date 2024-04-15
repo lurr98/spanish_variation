@@ -27,7 +27,7 @@ Phonetic similarity in coastal areas
 3. presence or absence of *voseo*
 4. verbal morphology which is used together with *vos* if *voseo* is used
 
-*voseo* ==> use of *vos* as the second person singular pronoun instead of *tú*
+*voseo* ==> use of *vos* as the second person singular pronoun instead of *tú* and instead of *ti* after a preposition (not *te* though)
 
 #### *voseo* types
 
@@ -541,7 +541,7 @@ Puerto Rico, belonging to the Antillean/Caribbean zone, shares many similarities
  - often, subject pronouns are retained when in other Spanish dialects they are omitted
  - non-inversion of questions accompanied by subject pronouns !
     - *¿Qué tú quieres?*
-- personal pronouns frequently predeed infinitives, as in other Spanish dialects, *para* is the most frequent trigger for this
+- personal pronouns frequently preceed infinitives, as in other Spanish dialects, *para* is the most frequent trigger for this
     - *para yo hacer eso*
 - syntactic calquing or loan translations from English (hard to categorise!, but there is *para atrás*)
     - *¿Cómo te gustó la playa?* (instead of *¿Te gustó?* or *¿Cómo lo pasaste?*)
