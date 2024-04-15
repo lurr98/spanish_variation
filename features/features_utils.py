@@ -393,3 +393,15 @@ def different_clitic_pronouns(raw_text: str, clitic_count: list) -> list:
         clitic_count[i] += finds.count(clitic)
 
     return clitic_count
+
+
+def ser_or_estar(raw_text: str, ser_estar_count: list) -> list:
+    # look for "ser" or "estar" preceeding an adjective
+
+    pattern_ser = re.compile(r'ser(\t[\w.\-À-ÿ]+){2}\n(([\w.\-À-ÿ]+\t){3}[\w.\-À-ÿ]+\n)?([\w.\-À-ÿ]+\t){3}ADJ\n')
+    pattern_estar = re.compile(r'estar(\t[\w.\-À-ÿ]+){2}\n(([\w.\-À-ÿ]+\t){3}[\w.\-À-ÿ]+\n)?([\w.\-À-ÿ]+\t){3}ADJ\n')
+
+    ser_estar_count[0] += len(pattern_ser.findall(raw_text))
+    ser_estar_count[1] += len(pattern_estar.findall(raw_text))
+
+    return ser_estar_count

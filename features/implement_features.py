@@ -10,17 +10,24 @@ import features_utils
 import numpy as np
 import numpy.typing as npt
 from typing import Sequence
+from sklearn.feature_extraction.text import CountVectorizer
 
 sys.path.append("..")
 from corpus.corpus_reader import CorpusReader
 
 
-class FeatureExtractor:
-# define the corpus reader class that will be used by the models to access data
+class NgramFeatureExtractor:
+    # define the corpus reader class that will be used by the models to access data
 
-    def __init__(self, data, raw_data, which_country, voseo_count=[0]*12, overt_subject_count=[0]*9, subj_inf_count=[0]*3, art_poss_count=[0], tense_count=[0]*14, quest_count=[0], diminutive_count=[0]*4, mas_negation_count=[0], muy_isimo_count=[0], ada_count=[0]):
+    def __init__(self, data, which_country):
 
-        count_name_dict = {0: 'voseo', 1: 'overt_subj', 2: 'subj_inf', 3: 'indef_art_poss', 4: 'diff_tenses', 5: 'non_inv_quest', 6: 'diminutives', 7: 'mas_neg', 8: 'muy_isimo', 9: 'ada'}
+
+class LinguisticFeatureExtractor:
+    # define the corpus reader class that will be used by the models to access data
+
+    def __init__(self, data, raw_data, which_country, voseo_count=[0]*12, overt_subject_count=[0]*9, subj_inf_count=[0]*3, art_poss_count=[0], tense_count=[0]*14, quest_count=[0], diminutive_count=[0]*4, mas_negation_count=[0], muy_isimo_count=[0], ada_count=[0], clitic_count=[0]*3, ser_estar_count=[0]*2):
+
+        count_name_dict = {0: 'voseo', 1: 'overt_subj', 2: 'subj_inf', 3: 'indef_art_poss', 4: 'diff_tenses', 5: 'non_inv_quest', 6: 'diminutives', 7: 'mas_neg', 8: 'muy_isimo', 9: 'ada', 10: 'clitic_pronouns', 11: 'ser_or_estar'}
         def reset_counts(counts: list) -> Sequence[list]:
             # reset the counts to 0 for every new document
             # hereby, make sure to keep the Falses if a count is not specified
@@ -72,12 +79,18 @@ class FeatureExtractor:
                     if ada_count:
                         ada_count = features_utils.ada_costa_rica(raw_data[label][idx], ada_count, nlp)
 
+                    if clitic_count:
+                        clitic_count = features_utils.different_clitic_pronouns(raw_data[label][idx], clitic_count)
 
-                    counts = [voseo_count, overt_subject_count, subj_inf_count, art_poss_count, tense_count, quest_count, diminutive_count, mas_negation_count, muy_isimo_count, ada_count]
+                    if ser_estar_count:
+                        ser_estar_count = features_utils.ser_or_estar(raw_data[label][idx], ser_estar_count)
+
+
+                    counts = [voseo_count, overt_subject_count, subj_inf_count, art_poss_count, tense_count, quest_count, diminutive_count, mas_negation_count, muy_isimo_count, ada_count, clitic_count, ser_estar_count]
                     # add the collected counts to the dictionary that will contain all of the document counts for the class with the doc's ID as key
-                    class_document_counts[idx] = {count_name_dict[counts.index(count)]: count for count in counts}
+                    class_document_counts[idx] = {count_name_dict[i]: count for i, count in enumerate(counts)}
                     # reset the count to 0 for every new document
-                    voseo_count, overt_subject_count, subj_inf_count, art_poss_count, tense_count, quest_count, diminutive_count, mas_negation_count, muy_isimo_count, ada_count = reset_counts(counts)
+                    voseo_count, overt_subject_count, subj_inf_count, art_poss_count, tense_count, quest_count, diminutive_count, mas_negation_count, muy_isimo_count, ada_count, clitic_count, ser_estar_count = reset_counts(counts)
                             
             all_document_counts[label] = class_document_counts
 
@@ -90,15 +103,15 @@ if __name__ == "__main__":
     # which_country = ['PA']
 
     start = time.time()
-    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', True)
+    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', filter_punct=True)
     # cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars')
     end = time.time()
     print('Corpus reader took {} seconds.'.format(end - start))
 
     overall_start = time.time()
 
-    extractor = FeatureExtractor(cr.data, cr.raw, which_country)
-    # extractor = FeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
+    extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
+    # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
 
     overall_end = time.time()
     print('Feature search took {} seconds'.format(overall_end-overall_start))
@@ -106,3 +119,9 @@ if __name__ == "__main__":
 
     with open('/projekte/semrel/WORK-AREA/Users/laura/test_feature_dict.json', 'w') as jsn:
         json.dump(extractor.document_counts, jsn)
+
+    for country, ids in cr.ids.items():
+        print('{} -- {} IDs'.format(country, len(ids)))
+
+    for country, num in cr.number_of_tokens.items():
+        print('{} -- {} IDs'.format(country, num))
