@@ -1,282 +1,42 @@
-Unzipping corpus for dialect DO
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect CL
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect HN
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect ES
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect PA
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect BO
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect NI
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect CO
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect GT
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect PR
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect CR
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect EC
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect AR
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect VE
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect PY
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect CU
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect SV
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect PE
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect UY
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Unzipping corpus for dialect MX
---------------------------------------------------------
-
-Working on file 5 out of 20
-Working on file 10 out of 20
-Working on file 15 out of 20
-
---------------------------------------------------------
-
-Corpus reader took 14175.114840745926 seconds.
-
--------------------------------------------------
-Analysing dialect DO
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect CL
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect HN
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect ES
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect PA
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect BO
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect NI
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect CO
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect GT
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect PR
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect CR
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect EC
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect AR
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect VE
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect PY
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect CU
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect SV
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect PE
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect UY
--------------------------------------------------
-
-
--------------------------------------------------
-Analysing dialect MX
--------------------------------------------------
-
-Feature search took 45403.21607422829 seconds
+Feature search took 61764.218183517456 seconds
+DO -- 47065 IDs
+CL -- 71620 IDs
+HN -- 43227 IDs
+ES -- 421520 IDs
+PA -- 29312 IDs
+BO -- 43293 IDs
+NI -- 35696 IDs
+CO -- 184970 IDs
+GT -- 61434 IDs
+PR -- 33879 IDs
+CR -- 33255 IDs
+EC -- 63160 IDs
+AR -- 177920 IDs
+VE -- 112571 IDs
+PY -- 33301 IDs
+CU -- 51708 IDs
+SV -- 38217 IDs
+PE -- 121814 IDs
+UY -- 36154 IDs
+MX -- 286275 IDs
+
+DO -- 34591907 tokens
+CL -- 65559977 tokens
+HN -- 34150553 tokens
+ES -- 423091653 tokens
+PA -- 22797585 tokens
+BO -- 39462190 tokens
+NI -- 30508428 tokens
+CO -- 160074530 tokens
+GT -- 53558251 tokens
+PR -- 32061618 tokens
+CR -- 29862729 tokens
+EC -- 52109837 tokens
+AR -- 169949379 tokens
+VE -- 92024874 tokens
+PY -- 28577446 tokens
+CU -- 57678235 tokens
+SV -- 36366532 tokens
+PE -- 105611118 tokens
+UY -- 38579425 tokens
+MX -- 238856348 tokens
