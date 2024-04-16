@@ -105,7 +105,7 @@
     - maybe balance data?
         - undersample?
             - the **SVM** class has an attribute named *class_weight* which can be set to *balanced*
-            - :warning: this cannot balance out the different average paragraph length though!
+            - :warning: this cannot balance out the different average paragraph lengths though!
 4. combine features
     - concatenate
 5. train model on data 
