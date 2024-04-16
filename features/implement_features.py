@@ -11,19 +11,39 @@ import numpy as np
 import numpy.typing as npt
 from typing import Sequence
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
 
 sys.path.append("..")
 from corpus.corpus_reader import CorpusReader
 
 
 class NgramFeatureExtractor:
-    # define the corpus reader class that will be used by the models to access data
+    # define the ngram extractor class that will be used by the models to build the feature vectors
 
-    def __init__(self, data, which_country):
+    def __init__(self, data, which_country, cut_off=1):
+
+        all_country_tags, all_indices, all_text = [], [], []
+
+        for label, class_data in data.items():
+            if label in which_country:
+                keys = list(class_data.keys())
+                all_indices.extend(keys)
+                for key in keys:
+                    all_country_tags.append(label)
+                    all_text.append(' '.join(class_data[key]))
+
+        count_vect = CountVectorizer(min_df=cut_off)
+        counts = count_vect.fit_transform(all_text)
+        tf_transformer = TfidfTransformer(use_idf=False)
+        term_frequencies = tf_transformer.fit_transform(counts)
+
+        self.targets = all_country_tags
+        self.indices = all_indices
+        self.tfs = term_frequencies
 
 
 class LinguisticFeatureExtractor:
-    # define the corpus reader class that will be used by the models to access data
+    # define the linguistic feature extractor class that will be used by the models to build the tailored feature vectors
 
     def __init__(self, data, raw_data, which_country, voseo_count=[0]*12, overt_subject_count=[0]*9, subj_inf_count=[0]*3, art_poss_count=[0], tense_count=[0]*14, quest_count=[0], diminutive_count=[0]*4, mas_negation_count=[0], muy_isimo_count=[0], ada_count=[0], clitic_count=[0]*3, ser_estar_count=[0]*2):
 
