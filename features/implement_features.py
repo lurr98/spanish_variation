@@ -9,12 +9,29 @@ import json, time, sys, spacy
 import features_utils
 import numpy as np
 import numpy.typing as npt
+from scipy.sparse import csr_matrix, spmatrix
 from typing import Sequence
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 
 sys.path.append("..")
 from corpus.corpus_reader import CorpusReader
+
+
+def save_sparse_csr(filename: str, array: spmatrix) -> None:
+    # helper function to save sparse matrix (e.g. the ngram frequencies per document)
+    # note that .npz extension is added automatically
+    np.savez(filename, data=array.data, indices=array.indices,
+             indptr=array.indptr, shape=array.shape)
+
+
+def load_sparse_csr(filename: str) -> spmatrix:
+    # helper fnction to load the sparse matrix again
+    # here we need to add .npz extension manually
+    loader = np.load(filename + '.npz')
+
+    return csr_matrix((loader['data'], loader['indices'], loader['indptr']),
+                      shape=loader['shape'])
 
 
 class NgramFeatureExtractor:
@@ -30,7 +47,7 @@ class NgramFeatureExtractor:
                 all_indices.extend(keys)
                 for key in keys:
                     all_country_tags.append(label)
-                    all_text.append(' '.join(class_data[key]))
+                    all_text.append(' '.join(class_data[key][0]))
 
         count_vect = CountVectorizer(min_df=cut_off)
         counts = count_vect.fit_transform(all_text)
@@ -130,18 +147,25 @@ if __name__ == "__main__":
 
     overall_start = time.time()
 
-    extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
+    # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
     # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
+
+    extractor = NgramFeatureExtractor(cr.data, which_country)
 
     overall_end = time.time()
     print('Feature search took {} seconds'.format(overall_end-overall_start))
 
+    extractor_dict = {'targets': extractor.targets, 'indices': extractor.indices}
 
-    with open('/projekte/semrel/WORK-AREA/Users/laura/test_feature_dict.json', 'w') as jsn:
-        json.dump(extractor.document_counts, jsn)
+    print(extractor_dict)
 
-    for country, ids in cr.ids.items():
-        print('{} -- {} IDs'.format(country, len(ids)))
+    with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_targets_indices.json', 'w') as jsn:
+        json.dump(extractor_dict, jsn)
 
-    for country, num in cr.number_of_tokens.items():
-        print('{} -- {} IDs'.format(country, num))
+    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_spmatrix', extractor.tfs)
+
+    # for country, ids in cr.ids.items():
+    #     print('{} -- {} IDs'.format(country, len(ids)))
+# 
+    # for country, num in cr.number_of_tokens.items():
+    #     print('{} -- {} IDs'.format(country, num))
