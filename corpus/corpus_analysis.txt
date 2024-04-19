@@ -1,0 +1,1633 @@
+Unzipping corpus for dialect DO
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect CL
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect HN
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect ES
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect PA
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect BO
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect NI
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect CO
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect GT
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect PR
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect CR
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect EC
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect AR
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect VE
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect PY
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect CU
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect SV
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect PE
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect UY
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Unzipping corpus for dialect MX
+--------------------------------------------------------
+
+Working on file 5 out of 20
+Working on file 10 out of 20
+Working on file 15 out of 20
+
+--------------------------------------------------------
+
+Corpus reader took 13690.680374860764 seconds.
+TF-IDF for uni- and bigram lemma took 6278.365124702454 seconds.
+TF-IDF for bi- and trigram POS took 3628.306901216507 seconds.
+
+-------------------------------------------------
+Analysing dialect DO
+-------------------------------------------------
+
+Av. length of paragraphs: 734.9815574205885
+-------------------------------------------------
+
+10 most frequent unigrams took 0.02844715118408203 seconds.
+10 most frequent unigrams: [('de', 2459651), ('el', 2053687), ('la', 1578374), ('que', 1188818), ('y', 959597), ('en', 913750), ('a', 867870), ('ser', 666289), ('un', 644817), ('se', 451445)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.016362428665161133 seconds.
+10 most frequent nouns: [('año', 79185), ('persona', 52846), ('país', 49035), ('día', 45146), ('vida', 42320), ('dios', 33094), ('tiempo', 31511), ('mundo', 29409), ('cosa', 29392), ('dominicana', 27315)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0007634162902832031 seconds.
+10 most frequent verbs: [('ser', 658642), ('haber', 252328), ('tener', 181318), ('estar', 162289), ('poder', 139624), ('hacer', 138135), ('decir', 98095), ('ir', 63344), ('dar', 62284), ('ver', 57623)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'decir', 'si', 'año', 'dar', 'ir']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'república dominicana', 'santo domingo', 'poder ser', 'si ser', 'haber hacer', 'deber ser', 'ser ser', 'decir ser', 'poder hacer']
+-------------------------------------------------
+
+MI took 2758.934730529785 seconds.
+10 unigrams with highest MI score: [('weps', 5.629239002696507), ('abocoa', 5.629239002696507), ('olfateando', 5.629239002696507), ('dop=1,000,000', 5.629239002696507), ('shen-hsiu', 5.629239002696507), ('genniculata', 5.629239002696507), ('sirenis=punta=cana=resort=casino=&=aquagames', 5.629239002696507), ('¨reconocimiento', 5.629239002696507), ('88-03', 5.629239002696507), ('bodhicchita', 5.629239002696507)]
+-------------------------------------------------
+
+LL took 12437.487392425537 seconds.
+10 unigrams with highest LL score: [('prd', 23717.561599731445), ('pld', 30532.662658691406), ('santo', 33297.200592041016), ('haitiano', 34863.41682434082), ('medina', 35266.84700012207), ('danilo', 35617.369705200195), ('domingo', 40436.42581176758), ('república', 53513.53820800781), ('dominicana', 158271.06146240234), ('dominicano', 299449.73333740234)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0004937648773193359 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 2690182), ('NN PREP', 2380252), ('PREP ARTD', 1950039), ('NN ADJ', 1071128), ('PREP NN', 1046932), ('NE NE', 986531), ('ADJ PREP', 673273), ('NN CC', 604444), ('ARTI NN', 524993), ('PREP NE', 485804)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.0048274993896484375 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1418152), ('ARTD NN PREP', 986051), ('NN PREP ARTD', 867421), ('NN PREP NN', 593676), ('ARTD NN ADJ', 424966), ('NN ADJ PREP', 367585), ('NE NE NE', 352027), ('PREP NN PREP', 345589), ('ADJ PREP ARTD', 274195), ('PREP DETP NN', 226776)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'prep ne']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'ne ne ne', 'prep nn prep', 'adj prep artd', 'prep detp nn']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06601524353027344 seconds.
+10 POS bigrams with highest MI score: [('I MISMO', 1.3867454153244594), ('VSF PS', 1.4656708092000874), ('VSI DICHO', 1.5588497148260188), ('E_32 DETD', 1.5588497148260188), ('E_33 CS', 1.6443459351076253), ('BEF PR', 1.8014200181000968), ('VSF E_21', 1.8566495388204893), ('PP MISMO', 1.9536739932153537), ('I NUM$', 1.9611469589998372), ('ARTI VSF', 2.642178098424915)]
+-------------------------------------------------
+
+MI for POS trigrams took 29.485335111618042 seconds.
+10 POS trigrams with highest MI score: [('ARTD DETD DETD', 4.398941463316534), ('ARTI VSF ADJ', 4.406846661401881), ('VPP ARTI DETD', 4.507248558359717), ('PI VSI VIS', 4.562124886879791), ('NE PP MISMO', 4.736154286654839), ('I NUM$ X', 4.768215495887138), ('VM I ADJ/PRON', 4.892273488572122), ('VIMP NE VPP', 5.007750705992057), ('VR VIF Y', 5.246623061151862), ('DETI VIMP VIS', 5.406846661401881)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.07631039619445801 seconds.
+10 POS bigrams with highest LL score: [('PREP NE', 5501.916549682617), ('PS VIP', 6722.701110839844), ('NN VIS', 9194.731750488281), ('ADV ADV', 10392.487319946289), ('VIS CS', 11498.792922973633), ('ARTD NE', 12809.657241821289), ('NN NE', 14867.815002441406), ('NE VIS', 15334.449127197266), ('NE PREP', 15554.149810791016), ('NE NE', 109684.53713989258)]
+-------------------------------------------------
+
+LL for POS trigrams took 46.20460867881775 seconds.
+10 POS trigrams with highest LL score: [('NE VIS CS', 6771.867828369141), ('NE NE ARTD', 7150.7110595703125), ('PREP ARTD NE', 11372.426177978516), ('ARTD NN NE', 12702.749420166016), ('NE NE VIS', 13906.847152709961), ('ARTD NE NE', 16018.203186035156), ('PREP NE NE', 17104.79669189453), ('NE NE PREP', 19029.09097290039), ('NN NE NE', 20736.607055664062), ('NE NE NE', 49613.68379211426)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect CL
+-------------------------------------------------
+
+Av. length of paragraphs: 915.3864423345434
+-------------------------------------------------
+
+10 most frequent unigrams took 0.04576230049133301 seconds.
+10 most frequent unigrams: [('de', 4331915), ('el', 3631325), ('la', 2953276), ('que', 2363721), ('y', 1847690), ('en', 1695286), ('a', 1639221), ('ser', 1377238), ('un', 1270416), ('se', 933851)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.032952308654785156 seconds.
+10 most frequent nouns: [('año', 143952), ('persona', 88673), ('día', 85747), ('chile', 79236), ('vida', 75780), ('cosa', 66293), ('país', 65853), ('tiempo', 61568), ('forma', 58099), ('mundo', 53022)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0008685588836669922 seconds.
+10 most frequent verbs: [('ser', 1361959), ('haber', 479934), ('tener', 381041), ('estar', 326045), ('poder', 295353), ('hacer', 281402), ('decir', 149343), ('ir', 147596), ('ver', 124720), ('deber', 123045)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'ir', 'año', 'ver']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'deber ser', 'haber hacer', 'ser ser', 'ser bueno', 'poder hacer', 'dar cuenta', 'haber tener']
+-------------------------------------------------
+
+MI took 4443.698276519775 seconds.
+10 unigrams with highest MI score: [('seisigma', 4.7068582039098565), ('schap', 4.7068582039098565), ('dogmätico', 4.7068582039098565), ('sichére', 4.7068582039098565), ('peirre-caps', 4.7068582039098565), ('http://www.xs4all.nl/rehue/art/lava1.ht\\\\.', 4.7068582039098565), ('bafkehche', 4.7068582039098565), ('19.967', 4.7068582039098565), ('tdcla', 4.7068582039098565), ('portasatélite', 4.7068582039098565)]
+-------------------------------------------------
+
+LL took 21021.095242023468 seconds.
+10 unigrams with highest LL score: [('udi', 25030.244827270508), ('santiago', 26848.34359741211), ('mapuche', 27100.306060791016), ('piñera', 27473.8438873291), ('carabinero', 29935.548294067383), ('valparaíso', 34135.409271240234), ('comuna', 40067.65670776367), ('bachelet', 41024.77355957031), ('chileno', 116770.75129699707), ('chile', 246942.89852905273)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0007669925689697266 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 5036491), ('NN PREP', 4280693), ('PREP ARTD', 3463842), ('NN ADJ', 2116044), ('PREP NN', 2018538), ('ADJ PREP', 1271794), ('NE NE', 1215709), ('NN CC', 1187334), ('ARTI NN', 1026980), ('ADJ NN', 918836)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.007895231246948242 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 2608452), ('ARTD NN PREP', 1780199), ('NN PREP ARTD', 1512892), ('NN PREP NN', 1153849), ('ARTD NN ADJ', 814892), ('NN ADJ PREP', 681156), ('PREP NN PREP', 610298), ('ADJ PREP ARTD', 503071), ('NE NE NE', 403520), ('ARTD NN CC', 397670)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'adj prep', 'ne ne', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'artd nn cc']
+-------------------------------------------------
+
+MI for POS bigrams took 0.07229399681091309 seconds.
+10 POS bigrams with highest MI score: [('BEF PI', 1.3849301293429883), ('BEF VII', 1.4033673775996647), ('MISMO BEF', 1.5993297599259058), ('BEF NE', 1.6548672070630428), ('VPP E_31', 1.7068582242303507), ('VSI VSP', 1.748742305266659), ('PI BEF', 1.8096177986555515), ('MISMO PP', 1.8588613176754005), ('NADA MISMO', 2.1130175721627418), ('BEF PINT', 2.2329270358979385)]
+-------------------------------------------------
+
+MI for POS trigrams took 37.37374401092529 seconds.
+10 POS trigrams with highest MI score: [('ADV VSJ VSP', 3.45893073110726), ('VIF NUM VC', 3.5693547208009107), ('VIF ADV BEF', 3.7068582445508453), ('DETINT NN VIMP', 3.7068582445508453), ('MISMO PR VPP', 3.7068582445508453), ('X PINT DETD', 3.759325664444981), ('DETP MISMO MISMO', 3.929250665887293), ('VSJ VSP ARTI', 4.006418526409753), ('ARTI ADJ/PRON VM', 4.291820745272002), ('VR DICHO PI', 4.344288165166137)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.08318066596984863 seconds.
+10 POS bigrams with highest LL score: [('VIP ADJ', 2690.876220703125), ('NN NE', 2691.715316772461), ('NN NUM$', 2999.474609375), ('NE PREP', 3424.0423583984375), ('PREP NE', 3558.674591064453), ('ARTD CS', 3836.489013671875), ('BEF NN', 4166.531539916992), ('NUM$ NUM$', 4461.561050415039), ('ARTD BEF', 5140.489166259766), ('NE NE', 9786.423843383789)]
+-------------------------------------------------
+
+LL for POS trigrams took 55.675989389419556 seconds.
+10 POS trigrams with highest LL score: [('VR NN DETP', 1998.6179656982422), ('NE PREP ARTD', 2193.5379943847656), ('PREP ARTD BEF', 2298.316131591797), ('NN PREP NE', 2485.6222381591797), ('BEF NN PREP', 2644.9127807617188), ('NE NE PREP', 2861.139633178711), ('ARTD BEF NN', 2956.3189697265625), ('ARTD NE NE', 2995.8822174072266), ('NE NE NE', 5201.24787902832), ('PREP ARTD CS', 7890.499786376953)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect HN
+-------------------------------------------------
+
+Av. length of paragraphs: 790.0282925023712
+-------------------------------------------------
+
+10 most frequent unigrams took 0.027875661849975586 seconds.
+10 most frequent unigrams: [('de', 2549802), ('el', 2074464), ('la', 1627580), ('que', 1083980), ('y', 996575), ('en', 907491), ('a', 868172), ('ser', 618825), ('un', 584162), ('se', 449530)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.02019047737121582 seconds.
+10 most frequent nouns: [('honduras', 73334), ('año', 65781), ('país', 58551), ('día', 47415), ('persona', 46515), ('vida', 42557), ('dios', 40031), ('estado', 34851), ('mujer', 31908), ('derecho', 31304)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0009455680847167969 seconds.
+10 most frequent verbs: [('ser', 612376), ('haber', 248950), ('tener', 159519), ('estar', 148963), ('poder', 128690), ('hacer', 124424), ('decir', 76005), ('dar', 61974), ('ir', 59631), ('deber', 53630)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'decir', 'si', 'honduras', 'año', 'dar']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'haber hacer', 'deber ser', 'si ser', 'san pedro', 'derecho humano', 'pedro sula', 'poder hacer', 'haber tener']
+-------------------------------------------------
+
+MI took 2969.2479751110077 seconds.
+10 unigrams with highest MI score: [('reglamentara', 5.647764611946229), ('sitramud', 5.647764611946229), ('1970-1977-1993', 5.647764611946229), ('1970-1980-1993', 5.647764611946229), ('vealidad', 5.647764611946229), ('tatascàn', 5.647764611946229), ('ronpopo', 5.647764611946229), ('malsinim', 5.647764611946229), ('asentimientos', 5.647764611946229), ('cur-src', 5.647764611946229)]
+-------------------------------------------------
+
+LL took 12810.233478307724 seconds.
+10 unigrams with highest LL score: [('de', 22887.771591186523), ('lobo', 23812.096969604492), ('comayagua', 24469.154586791992), ('yo', 34828.04789733887), ('sula', 53507.18045043945), ('lempira', 56671.983642578125), ('zelaya', 81628.3657989502), ('tegucigalpa', 101710.17655944824), ('hondureño', 217827.03593444824), ('honduras', 447990.40559387207)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0007319450378417969 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 2741586), ('NN PREP', 2454674), ('PREP ARTD', 2018785), ('NN ADJ', 1159276), ('PREP NN', 1106184), ('NE NE', 951618), ('ADJ PREP', 703243), ('NN CC', 606984), ('PREP NE', 547137), ('ADJ NN', 478515)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.0077152252197265625 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1476879), ('ARTD NN PREP', 1031911), ('NN PREP ARTD', 908157), ('NN PREP NN', 634875), ('ARTD NN ADJ', 473845), ('NN ADJ PREP', 396699), ('PREP NN PREP', 371348), ('NE NE NE', 344071), ('ADJ PREP ARTD', 294095), ('PREP ARTD NE', 233616)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'prep ne', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'ne ne ne', 'adj prep artd', 'prep artd ne']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06560373306274414 seconds.
+10 POS bigrams with highest MI score: [('PREP E_21', 1.4261176174125143), ('E_21 DETP', 1.44613079133649), ('VSF VIF', 1.4546916232952023), ('E_21 VM', 1.4618981071948065), ('VSF E_21', 1.612140742775419), ('VSF Y', 1.6343023926995779), ('E_33 NUM', 1.9036035569357304), ('DICHO BEF', 2.2417722928303037), ('VSJ VIMP', 2.5724765252019033), ('ADJ/PRON NUM', 2.580107702402878)]
+-------------------------------------------------
+
+MI for POS trigrams took 28.314154148101807 seconds.
+10 POS trigrams with highest MI score: [('ADV NUM$ PD', 4.135628505682127), ('DETINT ADJ VII', 4.145264352536869), ('PR DETD VIS', 4.148004514881782), ('DICHO ADJ ARTI', 4.54927482966669), ('NUM NUM MISMO', 4.560301851815713), ('VPP VM NUM$', 4.581422198237357), ('VM DETD DETI', 4.733358892568783), ('NADA VII DETD', 5.250244955045238), ('ADJ/PRON NUM VSP', 5.587392075086571), ('DETI ADJ/PRON NUM', 5.599266175374862)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.07732367515563965 seconds.
+10 POS bigrams with highest LL score: [('VIP ADV', 13351.134750366211), ('ADV VIP', 14646.168594360352), ('NN PREP', 15155.155548095703), ('PS VIP', 15268.633316040039), ('PREP ARTD', 18241.35433959961), ('ADV ADV', 20349.515090942383), ('PREP NE', 29762.76513671875), ('ARTD NE', 35182.03695678711), ('NE PREP', 35795.59729003906), ('NE NE', 92650.90425109863)]
+-------------------------------------------------
+
+LL for POS trigrams took 44.1657018661499 seconds.
+10 POS trigrams with highest LL score: [('NE PREP ARTD', 8570.07601928711), ('NN PREP NE', 9064.916015625), ('PREP ARTD NN', 9647.512680053711), ('NN PREP ARTD', 11719.218826293945), ('PREP NE NE', 13746.248107910156), ('NE NE PREP', 22580.799041748047), ('PREP ARTD NE', 25550.494873046875), ('NE PREP NE', 25603.770401000977), ('ARTD NE NE', 26876.821990966797), ('NE NE NE', 46181.16786193848)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect ES
+-------------------------------------------------
+
+Av. length of paragraphs: 946.1242621939647
+-------------------------------------------------
+
+10 most frequent unigrams took 0.17473483085632324 seconds.
+10 most frequent unigrams: [('de', 25788176), ('el', 21253491), ('la', 16812046), ('que', 15285187), ('y', 11087306), ('en', 10041540), ('a', 9803135), ('ser', 8177985), ('un', 8062924), ('se', 5378086)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.13058853149414062 seconds.
+10 most frequent nouns: [('año', 734890), ('día', 544305), ('persona', 449857), ('cosa', 449418), ('vida', 431726), ('tiempo', 411391), ('forma', 362840), ('mundo', 353737), ('caso', 295231), ('parte', 280853)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0015141963958740234 seconds.
+10 most frequent verbs: [('ser', 8088645), ('haber', 3973658), ('tener', 2422672), ('poder', 2069063), ('estar', 1980861), ('hacer', 1868148), ('ir', 1019534), ('decir', 972112), ('ver', 936077), ('dar', 802974)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'ir', 'ver', 'dar']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'haber hacer', 'ser ser', 'poder hacer', 'haber tener', 'si haber', 'haber ver', 'ser mejor']
+-------------------------------------------------
+
+MI took 15630.964490413666 seconds.
+10 unigrams with highest MI score: [('poptails', 2.1020427905099193), ('frémir', 2.1020427905099193), ('salud/enfermedad/atención-prevención', 2.1020427905099193), ('s/e/a-p', 2.1020427905099193), ('inóleo', 2.1020427905099193), ('föhr', 2.1020427905099193), ('makaïla', 2.1020427905099193), ('retroh', 2.1020427905099193), ('loxam', 2.1020427905099193), ('xone1d', 2.1020427905099193)]
+-------------------------------------------------
+
+LL took 85027.63737869263 seconds.
+10 unigrams with highest LL score: [('el', 118672.60977172852), ('tu', 121916.03642272949), ('madrid', 133364.96348571777), ('que', 164147.0510559082), ('euro', 165188.5687713623), ('españa', 169993.37313842773), ('nacional', 176215.17794799805), ('yo', 233785.71795654297), ('vosotros', 278745.04557800293), ('haber', 322042.0684814453)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0009531974792480469 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 28685455), ('NN PREP', 25253309), ('PREP ARTD', 19730920), ('PREP NN', 12121160), ('NN ADJ', 11769622), ('ADJ PREP', 7249258), ('NN CC', 7227661), ('ARTI NN', 6498102), ('NE NE', 5997928), ('ADJ NN', 5613749)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.01798415184020996 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 14588693), ('ARTD NN PREP', 10262168), ('NN PREP ARTD', 8550555), ('NN PREP NN', 6887983), ('ARTD NN ADJ', 4376852), ('NN ADJ PREP', 3781622), ('PREP NN PREP', 3599520), ('ADJ PREP ARTD', 2755146), ('PREP DETP NN', 2370714), ('ARTD NN CC', 2325738)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'prep nn', 'nn adj', 'adj prep', 'nn cc', 'arti nn', 'ne ne', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'prep detp nn', 'artd nn cc']
+-------------------------------------------------
+
+MI for POS bigrams took 0.08213448524475098 seconds.
+10 POS bigrams with highest MI score: [('ARTI E_22', 1.2719677938844944), ('DETD PP', 1.285864019997572), ('E_22 DETD', 1.3244352137786302), ('VM E_31', 1.3244352137786302), ('PREP E_31', 1.365077198275976), ('NADA E_32', 1.4239708873295445), ('E_21 I', 1.4239708873295445), ('X E_31', 1.5170802917210258), ('E_22 Y', 1.5950828037222993), ('E_33 VII', 1.6870052931633384)]
+-------------------------------------------------
+
+MI for POS trigrams took 77.07735228538513 seconds.
+10 POS trigrams with highest MI score: [('VIMP CS NUM$', 2.102042794374445), ('PP VC NUM$', 2.102042794374445), ('DICHO PD PR', 2.102042794374445), ('VIMP ARTI DETI', 2.102042794374445), ('DETD NUM VSJ', 2.102042794374445), ('VM PP VIF', 2.102042794374445), ('NE VSF VIMP', 2.102042794374445), ('VIMP ADV VSF', 2.102042794374445), ('VIMP PINT ADV', 2.1020427943744453), ('VII PINT VPS', 2.1020427943744453)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.09244775772094727 seconds.
+10 POS bigrams with highest LL score: [('VIS CS', 173853.87776184082), ('NE PREP', 174625.52449035645), ('ARTD NN', 175661.98587036133), ('VIS PREP', 181630.66053771973), ('PREP ARTD', 201071.68586730957), ('NE VIS', 208242.1713104248), ('ARTD NE', 232600.33085632324), ('NN VIS', 233753.0703277588), ('VM VPS', 296842.8709869385), ('NE NE', 748965.9976959229)]
+-------------------------------------------------
+
+LL for POS trigrams took 82.02391076087952 seconds.
+10 POS trigrams with highest LL score: [('NN PREP ARTD', 122291.3738861084), ('PS VM VPS', 122943.45188903809), ('NE PREP NE', 123443.33042907715), ('VIS ARTD NN', 125032.90335083008), ('NE NE VIS', 141795.22381591797), ('PREP ARTD NN', 156607.43507385254), ('NE NE PREP', 177934.57707214355), ('ARTD NE NE', 187150.22160339355), ('PREP ARTD NE', 192870.39352416992), ('NE NE NE', 379523.0045928955)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect PA
+-------------------------------------------------
+
+Av. length of paragraphs: 777.7560384825327
+-------------------------------------------------
+
+10 most frequent unigrams took 0.023869037628173828 seconds.
+10 most frequent unigrams: [('de', 1712569), ('el', 1338886), ('la', 1067554), ('que', 690256), ('y', 661751), ('en', 615868), ('a', 548840), ('ser', 420050), ('un', 409709), ('se', 305479)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.014238595962524414 seconds.
+10 most frequent nouns: [('panamá', 57674), ('año', 47661), ('país', 31112), ('persona', 30626), ('día', 30625), ('vida', 24956), ('tiempo', 19958), ('parte', 19333), ('mundo', 18913), ('del', 18424)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0007739067077636719 seconds.
+10 most frequent verbs: [('ser', 416001), ('haber', 149242), ('tener', 110451), ('estar', 102501), ('poder', 97096), ('hacer', 83564), ('ir', 42979), ('decir', 41633), ('deber', 39843), ('dar', 38276)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'panamá', 'si', 'año', 'decir', 'ir']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'deber ser', 'si ser', 'haber hacer', 'poder hacer', 'ser importante', 'ser mejor', 'ser ser', 'panamá ser']
+-------------------------------------------------
+
+MI took 2447.062009334564 seconds.
+10 unigrams with highest MI score: [('vehicular.', 6.2307925476964705), ('trasera.', 6.2307925476964705), ('ytransporte', 6.2307925476964705), ('circulación.', 6.2307925476964705), ('solicitud.', 6.2307925476964705), ('safernet', 6.2307925476964705), ('tgbb', 6.2307925476964705), ('0.0108', 6.2307925476964705), ('15,650', 6.2307925476964705), ('0.0422', 6.2307925476964705)]
+-------------------------------------------------
+
+LL took 10531.69251704216 seconds.
+10 unigrams with highest LL score: [('colón', 14988.297348022461), ('balboa', 15632.93148803711), ('yo', 16060.240447998047), ('que', 16131.589736938477), ('de', 17332.097885131836), ('chiriquí', 23939.48031616211), ('martinelli', 29613.903854370117), ('panama', 30692.35548400879), ('panameño', 134899.2749786377), ('panamá', 366869.44035339355)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0007867813110351562 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 1796037), ('NN PREP', 1654075), ('PREP ARTD', 1301400), ('PREP NN', 788080), ('NN ADJ', 780386), ('NE NE', 587373), ('ADJ PREP', 477474), ('NN CC', 419983), ('PREP NE', 350841), ('ARTI NN', 330629)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.007862091064453125 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 953417), ('ARTD NN PREP', 675408), ('NN PREP ARTD', 583233), ('NN PREP NN', 464184), ('ARTD NN ADJ', 298204), ('NN ADJ PREP', 266072), ('PREP NN PREP', 255822), ('NE NE NE', 204544), ('ADJ PREP ARTD', 192292), ('PREP NN ADJ', 148150)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'prep nn', 'nn adj', 'ne ne', 'adj prep', 'nn cc', 'prep ne', 'arti nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'ne ne ne', 'adj prep artd', 'prep nn adj']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06227278709411621 seconds.
+10 POS bigrams with highest MI score: [('VIS DETINT', 0.8022928502086322), ('PR VIF', 0.8090925142677775), ('E_32 VR', 0.8884004118469606), ('PR VIMP', 0.9412859920990537), ('I NUM$', 0.9438427109975893), ('VSP VSJ', 0.9734047666013868), ('NUM NUM$', 1.108098565890679), ('VSI DICHO', 1.1604032814026408), ('PINT X', 2.107768582820755), ('ADJ/PRON ADJ/PRON', 2.99238786996896)]
+-------------------------------------------------
+
+MI for POS trigrams took 23.9719455242157 seconds.
+10 POS trigrams with highest MI score: [('Y NE VSP', 4.538914966253942), ('ADJ/PRON ADJ/PRON NN', 4.815755171612766), ('DETD ARTI NUM', 4.927601138585834), ('DETD VSJ VPP', 5.043165667715838), ('DETP DETP VIF', 5.3827957643366595), ('NUM$ PP ARTI', 5.5527207657789726), ('PD ARTI VII', 5.645830170170454), ('PINT X DETD', 5.931232389032703), ('VSF DETI E_21', 5.9677582650578165), ('VII NUM$ PP', 6.23079267089161)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.07522845268249512 seconds.
+10 POS bigrams with highest LL score: [('CS ADV', 6079.1165771484375), ('ADV VIP', 6915.960464477539), ('ADV ADV', 7392.102752685547), ('PREP NUM$', 8812.743881225586), ('PREP NN', 9967.68586730957), ('NN PREP', 12761.178970336914), ('PREP NE', 13249.81069946289), ('ARTD NE', 15655.574356079102), ('NE PREP', 23354.659927368164), ('NE NE', 33230.151931762695)]
+-------------------------------------------------
+
+LL for POS trigrams took 39.1103720664978 seconds.
+10 POS trigrams with highest LL score: [('NN CC NN', 5181.935104370117), ('PREP NE NE', 6038.4764404296875), ('PREP NN PREP', 6188.8372802734375), ('ARTD NE PREP', 6618.308654785156), ('NN PREP NN', 9373.07502746582), ('PREP ARTD NE', 11184.696914672852), ('ARTD NE NE', 12887.156616210938), ('NE NE PREP', 13265.11393737793), ('NE NE NE', 13749.747436523438), ('NE PREP NE', 20617.02264404297)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect BO
+-------------------------------------------------
+
+Av. length of paragraphs: 911.5143325710854
+-------------------------------------------------
+
+10 most frequent unigrams took 0.032622337341308594 seconds.
+10 most frequent unigrams: [('de', 3021567), ('el', 2505982), ('la', 1980833), ('que', 1217991), ('y', 1124424), ('en', 1056530), ('a', 990833), ('ser', 688111), ('un', 670319), ('se', 541568)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.02174830436706543 seconds.
+10 most frequent nouns: [('año', 83271), ('bolivia', 78661), ('país', 69987), ('gobierno', 53877), ('día', 45835), ('estado', 42572), ('persona', 41823), ('la', 37521), ('presidente', 36564), ('paz', 35355)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0006585121154785156 seconds.
+10 most frequent verbs: [('ser', 681998), ('haber', 254423), ('tener', 182026), ('estar', 163870), ('poder', 138052), ('hacer', 129744), ('decir', 84569), ('deber', 65400), ('ir', 63726), ('dar', 59550)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'decir', 'año', 'si', 'bolivia', 'país']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'santa cruz', 'poder ser', 'evo morales', 'deber ser', 'si ser', 'haber hacer', 'millón dólar', 'ser necesario', 'presidente evo']
+-------------------------------------------------
+
+MI took 3068.6223320961 seconds.
+10 unigrams with highest MI score: [('kwichi', 5.439202529897941), ('605-v3', 5.439202529897941), ('contenedores-plataforma', 5.439202529897941), ('6-ago', 5.439202529897941), ('androidtool.exe', 5.439202529897941), ('tv&v', 5.439202529897941), ('k9ay', 5.439202529897941), ('2-v-=2013', 5.439202529897941), ('2-v-=13', 5.439202529897941), ('iii.4.2', 5.439202529897941)]
+-------------------------------------------------
+
+LL took 13040.244322538376 seconds.
+10 unigrams with highest LL score: [('morales', 50037.93927001953), ('tu', 53927.83288574219), ('oruro', 54302.088638305664), ('paz', 59283.739669799805), ('indígena', 61287.68476867676), ('yo', 74219.4352722168), ('cochabamba', 75249.69157409668), ('evo', 94995.2632598877), ('boliviano', 300399.7271270752), ('bolivia', 424822.2226715088)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008194446563720703 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 3345614), ('NN PREP', 2893870), ('PREP ARTD', 2454899), ('NN ADJ', 1472543), ('PREP NN', 1317293), ('NE NE', 1090243), ('ADJ PREP', 874931), ('NN CC', 676757), ('PREP NE', 636860), ('ADJ NN', 547330)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.010167837142944336 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1805482), ('ARTD NN PREP', 1263632), ('NN PREP ARTD', 1116391), ('NN PREP NN', 754056), ('ARTD NN ADJ', 635081), ('NN ADJ PREP', 510345), ('PREP NN PREP', 448565), ('ADJ PREP ARTD', 379450), ('NE NE NE', 373460), ('PREP ARTD NE', 275065)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'prep ne', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'prep artd ne']
+-------------------------------------------------
+
+MI for POS bigrams took 0.078338623046875 seconds.
+10 POS bigrams with highest MI score: [('VIF VIS', 1.1086260118107545), ('VIS E_31', 1.1415220161309423), ('VIS Y', 1.151082318950687), ('E_33 NE', 1.1589473190491864), ('NUM$ E_32', 1.180468296371459), ('E_33 CS', 1.191275051328042), ('VSP ADJ/PRON', 1.442031127383399), ('ADJ/PRON BEF', 1.7762375520491982), ('E_33 NUM$', 2.6147741293550815), ('Y NUM$', 3.1270874246050435)]
+-------------------------------------------------
+
+MI for POS trigrams took 29.351398944854736 seconds.
+10 POS trigrams with highest MI score: [('MISMO VIMP DETP', 4.439202599645315), ('VIS Y NUM$', 4.624314004902303), ('PR Y NUM$', 4.661595020981762), ('VIF Y NUM$', 4.665084007061642), ('VSP ADJ/PRON CS', 4.772496949482622), ('VC NUM DETP', 4.801772679030023), ('PREP Y NUM$', 4.836478659759817), ('Y NUM$ NUM', 5.0312346736912605), ('PR VSP ADJ/PRON', 5.227105159036746), ('VSI ADJ VSF', 5.439202599645315)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.08668875694274902 seconds.
+10 POS bigrams with highest LL score: [('NE VIS', 25735.454299926758), ('NN PREP', 28450.895065307617), ('PS VIP', 32722.9931640625), ('ARTD NN', 35323.02633666992), ('PREP NE', 36840.128845214844), ('NE PREP', 39332.995178222656), ('NN ADJ', 39583.89433288574), ('ARTD NE', 43804.73204040527), ('PREP ARTD', 52633.77540588379), ('NE NE', 101176.01600646973)]
+-------------------------------------------------
+
+LL for POS trigrams took 46.17148041725159 seconds.
+10 POS trigrams with highest LL score: [('ARTD NE NE', 22945.46827697754), ('NE PREP NE', 23246.054122924805), ('NE NE PREP', 24675.01808166504), ('ARTD NN PREP', 25029.307907104492), ('PREP NE NE', 27337.341354370117), ('PREP ARTD NE', 33377.81106567383), ('NN PREP ARTD', 33939.18452453613), ('PREP ARTD NN', 34001.19471740723), ('NE NE NE', 35905.8330078125), ('ARTD NN ADJ', 41252.276763916016)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect NI
+-------------------------------------------------
+
+Av. length of paragraphs: 854.6735768713581
+-------------------------------------------------
+
+10 most frequent unigrams took 0.027007102966308594 seconds.
+10 most frequent unigrams: [('de', 2312786), ('el', 1868642), ('la', 1475783), ('que', 921452), ('y', 888704), ('en', 827056), ('a', 769475), ('ser', 528858), ('un', 525301), ('se', 403653)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.01941704750061035 seconds.
+10 most frequent nouns: [('año', 70604), ('nicaragua', 64574), ('país', 52249), ('día', 39135), ('persona', 38447), ('vida', 32901), ('mujer', 28544), ('gobierno', 28352), ('parte', 25452), ('del', 25309)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.000823974609375 seconds.
+10 most frequent verbs: [('ser', 523058), ('haber', 214956), ('estar', 137674), ('tener', 137192), ('poder', 109032), ('hacer', 102373), ('decir', 69028), ('ir', 55688), ('dar', 51646), ('deber', 44190)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'decir', 'año', 'nicaragua', 'si', 'ir']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'costa rica', 'deber ser', 'haber hacer', 'si ser', 'ser ser', 'poder hacer', 'haber tener', 'ser importante']
+-------------------------------------------------
+
+MI took 2686.732537508011 seconds.
+10 unigrams with highest MI score: [('sudaba', 5.810465707763843), ('dawan', 5.810465707763843), ('carmeló', 5.810465707763843), ('cojta', 5.810465707763843), ('ocepedia', 5.810465707763843), ('fadp', 5.810465707763843), ('sodermix®', 5.810465707763843), ('cd4cdm', 5.810465707763843), ('linuel', 5.810465707763843), ('serwap', 5.810465707763843)]
+-------------------------------------------------
+
+LL took 11704.654176950455 seconds.
+10 unigrams with highest LL score: [('masaya', 29136.87223815918), ('fsln', 29180.260055541992), ('yo', 29796.597290039062), ('matagalpa', 30697.737854003906), ('sandino', 33465.06483459473), ('ortega', 35333.61721801758), ('sandinista', 59431.640701293945), ('managua', 121730.20213317871), ('nicaragüense', 173341.82138061523), ('nicaragua', 392479.3243865967)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0007982254028320312 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 2459837), ('NN PREP', 2206815), ('PREP ARTD', 1833622), ('NN ADJ', 1052771), ('PREP NN', 982723), ('NE NE', 898199), ('ADJ PREP', 643661), ('NN CC', 530015), ('PREP NE', 520557), ('ARTI NN', 423035)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.010047674179077148 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1329440), ('ARTD NN PREP', 925100), ('NN PREP ARTD', 826613), ('NN PREP NN', 567533), ('ARTD NN ADJ', 427671), ('NN ADJ PREP', 365917), ('PREP NN PREP', 335374), ('NE NE NE', 325779), ('ADJ PREP ARTD', 269373), ('PREP ARTD NE', 229041)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'prep ne', 'arti nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'ne ne ne', 'adj prep artd', 'prep artd ne']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06583118438720703 seconds.
+10 POS bigrams with highest MI score: [('ADJ/PRON ADJ/PRON', 1.1570235147630967), ('VSI VSJ', 1.1666095635922946), ('VIS DETINT', 1.1755151168141864), ('ARTI VSI', 1.2456811345834935), ('VSF NADA', 1.3122148858391938), ('BEF VSI', 1.3775063460909134), ('VPS E_32', 1.7400764254756214), ('DETP E_32', 1.8364609618999639), ('ADJ/PRON NE', 2.0173570811632793), ('BEF ADJ/PRON', 3.3510341347297223)]
+-------------------------------------------------
+
+MI for POS trigrams took 26.60806131362915 seconds.
+10 POS trigrams with highest MI score: [('VIP PR ADJ', 3.9994741342737057), ('VIF VSP NN', 4.003110876912594), ('CS VPS PINT', 4.073500204803991), ('PREP Y VIMP', 4.337529915983152), ('DICHO VR CC', 4.380321407301145), ('Y DETI VPP', 4.447895719585489), ('VPS VR VIF', 4.745925546775487), ('ADJ/PRON NE ADJ/PRON', 4.903575203361679), ('PR VC PR', 4.962468892415247), ('NE ARTI VSI', 5.58807337763375)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.07795500755310059 seconds.
+10 POS bigrams with highest LL score: [('VIP ADV', 11269.049072265625), ('ADV ADV', 11429.795547485352), ('NN PREP', 15923.834732055664), ('ADV VIP', 16646.630477905273), ('PS VIP', 18437.71730041504), ('PREP ARTD', 22846.03189086914), ('PREP NE', 44299.656814575195), ('ARTD NE', 54552.29997253418), ('NE PREP', 54619.18730163574), ('NE NE', 117711.27253723145)]
+-------------------------------------------------
+
+LL for POS trigrams took 42.461998462677 seconds.
+10 POS trigrams with highest LL score: [('PREP NE PREP', 11315.46208190918), ('ARTD NE PREP', 13608.15608215332), ('NN PREP ARTD', 14367.92707824707), ('NE PREP ARTD', 14643.635009765625), ('PREP NE NE', 15625.645126342773), ('NE NE PREP', 30346.18148803711), ('NE PREP NE', 33357.91307067871), ('PREP ARTD NE', 39169.99559020996), ('ARTD NE NE', 41369.44728088379), ('NE NE NE', 56835.253845214844)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect CO
+-------------------------------------------------
+
+Av. length of paragraphs: 865.4080661728929
+-------------------------------------------------
+
+10 most frequent unigrams took 0.08060526847839355 seconds.
+10 most frequent unigrams: [('de', 11313567), ('el', 9417265), ('la', 7536619), ('que', 5312496), ('y', 4678999), ('en', 4220544), ('a', 3909259), ('ser', 3140548), ('un', 2890824), ('se', 2231762)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.058910369873046875 seconds.
+10 most frequent nouns: [('año', 287602), ('persona', 227834), ('vida', 225111), ('día', 203454), ('país', 169847), ('dios', 168684), ('tiempo', 151492), ('colombia', 151123), ('mundo', 150880), ('cosa', 136643)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0015339851379394531 seconds.
+10 most frequent verbs: [('ser', 3094841), ('haber', 1125704), ('tener', 815799), ('estar', 709536), ('poder', 679771), ('hacer', 668659), ('decir', 356849), ('deber', 300049), ('ir', 294474), ('dar', 289653)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'deber', 'dar', 'ir']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'deber ser', 'haber hacer', 'ser ser', 'poder hacer', 'ser necesario', 'ser importante', 'tener cuenta']
+-------------------------------------------------
+
+MI took 7198.663732051849 seconds.
+10 unigrams with highest MI score: [('righetto', 3.4190016833021555), ('mashíaj&gt', 3.4190016833021555), ('sakrofonesón', 3.4190016833021555), ('mantraliso', 3.4190016833021555), ('digiturno', 3.4190016833021555), ('celu\xadla', 3.4190016833021555), ('ser\xadpi\xadente', 3.4190016833021555), ('kalic', 3.4190016833021555), ('levrard', 3.4190016833021555), ('midonn', 3.4190016833021555)]
+-------------------------------------------------
+
+LL took 38978.40950489044 seconds.
+10 unigrams with highest LL score: [('cartagena', 31797.570892333984), ('cauca', 37949.8974609375), ('antioquia', 48310.87739562988), ('farc', 53638.42100524902), ('uribe', 55839.389892578125), ('medellín', 93990.51512145996), ('cali', 97326.1752166748), ('bogotá', 187207.80589294434), ('colombiano', 276149.1860809326), ('colombia', 387793.06660461426)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.000988006591796875 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 12947638), ('NN PREP', 11104416), ('PREP ARTD', 9096823), ('NN ADJ', 5309077), ('PREP NN', 5105401), ('NE NE', 3257288), ('ADJ PREP', 3213285), ('NN CC', 2993967), ('ARTI NN', 2368985), ('ADJ NN', 2202404)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.010725021362304688 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 6830714), ('ARTD NN PREP', 4748797), ('NN PREP ARTD', 4062204), ('NN PREP NN', 2962040), ('ARTD NN ADJ', 2111658), ('NN ADJ PREP', 1787889), ('PREP NN PREP', 1609529), ('ADJ PREP ARTD', 1330467), ('NE NE NE', 1138014), ('ARTD NN CC', 1047939)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'artd nn cc']
+-------------------------------------------------
+
+MI for POS bigrams took 0.07584047317504883 seconds.
+10 POS bigrams with highest MI score: [('VSP E_32', 1.0497678809638482), ('E_32 VIF', 1.1335994717673188), ('PS PP', 1.2642790958309251), ('VSF VIF', 1.2664438211573428), ('NADA BEF', 1.3794733264429297), ('NADA PP', 1.4832824419618298), ('MISMO PP', 1.49700420263084), ('VSF PINT', 1.6820360964633607), ('ADJ/PRON DICHO', 2.0024745732102365), ('ADJ/PRON E_31', 2.2814981668796324)]
+-------------------------------------------------
+
+MI for POS trigrams took 47.912413597106934 seconds.
+10 POS trigrams with highest MI score: [('PI VSF PD', 2.933574870786737), ('VSF PREP PINT', 2.957867784088681), ('VSJ ADJ PP', 3.003964198678135), ('PP DETP PP', 3.003964198678135), ('Y PR VR', 3.0190710910683434), ('PR NE VIMP', 3.155967292123185), ('VII PINT I', 3.1903773229090167), ('NUM$ DETP Y', 3.230240054501811), ('ADJ/PRON DICHO NE', 3.392529486595788), ('PP VIMP PP', 3.419001697956979)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.08738565444946289 seconds.
+10 POS bigrams with highest LL score: [('NUM$ PREP', 9792.345565795898), ('CS ADV', 10269.251083374023), ('NN ADJ', 12456.998641967773), ('VIP CS', 14230.313735961914), ('ADV ADV', 14806.379043579102), ('ARTD PR', 15674.384658813477), ('NN NUM$', 19183.799087524414), ('NN PREP', 21290.135208129883), ('PREP ARTD', 29803.487106323242), ('ARTD NN', 41220.71586608887)]
+-------------------------------------------------
+
+LL for POS trigrams took 66.41851496696472 seconds.
+10 POS trigrams with highest LL score: [('ADJ PREP ARTD', 8524.879745483398), ('ARTD NN ADJ', 8891.009674072266), ('NN ADJ PREP', 9086.26089477539), ('PREP ARTD PR', 10907.291915893555), ('NN PREP ARTD', 19803.16375732422), ('NUM$ PREP NUM$', 20246.406204223633), ('ARTD NN NUM$', 20523.903732299805), ('ARTD NN PREP', 21527.992156982422), ('NN NUM$ PREP', 26135.54054260254), ('PREP ARTD NN', 33562.13961791992)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect GT
+-------------------------------------------------
+
+Av. length of paragraphs: 853.5074225998633
+-------------------------------------------------
+
+10 most frequent unigrams took 0.04482102394104004 seconds.
+10 most frequent unigrams: [('de', 3617288), ('el', 2972840), ('la', 2368600), ('que', 1765014), ('y', 1557431), ('en', 1344358), ('a', 1337347), ('ser', 1054385), ('un', 915172), ('se', 728089)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.029214143753051758 seconds.
+10 most frequent nouns: [('año', 107867), ('guatemala', 91860), ('persona', 88378), ('vida', 78495), ('día', 77506), ('dios', 76380), ('país', 64125), ('tiempo', 53047), ('cosa', 45097), ('mundo', 44837)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0009837150573730469 seconds.
+10 most frequent verbs: [('ser', 1040769), ('haber', 372505), ('tener', 272683), ('estar', 240213), ('poder', 223893), ('hacer', 219472), ('decir', 128021), ('dar', 112997), ('ir', 110001), ('ver', 98950)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'dar', 'ir', 'año']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'deber ser', 'haber hacer', 'poder hacer', 'ser ser', 'ser importante', 'ser bueno', 'ser necesario']
+-------------------------------------------------
+
+MI took 3939.295266866684 seconds.
+10 unigrams with highest MI score: [('1+w', 5.029160626283554), ('×q', 5.029160626283554), ('kristahl', 5.029160626283554), ('cuotapartisto', 5.029160626283554), ('prime=&=bond=nt', 5.029160626283554), ('espíritu-intelectual', 5.029160626283554), ('odhr', 5.029160626283554), ('29-mar-2012', 5.029160626283554), ('skjasdhaksljdhasldkj', 5.029160626283554), ('05-aug-2013', 5.029160626283554)]
+-------------------------------------------------
+
+LL took 18946.53609585762 seconds.
+10 unigrams with highest LL score: [('quetzal', 19937.462631225586), ('indígena', 20606.105560302734), ('quetzaltenango', 21592.08526611328), ('guate', 24899.74378967285), ('esquipulas', 24932.15367126465), ('chapín', 28708.566482543945), ('dios', 35147.17028808594), ('maya', 44594.6671295166), ('guatemalteco', 174692.91331481934), ('guatemala', 487661.023727417)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008788108825683594 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 4018494), ('NN PREP', 3515747), ('PREP ARTD', 2829539), ('NN ADJ', 1635105), ('PREP NN', 1619230), ('NE NE', 1148213), ('NN CC', 988875), ('ADJ PREP', 982502), ('ARTI NN', 743932), ('ADJ NN', 700434)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.008750677108764648 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 2096042), ('ARTD NN PREP', 1459649), ('NN PREP ARTD', 1244941), ('NN PREP NN', 918851), ('ARTD NN ADJ', 635888), ('NN ADJ PREP', 533950), ('PREP NN PREP', 504769), ('NE NE NE', 411486), ('ADJ PREP ARTD', 390301), ('PREP DETP NN', 351234)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'nn cc', 'adj prep', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'ne ne ne', 'adj prep artd', 'prep detp nn']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06853795051574707 seconds.
+10 POS bigrams with highest MI score: [('VPP E_21', 1.2020722573513773), ('VPP DETINT', 1.2321476742764732), ('ADJ/PRON VIMP', 1.2425642902218117), ('VPS E_31', 1.2636259057496413), ('PD VSF', 1.3411046584273587), ('VIF VSF', 1.751175904812853), ('E_22 PINT', 1.929624978561704), ('PD PP', 2.006792839084164), ('VSI VIMP', 2.486262210958006), ('ARTI DETP', 2.8656859745694394)]
+-------------------------------------------------
+
+MI for POS trigrams took 34.78589415550232 seconds.
+10 POS trigrams with highest MI score: [('ARTI DETP NUM$', 3.9222454740251713), ('VSI ARTI DETP', 3.974712893919307), ('VC ARTI DETP', 4.029160677941683), ('I ARTI DETP', 4.029160677941683), ('X ARTI DETP', 4.111622838133656), ('DETD ARTD NADA', 4.328720959800592), ('PS ARTI DETP', 4.330027157301216), ('NUM$ DETP BEF', 4.437800406022377), ('PS DETD Y', 4.483336571127485), ('MISMO Y VPP', 4.956556928984844)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.08013105392456055 seconds.
+10 POS bigrams with highest LL score: [('ARTD NE', 3250.2918090820312), ('VIP ADV', 3254.1912231445312), ('NN NN', 3265.3009185791016), ('ADV ADV', 4269.5838623046875), ('ADV ADJ', 4424.67463684082), ('CC NN', 4484.246017456055), ('ARTI NN', 4497.112442016602), ('NE PREP', 5594.056640625), ('DETP NN', 6285.02311706543), ('NE NE', 7613.537155151367)]
+-------------------------------------------------
+
+LL for POS trigrams took 51.89983797073364 seconds.
+10 POS trigrams with highest LL score: [('NN NUM$ PREP', 2303.1551971435547), ('ARTI DETP NN', 2306.0428924560547), ('NUM$ PREP NN', 2660.7601013183594), ('NE NN DETP', 2854.088150024414), ('NE NUM$ NUM$', 2947.510513305664), ('ARTD NE NE', 3261.2835388183594), ('NE NE PREP', 3286.646453857422), ('NN CC NN', 4412.046478271484), ('NE PREP NE', 5189.549880981445), ('NE NE NE', 7348.123336791992)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect PR
+-------------------------------------------------
+
+Av. length of paragraphs: 946.3566811299034
+-------------------------------------------------
+
+10 most frequent unigrams took 0.030560970306396484 seconds.
+10 most frequent unigrams: [('de', 2185086), ('el', 1820519), ('la', 1426175), ('que', 1056043), ('y', 917502), ('en', 820809), ('a', 813424), ('ser', 637336), ('un', 593792), ('se', 428776)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.017508268356323242 seconds.
+10 most frequent nouns: [('año', 57216), ('puerto', 55688), ('rico', 54264), ('persona', 53372), ('día', 42180), ('vida', 41962), ('dios', 38860), ('tiempo', 32450), ('parte', 28285), ('cosa', 26892)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0008904933929443359 seconds.
+10 most frequent verbs: [('ser', 628372), ('haber', 224667), ('tener', 174331), ('poder', 156589), ('estar', 154921), ('hacer', 126860), ('decir', 79346), ('ir', 63987), ('ver', 60592), ('dar', 57473)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'ir', 'ver', 'cuándo']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['puerto rico', 'haber ser', 'poder ser', 'si ser', 'vocero puerto', 'deber ser', 'san juan', 'poder hacer', 'haber hacer', 'ser ser']
+-------------------------------------------------
+
+MI took 2961.520762205124 seconds.
+10 unigrams with highest MI score: [('61307', 5.738826318810596), ('serviciosrelacionado', 5.738826318810596), ('773-9700', 5.738826318810596), ('www.divicarina.com', 5.738826318810596), ('acyf', 5.738826318810596), ('ihicis', 5.738826318810596), ('cobada', 5.738826318810596), ('etie', 5.738826318810596), ('arid5b', 5.738826318810596), ('aspartame®', 5.738826318810596)]
+-------------------------------------------------
+
+LL took 13012.193029403687 seconds.
+10 unigrams with highest LL score: [('fortuño', 14343.482208251953), ('ponce', 15599.230972290039), ('mayagüez', 17116.273712158203), ('upr', 18158.907669067383), ('boricua', 19715.49429321289), ('pr', 20331.683364868164), ('isla', 22522.383178710938), ('puertorriqueño', 86755.96018981934), ('rico', 197425.45416259766), ('puerto', 219744.46241760254)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008366107940673828 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 2469149), ('NN PREP', 2183218), ('PREP ARTD', 1689141), ('NN ADJ', 994025), ('PREP NN', 990210), ('NE NE', 782151), ('ADJ PREP', 611678), ('NN CC', 598977), ('ARTI NN', 491804), ('PREP NE', 442764)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.008652687072753906 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1264246), ('ARTD NN PREP', 901573), ('NN PREP ARTD', 746016), ('NN PREP NN', 580192), ('ARTD NN ADJ', 368558), ('NN ADJ PREP', 332569), ('PREP NN PREP', 312271), ('NE NE NE', 269332), ('ADJ PREP ARTD', 237942), ('PREP DETP NN', 229049)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'prep ne']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'ne ne ne', 'adj prep artd', 'prep detp nn']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06763362884521484 seconds.
+10 POS bigrams with highest MI score: [('PD VSF', 1.3402769856326617), ('DETINT ARTD', 1.4350456139458339), ('VIF VSF', 1.4608416148231713), ('NUM$ PP', 1.5689013606806244), ('VSF VIMP', 1.5913387498003795), ('PD DICHO', 1.7090790187288845), ('ADJ/PRON VIMP', 1.95223000023213), ('BEF PR', 2.174041743339411), ('VC MISMO', 2.2242531892931785), ('PP DETINT', 2.3328340024471)]
+-------------------------------------------------
+
+MI for POS trigrams took 30.935736417770386 seconds.
+10 POS trigrams with highest MI score: [('Y ADV E_21', 4.295219753959665), ('NE BEF PR', 4.323788906156435), ('PR NUM NE', 4.331651023929406), ('MISMO DETD MISMO', 4.374253973139423), ('ARTD ADJ/PRON NE', 4.400240966594309), ('VPS ARTI VR', 4.410280431783409), ('ARTI ARTD VM', 4.5929755389718245), ('VIMP NUM$ VIS', 4.601322881685344), ('ADJ/PRON NE ARTI', 5.40737553642941), ('BEF PR DETP', 5.738826405435279)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.0787198543548584 seconds.
+10 POS bigrams with highest LL score: [('CC NN', 2675.895065307617), ('CC ADV', 2768.361083984375), ('ADV ADJ', 2773.089584350586), ('CS PREP', 3105.0912322998047), ('NE PREP', 3314.5235900878906), ('PREP NE', 3569.5316314697266), ('PREP DETP', 4435.697677612305), ('ADV ADV', 4822.635147094727), ('DETP NN', 8229.143142700195), ('NE NE', 27202.71710205078)]
+-------------------------------------------------
+
+LL for POS trigrams took 46.00908851623535 seconds.
+10 POS trigrams with highest LL score: [('ARTD NN ADJ', 2233.4031829833984), ('NN PREP DETP', 2305.0650177001953), ('DETP NN PREP', 2596.0316619873047), ('NN CC NN', 2677.702102661133), ('NE NE PREP', 3751.269271850586), ('PREP ARTD CS', 3878.694137573242), ('NE PREP NE', 3891.2147521972656), ('PREP DETP NN', 4677.344192504883), ('NE NE NE', 10573.856689453125), ('PREP NE NE', 18228.71809387207)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect CR
+-------------------------------------------------
+
+Av. length of paragraphs: 897.992151556157
+-------------------------------------------------
+
+10 most frequent unigrams took 0.02193140983581543 seconds.
+10 most frequent unigrams: [('de', 2058511), ('el', 1683032), ('la', 1322002), ('que', 964421), ('y', 860887), ('en', 771135), ('a', 725540), ('ser', 600310), ('un', 572779), ('se', 430590)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.02015542984008789 seconds.
+10 most frequent nouns: [('año', 57645), ('persona', 47131), ('día', 40717), ('país', 37079), ('costa', 36930), ('vida', 34843), ('rica', 33870), ('tiempo', 29376), ('forma', 27543), ('parte', 25153)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0007967948913574219 seconds.
+10 most frequent verbs: [('ser', 593742), ('haber', 197991), ('tener', 158101), ('poder', 139848), ('estar', 130630), ('hacer', 123411), ('decir', 65390), ('ir', 65198), ('deber', 60331), ('dar', 59307)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'ir', 'deber', 'dar']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['costa rica', 'haber ser', 'poder ser', 'si ser', 'deber ser', 'san josé', 'poder hacer', 'ser importante', 'haber hacer', 'ser ser']
+-------------------------------------------------
+
+MI took 2661.774308681488 seconds.
+10 unigrams with highest MI score: [('tesorero-contador', 5.841327540297538), ('injoque', 5.841327540297538), ('6140-7523', 5.841327540297538), ('kgg.', 5.841327540297538), ('pdiaz@saborysalud.com.', 5.841327540297538), ('novacinemas.cr', 5.841327540297538), ('tiquiciamodosdigitales®', 5.841327540297538), ('pdv-cornell', 5.841327540297538), ('end-link', 5.841327540297538), ('nccl', 5.841327540297538)]
+-------------------------------------------------
+
+LL took 12093.324865341187 seconds.
+10 unigrams with highest LL score: [('alajuela', 11066.611618041992), ('puntarenas', 11952.069778442383), ('cartago', 12919.999160766602), ('guanacaste', 14837.013961791992), ('colon', 15143.817520141602), ('tu', 16642.678741455078), ('tico', 25931.859085083008), ('costarricense', 83532.90933227539), ('costa', 117476.16809082031), ('rica', 172321.24711608887)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008490085601806641 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 2283016), ('NN PREP', 2034903), ('PREP ARTD', 1578315), ('PREP NN', 990503), ('NN ADJ', 973004), ('NE NE', 611516), ('ADJ PREP', 584220), ('NN CC', 565380), ('ARTI NN', 462172), ('ADJ NN', 418018)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.009510993957519531 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1175426), ('ARTD NN PREP', 823748), ('NN PREP ARTD', 694048), ('NN PREP NN', 579888), ('ARTD NN ADJ', 361908), ('NN ADJ PREP', 319514), ('PREP NN PREP', 300394), ('ADJ PREP ARTD', 228416), ('NE NE NE', 198472), ('ARTD NN CC', 187965)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'prep nn', 'nn adj', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'artd nn cc']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06717920303344727 seconds.
+10 POS bigrams with highest MI score: [('ARTI VSI', 1.1770072945887549), ('E_32 VM', 1.185975758310641), ('VR E_32', 1.2168367220154015), ('PR MISMO', 1.2563650862020388), ('VC X', 1.4192628207503828), ('DETD X', 1.513286185887269), ('E_32 VIS', 1.8871312765363197), ('BEF ARTI', 2.2372562632543342), ('MISMO PP', 2.2563650862020386), ('ARTI VSF', 2.747351438714181)]
+-------------------------------------------------
+
+MI for POS trigrams took 28.727924585342407 seconds.
+10 POS trigrams with highest MI score: [('PD X VPP', 3.841327633548854), ('VIF VIF I', 4.163255728436217), ('VC X ADJ', 4.220741223096977), ('DETD NE ADJ/PRON', 4.469358856161897), ('VPS NE DICHO', 4.561219714356119), ('NE BEF ARTI', 4.696937724213679), ('DICHO VM NE', 4.841327633548854), ('PP NE VPS', 5.07265317965531), ('ARTI VSI NE', 5.355900806378612), ('VSP VC X', 5.725850416128918)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.07918548583984375 seconds.
+10 POS bigrams with highest LL score: [('ARTD PR', 1796.6457214355469), ('NUM$ NN', 2103.4607696533203), ('NE VIS', 2347.7555084228516), ('PREP NE', 2445.5747833251953), ('ARTD CS', 2722.5052185058594), ('CC NN', 2843.3035888671875), ('VIS CS', 2893.8404846191406), ('VM VPS', 4084.2015075683594), ('NN NN', 4501.3717041015625), ('PREP NN', 5068.584365844727)]
+-------------------------------------------------
+
+LL for POS trigrams took 45.2232563495636 seconds.
+10 POS trigrams with highest LL score: [('ARTD NN NE', 1540.4766693115234), ('NUM$ NN PREP', 1555.013916015625), ('NE VIS CS', 1631.4573822021484), ('NN NN NN', 1720.4621124267578), ('PREP NN ADJ', 1776.395736694336), ('PREP NN NN', 1799.200439453125), ('NN PREP NE', 2232.5874633789062), ('PREP ARTD CS', 2628.3145446777344), ('NN CC NN', 2646.6914825439453), ('NN PREP NN', 5339.58659362793)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect EC
+-------------------------------------------------
+
+Av. length of paragraphs: 825.044917669411
+-------------------------------------------------
+
+10 most frequent unigrams took 0.03778648376464844 seconds.
+10 most frequent unigrams: [('de', 3737092), ('el', 3144614), ('la', 2441556), ('que', 1709071), ('y', 1485360), ('en', 1371623), ('a', 1302926), ('ser', 991927), ('un', 930072), ('se', 737198)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.027922630310058594 seconds.
+10 most frequent nouns: [('año', 102207), ('país', 72967), ('persona', 72946), ('día', 63307), ('ecuador', 61856), ('vida', 61033), ('tiempo', 47480), ('mundo', 45239), ('derecho', 43902), ('del', 43281)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0012900829315185547 seconds.
+10 most frequent verbs: [('ser', 977589), ('haber', 371632), ('tener', 260676), ('estar', 233652), ('poder', 213186), ('hacer', 196049), ('decir', 117514), ('ir', 99114), ('deber', 93480), ('dar', 92130)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'año', 'ir', 'deber']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'deber ser', 'si ser', 'haber hacer', 'ser ser', 'poder hacer', 'ser necesario', 'ser importante', 'decir ser']
+-------------------------------------------------
+
+MI took 3650.560593366623 seconds.
+10 unigrams with highest MI score: [('e/c.12/2000/4página', 5.038117810201036), ('microfraccionar', 5.038117810201036), ('euratsfeld', 5.038117810201036), ("lojt'a", 5.038117810201036), ('bottica', 5.038117810201036), ('coralía', 5.038117810201036), ('motivatorio', 5.038117810201036), ('55gy', 5.038117810201036), ('70gy', 5.038117810201036), ('signo.gif', 5.038117810201036)]
+-------------------------------------------------
+
+LL took 17386.63287115097 seconds.
+10 unigrams with highest LL score: [('yasuní', 28650.558868408203), ('cantón', 29676.088760375977), ('cuenca', 30199.386947631836), ('loja', 30280.421997070312), ('emelec', 46929.25914001465), ('correa', 75022.21220397949), ('guayaquil', 101564.16835021973), ('quito', 156204.10028076172), ('ecuatoriano', 195539.22537231445), ('ecuador', 271164.0654449463)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008668899536132812 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 4194441), ('NN PREP', 3644120), ('PREP ARTD', 3035907), ('NN ADJ', 1774023), ('PREP NN', 1682095), ('NE NE', 1181502), ('ADJ PREP', 1054879), ('NN CC', 946634), ('ARTI NN', 758201), ('ADJ NN', 726623)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.011010408401489258 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 2228278), ('ARTD NN PREP', 1539552), ('NN PREP ARTD', 1356718), ('NN PREP NN', 966761), ('ARTD NN ADJ', 717071), ('NN ADJ PREP', 593526), ('PREP NN PREP', 537625), ('ADJ PREP ARTD', 443303), ('NE NE NE', 406110), ('ARTD NN CC', 322919)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'artd nn cc']
+-------------------------------------------------
+
+MI for POS bigrams took 0.0705411434173584 seconds.
+10 POS bigrams with highest MI score: [('NUM$ I', 1.334014128685542), ('PREP BEF', 1.497436936214927), ('E_33 PI', 1.502064935961248), ('PR MISMO', 1.5906588592302362), ('E_22 NE', 1.9088348192564912), ('PR BEF', 1.950654994951118), ('NUM$ E_31', 2.1312272405929393), ('VSF PR', 2.1756213599513927), ('PINT MISMO', 3.2307629141438534), ('BEF BEF', 3.796531849631699)]
+-------------------------------------------------
+
+MI for POS trigrams took 32.355485916137695 seconds.
+10 POS trigrams with highest MI score: [('DETP I NUM', 3.8157254408654326), ('DICHO NE ARTI', 3.9169315156818234), ('PS BEF PD', 3.938582188650966), ('ADJ/PRON NE ARTD', 3.9854375455257034), ('DETP DETP VPP', 4.03811786220188), ('VR ADJ/PRON NE', 4.044091763246514), ('PD VIF VM', 4.217823884436778), ('BEF BEF NN', 4.526617523421746), ('ARTD BEF BEF', 4.71929567818234), ('PINT MISMO VIP', 4.738557580342973)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.08243322372436523 seconds.
+10 POS bigrams with highest LL score: [('ADV VIP', 5359.937927246094), ('PS VIP', 7044.8040771484375), ('ADV ADV', 7066.474258422852), ('NE PREP', 7865.083404541016), ('NN PREP', 9359.146530151367), ('NN ADJ', 9526.725875854492), ('ARTD NN', 10259.162887573242), ('NE NE', 15909.382446289062), ('PREP ARTD', 19805.13133239746), ('ARTD NE', 23344.40705871582)]
+-------------------------------------------------
+
+LL for POS trigrams took 49.21230173110962 seconds.
+10 POS trigrams with highest LL score: [('ARTD NN PREP', 5709.467239379883), ('ARTD NE PREP', 5746.91194152832), ('NUM$ NUM$ I', 6127.182998657227), ('NE NE NE', 6532.555282592773), ('NUM$ I PREP', 7233.205474853516), ('ARTD NN ADJ', 7866.101638793945), ('ARTD NE NE', 10399.17658996582), ('PREP ARTD NN', 10869.742050170898), ('NN PREP ARTD', 11774.473770141602), ('PREP ARTD NE', 17689.171432495117)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect AR
+-------------------------------------------------
+
+Av. length of paragraphs: 955.2010959982015
+-------------------------------------------------
+
+10 most frequent unigrams took 0.0973808765411377 seconds.
+10 most frequent unigrams: [('de', 11381337), ('el', 9857691), ('la', 7902846), ('que', 6094803), ('y', 4736200), ('en', 4397915), ('a', 4333346), ('ser', 3379938), ('un', 3294135), ('se', 2420331)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.06673383712768555 seconds.
+10 most frequent nouns: [('año', 329943), ('día', 205387), ('vida', 186216), ('cosa', 173494), ('persona', 171605), ('tiempo', 157520), ('país', 139586), ('mundo', 135669), ('forma', 130844), ('momento', 127302)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0015888214111328125 seconds.
+10 most frequent verbs: [('ser', 3337298), ('haber', 1099716), ('tener', 943106), ('estar', 831168), ('poder', 763851), ('hacer', 730938), ('decir', 452692), ('ir', 435646), ('ver', 312261), ('dar', 298468)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'ir', 'año', 'ver']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['poder ser', 'haber ser', 'buenos aires', 'si ser', 'deber ser', 'ser ser', 'poder hacer', 'decir ser', 'haber hacer', 'cada vez']
+-------------------------------------------------
+
+MI took 8188.820229291916 seconds.
+10 unigrams with highest MI score: [('wook-park', 3.33264036708885), ('hushpuppie', 3.33264036708885), ('gélfand', 3.33264036708885), ('supervisión-monitoreo', 3.33264036708885), ('lmtools', 3.33264036708885), ('mundo-verdad', 3.33264036708885), ('mundo-apariencia', 3.33264036708885), ('proclean', 3.33264036708885), ('estancialacautivo', 3.33264036708885), ('gonzuké', 3.33264036708885)]
+-------------------------------------------------
+
+LL took 41170.401441812515 seconds.
+10 unigrams with highest LL score: [('provincial', 63106.59255981445), ('cristina', 65938.72769165039), ('intendente', 71469.77490234375), ('agea', 71693.98678588867), ('vos', 83601.13330078125), ('provincia', 92898.90921020508), ('buenos', 115811.52352905273), ('aires', 117177.54342651367), ('argentino', 148261.5297241211), ('argentina', 161167.50595092773)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0010106563568115234 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 13536307), ('NN PREP', 11212798), ('PREP ARTD', 9395793), ('NN ADJ', 5317350), ('PREP NN', 5095063), ('NE NE', 3329206), ('ADJ PREP', 3199082), ('NN CC', 2984652), ('ARTI NN', 2695436), ('ADJ NN', 2248540)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.013189077377319336 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 7019734), ('ARTD NN PREP', 4876371), ('NN PREP ARTD', 4129106), ('NN PREP NN', 2876502), ('ARTD NN ADJ', 2143984), ('NN ADJ PREP', 1733150), ('PREP NN PREP', 1571641), ('ADJ PREP ARTD', 1312270), ('NE NE NE', 1046485), ('ARTD NN CC', 1044579)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'artd nn cc']
+-------------------------------------------------
+
+MI for POS bigrams took 0.07749438285827637 seconds.
+10 POS bigrams with highest MI score: [('E_33 VPP', 1.5550327952290328), ('ARTD E_31', 1.6545684687799471), ('X BEF', 1.8252388564650814), ('MISMO VSJ', 1.887500842824322), ('VSF VSF', 1.8878555312196887), ('DETP ADJ/PRON', 2.0384572694881267), ('E_33 VPS', 2.09163227438879), ('E_33 VR', 2.1176274829217343), ('NADA MISMO', 2.341464224279591), ('PI E_31', 2.852014532986164)]
+-------------------------------------------------
+
+MI for POS trigrams took 48.54189848899841 seconds.
+10 POS trigrams with highest MI score: [('VII PI BEF', 3.069605974862526), ('VSP PI E_31', 3.069605974862526), ('VR PI E_31', 3.110247959359872), ('VSF ADJ/PRON ADJ', 3.110247959359872), ('PI CC VSF', 3.129106986611188), ('DETINT VM DICHO', 3.1399953027539245), ('PI I ADJ/PRON', 3.1557626186122407), ('BEF NE VSJ', 3.3106140743663213), ('DETP ADJ/PRON VPS', 3.3326403806963203), ('PINT VPS X', 3.3326403806963203)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.0869443416595459 seconds.
+10 POS bigrams with highest LL score: [('CC VIS', 25038.437408447266), ('PS VM', 26818.752655029297), ('VIS ARTD', 30122.100967407227), ('CS VIS', 30751.960830688477), ('ADV VIS', 33926.416931152344), ('PS VIS', 35082.992599487305), ('VIS CS', 37479.62887573242), ('NN VIS', 45124.87367248535), ('VIS PREP', 46819.563049316406), ('VM VPS', 88390.39463806152)]
+-------------------------------------------------
+
+LL for POS trigrams took 70.8659896850586 seconds.
+10 POS trigrams with highest LL score: [('NN CS VIS', 13656.509078979492), ('NE NE NE', 14251.673263549805), ('NN CC NN', 14275.919021606445), ('ADV VM VPS', 15043.243148803711), ('CC VIS CS', 19079.261672973633), ('VIS PREP ARTD', 19809.531692504883), ('VM VPS PREP', 21705.689193725586), ('VIS ARTD NN', 27138.104568481445), ('ARTD NN VIS', 31380.176223754883), ('PS VM VPS', 35604.58158874512)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect VE
+-------------------------------------------------
+
+Av. length of paragraphs: 817.4829574224267
+-------------------------------------------------
+
+10 most frequent unigrams took 0.05577969551086426 seconds.
+10 most frequent unigrams: [('de', 6408312), ('el', 5372532), ('la', 4203080), ('que', 3122546), ('y', 2596213), ('en', 2408733), ('a', 2289285), ('ser', 1758806), ('un', 1695441), ('se', 1231672)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.03968954086303711 seconds.
+10 most frequent nouns: [('año', 188666), ('país', 131490), ('día', 127637), ('persona', 125086), ('venezuela', 113643), ('vida', 108811), ('gobierno', 89816), ('estado', 89023), ('tiempo', 80891), ('mundo', 78937)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.001192331314086914 seconds.
+10 most frequent verbs: [('ser', 1738543), ('haber', 670246), ('tener', 478124), ('estar', 453701), ('poder', 394316), ('hacer', 381681), ('decir', 221870), ('ir', 187989), ('dar', 162253), ('deber', 160101)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'año', 'ir', 'dar']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'deber ser', 'haber hacer', 'ser ser', 'poder hacer', 'decir ser', 'haber tener', 'hugo chávez']
+-------------------------------------------------
+
+MI took 5147.094377040863 seconds.
+10 unigrams with highest MI score: [('corpañal', 4.217649682935756), ('tsta', 4.217649682935756), ('ptsta', 4.217649682935756), ('fundadown', 4.217649682935756), ('hair-liss', 4.217649682935756), ('leythaeuser', 4.217649682935756), ('equecco', 4.217649682935756), ('lemnácea', 4.217649682935756), ('casa=ifa=awo=ni=orumila=obara=juani=guía', 4.217649682935756), ('dermovate', 4.217649682935756)]
+-------------------------------------------------
+
+LL took 25317.246015787125 seconds.
+10 unigrams with highest LL score: [('bolivariano', 38222.148498535156), ('bolivariana', 41887.68116760254), ('nicolás', 43138.66833496094), ('capriles', 78671.05624389648), ('bolívar', 82619.19619750977), ('maduro', 111640.22798156738), ('caracas', 154492.06172180176), ('chávez', 183295.48947143555), ('venezolano', 312772.3130340576), ('venezuela', 379116.11137390137)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008783340454101562 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 7220540), ('NN PREP', 6272229), ('PREP ARTD', 5139474), ('NN ADJ', 3034690), ('PREP NN', 2844014), ('NE NE', 2168820), ('ADJ PREP', 1853270), ('NN CC', 1642914), ('ARTI NN', 1381973), ('ADJ NN', 1241958)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.009732484817504883 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 3800124), ('ARTD NN PREP', 2644710), ('NN PREP ARTD', 2286053), ('NN PREP NN', 1618700), ('ARTD NN ADJ', 1228506), ('NN ADJ PREP', 1019792), ('PREP NN PREP', 901163), ('ADJ PREP ARTD', 754762), ('NE NE NE', 753909), ('PREP DETP NN', 568043)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'ne ne ne', 'adj prep artd', 'prep detp nn']
+-------------------------------------------------
+
+MI for POS bigrams took 0.07325053215026855 seconds.
+10 POS bigrams with highest MI score: [('NN E_22', 0.9638931046819675), ('BEF ADJ/PRON', 1.021252484124247), ('NUM PR', 1.0328583855330697), ('MISMO VSF', 1.0477246954854382), ('VC PINT', 1.1906826493274811), ('ADJ E_22', 1.310759101319232), ('PINT MISMO', 1.4102947748701464), ('E_22 PS', 1.445060193030823), ('Y VSJ', 1.6088404542522265), ('NADA VSF', 1.7257966005980758)]
+-------------------------------------------------
+
+MI for POS trigrams took 39.84162473678589 seconds.
+10 POS trigrams with highest MI score: [('DETI PR PI', 3.6656645326448625), ('NADA VSF CS', 3.7030765380899875), ('Y NADA VPS', 3.722885019170168), ('MISMO PR VSJ', 3.732222883749504), ('VC NE PI', 3.7514733626491013), ('DETINT VIP I', 3.928143093724761), ('DETD PINT NUM$', 3.995257289583298), ('VC PINT CC', 4.040006796316597), ('PD VPP Y', 4.142098677912569), ('DETP NUM PR', 4.160505803816137)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.08606529235839844 seconds.
+10 POS bigrams with highest LL score: [('PREP ARTD', 7366.23454284668), ('ADJ VIS', 7737.204208374023), ('NN NE', 8939.296585083008), ('NN VIS', 9125.006851196289), ('ARTD NE', 9293.691513061523), ('ADV ADV', 12147.471084594727), ('NE PREP', 13223.46662902832), ('VIS CS', 18672.705673217773), ('NE VIS', 19418.237045288086), ('NE NE', 52850.67042541504)]
+-------------------------------------------------
+
+LL for POS trigrams took 57.90286350250244 seconds.
+10 POS trigrams with highest LL score: [('NUM$ NE NUM$', 7994.255126953125), ('NN NE NE', 9953.431549072266), ('PREP ARTD NE', 9973.361801147461), ('ARTD NN NE', 10157.279312133789), ('VIS CS ARTD', 10311.748443603516), ('NE VIS CS', 12116.3994140625), ('NE NE PREP', 12368.045608520508), ('NE NE VIS', 12910.467391967773), ('ARTD NE NE', 14646.58479309082), ('NE NE NE', 23788.469650268555)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect PY
+-------------------------------------------------
+
+Av. length of paragraphs: 858.1557911173838
+-------------------------------------------------
+
+10 most frequent unigrams took 0.026041030883789062 seconds.
+10 most frequent unigrams: [('de', 2145411), ('el', 1767410), ('la', 1373175), ('que', 849983), ('y', 808064), ('en', 769359), ('a', 719750), ('ser', 510925), ('un', 489490), ('se', 381759)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.01952219009399414 seconds.
+10 most frequent nouns: [('año', 60137), ('paraguay', 49145), ('país', 44485), ('día', 37339), ('persona', 37121), ('del', 33212), ('vida', 30607), ('tiempo', 24466), ('trabajo', 24061), ('parte', 22883)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0007393360137939453 seconds.
+10 most frequent verbs: [('ser', 505775), ('haber', 154340), ('tener', 137619), ('estar', 123954), ('poder', 112408), ('hacer', 98922), ('ir', 57203), ('decir', 56768), ('deber', 48695), ('dar', 44809)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'año', 'ir', 'deber']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'deber ser', 'si ser', 'viva fm', 'radio viva', 'fm 90', 'poder hacer', 'cada vez', 'ser ser']
+-------------------------------------------------
+
+MI took 2680.1859543323517 seconds.
+10 unigrams with highest MI score: [('userlock', 5.904796565375258), ('hilton®', 5.904796565375258), ('mg/k/dosis', 5.904796565375258), ('diocodina', 5.904796565375258), ('alexandre=pires=en=el=silencio=negro=de=la=noc...', 5.904796565375258), ('grasmick', 5.904796565375258), ('gapmil', 5.904796565375258), ('mi=me=de=la=gana=vito=di=frisco', 5.904796565375258), ('stevialine®', 5.904796565375258), ('bronquioté', 5.904796565375258)]
+-------------------------------------------------
+
+LL took 11481.98870396614 seconds.
+10 unigrams with highest LL score: [('haber', 22763.60627746582), ('mercosur', 23759.55694580078), ('yo', 24577.197174072266), ('leer+', 24750.175735473633), ('que', 25245.199462890625), ('cartes', 30842.526596069336), ('guaraní', 76252.65818786621), ('asunción', 103839.67431640625), ('paraguayo', 197494.52702331543), ('paraguay', 300342.6021575928)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008697509765625 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 2314837), ('NN PREP', 2060107), ('PREP ARTD', 1744647), ('NN ADJ', 997266), ('PREP NN', 952719), ('NE NE', 780978), ('ADJ PREP', 616569), ('NN CC', 499933), ('ADJ NN', 412754), ('PREP NE', 409207)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.008610010147094727 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1252213), ('ARTD NN PREP', 869869), ('NN PREP ARTD', 781723), ('NN PREP NN', 541638), ('ARTD NN ADJ', 406407), ('NN ADJ PREP', 347560), ('PREP NN PREP', 322570), ('NE NE NE', 283168), ('ADJ PREP ARTD', 263651), ('PREP ARTD NE', 221322)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'adj nn', 'prep ne']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'ne ne ne', 'adj prep artd', 'prep artd ne']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06579875946044922 seconds.
+10 POS bigrams with highest MI score: [('Y BEF', 1.5384743999279025), ('VIF BEF', 1.5828685192863563), ('Y DICHO', 1.6721358573834437), ('ADJ/PRON NUM$', 1.6836399060099398), ('VSJ VIF', 1.7837812132123527), ('E_33 NUM$', 1.8173337729233792), ('VIP BEF', 2.274020790491252), ('Y PP', 2.3308052312735654), ('MISMO VSF', 2.4938635132276112), ('NUM DICHO', 2.912330286859126)]
+-------------------------------------------------
+
+MI for POS trigrams took 26.181269645690918 seconds.
+10 POS trigrams with highest MI score: [('PS VIP BEF', 4.296970053899288), ('MISMO VSP NUM', 4.319834162251025), ('PREP NUM DICHO', 4.4642240715862), ('DETI VIF NUM$', 4.538474448726365), ('MISMO VM VIS', 4.904796662972181), ('BEF CC DICHO', 4.904796662972181), ('PR NE DETD', 4.929887643935012), ('VPS VIMP VR', 5.204356944831089), ('ADJ/PRON VIP VSP', 5.221056007772852), ('VSP VSP VIMP', 5.307555832472588)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.076995849609375 seconds.
+10 POS bigrams with highest LL score: [('NN ADJ', 9471.769577026367), ('VIP CS', 10153.974609375), ('ADV VIP', 10893.470443725586), ('PS VIP', 12766.890563964844), ('NN PREP', 13658.317306518555), ('VM VPS', 18263.632598876953), ('NE PREP', 26630.703720092773), ('PREP ARTD', 28231.38200378418), ('ARTD NE', 54097.50370788574), ('NE NE', 67252.83238220215)]
+-------------------------------------------------
+
+LL for POS trigrams took 42.19475269317627 seconds.
+10 POS trigrams with highest LL score: [('PREP NN PREP', 8410.760482788086), ('PREP ARTD NN', 11030.583587646484), ('NE PREP ARTD', 11280.652877807617), ('ARTD NE PREP', 11515.479736328125), ('NE PREP NE', 12518.578384399414), ('NN PREP ARTD', 15562.732330322266), ('NE NE PREP', 16228.309295654297), ('ARTD NE NE', 28050.28436279297), ('NE NE NE', 34824.06953430176), ('PREP ARTD NE', 42959.144622802734)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect CU
+-------------------------------------------------
+
+Av. length of paragraphs: 962.5329736211031
+-------------------------------------------------
+
+10 most frequent unigrams took 0.03381156921386719 seconds.
+10 most frequent unigrams: [('de', 3653418), ('el', 2956205), ('la', 2400096), ('que', 1575974), ('y', 1425454), ('en', 1392398), ('a', 1220470), ('un', 905893), ('ser', 862714), ('se', 671551)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.02517104148864746 seconds.
+10 most frequent nouns: [('cuba', 130680), ('año', 106820), ('país', 75248), ('día', 60505), ('vida', 53367), ('persona', 51184), ('mundo', 49806), ('tiempo', 44709), ('la', 41014), ('trabajo', 40337)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0011487007141113281 seconds.
+10 most frequent verbs: [('ser', 852701), ('haber', 367963), ('tener', 230425), ('estar', 201699), ('poder', 196483), ('hacer', 177603), ('decir', 104986), ('ir', 89561), ('ver', 75550), ('dar', 72826)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'cuba', 'cubano', 'si', 'decir', 'año']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'haber hacer', 'deber ser', 'haber tener', 'cuba ser', 'poder hacer', 'ser ser', 'cada vez']
+-------------------------------------------------
+
+MI took 3887.133380174637 seconds.
+10 unigrams with highest MI score: [('yojane', 5.104378178681974), ('fg-t', 5.104378178681974), ('gbass', 5.104378178681974), ('yindra', 5.104378178681974), ('asenneh', 5.104378178681974), ('cplc-bf', 5.104378178681974), ('005999', 5.104378178681974), ('dzerjinskii', 5.104378178681974), ('révèl', 5.104378178681974), ('calibratecolor', 5.104378178681974)]
+-------------------------------------------------
+
+LL took 17025.29670524597 seconds.
+10 unigrams with highest LL score: [('revolución', 33910.9239654541), ('tu', 42829.20469665527), ('isla', 44751.70603942871), ('amaury', 48525.945571899414), ('castro', 48556.261962890625), ('fidel', 56623.233139038086), ('martí', 57162.29348754883), ('habana', 174449.5053100586), ('cubano', 620411.8770141602), ('cuba', 645048.7719421387)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008807182312011719 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 3993499), ('NN PREP', 3532743), ('PREP ARTD', 2948962), ('NN ADJ', 1742316), ('PREP NN', 1536068), ('NE NE', 1210124), ('ADJ PREP', 1069949), ('NN CC', 869919), ('PREP NE', 771961), ('ARTI NN', 737664)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.009476900100708008 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 2174209), ('ARTD NN PREP', 1493887), ('NN PREP ARTD', 1323159), ('NN PREP NN', 872499), ('ARTD NN ADJ', 731328), ('NN ADJ PREP', 605346), ('PREP NN PREP', 509577), ('ADJ PREP ARTD', 442954), ('NE NE NE', 415264), ('PREP DETP NN', 317603)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'prep ne', 'arti nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'prep detp nn']
+-------------------------------------------------
+
+MI for POS bigrams took 0.07246828079223633 seconds.
+10 POS bigrams with highest MI score: [('E_32 DETP', 1.1043782059836005), ('VSJ VIF', 1.1208663287721696), ('PS DETINT', 1.1547775150850899), ('DETINT DETI', 1.2487681153187755), ('PINT PI', 1.3582838222781382), ('PP VSP', 1.3618329721175473), ('Y VSI', 1.4646173526185853), ('DETI DETINT', 1.479887341075807), ('Y VSJ', 1.4955689633080766), ('PINT VSF', 2.006346123023074)]
+-------------------------------------------------
+
+MI for POS trigrams took 33.83901500701904 seconds.
+10 POS trigrams with highest MI score: [('PI VII VC', 3.88198581194878), ('VSP Y DETD', 3.9464985735035087), ('VIMP PREP VM', 3.957293208201027), ('Y PINT VSF', 3.988901015865292), ('DETI DETI VSI', 4.2758587012295814), ('VR NUM$ VSF', 4.2970233112276235), ('NN PINT PI', 4.527498078861931), ('VM PS DETINT', 4.58980506045547), ('PINT VSF Y', 4.8819858119487805), ('X VC DICHO', 5.104378233285228)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.07930350303649902 seconds.
+10 POS bigrams with highest LL score: [('VIP CS', 11384.96353149414), ('CS CS', 11456.359481811523), ('ADJ PREP', 13531.192413330078), ('NN PREP', 15399.168167114258), ('NN VIP', 15632.602584838867), ('NN ADJ', 17858.993682861328), ('NE PREP', 25655.318130493164), ('PREP ARTD', 28240.85223388672), ('PREP NE', 31976.880264282227), ('NE NE', 41113.41563415527)]
+-------------------------------------------------
+
+LL for POS trigrams took 48.08653688430786 seconds.
+10 POS trigrams with highest LL score: [('PREP NE PREP', 9752.6455078125), ('NE PREP ARTD', 10038.438262939453), ('NE PREP NE', 11873.79768371582), ('NE NE PREP', 13274.754898071289), ('NN ADJ PREP', 14130.305267333984), ('NE NE NE', 15430.980194091797), ('PREP NE NE', 16085.429916381836), ('NN PREP ARTD', 17155.542572021484), ('PREP ARTD NN', 18160.49119567871), ('ARTD NN ADJ', 20849.29035949707)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect SV
+-------------------------------------------------
+
+Av. length of paragraphs: 951.5799774969255
+-------------------------------------------------
+
+10 most frequent unigrams took 0.03164935111999512 seconds.
+10 most frequent unigrams: [('de', 2508365), ('el', 2118433), ('la', 1671994), ('que', 1249271), ('y', 1047355), ('a', 930627), ('en', 928391), ('ser', 741582), ('un', 646061), ('se', 502533)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.022837400436401367 seconds.
+10 most frequent nouns: [('año', 69558), ('persona', 53588), ('país', 52378), ('vida', 50705), ('salvador', 50506), ('día', 48207), ('el', 45421), ('dios', 40277), ('cosa', 33882), ('tiempo', 33641)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.001001119613647461 seconds.
+10 most frequent verbs: [('ser', 731637), ('haber', 284892), ('tener', 191204), ('estar', 169618), ('poder', 155696), ('hacer', 149579), ('decir', 99517), ('ir', 79229), ('dar', 75331), ('deber', 65514)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'decir', 'si', 'ir', 'dar', 'año']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'san salvador', 'haber hacer', 'deber ser', 'ser ser', 'decir ser', 'poder hacer', 'ser necesario']
+-------------------------------------------------
+
+MI took 2919.818657875061 seconds.
+10 unigrams with highest MI score: [('claees', 5.557062198733171), ('atr72-600', 5.557062198733171), ('firulina', 5.557062198733171), ('http://travel.state.gov/passport/forms/f\\\\.', 5.557062198733171), ('2207-4000', 5.557062198733171), ("ahá'u", 5.557062198733171), ('2565-0840', 5.557062198733171), ('omniresources', 5.557062198733171), ('myushontd', 5.557062198733171), ('mu-sun', 5.557062198733171)]
+-------------------------------------------------
+
+LL took 13969.844334602356 seconds.
+10 unigrams with highest LL score: [('arenero', 13993.024475097656), ('san', 16241.067672729492), ('templati', 17103.134201049805), ('dalton', 17795.95230102539), ('saca', 22841.438430786133), ('arena', 32177.795684814453), ('funes', 41291.56852722168), ('fmln', 89928.86470031738), ('salvadoreño', 170515.78071594238), ('salvador', 220701.9380493164)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008881092071533203 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 2830227), ('NN PREP', 2438816), ('PREP ARTD', 2000129), ('NN ADJ', 1151296), ('PREP NN', 1106320), ('NE NE', 774837), ('ADJ PREP', 690699), ('NN CC', 669120), ('ARTI NN', 526109), ('ADJ NN', 490767)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.009500503540039062 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1483131), ('ARTD NN PREP', 1019114), ('NN PREP ARTD', 886184), ('NN PREP NN', 630657), ('ARTD NN ADJ', 455318), ('NN ADJ PREP', 376528), ('PREP NN PREP', 350700), ('ADJ PREP ARTD', 279141), ('NE NE NE', 255185), ('PREP DETP NN', 239010)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'prep detp nn']
+-------------------------------------------------
+
+MI for POS bigrams took 0.0676722526550293 seconds.
+10 POS bigrams with highest MI score: [('BEF VSI', 1.1241028294427864), ('BEF NUM$', 1.132541447222679), ('VM VSF', 1.1878284270531732), ('MISMO BEF', 1.2271413510779994), ('VSI MISMO', 1.2983279683187239), ('DETP VSJ', 1.336511162206612), ('DETI E_32', 1.3476088710899428), ('VSF PD', 1.3757324720043307), ('DETP PR', 1.3939127360133983), ('E_33 VR', 1.8566225185778003)]
+-------------------------------------------------
+
+MI for POS trigrams took 30.579495429992676 seconds.
+10 POS trigrams with highest MI score: [('NE DETP VIMP', 3.6608980856891544), ('VM NADA DETI', 3.8459226679063137), ('NADA DETI VM', 3.8821576486706597), ('PS Y NUM', 4.0248412360554315), ('VIP DETI E_32', 4.071635447534373), ('DETP PR VSP', 4.102496411239134), ('PINT VSI NUM', 4.178550651450885), ('ARTD DETP PR', 4.356529287331906), ('Y NUM$ DETP', 4.469599433454275), ('DETI VR VPS', 4.695814344651809)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.07931756973266602 seconds.
+10 POS bigrams with highest LL score: [('NN NUM$', 1120.7319946289062), ('CS VIP', 1178.9165496826172), ('NUM$ NUM$', 1185.2065734863281), ('ARTD PR', 1301.2516174316406), ('ARTI NN', 1716.980972290039), ('VIP ADV', 1917.960433959961), ('DETP NN', 2075.5723266601562), ('NE NE', 2229.1106719970703), ('ADV ADJ', 2300.437973022461), ('ARTD NE', 3033.4991912841797)]
+-------------------------------------------------
+
+LL for POS trigrams took 47.1673481464386 seconds.
+10 POS trigrams with highest LL score: [('PREP DETP NN', 896.6028289794922), ('ARTD NE PREP', 909.7905426025391), ('VIP ADV ADJ', 989.7113800048828), ('ARTD NE NE', 1080.1364440917969), ('DETP NN DETP', 1120.3814849853516), ('DETI VR VPS', 1514.0668334960938), ('NE NE PREP', 1525.4769744873047), ('PREP ARTD NE', 1667.2237091064453), ('PREP NE NE', 4399.863128662109), ('DETI NN VPS', 4670.047637939453)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect PE
+-------------------------------------------------
+
+Av. length of paragraphs: 866.9867010360057
+-------------------------------------------------
+
+10 most frequent unigrams took 0.06603765487670898 seconds.
+10 most frequent unigrams: [('de', 7094578), ('el', 5943494), ('la', 4621868), ('que', 3585729), ('y', 2950578), ('en', 2650565), ('a', 2607169), ('ser', 2155483), ('un', 1940618), ('se', 1429926)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.04751992225646973 seconds.
+10 most frequent nouns: [('año', 214166), ('día', 136314), ('persona', 132732), ('vida', 120372), ('perú', 113739), ('país', 112804), ('tiempo', 98432), ('cosa', 93277), ('mundo', 85861), ('parte', 77776)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.003404855728149414 seconds.
+10 most frequent verbs: [('ser', 2134180), ('haber', 787463), ('tener', 596029), ('estar', 487304), ('poder', 468978), ('hacer', 447729), ('decir', 266682), ('ir', 217215), ('deber', 203966), ('dar', 196321)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'ir', 'año', 'deber']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'deber ser', 'haber hacer', 'poder hacer', 'ser bueno', 'ser ser', 'decir ser', 'ser mejor']
+-------------------------------------------------
+
+MI took 5986.510650634766 seconds.
+10 unigrams with highest MI score: [('goecor', 4.018983737791387), ('jianwen', 4.018983737791387), ('zhenglei', 4.018983737791387), ('j?mon', 4.018983737791387), ('brahmatma', 4.018983737791387), ('untuca', 4.018983737791387), ('cofsaf', 4.018983737791387), ('doviak', 4.018983737791387), ('con=la=forma=en=la=que=sexy=me=bailas', 4.018983737791387), ('berunté', 4.018983737791387)]
+-------------------------------------------------
+
+LL took 31439.36301088333 seconds.
+10 unigrams with highest LL score: [('cajamarca', 32974.737396240234), ('cusco', 36230.708251953125), ('arequipa', 36862.523040771484), ('ollanta', 43262.95962524414), ('peru', 48790.36535644531), ('fujimori', 60947.62380981445), ('humala', 73505.57897949219), ('lima', 258066.84509277344), ('peruano', 331768.2727050781), ('perú', 398494.84896850586)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0009603500366210938 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 7856845), ('NN PREP', 6906640), ('PREP ARTD', 5616971), ('NN ADJ', 3372003), ('PREP NN', 3252635), ('NE NE', 2329036), ('ADJ PREP', 2006394), ('NN CC', 1871670), ('ARTI NN', 1570997), ('ADJ NN', 1495823)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.01272273063659668 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 4086476), ('ARTD NN PREP', 2831407), ('NN PREP ARTD', 2467963), ('NN PREP NN', 1849257), ('ARTD NN ADJ', 1306920), ('NN ADJ PREP', 1087073), ('PREP NN PREP', 1005008), ('NE NE NE', 822569), ('ADJ PREP ARTD', 806970), ('PREP DETP NN', 682465)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'ne ne ne', 'adj prep artd', 'prep detp nn']
+-------------------------------------------------
+
+MI for POS bigrams took 0.07297158241271973 seconds.
+10 POS bigrams with highest MI score: [('PR Y', 1.2015046104352878), ('NUM$ PP', 1.244987424655426), ('X NUM$', 1.2522599567399393), ('NE E_31', 1.2820181556003931), ('VPS PP', 1.3553887391997095), ('PINT BEF', 1.4000739171221053), ('E_21 VSP', 1.4687866672061196), ('NUM PP', 1.8376539850520377), ('E_22 I', 2.0929843312103764), ('BEF PP', 2.193013149541648)]
+-------------------------------------------------
+
+MI for POS trigrams took 42.57071590423584 seconds.
+10 POS trigrams with highest MI score: [('PR ARTD Y', 3.3590592033394335), ('DICHO VR Y', 3.4149124380729514), ('Y PD VPS', 3.4340212610206557), ('VIF NN DETINT', 3.4340212610206557), ('VM NUM$ VIMP', 3.5485331421443616), ('NE PP VR', 3.5615109961425717), ('NUM$ VC NADA', 3.603946262462968), ('PS PI VIMP', 3.6076693485056857), ('PP PR ADJ', 3.755949355908018), ('VIMP VPP DETD', 3.864950133069391)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.08478379249572754 seconds.
+10 POS bigrams with highest LL score: [('PREP PREP', 2800.8162994384766), ('ARTD NUM$', 3288.505874633789), ('DETP NN', 4058.928909301758), ('ARTD CS', 5302.486221313477), ('PREP X', 5857.098526000977), ('NE NUM$', 7132.57682800293), ('ARTD NN', 9179.366180419922), ('X NUM$', 9910.928024291992), ('ARTD NE', 12379.334335327148), ('NE NE', 18852.600540161133)]
+-------------------------------------------------
+
+LL for POS trigrams took 60.80425429344177 seconds.
+10 POS trigrams with highest LL score: [('ARTD NN PREP', 4403.573257446289), ('PREP ARTD CS', 4448.206741333008), ('PREP ARTD NN', 4649.809341430664), ('CC PREP X', 5646.523422241211), ('VPS PREP NE', 5814.023391723633), ('ARTD NE NUM$', 6609.501998901367), ('PREP NE NUM$', 8422.575637817383), ('PREP ARTD NE', 9992.79133605957), ('NE NE NE', 13565.926193237305), ('PREP X NUM$', 14171.154006958008)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect UY
+-------------------------------------------------
+
+Av. length of paragraphs: 1067.085937932179
+-------------------------------------------------
+
+10 most frequent unigrams took 0.031494140625 seconds.
+10 most frequent unigrams: [('de', 2649529), ('el', 2276508), ('la', 1761516), ('que', 1302057), ('y', 1083905), ('en', 1042498), ('a', 989235), ('ser', 757949), ('un', 738789), ('se', 547896)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.02297663688659668 seconds.
+10 most frequent nouns: [('año', 88237), ('día', 53636), ('país', 50391), ('persona', 42635), ('uruguay', 40261), ('vida', 40231), ('cosa', 39994), ('tiempo', 35661), ('forma', 34298), ('mundo', 30882)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0011610984802246094 seconds.
+10 most frequent verbs: [('ser', 750936), ('haber', 266248), ('tener', 218643), ('estar', 197227), ('poder', 167725), ('hacer', 162170), ('ir', 105449), ('decir', 98734), ('dar', 68455), ('ver', 67955)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'ir', 'año', 'ver']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'deber ser', 'haber hacer', 'poder hacer', 'ser ser', 'decir ser', 'ser bueno', 'cada vez']
+-------------------------------------------------
+
+MI took 3169.6724379062653 seconds.
+10 unigrams with highest MI score: [('14.261', 5.471841911053288), ('dondeena', 5.471841911053288), ('prótesis.com.uy', 5.471841911053288), ('http://www.protesis.com.uy', 5.471841911053288), ('x:x', 5.471841911053288), ('ampath', 5.471841911053288), ('biorreactorese', 5.471841911053288), ('hiperhidricidad', 5.471841911053288), ('zabalkin', 5.471841911053288), ('charabón', 5.471841911053288)]
+-------------------------------------------------
+
+LL took 13551.528316736221 seconds.
+10 unigrams with highest LL score: [('paysandú', 13778.560592651367), ('tu', 14187.34487915039), ('antel', 15988.686752319336), ('artigas', 22483.96746826172), ('intendencia', 25169.32534790039), ('mujica', 27360.93084716797), ('peñarol', 30053.26742553711), ('montevideo', 101695.67210388184), ('uruguayo', 120325.62425231934), ('uruguay', 189272.15385437012)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0007882118225097656 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 3042841), ('NN PREP', 2609712), ('PREP ARTD', 2168379), ('NN ADJ', 1224265), ('PREP NN', 1217261), ('NE NE', 792603), ('ADJ PREP', 745606), ('NN CC', 676832), ('ARTI NN', 602335), ('ADJ NN', 516126)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.00913858413696289 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 1604756), ('ARTD NN PREP', 1101484), ('NN PREP ARTD', 952749), ('NN PREP NN', 691861), ('ARTD NN ADJ', 484247), ('NN ADJ PREP', 407459), ('PREP NN PREP', 388512), ('ADJ PREP ARTD', 307250), ('NE NE NE', 259228), ('ARTD NN CC', 235434)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'adj prep', 'nn cc', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'artd nn cc']
+-------------------------------------------------
+
+MI for POS bigrams took 0.06740260124206543 seconds.
+10 POS bigrams with highest MI score: [('NADA NUM', 1.686218406919601), ('VPS E_31', 1.7063072004005297), ('DETD ADJ/PRON', 1.7316012205644398), ('PR MISMO', 1.7348763525973006), ('DETP ADJ/PRON', 1.8224307383155085), ('VC E_31', 1.8529321141190127), ('BEF PI', 1.9979107584310947), ('BEF BEF', 2.104725078109889), ('BEF NUM$', 2.2317457284047206), ('VPP BEF', 2.3547336437646424)]
+-------------------------------------------------
+
+MI for POS trigrams took 30.5391104221344 seconds.
+10 POS trigrams with highest MI score: [('NUM PD VIS', 3.658610494079453), ('BEF PI PREP', 3.664487060416122), ('ADJ/PRON CS ADJ/PRON', 3.7556349484743174), ('NN VPP BEF', 3.8324316977301938), ('ADJ DETI VIMP', 3.88687948175257), ('CS PP VSP', 3.9693416419445433), ('DETI I E_21', 3.988759095771784), ('DETD ADJ/PRON CC', 4.158181503569964), ('BEF BEF BEF', 4.652414228115547), ('PS NADA NUM', 5.065849622797889)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.07917118072509766 seconds.
+10 POS bigrams with highest LL score: [('PS VM', 3629.7328338623047), ('PREP ARTD', 4157.229568481445), ('VIS ARTD', 4330.553726196289), ('ADV VIS', 4366.546859741211), ('PREP DETP', 5843.2598876953125), ('NN VIS', 6855.359176635742), ('PS VIS', 8832.759841918945), ('VIS PREP', 9058.972290039062), ('VM VPS', 10332.725677490234), ('DETP NN', 11901.293441772461)]
+-------------------------------------------------
+
+LL for POS trigrams took 47.196306228637695 seconds.
+10 POS trigrams with highest LL score: [('DETP NN PREP', 2396.4258575439453), ('PREP ARTD NE', 2458.4982299804688), ('VM VPS PREP', 2463.1267700195312), ('VIS PREP ARTD', 2733.9356079101562), ('PS VIS PREP', 2738.4488372802734), ('PREP ARTD NN', 2765.7682342529297), ('VIS ARTD NN', 3365.6848754882812), ('PS VM VPS', 3981.769088745117), ('ARTD NN VIS', 4122.377471923828), ('PREP DETP NN', 4684.8857421875)]
+-------------------------------------------------
+
+
+-------------------------------------------------
+Analysing dialect MX
+-------------------------------------------------
+
+Av. length of paragraphs: 834.3597869181731
+-------------------------------------------------
+
+10 most frequent unigrams took 0.11227989196777344 seconds.
+10 most frequent unigrams: [('de', 15694817), ('el', 13132369), ('la', 10414921), ('que', 8633136), ('y', 6755320), ('en', 5990901), ('a', 5962116), ('ser', 4949049), ('un', 4454607), ('se', 3368496)]
+-------------------------------------------------
+
+10 most frequent nouns took 0.08130359649658203 seconds.
+10 most frequent nouns: [('año', 412749), ('persona', 351084), ('vida', 339276), ('día', 315877), ('dios', 247854), ('tiempo', 247324), ('cosa', 235451), ('forma', 210902), ('mundo', 208209), ('hombre', 188483)]
+-------------------------------------------------
+
+10 most frequent verbs took 0.0015478134155273438 seconds.
+10 most frequent verbs: [('ser', 4880346), ('haber', 1720905), ('tener', 1385140), ('poder', 1194871), ('estar', 1159166), ('hacer', 1056694), ('decir', 655604), ('dar', 504334), ('ir', 502572), ('ver', 478945)]
+-------------------------------------------------
+
+10 unigrams with highest tf-idf score: ['ser', 'haber', 'tener', 'poder', 'hacer', 'si', 'decir', 'dar', 'ir', 'ver']
+-------------------------------------------------
+
+10 bigrams with highest tf-idf score: ['haber ser', 'poder ser', 'si ser', 'poder hacer', 'ser ser', 'haber hacer', 'deber ser', 'decir ser', 'ser bueno', 'ser mejor']
+-------------------------------------------------
+
+MI took 9823.338564157486 seconds.
+10 unigrams with highest MI score: [('lord.hujiol@gmail.com', 2.8416022380177863), ('narco-televisa', 2.8416022380177863), ('soudavar', 2.8416022380177863), ('una=serie=de=catastroficas=desdichas=de=lemony...', 2.8416022380177863), ('aexi', 2.8416022380177863), ('oopsy', 2.8416022380177863), ('p-h-es', 2.8416022380177863), ('madrian', 2.8416022380177863), ('pword', 2.8416022380177863), ('paleantropo', 2.8416022380177863)]
+-------------------------------------------------
+
+LL took 52491.79014515877 seconds.
+10 unigrams with highest LL score: [('oaxaca', 39589.021911621094), ('pemex', 40067.385330200195), ('peña', 43158.625076293945), ('dios', 43327.602951049805), ('veracruz', 43705.336029052734), ('pri', 70864.25769042969), ('federal', 92225.97761535645), ('tu', 148789.6756439209), ('mexicano', 160245.95100402832), ('méxico', 293817.3588562012)]
+-------------------------------------------------
+
+10 most frequent POS bigrams took 0.0008294582366943359 seconds.
+10 most frequent POS bigrams: [('ARTD NN', 18009951), ('NN PREP', 15419394), ('PREP ARTD', 12242112), ('NN ADJ', 7304078), ('PREP NN', 7147209), ('NE NE', 4503945), ('NN CC', 4422674), ('ADJ PREP', 4396233), ('ARTI NN', 3639884), ('PS VIP', 3210249)]
+-------------------------------------------------
+
+10 most frequent POS trigrams took 0.012824058532714844 seconds.
+10 most frequent POS trigrams: [('PREP ARTD NN', 9198719), ('ARTD NN PREP', 6419677), ('NN PREP ARTD', 5365385), ('NN PREP NN', 4067527), ('ARTD NN ADJ', 2826154), ('NN ADJ PREP', 2348852), ('PREP NN PREP', 2129655), ('ADJ PREP ARTD', 1713921), ('NE NE NE', 1605317), ('PREP DETP NN', 1590841)]
+-------------------------------------------------
+
+10 POS bigrams with highest tf-idf score: ['artd nn', 'nn prep', 'prep artd', 'nn adj', 'prep nn', 'ne ne', 'nn cc', 'adj prep', 'arti nn', 'adj nn']
+-------------------------------------------------
+
+10 POS trigrams with highest tf-idf score: ['prep artd nn', 'artd nn prep', 'nn prep artd', 'nn prep nn', 'artd nn adj', 'nn adj prep', 'prep nn prep', 'adj prep artd', 'ne ne ne', 'prep detp nn']
+-------------------------------------------------
+
+MI for POS bigrams took 0.0798032283782959 seconds.
+10 POS bigrams with highest MI score: [('VIS E_31', 1.0464220342610613), ('DICHO VSF', 1.0760674960095862), ('BEF VPP', 1.144373509400495), ('VSI DETINT', 1.1691769004010677), ('VIMP DICHO', 1.1717508440648938), ('PINT E_21', 1.2339196651513236), ('VIMP VSI', 1.3561754152023213), ('E_32 E_21', 1.3561754152023213), ('E_22 ARTD', 1.3773212240738701), ('BEF VIMP', 1.4410643127888345)]
+-------------------------------------------------
+
+MI for POS trigrams took 54.2229905128479 seconds.
+10 POS trigrams with highest MI score: [('VSF CC NADA', 2.6192098253908926), ('DETP ARTD VPP', 2.671677245285028), ('MISMO CS BEF', 2.671677245285028), ('VIMP PD DETP', 2.7040987229774056), ('E_22 ARTD NUM$', 2.777471909307625), ('E_22 ADV DETP', 2.786740311692822), ('PP ARTI BEF', 2.8076549148040026), ('ARTI BEF VPP', 2.8076549148040026), ('VM PINT E_21', 2.826495354337132), ('Y VII E_21', 2.8416022467273407)]
+-------------------------------------------------
+
+LL for POS bigrams took 0.08749771118164062 seconds.
+10 POS bigrams with highest LL score: [('NUM$ PREP', 15308.76057434082), ('VIS CS', 17584.813522338867), ('PREP PS', 17760.1121673584), ('NN PREP', 19129.728546142578), ('NE NE', 26067.588180541992), ('NE PREP', 30241.78044128418), ('DETP NN', 30739.713302612305), ('PREP NE', 35353.455795288086), ('ARTD NE', 35837.141189575195), ('PREP ARTD', 37881.58103942871)]
+-------------------------------------------------
+
+LL for POS trigrams took 73.03704166412354 seconds.
+10 POS trigrams with highest LL score: [('NUM$ PREP NN', 10746.105285644531), ('NE NE PREP', 11268.380615234375), ('PREP NN PREP', 13321.410781860352), ('NUM$ NUM NUM$', 13788.499069213867), ('PREP ARTD NN', 15047.79916381836), ('ARTD NE NE', 16244.18620300293), ('PREP NE NE', 16767.77166748047), ('NE PREP NE', 17232.330123901367), ('NN PREP ARTD', 20096.26446533203), ('PREP ARTD NE', 26472.927795410156)]
+-------------------------------------------------
+
+Cosine similarity of TF-IDF vectors for token took 1306.2705192565918 seconds.
+Cosine similarity matrix using the tokens:
+Order of labels: ['DO', 'CL', 'HN', 'ES', 'PA', 'BO', 'NI', 'CO', 'GT', 'PR', 'CR', 'EC', 'AR', 'VE', 'PY', 'CU', 'SV', 'PE', 'UY', 'MX']
+[[1.         0.94310773 0.92754165 0.92357026 0.9235099  0.90314875
+  0.92345444 0.95519426 0.94380034 0.9296174  0.9410775  0.9499142
+  0.94578939 0.95260775 0.93574836 0.90135618 0.95161995 0.94792373
+  0.94720878 0.95047938]
+ [0.94310773 1.         0.90704295 0.96147021 0.92125823 0.90111818
+  0.90651804 0.96426234 0.94676309 0.92893752 0.95724073 0.95620008
+  0.97138004 0.95260951 0.93405226 0.89968544 0.95521656 0.97092852
+  0.96657179 0.97044811]
+ [0.92754165 0.90704295 1.         0.87574434 0.90662868 0.90056084
+  0.92578986 0.93240219 0.93049011 0.89095925 0.91661957 0.93054797
+  0.9092051  0.926855   0.91905925 0.87903803 0.93685527 0.91558428
+  0.91681276 0.91376977]
+ [0.92357026 0.96147021 0.87574434 1.         0.90060409 0.85504196
+  0.87116335 0.94978578 0.93279421 0.92271328 0.94927307 0.93250577
+  0.96285021 0.93495798 0.90440108 0.88641158 0.93904152 0.9600463
+  0.95100711 0.9730967 ]
+ [0.9235099  0.92125823 0.90662868 0.90060409 1.         0.8873365
+  0.90738726 0.93523681 0.92022596 0.89857515 0.93262731 0.93267876
+  0.9195748  0.92592469 0.91663742 0.88017427 0.92272564 0.92542211
+  0.92595358 0.92181202]
+ [0.90314875 0.90111818 0.90056084 0.85504196 0.8873365  1.
+  0.90476199 0.91173505 0.89278971 0.85664509 0.88848668 0.92519176
+  0.90301975 0.91779459 0.91577217 0.86881443 0.90365608 0.90585537
+  0.91060245 0.88349591]
+ [0.92345444 0.90651804 0.92578986 0.87116335 0.90738726 0.90476199
+  1.         0.92591099 0.91866712 0.88399931 0.91813529 0.92832958
+  0.90859578 0.92527485 0.91818244 0.88486146 0.92750098 0.91090588
+  0.9164822  0.90510298]
+ [0.95519426 0.96426234 0.93240219 0.94978578 0.93523681 0.91173505
+  0.92591099 1.         0.96432299 0.93910824 0.96258548 0.96741927
+  0.9646422  0.96277428 0.94481131 0.90793297 0.96675576 0.96876759
+  0.96075228 0.97479887]
+ [0.94380034 0.94676309 0.93049011 0.93279421 0.92022596 0.89278971
+  0.91866712 0.96432299 1.         0.92885572 0.95184471 0.94690614
+  0.94591973 0.94194172 0.92928656 0.89031874 0.96280756 0.9532772
+  0.94363106 0.96281712]
+ [0.9296174  0.92893752 0.89095925 0.92271328 0.89857515 0.85664509
+  0.88399931 0.93910824 0.92885572 1.         0.92989839 0.91996767
+  0.92778097 0.92038824 0.90027064 0.8748027  0.93050803 0.92902528
+  0.92108882 0.94518285]
+ [0.9410775  0.95724073 0.91661957 0.94927307 0.93262731 0.88848668
+  0.91813529 0.96258548 0.95184471 0.92989839 1.         0.95115523
+  0.95328761 0.94522904 0.929466   0.89436625 0.95526718 0.95990924
+  0.95411606 0.9634667 ]
+ [0.9499142  0.95620008 0.93054797 0.93250577 0.93267876 0.92519176
+  0.92832958 0.96741927 0.94690614 0.91996767 0.95115523 1.
+  0.95666305 0.96054592 0.94652194 0.90959851 0.95610464 0.9612155
+  0.95953588 0.95333659]
+ [0.94578939 0.97138004 0.9092051  0.96285021 0.9195748  0.90301975
+  0.90859578 0.9646422  0.94591973 0.92778097 0.95328761 0.95666305
+  1.         0.95647571 0.9425874  0.90442921 0.95623286 0.96718872
+  0.97790508 0.97050112]
+ [0.95260775 0.95260951 0.926855   0.93495798 0.92592469 0.91779459
+  0.92527485 0.96277428 0.94194172 0.92038824 0.94522904 0.96054592
+  0.95647571 1.         0.93934092 0.91616734 0.95419546 0.95602678
+  0.95613517 0.95418105]
+ [0.93574836 0.93405226 0.91905925 0.90440108 0.91663742 0.91577217
+  0.91818244 0.94481131 0.92928656 0.90027064 0.929466   0.94652194
+  0.9425874  0.93934092 1.         0.889701   0.9361508  0.93654959
+  0.94810664 0.92769848]
+ [0.90135618 0.89968544 0.87903803 0.88641158 0.88017427 0.86881443
+  0.88486146 0.90793297 0.89031874 0.8748027  0.89436625 0.90959851
+  0.90442921 0.91616734 0.889701   1.         0.90420977 0.90150926
+  0.90846918 0.89822752]
+ [0.95161995 0.95521656 0.93685527 0.93904152 0.92272564 0.90365608
+  0.92750098 0.96675576 0.96280756 0.93050803 0.95526718 0.95610464
+  0.95623286 0.95419546 0.9361508  0.90420977 1.         0.95956699
+  0.95412836 0.96495433]
+ [0.94792373 0.97092852 0.91558428 0.9600463  0.92542211 0.90585537
+  0.91090588 0.96876759 0.9532772  0.92902528 0.95990924 0.9612155
+  0.96718872 0.95602678 0.93654959 0.90150926 0.95956699 1.
+  0.96249999 0.97144781]
+ [0.94720878 0.96657179 0.91681276 0.95100711 0.92595358 0.91060245
+  0.9164822  0.96075228 0.94363106 0.92108882 0.95411606 0.95953588
+  0.97790508 0.95613517 0.94810664 0.90846918 0.95412836 0.96249999
+  1.         0.95807703]
+ [0.95047938 0.97044811 0.91376977 0.9730967  0.92181202 0.88349591
+  0.90510298 0.97479887 0.96281712 0.94518285 0.9634667  0.95333659
+  0.97050112 0.95418105 0.92769848 0.89822752 0.96495433 0.97144781
+  0.95807703 1.        ]]
+-------------------------------------------------
+
+Cosine similarity of TF-IDF vectors for lemma took 1232.9448642730713 seconds.
+Cosine similarity matrix using the lemmata:
+Order of labels: ['DO', 'CL', 'HN', 'ES', 'PA', 'BO', 'NI', 'CO', 'GT', 'PR', 'CR', 'EC', 'AR', 'VE', 'PY', 'CU', 'SV', 'PE', 'UY', 'MX']
+[[1.         0.9899194  0.98682606 0.9832705  0.98572731 0.98074664
+  0.98569016 0.99210403 0.99039731 0.9876906  0.9892523  0.99131916
+  0.9895932  0.99167276 0.98567911 0.97881397 0.99171499 0.99094483
+  0.99010334 0.99096021]
+ [0.9899194  1.         0.98248793 0.98812918 0.98550013 0.97976918
+  0.98125041 0.99367398 0.99094789 0.9878537  0.99257503 0.99208495
+  0.99475695 0.99150806 0.98606151 0.97692338 0.99216166 0.9951393
+  0.99394753 0.99462285]
+ [0.98682606 0.98248793 1.         0.97465394 0.9829717  0.98127699
+  0.98701715 0.98761194 0.98720541 0.97998447 0.9841235  0.98803912
+  0.98149767 0.9868928  0.98250515 0.97542904 0.98859742 0.98427648
+  0.9837532  0.98309613]
+ [0.9832705  0.98812918 0.97465394 1.         0.97646682 0.96631044
+  0.97264046 0.98623581 0.98343024 0.98220652 0.98435049 0.98379187
+  0.98737428 0.98551765 0.97197116 0.9743022  0.98642964 0.98921033
+  0.98659861 0.99046676]
+ [0.98572731 0.98550013 0.9829717  0.97646682 1.         0.97853951
+  0.98251039 0.98820957 0.98580109 0.98190304 0.98841627 0.98810894
+  0.98415776 0.98645863 0.98389086 0.97427202 0.9852823  0.98613544
+  0.98585651 0.98490358]
+ [0.98074664 0.97976918 0.98127699 0.96631044 0.97853951 1.
+  0.98164524 0.98239443 0.97884972 0.9714871  0.97804808 0.98575277
+  0.9787167  0.98327972 0.98239885 0.97142263 0.98066145 0.98086514
+  0.98118277 0.975511  ]
+ [0.98569016 0.98125041 0.98701715 0.97264046 0.98251039 0.98164524
+  1.         0.98544022 0.9845144  0.97777559 0.98338239 0.9869706
+  0.98024609 0.98571432 0.98190505 0.97634982 0.98626013 0.98262331
+  0.98293721 0.98037274]
+ [0.99210403 0.99367398 0.98761194 0.98623581 0.98820957 0.98239443
+  0.98544022 1.         0.99399698 0.98945348 0.9934425  0.99434564
+  0.99295901 0.99335937 0.98807451 0.97927992 0.99406828 0.99448986
+  0.99237425 0.99502002]
+ [0.99039731 0.99094789 0.98720541 0.98343024 0.98580109 0.97884972
+  0.9845144  0.99399698 1.         0.98809218 0.99197578 0.99094024
+  0.99025916 0.99009062 0.98565116 0.97618173 0.99363425 0.99204872
+  0.98985501 0.99341198]
+ [0.9876906  0.9878537  0.97998447 0.98220652 0.98190304 0.9714871
+  0.97777559 0.98945348 0.98809218 1.         0.98837512 0.98592596
+  0.98731262 0.98634766 0.98031165 0.97331124 0.98792002 0.98787831
+  0.98589271 0.9910199 ]
+ [0.9892523  0.99257503 0.9841235  0.98435049 0.98841627 0.97804808
+  0.98338239 0.9934425  0.99197578 0.98837512 1.         0.99122489
+  0.99161446 0.99024739 0.9867355  0.97579166 0.99138714 0.99284626
+  0.9915966  0.99350175]
+ [0.99131916 0.99208495 0.98803912 0.98379187 0.98810894 0.98575277
+  0.9869706  0.99434564 0.99094024 0.98592596 0.99122489 1.
+  0.99113714 0.9931407  0.98851831 0.98038584 0.99250501 0.99305678
+  0.99213646 0.99099155]
+ [0.9895932  0.99475695 0.98149767 0.98737428 0.98415776 0.9787167
+  0.98024609 0.99295901 0.99025916 0.98731262 0.99161446 0.99113714
+  1.         0.99145975 0.98772743 0.97683799 0.99151709 0.99391219
+  0.99605431 0.99482084]
+ [0.99167276 0.99150806 0.9868928  0.98551765 0.98645863 0.98327972
+  0.98571432 0.99335937 0.99009062 0.98634766 0.99024739 0.9931407
+  0.99145975 1.         0.98645232 0.98174379 0.99214966 0.99227815
+  0.99180201 0.99168679]
+ [0.98567911 0.98606151 0.98250515 0.97197116 0.98389086 0.98239885
+  0.98190505 0.98807451 0.98565116 0.98031165 0.9867355  0.98851831
+  0.98772743 0.98645232 1.         0.97281104 0.98524621 0.98623724
+  0.9886204  0.98454134]
+ [0.97881397 0.97692338 0.97542904 0.9743022  0.97427202 0.97142263
+  0.97634982 0.97927992 0.97618173 0.97331124 0.97579166 0.98038584
+  0.97683799 0.98174379 0.97281104 1.         0.97922252 0.97788224
+  0.97866976 0.97660117]
+ [0.99171499 0.99216166 0.98859742 0.98642964 0.9852823  0.98066145
+  0.98626013 0.99406828 0.99363425 0.98792002 0.99138714 0.99250501
+  0.99151709 0.99214966 0.98524621 0.97922252 1.         0.99303774
+  0.99144575 0.99348101]
+ [0.99094483 0.9951393  0.98427648 0.98921033 0.98613544 0.98086514
+  0.98262331 0.99448986 0.99204872 0.98787831 0.99284626 0.99305678
+  0.99391219 0.99227815 0.98623724 0.97788224 0.99303774 1.
+  0.99310212 0.99494519]
+ [0.99010334 0.99394753 0.9837532  0.98659861 0.98585651 0.98118277
+  0.98293721 0.99237425 0.98985501 0.98589271 0.9915966  0.99213646
+  0.99605431 0.99180201 0.9886204  0.97866976 0.99144575 0.99310212
+  1.         0.99219091]
+ [0.99096021 0.99462285 0.98309613 0.99046676 0.98490358 0.975511
+  0.98037274 0.99502002 0.99341198 0.9910199  0.99350175 0.99099155
+  0.99482084 0.99168679 0.98454134 0.97660117 0.99348101 0.99494519
+  0.99219091 1.        ]]
+-------------------------------------------------
+

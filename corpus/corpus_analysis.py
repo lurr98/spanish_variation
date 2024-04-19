@@ -71,7 +71,7 @@ def get_all_text(class_data: dict, gram_type: str, filter_for: list=[]) -> list:
     return all_text
 
 
-def get_ngram_frequencies(class_data: dict, n: int, gram_type: str, filter_for: list=[], keep_text: bool=False) -> Type[Counter]:
+def get_ngram_frequencies(class_data: dict, n: int, gram_type: str, filter_for: list=[], keep_text: bool=False) -> Type[Counter] | Tuple[Type[Counter], list]:
     # get the n-gram frequencies for the class
     # gram_type specifies which type of data (token, lemma or pos) should be chosen
     
@@ -255,17 +255,17 @@ if __name__ == "__main__":
 
     overall_start = time.time()
 
-    start = time.time()
-    lemma_tf_idf_uni = tf_idf(cr.data, 'lemma', False, 1, 10)
-    lemma_tf_idf_bi = tf_idf(cr.data, 'lemma', False, 2, 10)
-    end = time.time()
-    print('TF-IDF for uni- and bigram lemma took {} seconds.'.format(end - start))
+    # start = time.time()
+    # lemma_tf_idf_uni = tf_idf(cr.data, 'lemma', False, 1, 10)
+    # lemma_tf_idf_bi = tf_idf(cr.data, 'lemma', False, 2, 10)
+    # end = time.time()
+    # print('TF-IDF for uni- and bigram lemma took {} seconds.'.format(end - start))
 
-    start = time.time()
-    pos_tf_idf_bi = tf_idf(cr.data, 'pos', False, 2, 10)
-    pos_tf_idf_tri = tf_idf(cr.data, 'pos', False, 3, 10)
-    end = time.time()
-    print('TF-IDF for bi- and trigram POS took {} seconds.'.format(end - start))
+    # start = time.time()
+    # pos_tf_idf_bi = tf_idf(cr.data, 'pos', False, 2, 10)
+    # pos_tf_idf_tri = tf_idf(cr.data, 'pos', False, 3, 10)
+    # end = time.time()
+    # print('TF-IDF for bi- and trigram POS took {} seconds.'.format(end - start))
 
     label_indices, all_text_classes = [], []
 
@@ -278,9 +278,20 @@ if __name__ == "__main__":
         # create dictionary to store results
         stats_dict[label] = {}
 
-        # get ngram frequencies for LEMMA
-        lemma_uni_frequencies, all_text_class = get_ngram_frequencies(data, 1, 'lemma', keep_text=True)
-        all_text_classes.append(all_text_class)
+        # # get ngram frequencies for LEMMA
+        # lemma_uni_frequencies, all_text_class = get_ngram_frequencies(data, 1, 'lemma', keep_text=True)
+        # all_text_classes.append(all_text_class)
+
+        # get ngram frequencies for TOKEN
+        token_uni_frequencies = get_ngram_frequencies(data, 1, 'token')
+        token_frequencies = {''.join(gram): frequency for gram, frequency in token_uni_frequencies.items()}
+
+        with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequency_dict.json', 'w') as jsn:
+            json.dump(token_frequencies, jsn)
+
+        # TODO: run this but add spearmans rho!
+
+        exit()
 
         noun_lemma_uni_frequencies = get_ngram_frequencies(data, 1, 'lemma', ['NN', 'NE'])
         verb_lemma_uni_frequencies = get_ngram_frequencies(data, 1, 'lemma', ['VM', 'VC', 'VIF', 'VII', 'VIP', 'VIS', 'VIMP', 'VPP', 'VPS', 'VR', 'VSF', 'VSI', 'VSJ', 'VSP'])
@@ -445,16 +456,16 @@ if __name__ == "__main__":
 
     stats_dict['all_countries'] = {'cosine_similarity_tfidf': {'token': {'unigrams': (cosine_sim_token, label_indices_token)}, 'lemma': {'unigrams': (cosine_sim_lemma, label_indices_lemma)}}}
 
-    start = time.time()
-    spearmans_rho_token = spearmans_rho(all_text_classes, 'token')
-    end = time.time()
-    print('Spearmans rho for token took {} seconds.'.format(end - start))
-    print('Spearmans rho matrix using the tokens:')
-    print('Order of labels: {}'.format(label_indices))
-    print('{}\n-------------------------------------------------\n'.format(np.array(spearmans_rho_token)))
+    # start = time.time()
+    # spearmans_rho_token = spearmans_rho(all_text_classes, 'token')
+    # end = time.time()
+    # print('Spearmans rho for token took {} seconds.'.format(end - start))
+    # print('Spearmans rho matrix using the tokens:')
+    # print('Order of labels: {}'.format(label_indices))
+    # print('{}\n-------------------------------------------------\n'.format(np.array(spearmans_rho_token)))
 
     start = time.time()
-    spearmans_rho_lemma = spearmans_rho(all_text_classes, 'lemma')
+    spearmans_rho_lemma = spearmans_rho(all_text_classes)
     end = time.time()
     print('Spearmans rho for lemma took {} seconds.'.format(end - start))
     print('Spearmans rho matrix using the lemmata:')

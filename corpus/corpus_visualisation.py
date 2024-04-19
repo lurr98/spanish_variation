@@ -11,8 +11,8 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-cmap = matplotlib.cm.get_cmap('tab20b', 20)
-color_list = [matplotlib.colors.rgb2hex(cmap(i)[:3]) for i in range(cmap.N)]
+cmap = matplotlib.cm.get_cmap('tab20', 20)
+color_list = [matplotlib.colors.rgb2hex(cmap(i)[:3]) for i in range(0, cmap.N, 2)] + [matplotlib.colors.rgb2hex(cmap(i)[:3]) for i in range(1, cmap.N, 2)]
 
 
 def make_tables(stats_dict: dict, which_country: list, which_stat: tuple, val_type: str) -> str:
@@ -97,9 +97,9 @@ def plot_heatmap(stats_dict: dict, which_stat: tuple) -> None:
 
 if __name__ == "__main__":
 
-    # stats_dict = {"DO": {"documents": 47065, "token": 34591907}, "CL": {"documents": 71620, "token": 65559977}, "HN": {"documents": 43227, "token": 34150553}, "ES": {"documents": 421520, "token": 423091653}, "PA": {"documents": 29312, "token": 22797585}, "BO": {"documents": 43293, "token": 39462190}, "NI": {"documents": 35696, "token": 30508428}, "CO": {"documents": 184970, "token":160074530}, "GT": {"documents": 61434, "token": 53558251}, "PR": {"documents": 33879, "token": 32061618}, "CR": {"documents": 33255, "token": 29862729}, "EC": {"documents": 63160, "token": 52109837}, "AR": {"documents": 177920, "token":169949379}, "VE": {"documents": 112571, "token":92024874}, "PY": {"documents": 33301, "token": 28577446}, "CU": {"documents": 51708, "token": 57678235}, "SV": {"documents": 38217, "token": 36366532}, "PE": {"documents": 121814, "token":105611118}, "UY": {"documents": 36154, "token":38579425}, "MX": {"documents": 286275, "token":238856348}}
+    stats_dict = {"DO": {"documents": 47065, "token": 34591907}, "CL": {"documents": 71620, "token": 65559977}, "HN": {"documents": 43227, "token": 34150553}, "ES": {"documents": 421520, "token": 423091653}, "PA": {"documents": 29312, "token": 22797585}, "BO": {"documents": 43293, "token": 39462190}, "NI": {"documents": 35696, "token": 30508428}, "CO": {"documents": 184970, "token":160074530}, "GT": {"documents": 61434, "token": 53558251}, "PR": {"documents": 33879, "token": 32061618}, "CR": {"documents": 33255, "token": 29862729}, "EC": {"documents": 63160, "token": 52109837}, "AR": {"documents": 177920, "token":169949379}, "VE": {"documents": 112571, "token":92024874}, "PY": {"documents": 33301, "token": 28577446}, "CU": {"documents": 51708, "token": 57678235}, "SV": {"documents": 38217, "token": 36366532}, "PE": {"documents": 121814, "token":105611118}, "UY": {"documents": 36154, "token":38579425}, "MX": {"documents": 286275, "token":238856348}}
 
-    with open('/projekte/semrel/WORK-AREA/Users/laura/test_stats_dict.json', 'r') as jsn:
-        stats_dict = json.load(jsn)
+    # with open('/projekte/semrel/WORK-AREA/Users/laura/test_stats_dict.json', 'r') as jsn:
+    #     stats_dict = json.load(jsn)
 
-    make_bar_plots(stats_dict, ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE'], ['average_paragraph_length'])
+    make_bar_plots(stats_dict, ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE'], ['documents', 'token', ['documents', 'token']])
