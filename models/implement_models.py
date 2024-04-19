@@ -1,4 +1,4 @@
-from sklearn import svm, tree
+from sklearn import svm, tree, ensemble
 import numpy as np
 import numpy.typing as npt
 
@@ -19,9 +19,9 @@ def train_DT(train_data: list | np.ndarray, targets: list) -> tree.DecisionTreeC
     return dt_clf
 
 
-def train_RF(train_data: list | np.ndarray, targets: list) -> tree.DecisionTreeClassifier:
+def train_RF(train_data: list | np.ndarray, targets: list) -> ensemble.RandomForestClassifier:
 
-    clf = RandomForestClassifier(max_depth=2, random_state=0)
-    clf.fit(X, y)
+    rf_clf = ensemble.RandomForestClassifier()
+    rf_clf.fit(train_data, targets)
 
-    return dt_clf
+    return rf_clf
