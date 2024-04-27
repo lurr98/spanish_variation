@@ -387,7 +387,7 @@ def different_clitic_pronouns(raw_text: str, clitic_count: list) -> list:
     # keywords loísmo, laísmo, leísmo
 
     pattern = re.compile(r'\b(lo|le|les)\t[\w.\-À-ÿ]+\tpo\t')
-    finds = pattern.findall(raw_text.lower())
+    finds = pattern.findall(raw_text)
 
     for i, clitic in enumerate(['lo', 'le', 'les']):
         clitic_count[i] += finds.count(clitic)

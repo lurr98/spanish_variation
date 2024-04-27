@@ -25,19 +25,13 @@ def save_sparse_csr(filename: str, array: spmatrix) -> None:
              indptr=array.indptr, shape=array.shape)
 
 
-def load_sparse_csr(filename: str) -> spmatrix:
-    # helper fnction to load the sparse matrix again
-    # here we need to add .npz extension manually
-    loader = np.load(filename + '.npz')
-
-    return csr_matrix((loader['data'], loader['indices'], loader['indptr']),
-                      shape=loader['shape'])
-
-
 class NgramFeatureExtractor:
     # define the ngram extractor class that will be used by the models to build the feature vectors
 
     def __init__(self, data, which_country, cut_off=1):
+
+        saved_args = locals()
+        print('NgramFeatureExtractor was initialised with the following arguments: {}'.format(saved_args))
 
         all_country_tags, all_indices, all_text = [], [], []
 
@@ -64,7 +58,11 @@ class LinguisticFeatureExtractor:
 
     def __init__(self, data, raw_data, which_country, voseo_count=[0]*12, overt_subject_count=[0]*9, subj_inf_count=[0]*3, art_poss_count=[0], tense_count=[0]*14, quest_count=[0], diminutive_count=[0]*4, mas_negation_count=[0], muy_isimo_count=[0], ada_count=[0], clitic_count=[0]*3, ser_estar_count=[0]*2):
 
+        saved_args = locals()
+        print('LinguisticFeatureExtractor was initialised with the following arguments: {}'.format(saved_args))
+
         count_name_dict = {0: 'voseo', 1: 'overt_subj', 2: 'subj_inf', 3: 'indef_art_poss', 4: 'diff_tenses', 5: 'non_inv_quest', 6: 'diminutives', 7: 'mas_neg', 8: 'muy_isimo', 9: 'ada', 10: 'clitic_pronouns', 11: 'ser_or_estar'}
+
         def reset_counts(counts: list) -> Sequence[list]:
             # reset the counts to 0 for every new document
             # hereby, make sure to keep the Falses if a count is not specified
@@ -140,29 +138,36 @@ if __name__ == "__main__":
     # which_country = ['PA']
 
     start = time.time()
-    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', filter_punct=True)
-    # cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars')
+    # cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', filter_punct=True, lower=True)
+    cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars')
     end = time.time()
     print('Corpus reader took {} seconds.'.format(end - start))
 
-    overall_start = time.time()
+    print('Dev after reader: {}'.format(cr.dev))
 
-    # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
-    # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
+    split_dict = {'train': cr.train, 'dev': cr.dev, 'test': cr.test}
+    with open('/projekte/semrel/WORK-AREA/Users/laura/toy_train_dev_test_split.json', 'w') as jsn:
+        json.dump(split_dict, jsn)
 
-    extractor = NgramFeatureExtractor(cr.data, which_country)
-
-    overall_end = time.time()
-    print('Feature search took {} seconds'.format(overall_end-overall_start))
-
-    extractor_dict = {'targets': extractor.targets, 'indices': extractor.indices}
-
-    print(extractor_dict)
-
-    with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_targets_indices.json', 'w') as jsn:
-        json.dump(extractor_dict, jsn)
-
-    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_spmatrix', extractor.tfs)
+    # overall_start = time.time()
+# 
+    # extractor_ling = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
+    # # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
+# 
+    # extractor_ngram = NgramFeatureExtractor(cr.data, which_country)
+# 
+    # overall_end = time.time()
+    # print('Feature search took {} seconds'.format(overall_end-overall_start))
+# 
+    # extractor_dict = {'indices': extractor_ngram.indices}
+# 
+    # with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_targets_indices.json', 'w') as jsn:
+    #     json.dump(extractor_dict, jsn)
+# 
+    # save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_spmatrix', extractor_ngram.tfs)
+# 
+    # with open('/projekte/semrel/WORK-AREA/Users/laura/feature_dict.json', 'w') as jsn:
+    #     json.dump(extractor_ling.document_counts, jsn)
 
     # for country, ids in cr.ids.items():
     #     print('{} -- {} IDs'.format(country, len(ids)))
