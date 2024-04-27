@@ -90,7 +90,7 @@
 
 1. preprocessing
     - read corpus
-    - tokenisation, lemmatisation and POS-tagging
+    - tokenisation, lemmatisation and POS-tagging (already provided)
     - lowercase everything
         - since capitalisation only happens for NE in Spanish and these are already tagged anyway, so lowercasing **all** data should not pose a problem
 2. extract features
@@ -113,4 +113,24 @@
     - Decision Tree / Random Forest
     - experiment with different features
         - feature engineering
+        - ablation studies
+
+
+### Pipeline for Transformer models
+
+1. preprocessing
+    - read corpus
+    - lowercase everything
+        - since capitalisation only happens for NE in Spanish and these are already tagged anyway, so lowercasing **all** data should not pose a problem
+    - tokenisation using the BERT tokeniser
+        - :warning: BERT has a max length limit of tokens = 512 (ideas from [this post](https://arxiv.org/abs/1905.05583))
+            - You can cut the longer texts off and only use the first 512 Tokens. The original BERT implementation (and probably the others as well) truncates longer sequences automatically. For most cases, this option is sufficient.
+            - You can split your text in multiple subtexts, classify each of them and combine the results back together ( choose the class which was predicted for most of the subtexts for example). This option is obviously more expensive.
+            - You can even feed the output token for each subtext (as in option 2) to another network (but you won't be able to fine-tune) as described in this discussion.
+            - This paper compared a few different strategies: [How to Fine-Tune BERT for Text Classification?](https://arxiv.org/abs/1905.05583). On the IMDb movie review dataset, they actually found that cutting out the middle of the text (rather than truncating the beginning or the end) worked best!
+2. extract features
+    - covered by the tokeniser
+3. train model on data 
+    - implement the fine-tuning procedure (use Trainer or PyTorch?)
+    - experiment with different features?
         - ablation studies
