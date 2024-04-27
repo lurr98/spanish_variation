@@ -18,7 +18,10 @@ with open('../corpus/POS_related/inverted_POS_tags.json', 'r') as jsn:
 class CorpusReader:
 # define the corpus reader class that will be used by the models to access data
 
-    def __init__(self, path_to_folder: str, which_country: list, chunking_type: str, filter_punct: bool=False, lower: bool=False, split_data: list=[0.8, 0.9]):
+    def __init__(self, path_to_folder: str, which_country: list, chunking_type: str, filter_punct: bool=False, lower: bool=False, split_data: list=[0.8, 0.9], sub_sample: bool=True):
+
+        saved_args = locals()
+        print('CorpusReader was initialised with the following arguments: {}'.format(saved_args))
 
         def append_id_data(id_data: list, appropriate_line: list, lower: str) -> list:
             # helper function to make code look better (and hopefully more efficient)
@@ -26,7 +29,7 @@ class CorpusReader:
                 if lower:
                     inner_list.append(appropriate_line[i].lower())
                 else:
-                    inner_list.append(appropriate_line[i].lower())
+                    inner_list.append(appropriate_line[i])
 
             return id_data
         
@@ -94,12 +97,12 @@ class CorpusReader:
                                             # make sure the POS tag is not the null character
                                             pos_tag = substitute_null_char(line.split('\t')[4].strip())
                                             # for every line that is not the paragraph's id, append the content to the appropriate lists
-                                            id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], pos_tag, POS_mapping[pos_tag]], lower)
+                                            id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], pos_tag, POS_mapping[pos_tag.lower()]], lower)
                                     else:
                                         # make sure the POS tag is not the null character
                                         pos_tag = substitute_null_char(line.split('\t')[4].strip())
                                         # for every line that is not the paragraph's id, append the content to the appropriate lists
-                                        id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], pos_tag, POS_mapping[pos_tag]], lower)
+                                        id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], pos_tag, POS_mapping[pos_tag.lower()]], lower)
 
                         # TODO: check whether I really need this and if so, update (filter_punct etc.)
                         # TODO: if needed add raw_data as well!
@@ -141,18 +144,6 @@ class CorpusReader:
                         #             # for every line that is not a delimiter, append the content to the appropriate lists
                         #             id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4], POS_mapping[line.split('\t')[4]]])
 
-                class_ids = list(class_data.keys())
-                
-                # shuffle the ids to maximise randomness
-                random.shuffle(class_ids)
-                split_train = int(split_data[0]*len(class_ids))
-                split_test_dev = int(split_data[1]*len(class_ids))
-
-                # fill the train, dev, test dictionaries with the appropriate number of ids for each set
-                # TODO: do we need some algorithm to fix imbalance 
-                train[re.split('_|-', zip_file)[1]] = class_ids[:split_train]
-                test[re.split('_|-', zip_file)[1]] = class_ids[split_train:split_test_dev]
-                dev[re.split('_|-', zip_file)[1]] = class_ids[split_test_dev:]
 
                 all_data[re.split('_|-', zip_file)[1]] = class_data
                 all_raw_data[re.split('_|-', zip_file)[1]] = raw_class_data
@@ -162,9 +153,36 @@ class CorpusReader:
                 print('\n--------------------------------------------------------\n')
 
         if split_data:
-            self.train = train
-            self.test = test
-            self.dev = dev
+            min_samples_prox = min([len(idx_list) for idx_list in list(all_ids.values())])
+
+            for label, class_ids in all_ids.items():
+                print(label)
+                if sub_sample:
+                    # if sub-sampling is enabled, make the minimum number of samples the number of documents of the smallest subcorpus 
+                    min_samples = min_samples_prox
+                else:
+                    min_samples = len(class_ids)
+
+                # shuffle the ids to maximise randomness
+                random.shuffle(class_ids)
+
+                # this either shortens the index list or leaves it alone (in case of no sub-sampling)
+                class_ids_sampled = class_ids[:min_samples]
+
+                split_train = int(split_data[0]*len(class_ids_sampled))
+                split_test_dev = int(split_data[1]*len(class_ids_sampled))
+
+                # fill the train, dev, test dictionaries with the appropriate number of ids for each set
+                # TODO: do we need some algorithm to fix imbalance 
+                train[label] = class_ids_sampled[:split_train]
+                test[label] = class_ids_sampled[split_train:split_test_dev]
+                dev[label] = class_ids_sampled[split_test_dev:]
+
+                print('Dev: {}'.format(dev))
+
+        self.train = train
+        self.test = test
+        self.dev = dev
 
         self.data = all_data
         self.raw = all_raw_data
@@ -178,10 +196,5 @@ if __name__ == "__main__":
 
     print(type(cr.data))
     print(list(cr.data.keys()))
-    for k,v in cr.data.items():
-        print('Label: {}'.format(k))
-        print('{}'.format(type(v)))
-        print('{}\n'.format(list(v.keys())))
-
-    # print(type(cr.ids))
+    print(cr.ids)
     # print(cr.ids['AR'][:10])

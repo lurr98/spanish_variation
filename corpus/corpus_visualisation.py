@@ -95,11 +95,40 @@ def plot_heatmap(stats_dict: dict, which_stat: tuple) -> None:
     plt.savefig('plots/{}_plot{}.png'.format(which_stat[0], date.today()))
 
 
+def plot_zipf_distribution(frequencies: dict) -> None:
+
+    fig, (ax_x, ax_y) = plt.subplots(2, figsize=(10, 8))
+    ax_x.set_title('Zipf\'s Curve (truncated x-axis)')
+    ax_y.set_title('Closer Look into Lower Frequencies (truncated y-axis)')
+
+    keys = list(frequencies.keys())
+    freq_values = [frequencies[key] for key in keys]
+
+    sorted_zip = sorted(zip(freq_values, keys), reverse=True)
+    sorted_freqs, sorted_keys = zip(*sorted_zip)
+
+    # add ticks and title
+    ax_x.set_xlabel('Token Rank')
+    ax_x.set_ylabel('Token Frequency')
+
+    ax_y.set_xlabel('Token Rank')
+    ax_y.set_ylabel('Token Frequency')
+
+    plt.subplots_adjust(hspace=0.5)
+
+    ax_x.plot(sorted_freqs[:200], color='royalblue')
+    ax_y.set_ylim(0, 50)
+    ax_y.plot(sorted_freqs, color='royalblue')    
+    plt.savefig('plots/zipfs_law_plot{}.png'.format(date.today()))
+
+
+
 if __name__ == "__main__":
 
     stats_dict = {"DO": {"documents": 47065, "token": 34591907}, "CL": {"documents": 71620, "token": 65559977}, "HN": {"documents": 43227, "token": 34150553}, "ES": {"documents": 421520, "token": 423091653}, "PA": {"documents": 29312, "token": 22797585}, "BO": {"documents": 43293, "token": 39462190}, "NI": {"documents": 35696, "token": 30508428}, "CO": {"documents": 184970, "token":160074530}, "GT": {"documents": 61434, "token": 53558251}, "PR": {"documents": 33879, "token": 32061618}, "CR": {"documents": 33255, "token": 29862729}, "EC": {"documents": 63160, "token": 52109837}, "AR": {"documents": 177920, "token":169949379}, "VE": {"documents": 112571, "token":92024874}, "PY": {"documents": 33301, "token": 28577446}, "CU": {"documents": 51708, "token": 57678235}, "SV": {"documents": 38217, "token": 36366532}, "PE": {"documents": 121814, "token":105611118}, "UY": {"documents": 36154, "token":38579425}, "MX": {"documents": 286275, "token":238856348}}
 
-    # with open('/projekte/semrel/WORK-AREA/Users/laura/test_stats_dict.json', 'r') as jsn:
-    #     stats_dict = json.load(jsn)
+    with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequency_dict.json', 'r') as jsn:
+        freq_dict = json.load(jsn)
 
-    make_bar_plots(stats_dict, ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE'], ['documents', 'token', ['documents', 'token']])
+    plot_zipf_distribution(freq_dict)
+    # make_bar_plots(stats_dict, ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE'], ['documents', 'token', ['documents', 'token']])

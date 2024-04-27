@@ -253,6 +253,9 @@ if __name__ == "__main__":
     end = time.time()
     print('Corpus reader took {} seconds.'.format(end - start))
 
+    with open('/projekte/semrel/WORK-AREA/Users/laura/stats_dict.json', 'r') as jsn:
+        stats_dict = json.load(jsn)
+
     overall_start = time.time()
 
     # start = time.time()
@@ -267,7 +270,7 @@ if __name__ == "__main__":
     # end = time.time()
     # print('TF-IDF for bi- and trigram POS took {} seconds.'.format(end - start))
 
-    label_indices, all_text_classes = [], []
+    label_indices, all_text_classes, all_text_classes_token = [], [], []
 
     # now execute all functions that need the class data
     for label, data in cr.data.items():
@@ -283,13 +286,35 @@ if __name__ == "__main__":
         # all_text_classes.append(all_text_class)
 
         # get ngram frequencies for TOKEN
-        token_uni_frequencies = get_ngram_frequencies(data, 1, 'token')
+        token_uni_frequencies, all_text_class_token = get_ngram_frequencies(data, 1, 'token', keep_text=True)
+        all_text_classes_token.append(all_text_class_token)
         token_frequencies = {''.join(gram): frequency for gram, frequency in token_uni_frequencies.items()}
 
         with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequency_dict.json', 'w') as jsn:
             json.dump(token_frequencies, jsn)
 
         # TODO: run this but add spearmans rho!
+            
+        start = time.time()
+        spearmans_rho_token = spearmans_rho(all_text_classes_token)
+        end = time.time()
+        print('Spearmans rho for token took {} seconds.'.format(end - start))
+        print('Spearmans rho matrix using the tokens:')
+        print('Order of labels: {}'.format(label_indices))
+        print('{}\n-------------------------------------------------\n'.format(np.array(spearmans_rho_token)))
+
+        start = time.time()
+        spearmans_rho_lemma = spearmans_rho(all_text_classes)
+        end = time.time()
+        print('Spearmans rho for lemma took {} seconds.'.format(end - start))
+        print('Spearmans rho matrix using the lemmata:')
+        print('Order of labels: {}'.format(label_indices))
+        print('{}\n-------------------------------------------------\n'.format(np.array(spearmans_rho_lemma)))
+
+        stats_dict['all_countries']['spearmans_rho'] = {'token': {'unigrams': (spearmans_rho_token, label_indices)}, 'lemma': {'unigrams': (spearmans_rho_lemma, label_indices)}}
+
+        with open('/projekte/semrel/WORK-AREA/Users/laura/stats_dict_updated.json', 'w') as jsn:
+            json.dump(stats_dict, jsn)
 
         exit()
 
