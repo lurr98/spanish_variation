@@ -178,11 +178,9 @@ class CorpusReader:
                 test[label] = class_ids_sampled[split_train:split_test_dev]
                 dev[label] = class_ids_sampled[split_test_dev:]
 
-                print('Dev: {}'.format(dev))
-
-        self.train = train
-        self.test = test
-        self.dev = dev
+            self.train = train
+            self.test = test
+            self.dev = dev
 
         self.data = all_data
         self.raw = all_raw_data
