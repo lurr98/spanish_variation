@@ -1,0 +1,3 @@
+Loading ngram features took 28.709667444229126 seconds.
+Concatenation took 75820.25503325462 seconds.
+Training SVM model took 722.2849063873291 seconds.

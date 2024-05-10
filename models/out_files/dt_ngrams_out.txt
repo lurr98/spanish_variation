@@ -1,0 +1,3 @@
+Loading ngram features took 5.617276668548584 seconds.
+Concatenation took 75577.90946388245 seconds.
+Training DT model took 32107.20383286476 seconds.

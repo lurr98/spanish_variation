@@ -1,0 +1,12 @@
+Loading tailored feature dict took 20.157877922058105 seconds.
+tailored
+tailored
+Concatenation took 510.85178446769714 seconds.
+Loading tailored feature dict took 19.989903926849365 seconds.
+tailored
+tailored
+Concatenation took 14.290295124053955 seconds.
+Loading tailored feature dict took 20.245455980300903 seconds.
+tailored
+tailored
+Concatenation took 14.254896640777588 seconds.

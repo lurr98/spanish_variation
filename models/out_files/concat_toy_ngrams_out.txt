@@ -1,0 +1,6 @@
+Loading ngram features took 5.448312759399414 seconds.
+Concatenation took 452.17670154571533 seconds.
+Loading ngram features took 5.413488864898682 seconds.
+Concatenation took 40.41971802711487 seconds.
+Loading ngram features took 5.494450092315674 seconds.
+Concatenation took 41.079468727111816 seconds.
