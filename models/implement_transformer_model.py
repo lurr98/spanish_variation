@@ -1,8 +1,10 @@
 import torch, evaluate
 import numpy as np
-from transformers import BertForMaskedLM, BertTokenizer, Trainer, TrainingArguments
+from transformers import AutoModelForSequenceClassification, BertTokenizer, Trainer, TrainingArguments
 from typing import Sequence
 
+torch.cuda.empty_cache()
+torch.cuda.set_device(3)
 
 # TODO: find appropriate type hints
 
@@ -22,11 +24,16 @@ class CdEDataset(torch.utils.data.Dataset):
         return len(self.targets)
     
 
-def tokenise_data(text_data: list, model_name: str) -> Sequence:
+def initialise_tokeniser(model_name: str) -> BertTokenizer:
 
-    tokenizer = BertTokenizer.from_pretrained(model_name, do_lower_case=True)
+    tokeniser = BertTokenizer.from_pretrained(model_name, do_lower_case=True)
+
+    return tokeniser
+
+
+def tokenise_data(text_data: list, tokeniser: BertTokenizer) -> Sequence:
     
-    encodings = tokenizer(text_data)
+    encodings = tokeniser(text_data, truncation=True, padding=True)
     # TODO: Important: find a solution for maximum length problem!
 
     return encodings
@@ -39,10 +46,12 @@ def initialise_metric(metric_choice: str):
     return metric
 
 
-def compute_metrics(eval_pred, metric):
+def compute_metrics(eval_pred):
     # from https://huggingface.co/docs/transformers/training
 
     logits, labels = eval_pred
+
+    metric = initialise_metric('accuracy')
 
     predictions = np.argmax(logits, axis=-1)
 
@@ -64,7 +73,7 @@ def initialise_trainer(output_dir: str, model_name: str, train_dataset: CdEDatas
         evaluation_strategy='epoch'
     )
 
-    model = BertForMaskedLM.from_pretrained(model_name)
+    model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=20)
 
     trainer = Trainer(
         model=model,                         # the instantiated 🤗 Transformers model to be trained
@@ -80,5 +89,7 @@ def initialise_trainer(output_dir: str, model_name: str, train_dataset: CdEDatas
 def train_n_save_model(trainer, save_dir: str) -> None:
         
     trainer.train()
+
+    trainer.evaluate()
 
     trainer.save_model(save_dir)
