@@ -15,20 +15,14 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 
 sys.path.append("..")
+from basics import save_sparse_csr
 from corpus.corpus_reader import CorpusReader
-
-
-def save_sparse_csr(filename: str, array: spmatrix) -> None:
-    # helper function to save sparse matrix (e.g. the ngram frequencies per document)
-    # note that .npz extension is added automatically
-    np.savez(filename, data=array.data, indices=array.indices,
-             indptr=array.indptr, shape=array.shape)
 
 
 class NgramFeatureExtractor:
     # define the ngram extractor class that will be used by the models to build the feature vectors
 
-    def __init__(self, data, which_country, cut_off=1):
+    def __init__(self, data, which_country, cut_off=2, stop_words=None, tf=True):
 
         saved_args = locals()
         print('NgramFeatureExtractor was initialised with the following arguments: {}'.format(saved_args))
@@ -43,10 +37,13 @@ class NgramFeatureExtractor:
                     all_country_tags.append(label)
                     all_text.append(' '.join(class_data[key][0]))
 
-        count_vect = CountVectorizer(min_df=cut_off)
+        count_vect = CountVectorizer(min_df=cut_off, stop_words=stop_words)
         counts = count_vect.fit_transform(all_text)
-        tf_transformer = TfidfTransformer(use_idf=False)
-        term_frequencies = tf_transformer.fit_transform(counts)
+        if tf:
+            tf_transformer = TfidfTransformer(use_idf=False)
+            term_frequencies = tf_transformer.fit_transform(counts)
+        else:
+            term_frequencies = counts
 
         self.targets = all_country_tags
         self.indices = all_indices
@@ -138,34 +135,91 @@ if __name__ == "__main__":
     # which_country = ['PA']
 
     start = time.time()
-    # cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', filter_punct=True, lower=True)
-    cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars')
+    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', filter_punct=True, lower=True, split_data=False)
+    # cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', filter_punct=True, lower=True)
     end = time.time()
     print('Corpus reader took {} seconds.'.format(end - start))
 
-    print('Dev after reader: {}'.format(cr.dev))
+    # with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_indices.json', 'r') as jsn:
+    #     indices = json.load(jsn)
 
-    split_dict = {'train': cr.train, 'dev': cr.dev, 'test': cr.test}
-    with open('/projekte/semrel/WORK-AREA/Users/laura/toy_train_dev_test_split.json', 'w') as jsn:
-        json.dump(split_dict, jsn)
+    # new_train = {}
+    # for k, v in cr.train.items():
+    #     val = [idx for idx in v if idx in indices['indices']]
+    #     new_train[k] = val
 
-    # overall_start = time.time()
+    # new_dev = {}
+    # for k, v in cr.dev.items():
+    #     val = [idx for idx in v if idx in indices['indices']]
+    #     new_dev[k] = val
+
+    # new_test = {}
+    # for k, v in cr.test.items():
+    #     val = [idx for idx in v if idx in indices['indices']]
+    #     new_test[k] = val
+
+    # split_dict = {'train': cr.train, 'dev': cr.dev, 'test': cr.test}
+    # split_dict = {'train': new_train, 'dev': new_dev, 'test': new_test}
+    # with open('/projekte/semrel/WORK-AREA/Users/laura/toy_train_dev_test_split.json', 'w') as jsn:
+    #     json.dump(split_dict, jsn)
+
+    # reader_indices_dict = {'indices': cr.ids}
+    # 
+    # with open('/projekte/semrel/WORK-AREA/Users/laura/test_reader_indices.json', 'w') as jsn:
+    #     json.dump(reader_indices_dict, jsn)
 # 
-    # extractor_ling = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
-    # # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
+    overall_start = time.time()
+# # 
+    # # extractor_ling = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
+    # # # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
+# # 
+    extractor_ngram = NgramFeatureExtractor(cr.data, which_country, stop_words=['vos', 'tú', 'tí', 'ti', 'vosotros', 'os', 'usted', 'ustedes'])
 # 
-    # extractor_ngram = NgramFeatureExtractor(cr.data, which_country)
+    overall_end = time.time()
+    print('Feature search took {} seconds'.format(overall_end-overall_start))
+# # 
+    extractor_dict = {'indices': extractor_ngram.indices}
 # 
-    # overall_end = time.time()
-    # print('Feature search took {} seconds'.format(overall_end-overall_start))
+    with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_features/ngram_frequencies_indices_tf_notfeat.json', 'w') as jsn:
+        json.dump(extractor_dict, jsn)
+    
+    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/ngram_features/ngram_frequencies_spmatrix_tf_notfeat', extractor_ngram.tfs)
+
+    overall_start = time.time()
+# # 
+    # # extractor_ling = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
+    # # # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
+# # 
+    extractor_ngram = NgramFeatureExtractor(cr.data, which_country, stop_words=['vos', 'tú', 'tí', 'ti', 'vosotros', 'os', 'usted', 'ustedes', 'lo', 'le', 'les'], tf=False)
 # 
-    # extractor_dict = {'indices': extractor_ngram.indices}
+    overall_end = time.time()
+    print('Feature search took {} seconds'.format(overall_end-overall_start))
+# # 
+    extractor_dict = {'indices': extractor_ngram.indices}
 # 
-    # with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_targets_indices.json', 'w') as jsn:
-    #     json.dump(extractor_dict, jsn)
+    with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_features/ngram_frequencies_indices_counts_notfeat.json', 'w') as jsn:
+        json.dump(extractor_dict, jsn)
+    
+    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/ngram_features/ngram_frequencies_spmatrix_counts_notfeat', extractor_ngram.tfs)
 # 
-    # save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequencies_spmatrix', extractor_ngram.tfs)
+       
+    overall_start = time.time()
+# # 
+    # # extractor_ling = LinguisticFeatureExtractor(cr.data, cr.raw, which_country)
+    # # # extractor = LinguisticFeatureExtractor(cr.data, cr.raw, which_country, None, None, None, None, None, None, None, None, None, [0])
+# # 
+    extractor_ngram = NgramFeatureExtractor(cr.data, which_country, tf=False)
 # 
+    overall_end = time.time()
+    print('Feature search took {} seconds'.format(overall_end-overall_start))
+# # 
+    extractor_dict = {'indices': extractor_ngram.indices}
+# 
+    with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_features/ngram_frequencies_indices_counts.json', 'w') as jsn:
+        json.dump(extractor_dict, jsn)
+    
+    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/ngram_features/ngram_frequencies_spmatrix_counts', extractor_ngram.tfs)
+
     # with open('/projekte/semrel/WORK-AREA/Users/laura/feature_dict.json', 'w') as jsn:
     #     json.dump(extractor_ling.document_counts, jsn)
 
