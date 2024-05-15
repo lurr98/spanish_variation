@@ -1,0 +1,7 @@
+The script is running with the following arguments: Namespace(model_path='SVM_models/SVM_model_ngrams_tf_2024-05-14', features_path='ngram_features/tf/ngram_frequencies_spmatrix_tf_dev', store_path='evaluation/SVM_models/evaluation_SVM_model_tf_grid.txt', evaluation_metrics=['f1', 'accuracy', 'confusion_matrix', 'class_report'], grid=True)
+{'PA', 'PR', 'GT', 'AR', 'CL', 'CR', 'PE', 'PY', 'SV', 'HN', 'BO', 'EC', 'CU', 'UY', 'ES', 'CO', 'DO', 'VE', 'MX', 'NI'}
+58640
+{'PA', 'PR', 'GT', 'AR', 'CL', 'CR', 'PE', 'PY', 'SV', 'HN', 'BO', 'EC', 'CU', 'UY', 'ES', 'CO', 'DO', 'VE', 'MX', 'NI'}
+58640
+['AR' 'BO' 'CL' 'CO' 'CR' 'CU' 'DO' 'EC' 'ES' 'GT' 'HN' 'MX' 'NI' 'PA'
+ 'PE' 'PR' 'PY' 'SV' 'UY' 'VE']
