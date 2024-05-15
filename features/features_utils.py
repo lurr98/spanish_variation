@@ -155,41 +155,7 @@ def overt_subjects(text: list, token: str, i: int, post_window: int, subj_count:
 def subject_preceeds_infinitive(raw_text: str, subj_inf_count: list)  -> list:
     # look for subjects that preceed an infinitive
     # e.g. ~ antes de yo venir ~
-    # TODO: ??????
-    # verb_list = ['VM', 'VC', 'VIF', 'VII', 'VIP', 'VIS', 'VIMP', 'VPP', 'VPS', 'VR', 'VSF', 'VSI', 'VSJ', 'VSP']
-    # for idx, text in class_data.items():
-    # for i, pos_tag in enumerate(text[2]):
-    #     if pos_tag.strip() == 'ps':
-    #         try:
-    #             if POS_mapping[text[2][i-1].strip()] != 'PREP' and POS_mapping[text[2][i-1].strip()] not in verb_list:
-    #                 if text[2][i+1].strip() == 'vr':
-    #                     # print('---------------------------------\n')
-    #                     # for j in list(range(10))[::-1]:
-    #                     #     print('{} -- {}'.format(text[0][i-(j+1)], text[2][i-(j+1)]))
-    #                     # print('{} -- {}\n{} -- {}\n'.format(text[0][i], text[2][i], text[0][i+1], text[2][i+1]))
-    #                     # for j in list(range(10)):
-    #                     #     print('{} -- {}'.format(text[0][i+j+1], text[2][i+j+1]))
-    #                     subj_inf_count[0] += 1
-    #                 elif text[2][i+1].strip() =='vpp':
-    #                     # print('---------------------------------\n')
-    #                     # for j in list(range(10))[::-1]:
-    #                     #     print('{} -- {}'.format(text[0][i-(j+1)], text[2][i-(j+1)]))
-    #                     # print('{} -- {}\n{} -- {}\n'.format(text[0][i], text[2][i], text[0][i+1], text[2][i+1]))
-    #                     # for j in list(range(10)):
-    #                     #     print('{} -- {}'.format(text[0][i+j+1], text[2][i+j+1]))
-    #                     subj_inf_count[1] += 1
-    #                 elif text[2][i+1].strip() == 'vpp-00':
-    #                     # print('---------------------------------\n')
-    #                     # for j in list(range(10))[::-1]:
-    #                     #     print('{} -- {}'.format(text[0][i-(j+1)], text[2][i-(j+1)]))
-    #                     # print('{} -- {}\n{} -- {}\n'.format(text[0][i], text[2][i], text[0][i+1], text[2][i+1]))
-    #                     # for j in list(range(10)):
-    #                     #     print('{} -- {}'.format(text[0][i+j+1], text[2][i+j+1]))
-    #                     subj_inf_count[2] += 1
-    #         except IndexError:
-    #             print('----------------------------------------\n')
-    #             pass
-
+   
     pattern = re.compile(r'ps\t[\w.\-À-ÿ]+\n([\w.\-À-ÿ]+\t){2}(vr|vpp|vpp-00)')
 
     finds = pattern.findall(raw_text)
