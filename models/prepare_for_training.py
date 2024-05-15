@@ -50,10 +50,13 @@ def concatenate_features(split_type: str, ngram_features: Union[spmatrix, None],
     all_features_array, targets, idx_list = [], [], []
     if shuffle:
         for label in which_country:
+            print('Working on label {}'.format(label))
             # add indices and targets to the appropriate lists
             idx_list.extend(set_indices[label])
             targets.extend([label]*len(set_indices[label]))
-            for idx in set_indices[label]:
+            for i, idx in enumerate(set_indices[label]):
+                if i % 1000 == 0:
+                    print('Working on document {} out of {}'.format(i, len(set_indices[label])))
                 all_features_array = concat_helper(idx, label, all_features_array, ngram_features, ngram_indices, tailored_features, which_features)
 
     else:
@@ -67,6 +70,8 @@ def concatenate_features(split_type: str, ngram_features: Union[spmatrix, None],
         idx_list = indices[split_type]['indices']
         target_list = indices[split_type]['targets']
         for i, idx in enumerate(idx_list):
+            if i % 1000 == 0:
+                print('Working on document {} out of {}'.format(i, len(idx_list)))
             all_features_array = concat_helper(idx, target_list[i], all_features_array, ngram_features, ngram_indices, tailored_features, which_features)
 
     return all_features_array, targets, idx_list
@@ -121,7 +126,6 @@ def prepare_data_full(data_split: str, split_type: str, which_country: list, fea
         end = time.time()
         print('Loading ngram features took {} seconds.'.format(end - start))
 
-    print(feature_type)
     start = time.time()
     # check which features should be used
     if feature_type == 'ngrams':
@@ -134,7 +138,7 @@ def prepare_data_full(data_split: str, split_type: str, which_country: list, fea
     elif feature_type == 'both':
         # sort out redundant features from tailored features
         # TODO: maybe ask supervisors
-        which_features = [feature for feature in which_features if not feature in ['voseo', 'clitic_pronouns']]
+        # which_features = [feature for feature in which_features if not feature in ['voseo', 'clitic_pronouns']]
         # obtain the ngram and tailored features of the train set and concatenate ngram features and tailored features
         split_features, split_targets, split_indices = concatenate_features(split_type, ngrams, features, ngram_indices['indices'], split_dict, which_country, which_features, concat=True, shuffle=shuffle)
     end = time.time()

@@ -12,8 +12,8 @@ def train_SVM(train_data: list | np.ndarray, targets: list, grid: bool) -> svm.L
     if grid:
         # use grid search to find the best parameter combination
         print('Using grid search to find the best parameter combination.')
-        print('Paramter options: {"max_iter":[1000, 5000], "C":[0.001, 0.01, 0.1, 1, 10, 100], "loss": ("hinge", "squared_hinge")}')
-        parameters = {'max_iter':[1000, 5000], 'C':[0.001, 0.01, 0.1, 1, 10, 100], 'loss': ('hinge', 'squared_hinge')}
+        print('Paramter options: {"max_iter":[1000], "C":[0.001, 0.01, 0.1, 10]}')
+        parameters = {'max_iter':[1000, 5000], 'C':[0.001, 0.01, 0.1, 10]}
         svc = svm.LinearSVC(dual="auto")
         lin_clf = GridSearchCV(svc, parameters, scoring='accuracy')
         lin_clf.fit(train_data, targets)

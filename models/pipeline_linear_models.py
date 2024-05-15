@@ -47,7 +47,7 @@ if args.model == 'none':
 
     if args.sit:
         ind_target_dict = {'train': {'indices': s_train_indices, 'targets': s_train_targets}, 'dev': {'indices': s_dev_indices, 'targets': s_dev_targets}, 'test': {'indices': s_test_indices, 'targets': s_test_targets}}
-        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_test.json', 'w') as jsn:
+        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_test2.json', 'w') as jsn:
             json.dump(ind_target_dict, jsn)
 
 # load the features and targets
