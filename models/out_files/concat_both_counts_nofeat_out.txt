@@ -1,5 +1,6 @@
-The script is running with the following arguments: Namespace(features='ngrams', model='none', store_path='ngram_features/counts/ngram_frequencies_spmatrix_counts', sit=False, grid=False)
-Loading ngram features took 6.136629581451416 seconds.
+The script is running with the following arguments: Namespace(features='both', model='none', store_path='both_features/counts_nofeat/both_features_spmatrix_counts_nofeat', sit=False, grid=False)
+Loading tailored feature dict took 21.891136407852173 seconds.
+Loading ngram features took 18.70403242111206 seconds.
 Working on document 0 out of 468980
 Working on document 1000 out of 468980
 Working on document 2000 out of 468980
@@ -469,8 +470,9 @@ Working on document 465000 out of 468980
 Working on document 466000 out of 468980
 Working on document 467000 out of 468980
 Working on document 468000 out of 468980
-Concatenation took 139053.17218494415 seconds.
-Loading ngram features took 33.36657381057739 seconds.
+Concatenation took 143917.4911456108 seconds.
+Loading tailored feature dict took 24.290831089019775 seconds.
+Loading ngram features took 34.35283160209656 seconds.
 Working on document 0 out of 58640
 Working on document 1000 out of 58640
 Working on document 2000 out of 58640
@@ -515,80 +517,3 @@ Working on document 40000 out of 58640
 Working on document 41000 out of 58640
 Working on document 42000 out of 58640
 Working on document 43000 out of 58640
-Working on document 44000 out of 58640
-Working on document 45000 out of 58640
-Working on document 46000 out of 58640
-Working on document 47000 out of 58640
-Working on document 48000 out of 58640
-Working on document 49000 out of 58640
-Working on document 50000 out of 58640
-Working on document 51000 out of 58640
-Working on document 52000 out of 58640
-Working on document 53000 out of 58640
-Working on document 54000 out of 58640
-Working on document 55000 out of 58640
-Working on document 56000 out of 58640
-Working on document 57000 out of 58640
-Working on document 58000 out of 58640
-Concatenation took 4185.374704837799 seconds.
-Loading ngram features took 9.98382830619812 seconds.
-Working on document 0 out of 58620
-Working on document 1000 out of 58620
-Working on document 2000 out of 58620
-Working on document 3000 out of 58620
-Working on document 4000 out of 58620
-Working on document 5000 out of 58620
-Working on document 6000 out of 58620
-Working on document 7000 out of 58620
-Working on document 8000 out of 58620
-Working on document 9000 out of 58620
-Working on document 10000 out of 58620
-Working on document 11000 out of 58620
-Working on document 12000 out of 58620
-Working on document 13000 out of 58620
-Working on document 14000 out of 58620
-Working on document 15000 out of 58620
-Working on document 16000 out of 58620
-Working on document 17000 out of 58620
-Working on document 18000 out of 58620
-Working on document 19000 out of 58620
-Working on document 20000 out of 58620
-Working on document 21000 out of 58620
-Working on document 22000 out of 58620
-Working on document 23000 out of 58620
-Working on document 24000 out of 58620
-Working on document 25000 out of 58620
-Working on document 26000 out of 58620
-Working on document 27000 out of 58620
-Working on document 28000 out of 58620
-Working on document 29000 out of 58620
-Working on document 30000 out of 58620
-Working on document 31000 out of 58620
-Working on document 32000 out of 58620
-Working on document 33000 out of 58620
-Working on document 34000 out of 58620
-Working on document 35000 out of 58620
-Working on document 36000 out of 58620
-Working on document 37000 out of 58620
-Working on document 38000 out of 58620
-Working on document 39000 out of 58620
-Working on document 40000 out of 58620
-Working on document 41000 out of 58620
-Working on document 42000 out of 58620
-Working on document 43000 out of 58620
-Working on document 44000 out of 58620
-Working on document 45000 out of 58620
-Working on document 46000 out of 58620
-Working on document 47000 out of 58620
-Working on document 48000 out of 58620
-Working on document 49000 out of 58620
-Working on document 50000 out of 58620
-Working on document 51000 out of 58620
-Working on document 52000 out of 58620
-Working on document 53000 out of 58620
-Working on document 54000 out of 58620
-Working on document 55000 out of 58620
-Working on document 56000 out of 58620
-Working on document 57000 out of 58620
-Working on document 58000 out of 58620
-Concatenation took 4276.535032272339 seconds.

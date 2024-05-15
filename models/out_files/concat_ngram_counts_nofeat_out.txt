@@ -1,5 +1,5 @@
-The script is running with the following arguments: Namespace(features='ngrams', model='none', store_path='ngram_features/counts/ngram_frequencies_spmatrix_counts', sit=False, grid=False)
-Loading ngram features took 6.136629581451416 seconds.
+The script is running with the following arguments: Namespace(features='ngrams', model='none', store_path='ngram_features/counts_nofeat/ngram_frequencies_spmatrix_counts_nofeat', sit=False, grid=False)
+Loading ngram features took 6.462970495223999 seconds.
 Working on document 0 out of 468980
 Working on document 1000 out of 468980
 Working on document 2000 out of 468980
@@ -469,8 +469,8 @@ Working on document 465000 out of 468980
 Working on document 466000 out of 468980
 Working on document 467000 out of 468980
 Working on document 468000 out of 468980
-Concatenation took 139053.17218494415 seconds.
-Loading ngram features took 33.36657381057739 seconds.
+Concatenation took 129537.43118262291 seconds.
+Loading ngram features took 29.20925211906433 seconds.
 Working on document 0 out of 58640
 Working on document 1000 out of 58640
 Working on document 2000 out of 58640
@@ -530,8 +530,8 @@ Working on document 55000 out of 58640
 Working on document 56000 out of 58640
 Working on document 57000 out of 58640
 Working on document 58000 out of 58640
-Concatenation took 4185.374704837799 seconds.
-Loading ngram features took 9.98382830619812 seconds.
+Concatenation took 3589.3806359767914 seconds.
+Loading ngram features took 21.47014808654785 seconds.
 Working on document 0 out of 58620
 Working on document 1000 out of 58620
 Working on document 2000 out of 58620
@@ -591,4 +591,4 @@ Working on document 55000 out of 58620
 Working on document 56000 out of 58620
 Working on document 57000 out of 58620
 Working on document 58000 out of 58620
-Concatenation took 4276.535032272339 seconds.
+Concatenation took 3758.854396343231 seconds.
