@@ -18,7 +18,7 @@ with open('../corpus/POS_related/inverted_POS_tags.json', 'r') as jsn:
 class CorpusReader:
 # define the corpus reader class that will be used by the models to access data
 
-    def __init__(self, path_to_folder: str, which_country: list, chunking_type: str, filter_punct: bool=False, lower: bool=False, split_data: list=[0.8, 0.9], sub_sample: bool=True):
+    def __init__(self, path_to_folder: str, which_country: list, chunking_type: str, filter_punct: bool=False, filter_digits: bool=False, lower: bool=False, split_data: list=[0.8, 0.9], sub_sample: bool=True):
 
         saved_args = locals()
         print('CorpusReader was initialised with the following arguments: {}'.format(saved_args))
@@ -91,18 +91,32 @@ class CorpusReader:
                                     # three inner lists for token, lemma and pos respectively
                                     id_data = [[], [], [], []]
                                 else:
-                                    if filter_punct:
+                                    append = False
+                                    token = line.split('\t')[2]
+                                    if filter_punct and filter_digits:
+                                        # get rid of punctuation and digits
+                                        if not token in set(string.punctuation) and not token.isdigit():
+                                            append = True
+                                        elif token.isdigit():
+                                            append = True
+                                            token = '[num]'
+                                    elif filter_punct:
                                         # get rid of punctuation
-                                        if not line.split('\t')[2] in set(string.punctuation):
-                                            # make sure the POS tag is not the null character
-                                            pos_tag = substitute_null_char(line.split('\t')[4].strip())
-                                            # for every line that is not the paragraph's id, append the content to the appropriate lists
-                                            id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], pos_tag, POS_mapping[pos_tag.lower()]], lower)
+                                        if not token in set(string.punctuation):
+                                            append = True 
+                                    elif filter_digits:
+                                        # get rid of digits
+                                        append = True 
+                                        if token.isdigit():
+                                            token = 'NUM' 
                                     else:
+                                        append = True
+
+                                    if append:
                                         # make sure the POS tag is not the null character
                                         pos_tag = substitute_null_char(line.split('\t')[4].strip())
                                         # for every line that is not the paragraph's id, append the content to the appropriate lists
-                                        id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], pos_tag, POS_mapping[pos_tag.lower()]], lower)
+                                        id_data = append_id_data(id_data, [token, line.split('\t')[3], pos_tag, POS_mapping[pos_tag.lower()]], lower)
 
                         # TODO: check whether I really need this and if so, update (filter_punct etc.)
                         # TODO: if needed add raw_data as well!
