@@ -3,27 +3,40 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import Union
+from scipy.sparse import spmatrix
 from sklearn import svm, tree, ensemble
+from sklearn.inspection import permutation_importance
 from evaluate_linear import load_linear_model
 
 
-feature_names = ['VOSEO_vos', 'VOSEO_tú', 'VOSEO_usted', 'VOSEO_vosotros', 'VOSEO_ustedes', 'VOSEO_áis', 'VOSEO_éis', 'VOSEO_ís', 'VOSEO_ás', 'VOSEO_és', 'VOSEO_as', 'VOSEO_es', 'OVSUBJ_yo', 'OVSUBJ_tú', 'OVSUBJ_vos', 'OVSUBJ_él', 'OVSUBJ_usted', 'OVSUBJ_nosotros', 'OVSUBJ_vosotros', 'OVSUBJ_ustedes', 'OVSUBJ_ellos', 'SUBJINF_vr', 'SUBJINF_vpp', 'SUBJINF_vpp-00', 'ARTPOSS', 'TENSE_vm', 'TENSE_vc', 'TENSE_vif', 'TENSE_vii', 'TENSE_vip', 'TENSE_vis', 'TENSE_vimp', 'TENSE_vpp', 'TENSE_vps', 'TENSE_vr', 'TENSE_vsf', 'TENSE_vsi', 'TENSE_vsj', 'TENSE_vsp', 'INVQUEST', 'DIM_ico', 'DIM_ito', 'DIM_illo', 'DIM_ingo', 'MASNEG', 'MUYISIMO', 'ADA', 'CLITIC_lo', 'CLITIC_le', 'CLITIC_les', 'SER', 'ESTAR']
+feature_names = ['VOSEO_vos', 'VOSEO_tú', 'VOSEO_usted', 'VOSEO_vosotros', 'VOSEO_ustedes', 'VOSEO_áis', 'VOSEO_éis', 'VOSEO_ís', 'VOSEO_ás', 'VOSEO_és', 'VOSEO_as', 'VOSEO_es', 'OVSUBJ_yo', 'OVSUBJ_tú', 'OVSUBJ_vos', 'OVSUBJ_él', 'OVSUBJ_nosotros', 'OVSUBJ_vosotros', 'OVSUBJ_ellos', 'SUBJINF_vr', 'SUBJINF_vpp', 'SUBJINF_vpp-00', 'ARTPOSS', 'TENSE_vm', 'TENSE_vc', 'TENSE_vif', 'TENSE_vii', 'TENSE_vip', 'TENSE_vis', 'TENSE_vimp', 'TENSE_vpp', 'TENSE_vps', 'TENSE_vr', 'TENSE_vsf', 'TENSE_vsi', 'TENSE_vsj', 'TENSE_vsp', 'INVQUEST', 'DIM_ico', 'DIM_ito', 'DIM_illo', 'DIM_ingo', 'MASNEG', 'MUYISIMO', 'ADA', 'CLITIC_lo', 'CLITIC_le', 'CLITIC_les', 'SER', 'ESTAR']
 
-def get_coefficients(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, ensemble.RandomForestClassifier], model_type: str) -> pd.DataFrame:
+def get_coefficients(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, ensemble.RandomForestClassifier], model_type: str, feature_type: str) -> pd.DataFrame:
 
     # feature_names = model.get_feature_names_out()
 
     if model_type == 'svm':
-        importance = {f:i for f, i in zip(feature_names, model.coef_[0])}
+        if feature_type == 'both':
+            importances = model.coef_[0][-50:]
+        else:
+            importances = model.coef_[0]
+        importance = {f:i for f, i in zip(feature_names, importances)}
         sorted_importance = {f:i for f, i in sorted(importance.items(), key = lambda item:item[1], reverse=True)}
         cols = ['Coefficients']
     if model_type == 'dt':
-        importance = {f:i for f, i in zip(feature_names, model.feature_importances_)}
+        if feature_type == 'both':
+            importances = model.feature_importances_[-50:]
+        else:
+            importances = model.feature_importances_
+        importance = {f:i for f, i in zip(feature_names, importances)}
         sorted_importance = {f:i for f, i in sorted(importance.items(), key = lambda item:item[1])}
         cols = ['Weights']
     # for RF we also need to compute the standard deviation
     if model_type == 'rf':
-        importances = model.feature_importances_
+        if feature_type == 'both':
+            importances = model.feature_importances_[-50:]
+        else:
+            importances = model.feature_importances_
         std = np.std([tree.feature_importances_ for tree in model.estimators_], axis=0)
         importance = {f: [i, j] for f, i, j in zip(feature_names, importances, std)}
         sorted_importance = {f: i for f, i in sorted(importance.items(), key = lambda item:item[1][0])}
@@ -32,6 +45,16 @@ def get_coefficients(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, en
     coefs = pd.DataFrame.from_dict(sorted_importance, orient='index', columns=cols)
 
     return coefs
+
+
+# code from https://datascience.stackexchange.com/questions/107580/is-there-a-way-to-output-feature-importance-based-on-the-outputted-class
+# TODO: be critical with this, I am not sure, whether this actually makes sense
+def get_feature_importances_permutation(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, ensemble.RandomForestClassifier], features: list, targets: list) -> pd.DataFrame:
+    # in order to get the importances per class, just pass features and targets where the prediction was the desired class
+    result = permutation_importance(model, features, targets, n_repeats=100, random_state=0)
+    df = pd.DataFrame({'feature_name': feature_names, 'feature_importance': result.importances_mean})
+    
+    return df
 
 
 def plot_feature_importance(df: pd.DataFrame, model_type: str, model_path: str) -> None:
@@ -59,7 +82,7 @@ def plot_feature_importance(df: pd.DataFrame, model_type: str, model_path: str) 
         ax.set_ylabel('Mean decrease in impurity')
         fig.tight_layout()
 
-    plt.savefig('plots/{}_feature_importances.png'.format(model_path.split('/')[1]))
+    plt.savefig('plots/feature_importances/{}_feature_importances.png'.format(model_path.split('/')[1]))
 
 
 if __name__ == "__main__":

@@ -34,7 +34,7 @@ def evaluate_predictions(which_evaluation: list, predictions: list, true_labels:
         disp = metrics.ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
         fig, ax = plt.subplots(figsize=(10,10))
         disp.plot(ax=ax)
-        plt.savefig('plots/confusion_matrix_{}_{}_plot{}.png'.format(model, features, date.today()))
+        plt.savefig('plots/confusion_matrices/confusion_matrix_{}_{}_plot{}.png'.format(model, features, date.today()))
 
     if 'class_report' in which_evaluation:
         report = metrics.classification_report(true_labels, predictions)

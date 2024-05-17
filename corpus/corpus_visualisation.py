@@ -95,14 +95,17 @@ def plot_heatmap(stats_dict: dict, which_stat: tuple) -> None:
     plt.savefig('plots/{}_plot{}.png'.format(which_stat[0], date.today()))
 
 
-def plot_zipf_distribution(frequencies: dict) -> None:
+def plot_zipf_distribution(frequencies: dict, without_digits: bool) -> None:
 
     fig, (ax_x, ax_y) = plt.subplots(2, figsize=(10, 8))
     ax_x.set_title('Zipf\'s Curve (truncated x-axis)')
     ax_y.set_title('Closer Look into Lower Frequencies (truncated y-axis)')
 
     keys = list(frequencies.keys())
-    freq_values = [frequencies[key] for key in keys]
+    if without_digits:
+        freq_values = [frequencies[key] for key in keys]
+    else:
+        freq_values = [frequencies[key] for key in keys]
 
     sorted_zip = sorted(zip(freq_values, keys), reverse=True)
     sorted_freqs, sorted_keys = zip(*sorted_zip)

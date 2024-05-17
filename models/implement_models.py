@@ -67,9 +67,3 @@ def save_model(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, ensemble
 
     # save the model to disk
     pickle.dump(model, open(filename, 'wb')) 
-
-
-# def save_grid_search_object(grid: GridSearchCV, filename: str) -> None:
-# 
-#     # save the grid search model
-#     joblib.dump(grid, filename)
