@@ -1,4 +1,4 @@
-import torch, evaluate
+import torch, evaluate, time
 import numpy as np
 from transformers import AutoModelForSequenceClassification, BertTokenizer, Trainer, TrainingArguments
 from typing import Sequence
@@ -63,7 +63,7 @@ def initialise_trainer(output_dir: str, model_name: str, train_dataset: CdEDatas
 
     training_args = TrainingArguments(
         output_dir=output_dir,          # output directory
-        num_train_epochs=3,              # total number of training epochs
+        num_train_epochs=5,              # total number of training epochs
         per_device_train_batch_size=16,  # batch size per device during training
         per_device_eval_batch_size=64,   # batch size for evaluation
         warmup_steps=500,                # number of warmup steps for learning rate scheduler
@@ -88,8 +88,16 @@ def initialise_trainer(output_dir: str, model_name: str, train_dataset: CdEDatas
 
 def train_n_save_model(trainer, save_dir: str) -> None:
         
+    print('Start training:')
+    start = time.time()
     trainer.train()
+    end = time.time()
+    print('Training took {} seconds.'.format(end - start))
 
+    print('Start evaluation:')
+    start = time.time()
     trainer.evaluate()
+    end = time.time()
+    print('Evaluation took {} seconds.'.format(end - start))
 
     trainer.save_model(save_dir)

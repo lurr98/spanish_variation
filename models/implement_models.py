@@ -20,7 +20,7 @@ def train_SVM(train_data: list | np.ndarray, targets: list, grid: bool) -> svm.L
 
     else:
         # default hyperparameters: {max_iter=5000, regularizer(C)=10}
-        lin_clf = svm.LinearSVC(dual="auto")
+        lin_clf = svm.LinearSVC(dual="auto", C=10, max_iter=5000)
         lin_clf.fit(train_data, targets)
 
 
@@ -38,8 +38,8 @@ def train_DT(train_data: list | np.ndarray, targets: list, grid: bool) -> tree.D
         dt_clf = GridSearchCV(dt, parameters, scoring='accuracy')
         dt_clf.fit(train_data, targets)
     else:
-        # default hyperparameters: {max_depth=50, max_features=sqrt}
-        dt_clf = tree.DecisionTreeClassifier()
+        # default hyperparameters: {max_depth=50, max_features=None}
+        dt_clf = tree.DecisionTreeClassifier(max_depth=50, max_features=None)
         dt_clf.fit(train_data, targets)
 
     return dt_clf
@@ -57,7 +57,7 @@ def train_RF(train_data: list | np.ndarray, targets: list, grid: bool) -> ensemb
         rf_clf.fit(train_data, targets)
     else:
         # default hyperparameters: {max_depth=50, max_features=sqrt, n_estimators=100}
-        rf_clf = ensemble.RandomForestClassifier()
+        rf_clf = ensemble.RandomForestClassifier(max_depth=50, max_features='sqrt', n_estimators=100)
         rf_clf.fit(train_data, targets)
 
     return rf_clf
