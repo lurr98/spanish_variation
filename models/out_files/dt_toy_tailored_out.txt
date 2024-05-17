@@ -1,3 +1,0 @@
-Loading tailored feature dict took 22.69555354118347 seconds.
-Concatenation took 5.771434307098389 seconds.
-Training DT model took 0.3064255714416504 seconds.

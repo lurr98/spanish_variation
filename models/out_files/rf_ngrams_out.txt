@@ -1,3 +1,0 @@
-Loading ngram features took 5.932192325592041 seconds.
-Concatenation took 71940.36863398552 seconds.
-Training RF model took 69647.90886044502 seconds.

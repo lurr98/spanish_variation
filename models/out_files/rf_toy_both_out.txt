@@ -1,4 +1,0 @@
-Loading tailored feature dict took 26.115306854248047 seconds.
-Loading ngram features took 5.866313695907593 seconds.
-Concatenation took 564.979029417038 seconds.
-Training RF model took 1682.7633619308472 seconds.
