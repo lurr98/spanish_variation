@@ -1,0 +1,2 @@
+The script is running with the following arguments: Namespace(features='both', model='none', store_path='ngram_features/tf_nofeat/ngram_frequencies_spmatrix_tf_nofeat', sit=False, grid=False)
+Loading tailored feature dict took 24.080455541610718 seconds.
