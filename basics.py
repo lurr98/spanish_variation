@@ -1,6 +1,8 @@
 import numpy as np
 import numpy.typing as npt
+from typing import Sequence
 from scipy.sparse import csr_matrix, spmatrix
+from transformers import BertTokenizer
 
 
 def load_sparse_csr(filename: str) -> spmatrix:
@@ -17,3 +19,18 @@ def save_sparse_csr(filename: str, array: spmatrix) -> None:
     # note that .npz extension is added automatically
     np.savez(filename, data=array.data, indices=array.indices,
              indptr=array.indptr, shape=array.shape)
+
+            
+def initialise_tokeniser(model_name: str) -> BertTokenizer:
+
+    tokeniser = BertTokenizer.from_pretrained(model_name, do_lower_case=True)
+
+    return tokeniser
+
+
+def tokenise_data(text_data: list, tokeniser: BertTokenizer) -> Sequence:
+
+    encodings = tokeniser(text_data, truncation=True, padding=True)
+    # TODO: Important: find a solution for maximum length problem!
+
+    return encodings
