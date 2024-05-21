@@ -23,21 +23,22 @@ with open('../corpus/POS_related/inverted_POS_tags.json', 'r') as jsn:
 def forward_to_voseo_or_overt_subj(text: list, post_window_voseo: int, post_window_overt: int, voseo_count: list, subj_count: list) -> Tuple[list, list]:
     # decide whether 
 
-    pron_keys = ['vos', 'tu']
-    subj_keys = ['yo', 'vos', 'nosotros']
+    pron_keys = ['ti', 'tí', 'usted', 'os', 'ustedes']
+    subj_keys = ['yo', 'él', 'ello', 'ella', 'nosotros', 'nosotras', 'ellos', 'ellas']
 
     for i, token in enumerate(text[0]):
-        if text[1][i].strip() in ['tú', 'vosotros', 'usted']:
+        if token in ['vos', 'tú', 'vosotros', 'vosotras']:
             if voseo_count:
                 voseo_count = voseo(text, token, i, post_window_voseo, voseo_count)
             if subj_count:
                 subj_count = overt_subjects(text, token, i,  post_window_overt, subj_count)
         else:
             if voseo_count:
-                if text[1][i].strip() in pron_keys:
+                # TODO: quick fix
+                if token in pron_keys:
                     voseo_count = voseo(text, token, i, post_window_voseo, voseo_count)
             if subj_count:
-                if text[1][i].strip() in subj_keys:
+                if token in subj_keys:
                     subj_count = overt_subjects(text, token, i, post_window_overt, subj_count)
 
     return voseo_count, subj_count
@@ -112,7 +113,7 @@ def overt_subjects(text: list, token: str, i: int, post_window: int, subj_count:
     # return a feature vector containing the counts for each pronoun
     # leave usted and ustedes out bc they are not annotated as subjects in the data
     subj_dict = {'yo': ('ps', 0), 'tú': ('ps', 1), 'vos': ('pp-2p', 2), 'él': ('ps', 3), 'ello': ('ps', 3), 'ella': ('ps', 3), 'nosotros': ('ps', 4), 'nosotras': ('ps', 4), 'vosotros': ('ps', 5), 'vosotras': ('ps', 5), 'ellos': ('ps', 6), 'ellas': ('ps', 6)}
-    subj_dict_person = {'yo': ['1s', '1/3s'], 'tú': ['2s'], 'vos': ['2s'], 'él': ['3s', '1/3s'], 'ella': ['3s', '1/3s'], 'nosotros': ['1p'], 'nosotras': ['1p'], 'vosotros': ['2p'], 'vosotras': ['2p'], 'ellos': ['3p'], 'ellas': ['3p']}
+    subj_dict_person = {'yo': ['1s', '1/3s'], 'tú': ['2s'], 'vos': ['2s'], 'él': ['3s', '1/3s'], 'ello': ['3s', '1/3s'], 'ella': ['3s', '1/3s'], 'nosotros': ['1p'], 'nosotras': ['1p'], 'vosotros': ['2p'], 'vosotras': ['2p'], 'ellos': ['3p'], 'ellas': ['3p']}
     
     already_added_count = False
     try:
