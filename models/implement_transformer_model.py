@@ -1,10 +1,11 @@
+import os
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"]="3"
+
 import torch, evaluate, time
 import numpy as np
 from transformers import AutoModelForSequenceClassification, BertTokenizer, Trainer, TrainingArguments
 from typing import Sequence
-
-torch.cuda.empty_cache()
-torch.cuda.set_device(3)
 
 # TODO: find appropriate type hints
 
@@ -22,21 +23,6 @@ class CdEDataset(torch.utils.data.Dataset):
 
     def __len__(self):
         return len(self.targets)
-    
-
-def initialise_tokeniser(model_name: str) -> BertTokenizer:
-
-    tokeniser = BertTokenizer.from_pretrained(model_name, do_lower_case=True)
-
-    return tokeniser
-
-
-def tokenise_data(text_data: list, tokeniser: BertTokenizer) -> Sequence:
-    
-    encodings = tokeniser(text_data, truncation=True, padding=True)
-    # TODO: Important: find a solution for maximum length problem!
-
-    return encodings
 
 
 def initialise_metric(metric_choice: str):
@@ -58,14 +44,22 @@ def compute_metrics(eval_pred):
     return metric.compute(predictions=predictions, references=labels)
 
 
+def initialise_model(model_name: str, num_labels: int=20) -> AutoModelForSequenceClassification:
 
-def initialise_trainer(output_dir: str, model_name: str, train_dataset: CdEDataset, val_dataset: CdEDataset):
+    model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
 
+    return model
+
+
+def initialise_trainer(output_dir: str, model: AutoModelForSequenceClassification, train_dataset: CdEDataset, val_dataset: CdEDataset) -> Trainer:
+
+    torch.cuda.empty_cache()
+    
     training_args = TrainingArguments(
         output_dir=output_dir,          # output directory
         num_train_epochs=5,              # total number of training epochs
         per_device_train_batch_size=16,  # batch size per device during training
-        per_device_eval_batch_size=64,   # batch size for evaluation
+        per_device_eval_batch_size=16,   # batch size for evaluation
         warmup_steps=500,                # number of warmup steps for learning rate scheduler
         weight_decay=0.01,               # strength of weight decay
         logging_dir='./logs',            # directory for storing logs
@@ -73,15 +67,16 @@ def initialise_trainer(output_dir: str, model_name: str, train_dataset: CdEDatas
         evaluation_strategy='epoch'
     )
 
-    model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=20)
-
     trainer = Trainer(
         model=model,                         # the instantiated 🤗 Transformers model to be trained
         args=training_args,                  # training arguments, defined above
         train_dataset=train_dataset,         # training dataset
         eval_dataset=val_dataset,            # evaluation dataset
         compute_metrics=compute_metrics
-    )
+    ) 
+    
+    print(trainer.args.device)
+
 
     return trainer
 
@@ -96,7 +91,8 @@ def train_n_save_model(trainer, save_dir: str) -> None:
 
     print('Start evaluation:')
     start = time.time()
-    trainer.evaluate()
+    eval_results = trainer.evaluate()
+    print(eval_results)
     end = time.time()
     print('Evaluation took {} seconds.'.format(end - start))
 

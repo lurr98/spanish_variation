@@ -3,10 +3,9 @@ import numpy as np
 from typing import Tuple, Union
 from random import shuffle
 from scipy.sparse import spmatrix, csr_matrix, hstack, vstack
-from implement_transformer_model import tokenise_data
 
 sys.path.append("..")
-from basics import load_sparse_csr
+from basics import load_sparse_csr, tokenise_data
 
 
 def concatenate_features(split_type: str, ngram_features: Union[spmatrix, None], tailored_features: dict, ngram_indices: list, set_indices: dict, which_country: list, which_features: list=[], concat: bool=False, shuffle: bool=False) -> Tuple[spmatrix, list, list]:
@@ -56,6 +55,7 @@ def concatenate_features(split_type: str, ngram_features: Union[spmatrix, None],
             targets.extend([label]*len(set_indices[label]))
             for i, idx in enumerate(set_indices[label]):
                 if i % 1000 == 0:
+                    time.sleep(0.001)
                     print('Working on document {} out of {}'.format(i, len(set_indices[label])))
                 all_features_array = concat_helper(idx, label, all_features_array, ngram_features, ngram_indices, tailored_features, which_features)
 
@@ -71,6 +71,7 @@ def concatenate_features(split_type: str, ngram_features: Union[spmatrix, None],
         target_list = indices[split_type]['targets']
         for i, idx in enumerate(idx_list):
             if i % 1000 == 0:
+                time.sleep(0.001)
                 print('Working on document {} out of {}'.format(i, len(idx_list)))
             all_features_array = concat_helper(idx, target_list[i], all_features_array, ngram_features, ngram_indices, tailored_features, which_features)
 
@@ -117,7 +118,7 @@ def prepare_data_full(data_split: str, split_type: str, which_country: list, fea
 
     if feature_type in ['ngrams', 'both']:
         # load the indices corresponding to the ngram feature vectors
-        with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_features/ngram_frequencies_indices.json', 'r') as jsn:
+        with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_features/ngram_frequencies_indices_feature_names_counts.json', 'r') as jsn:
             ngram_indices = json.load(jsn)
 
         # load the ngram feature vectors
@@ -184,21 +185,34 @@ def transform_str_to_int_labels(labels: list, which_country: list) -> list:
 
 def prep_for_dataset(set_dict: dict, text_dict: dict, trunc: str, model: str, which_country: list) -> Tuple[list, list]:
 
-    set_text, set_targets, set_indices = [], [], []
+    set_text, set_targets = [], []
     for country, indices in set_dict.items():
         set_targets.extend([country]*len(indices))
-        set_indices.extend(indices)
-        for idx, idx_data in text_dict[country].items():
-            # append first inner list which is the list of the document's token
-            set_text.append(idx_data[0])
+        # set_indices.extend(indices)
+        # for idx, idx_data in text_dict[country].items():
+        for idx in indices:
+            try:
+                # append first inner list which is the list of the document's token
+                set_text.append(' '.join(text_dict[country][idx][0]))
+            except KeyError as e:
+                print(e)
+                set_targets = set_targets[:-1]
     
-    # truncate long documents
-    trunc_set_text = truncate_long_documents(set_text, trunc)
+    # # truncate long documents
+    # trunc_set_text = truncate_long_documents(set_text, trunc)
+
+    # shuffle data
+    # zip the arrays so that they can be shuffled in the same order
+    zipped_arrays = list(zip(set_text, set_targets))
+    shuffle(zipped_arrays)
+
+    # unzip the arrays
+    shuffled_set_text, shuffled_set_targets = zip(*zipped_arrays)
     
     # transform str targets to integers
-    set_targets_int = transform_str_to_int_labels(set_targets, which_country)
+    set_targets_int = transform_str_to_int_labels(shuffled_set_targets, which_country)
     
     # tokenise data
-    tokenised_set_text = tokenise_data(trunc_set_text, model)
+    tokenised_set_text = tokenise_data(shuffled_set_text, model)
 
     return tokenised_set_text, set_targets_int
