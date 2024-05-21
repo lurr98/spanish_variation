@@ -7,7 +7,7 @@
 #       - split the data into paragraphs / chunks / sentences (?)
 #       - preprocess the data ?
 
-import os, re, zipfile, string, json, random
+import os, re, zipfile, string, json, random, time
 
 
 # global variable so that this doesn't have to be passed around all the time
@@ -55,8 +55,7 @@ class CorpusReader:
                 # use zipfile to extract the files from the desired zip files, every zip file contains the corpus for one class
                 with zipfile.ZipFile('{}/{}'.format(path_to_folder, zip_file), 'r') as zipref:
                     for i, file in enumerate(zipref.namelist()):
-                        if i != 0 and i % 5 == 0:
-                            print('Working on file {} out of {}'.format(i, len(zipref.namelist())))
+                        print('Working on file {} out of {}'.format(i, len(zipref.namelist())))
                         with zipref.open(file, 'r') as f:
                             lines = f.readlines()
 
@@ -69,7 +68,10 @@ class CorpusReader:
                         # if we want to chunk the text using the predefined paragraphs
                         if chunking_type == 'pars':
 
-                            for line in lines:
+                            for k, line in enumerate(lines):
+                                if k % 1000 == 0:
+                                    # try to reduce CPU usage
+                                    time.sleep(0.001)
                                 # if the line defines the start of a paragraph using its id
                                 if re.search('@@\\d+', line.split('\t')[2]):
                                     # define exception in case this is the first paragraph
@@ -204,9 +206,15 @@ class CorpusReader:
 
 
 if __name__ == "__main__":
-    cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE'], 'pars')
+    which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
+    # which_country = ['PA']
 
-    print(type(cr.data))
-    print(list(cr.data.keys()))
-    print(cr.ids)
-    # print(cr.ids['AR'][:10])
+    start = time.time()
+    # cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', filter_punct=True, filter_digits=True, lower=True, split_data=False)
+    cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', filter_punct=True, filter_digits=True, lower=True)
+    end = time.time()
+    print('Corpus reader took {} seconds.'.format(end - start))
+
+    split_dict = {'train': cr.train, 'dev': cr.dev, 'test': cr.test}
+    with open('/projekte/semrel/WORK-AREA/Users/laura/toy_train_dev_test_split.json', 'w') as jsn:
+        json.dump(split_dict, jsn)
