@@ -4,9 +4,14 @@ import pandas as pd
 from datetime import date
 from sklearn import svm, tree, ensemble, metrics
 from sklearn.model_selection import GridSearchCV
+from transformers import AutoModelForSequenceClassification, BertTokenizer
 from scipy.sparse import spmatrix
 from typing import Union
 
+
+#################################
+#        Linear models          #
+#################################
 
 def load_linear_model(model_path: str) -> Union[svm.LinearSVC, tree.DecisionTreeClassifier, ensemble.RandomForestClassifier]:
 
@@ -24,6 +29,30 @@ def predict_labels(classifier: Union[svm.LinearSVC, tree.DecisionTreeClassifier,
 
     return predictions
 
+
+######################################
+#        Transformer models          #
+######################################
+
+def load_fine_tuned_model(model_path: str) -> AutoModelForSequenceClassification:
+
+    model = AutoModelForSequenceClassification.from_pretrained(model_path)
+
+    return model
+
+
+def predict_labels_transformer(model: AutoModelForSequenceClassification, tokenised_text: list) -> list:
+
+    # Replace with whatever tokenizer you used
+    outputs = model(tokenised_text['input_ids'])
+    predicted_labels = outputs.logits.argmax(-1)
+
+    return predicted_labels
+
+
+########################
+#        Both          #
+########################
 
 def evaluate_predictions(which_evaluation: list, predictions: list, true_labels: list, model: str, features: str, labels: list) -> str:
 
