@@ -1,0 +1,6 @@
+The script is running with the following arguments: Namespace(features='tailored', model='svm', store_path='tailored_features/tailored_features', sit=False, grid=True)
+Loading train features and targets took 0.2926807403564453 seconds.
+Training SVM model.
+Using grid search to find the best parameter combination.
+Paramter options: {"max_iter":[1000], "C":[0.001, 0.01, 0.1, 10]}
+Training SVM model took 7762.5852081775665 seconds.

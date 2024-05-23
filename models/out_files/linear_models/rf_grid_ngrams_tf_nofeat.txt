@@ -1,0 +1,5 @@
+The script is running with the following arguments: Namespace(features='ngrams', model='rf', store_path='ngram_features/tf_nofeat/ngram_frequencies_spmatrix_tf_nofeat', sit=False, grid=True)
+Loading train features and targets took 3.1834893226623535 seconds.
+Training RF model.
+Using grid search to find the best parameter combination.
+Paramter options: {"max_depth":[30, 50], "max_features":("sqrt", "log2", None), "n_estimators":[50, 100]}

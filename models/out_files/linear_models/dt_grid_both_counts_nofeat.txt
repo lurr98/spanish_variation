@@ -1,0 +1,5 @@
+The script is running with the following arguments: Namespace(features='both', model='dt', store_path='both_features/counts_nofeat/ngram_frequencies_spmatrix_counts_nofeat', sit=False, grid=True)
+Loading train features and targets took 2.3989977836608887 seconds.
+Training DT model.
+Using grid search to find the best parameter combination.
+Paramter options: {"max_depth":[30, 50], "max_features":("sqrt", "log2", None)}
