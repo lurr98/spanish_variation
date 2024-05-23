@@ -34,15 +34,13 @@ else:
 if args.model == 'none':
     s_train_features, s_train_targets, s_train_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'train', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
     # s_train_features, s_train_targets, s_train_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/toy_train_dev_test_split.json', 'train', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-
+    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_train'.format(dir_name), s_train_features)
     # if no model is to be run, concatenate the dev and test features as well and save everything 
     s_dev_features, s_dev_targets, s_dev_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'dev', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
     # s_dev_features, s_dev_targets, s_dev_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/toy_train_dev_test_split.json', 'dev', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-    s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-    # s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/toy_train_dev_test_split.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-    
-    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_train'.format(dir_name), s_train_features)
     save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_dev'.format(dir_name), s_dev_features)
+    s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
+    # s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/toy_train_dev_test_split.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)    
     save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_test'.format(dir_name), s_test_features)
 
     if args.sit:

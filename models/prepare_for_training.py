@@ -173,24 +173,31 @@ def truncate_long_documents(text_data: list, trunc_where: str) -> list:
     return truncated_data
 
 
-def transform_str_to_int_labels(labels: list, which_country: list) -> list:
+def transform_str_to_int_labels(labels: list, which_country: list, reverse: bool=False) -> list:
     # return the target labels as an index so that they can be used for training with a transformer
 
-    str_to_int = {country: idx for idx, country in enumerate(which_country)}
+    if reverse:
+        int_to_str = {idx: country for idx, country in enumerate(which_country)}
 
-    int_labels = [str_to_int[label] for label in labels]
+        new_labels = [int_to_str[int(label)] for label in labels]
+    else:
+        str_to_int = {country: idx for idx, country in enumerate(which_country)}
 
-    return int_labels
+        new_labels = [str_to_int[label] for label in labels]
+
+    return new_labels
 
 
-def prep_for_dataset(set_dict: dict, text_dict: dict, trunc: str, model: str, which_country: list) -> Tuple[list, list]:
+def prep_for_dataset(set_dict: dict, text_dict: dict, model: str, which_country: list, batch: bool=False) -> Tuple[list, list]:
 
     set_text, set_targets = [], []
     for country, indices in set_dict.items():
         set_targets.extend([country]*len(indices))
         # set_indices.extend(indices)
         # for idx, idx_data in text_dict[country].items():
-        for idx in indices:
+        for i, idx in enumerate(indices):
+            if i % 100 == 0:
+                time.sleep(0.01)
             try:
                 # append first inner list which is the list of the document's token
                 set_text.append(' '.join(text_dict[country][idx][0]))
@@ -212,6 +219,19 @@ def prep_for_dataset(set_dict: dict, text_dict: dict, trunc: str, model: str, wh
     # transform str targets to integers
     set_targets_int = transform_str_to_int_labels(shuffled_set_targets, which_country)
     
+    if batch:
+        batches_text = []
+        j = 0
+        for i in range(10, len(shuffled_set_text), 10):
+            batches_text.append(tokenise_data(shuffled_set_text[max(0, i-10):i], model))
+            j = i
+    
+        print(j)
+        print(len(shuffled_set_text))
+        if len(shuffled_set_text) != j:
+            batches_text.append(tokenise_data(shuffled_set_text[j:len(shuffled_set_text)], model))
+
+        return batches_text, set_targets_int
     # tokenise data
     tokenised_set_text = tokenise_data(shuffled_set_text, model)
 
