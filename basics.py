@@ -30,7 +30,7 @@ def initialise_tokeniser(model_name: str) -> BertTokenizer:
 
 def tokenise_data(text_data: list, tokeniser: BertTokenizer) -> Sequence:
 
-    encodings = tokeniser(text_data, truncation=True, padding=True)
+    encodings = tokeniser(text_data, truncation=True, padding=True, return_tensors='pt')
     # TODO: Important: find a solution for maximum length problem!
 
     return encodings
