@@ -18,7 +18,7 @@ with open('../corpus/POS_related/inverted_POS_tags.json', 'r') as jsn:
 class CorpusReader:
 # define the corpus reader class that will be used by the models to access data
 
-    def __init__(self, path_to_folder: str, which_country: list, chunking_type: str, filter_punct: bool=False, filter_digits: bool=False, lower: bool=False, split_data: list=[0.8, 0.9], sub_sample: bool=True):
+    def __init__(self, path_to_folder: str, which_country: list, filter_punct: bool=False, filter_digits: bool=False, filter_nes: bool=False, lower: bool=False, split_data: list=[0.8, 0.9], sub_sample: bool=True, group: bool=False):
 
         saved_args = locals()
         print('CorpusReader was initialised with the following arguments: {}'.format(saved_args))
@@ -65,101 +65,55 @@ class CorpusReader:
                         except UnicodeDecodeError:
                             lines = [line.decode('latin-1').encode().decode('utf-8') for line in lines]
 
-                        # if we want to chunk the text using the predefined paragraphs
-                        if chunking_type == 'pars':
-
-                            for k, line in enumerate(lines):
-                                if k % 1000 == 0:
-                                    # try to reduce CPU usage
-                                    time.sleep(0.001)
-                                # if the line defines the start of a paragraph using its id
-                                if re.search('@@\\d+', line.split('\t')[2]):
-                                    # define exception in case this is the first paragraph
-                                    try:
-                                        # add data from previous paragraph to dict, add name of file for better mapping
-                                        class_data['{}_{}'.format(file.split('.')[0], id_num)] = id_data
-                                        # add number of tokens
-                                        class_tokens += len(id_data[0])
-                                        # reconstruct original format but wihtout the id etc. but with the addition of the POS mapping
-                                        line_data = ['{}\t{}\t{}\t{}'.format(token, id_data[1][j], id_data[2][j], id_data[3][j]) for j, token in enumerate(id_data[0])]
-                                        if lower:
-                                            raw_class_data['{}_{}'.format(file.split('.')[0], id_num)] = '\n'.join(line_data).lower()
-                                        else:
-                                            raw_class_data['{}_{}'.format(file.split('.')[0], id_num)] = '\n'.join(line_data)
-                                    except NameError:
-                                        pass
-                                    # assign the id to a variable
-                                    id_num = line.split('\t')[0]
-                                    # three inner lists for token, lemma and pos respectively
-                                    id_data = [[], [], [], []]
-                                else:
-                                    append = False
-                                    token = line.split('\t')[2]
-                                    if filter_punct and filter_digits:
-                                        # get rid of punctuation and digits
-                                        if not token in set(string.punctuation) and not token.isdigit():
-                                            append = True
-                                        elif token.isdigit():
-                                            append = True
-                                            token = '[num]'
-                                    elif filter_punct:
-                                        # get rid of punctuation
-                                        if not token in set(string.punctuation):
-                                            append = True 
-                                    elif filter_digits:
-                                        # get rid of digits
-                                        append = True 
-                                        if token.isdigit():
-                                            token = 'NUM' 
+                        for k, line in enumerate(lines):
+                            if k % 1000 == 0:
+                                # try to reduce CPU usage
+                                time.sleep(0.001)
+                            # if the line defines the start of a paragraph using its id
+                            if re.search('@@\\d+', line.split('\t')[2]):
+                                # define exception in case this is the first paragraph
+                                try:
+                                    # add data from previous paragraph to dict, add name of file for better mapping
+                                    class_data['{}_{}'.format(file.split('.')[0], id_num)] = id_data
+                                    # add number of tokens
+                                    class_tokens += len(id_data[0])
+                                    # reconstruct original format but wihtout the id etc. but with the addition of the POS mapping
+                                    line_data = ['{}\t{}\t{}\t{}'.format(token, id_data[1][j], id_data[2][j], id_data[3][j]) for j, token in enumerate(id_data[0])]
+                                    if lower:
+                                        raw_class_data['{}_{}'.format(file.split('.')[0], id_num)] = '\n'.join(line_data).lower()
                                     else:
-                                        append = True
+                                        raw_class_data['{}_{}'.format(file.split('.')[0], id_num)] = '\n'.join(line_data)
+                                except NameError:
+                                    pass
+                                # assign the id to a variable
+                                id_num = line.split('\t')[0]
+                                # three inner lists for token, lemma and pos respectively
+                                id_data = [[], [], [], []]
+                            else:
+                                append = False
+                                token = line.split('\t')[2].strip()
+                                if filter_punct:
+                                    # get rid of punctuation
+                                    if token not in set(string.punctuation):
+                                        append = True 
+                                if filter_digits:
+                                    # get rid of digits
+                                    append = True 
+                                    if token.isdigit():
+                                        token = '[num]'
+                                if filter_nes:
+                                    # get rid of named entities
+                                    append = True 
+                                    if substitute_null_char(line.split('\t')[4].strip()) == 'o':
+                                        token = '[ne]'
+                                else:
+                                    append = True
 
-                                    if append:
-                                        # make sure the POS tag is not the null character
-                                        pos_tag = substitute_null_char(line.split('\t')[4].strip())
-                                        # for every line that is not the paragraph's id, append the content to the appropriate lists
-                                        id_data = append_id_data(id_data, [token, line.split('\t')[3], pos_tag, POS_mapping[pos_tag.lower()]], lower)
-
-                        # TODO: check whether I really need this and if so, update (filter_punct etc.)
-                        # TODO: if needed add raw_data as well!
-                                        
-                        # # if we want to chunk the text by sentences
-                        # # ! this is a very simple approach, better to use a sentence splitter?
-                        # if chunking_type == 'sents':
-
-                        #     for i, line in enumerate(lines):
-                        #         # if the line defines the start of a paragraph using its id
-                        #         if re.search('@@\\d+', line.split('\t')[0]):
-                        #             # define exception in case this is the first paragraph
-                        #             try:
-                        #                 # in case there was no delimiter before the start of the new paragraph add the sentence's data to the dict 
-                        #                 if not sentence_id in all_ids: 
-                        #                     class_data['{}_{}'.format(file.split('.')[0], sentence_id)] = id_data
-                        #                     sentence_id += 1
-                        #             except NameError:
-                        #                 # generate a sentence id
-                        #                 sentence_id = 0
-                        #                 # three inner lists for token, lemma and pos respectively
-                        #                 id_data = [[], [], []]
-                        #         # if the line contains a period as a punctuation mark
-                        #         elif line.split('\t')[2] == '.' and line.split('\t')[3] == '$.' and line.split('\t')[4] == 'y':
-                        #             # check whether the next token starts with an uppercase letter
-                        #             if lines[i+1].split('\t')[2][0].isupper():
-                        #                 # add the delimiter to the sentence's data
-                        #                 id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4], POS_mapping[line.split('\t')[4]]])
-                        #                 # add all the data to the sentence id in the dict, add file name for better mapping
-                        #                 class_data['{}_{}'.format(file.split('.')[0], sentence_id)] = id_data
-                        #                 # add one to sentence id to start a new sentence
-                        #                 sentence_id += 1
-                        #                 # empty data from previous sentence
-                        #                 id_data = [[], [], []] 
-                        #             else:
-                        #                 # add the delimiter to the sentence's data and proceed
-                        #                 id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4], POS_mapping[line.split('\t')[4]]]) 
-                        #         else:
-                        #             # for every line that is not a delimiter, append the content to the appropriate lists
-                        #             id_data = append_id_data(id_data, [line.split('\t')[2], line.split('\t')[3], line.split('\t')[4], POS_mapping[line.split('\t')[4]]])
-
+                                if append:
+                                    # make sure the POS tag is not the null character
+                                    pos_tag = substitute_null_char(line.split('\t')[4].strip())
+                                    # for every line that is not the paragraph's id, append the content to the appropriate lists
+                                    id_data = append_id_data(id_data, [token, line.split('\t')[3], pos_tag, POS_mapping[pos_tag.lower()]], lower)
 
                 all_data[re.split('_|-', zip_file)[1]] = class_data
                 all_raw_data[re.split('_|-', zip_file)[1]] = raw_class_data
@@ -168,11 +122,22 @@ class CorpusReader:
 
                 print('\n--------------------------------------------------------\n')
 
+        if group:
+        # if the training labels should be grouped by broader region, we need to restructure the id dictionary so that we can get a balanced split for the grouped classes too
+            grouped_dict = {}
+            target_dict = {'CU': 'ANT', 'DO': 'ANT', 'PR': 'ANT', 'PA': 'ANT', 'SV': 'MCA', 'NI': 'MCA', 'HN': 'MCA', 'GT': 'GC', 'CR': 'GC', 'CO': 'CV', 'VE': 'CV', 'EC': 'EP', 'PE': 'EP', 'BO': 'EP', 'AR': 'AU', 'UY': 'AU', 'ES': 'ES', 'MX': 'MX', 'CL': 'CL', 'PY': 'PY'}
+            for label, label_ids in all_ids.items():
+                if target_dict[label] in grouped_dict:
+                    grouped_dict[target_dict[label]].extend(label_ids)
+                else:
+                    grouped_dict[target_dict[label]] = label_ids
+            all_ids = grouped_dict
+
+
         if split_data:
             min_samples_prox = min([len(idx_list) for idx_list in list(all_ids.values())])
 
             for label, class_ids in all_ids.items():
-                print(label)
                 if sub_sample:
                     # if sub-sampling is enabled, make the minimum number of samples the number of documents of the smallest subcorpus 
                     min_samples = min_samples_prox
@@ -210,11 +175,13 @@ if __name__ == "__main__":
     # which_country = ['PA']
 
     start = time.time()
-    # cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', filter_punct=True, filter_digits=True, lower=True, split_data=False)
-    cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', filter_punct=True, filter_digits=True, lower=True)
+    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, filter_punct=True, filter_digits=True, lower=True, group=True)
+    # cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, filter_punct=True, filter_digits=True, filter_nes=True, lower=True, split_data=False)
     end = time.time()
     print('Corpus reader took {} seconds.'.format(end - start))
 
+    # for k,v in cr.data['PA'].items():
+    #     print(v[0])
     split_dict = {'train': cr.train, 'dev': cr.dev, 'test': cr.test}
-    with open('/projekte/semrel/WORK-AREA/Users/laura/toy_train_dev_test_split.json', 'w') as jsn:
+    with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_grouped.json', 'w') as jsn:
         json.dump(split_dict, jsn)
