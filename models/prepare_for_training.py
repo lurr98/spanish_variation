@@ -18,8 +18,12 @@ def concatenate_features(split_type: str, ngram_features: Union[spmatrix, None],
             idx_feature_array = []
             # first build an array with the specified tailored features
             for feature in which_features:
-                idx_feature_array.extend(tailored_features[label][idx][feature])
-
+                try:
+                    idx_feature_array.extend(tailored_features[label][idx][feature])
+                # when the targets are grouped, we have to identify the label using the index
+                except KeyError:
+                    idx_feature_array.extend(tailored_features[idx[:2].upper()][idx][feature])
+                    
         if not isinstance(all_features_array, list):
             if concat:
                 # first combine ngram features and tailored features
@@ -64,7 +68,8 @@ def concatenate_features(split_type: str, ngram_features: Union[spmatrix, None],
         # in order to make the different feature types more comparable, I'll use the already shuffled indices and sort the data accordingly
         # this way, the features are all "shuffled" in the same way
         # note that targets remains empty in this case (they are saved alongside the indices)
-        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced.json', 'r') as jsn:
+        # with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced.json', 'r') as jsn:
+        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_grouped.json', 'r') as jsn:
             indices = json.load(jsn)
 
         idx_list = indices[split_type]['indices']
@@ -188,7 +193,7 @@ def transform_str_to_int_labels(labels: list, which_country: list, reverse: bool
     return new_labels
 
 
-def prep_for_dataset(set_dict: dict, text_dict: dict, model: str, which_country: list, batch: bool=False) -> Tuple[list, list]:
+def prep_for_dataset(set_dict: dict, text_dict: dict, model: str, which_country: list, group: bool, batch: bool=False, nones: bool=False) -> Tuple[list, list]:
 
     set_text, set_targets = [], []
     for country, indices in set_dict.items():
@@ -199,11 +204,15 @@ def prep_for_dataset(set_dict: dict, text_dict: dict, model: str, which_country:
             if i % 100 == 0:
                 time.sleep(0.01)
             try:
+                if nones:
+                    stopwords = ['vos', 'tú', 'tí', 'ti', 'vosotros', 'vosotras', 'os', 'usted', 'ustedes', 'yo', 'él', 'ella', 'ello', 'ellos', 'ellas', 'nosotros', 'nosotras', 'lo', 'le', 'les', 'boliviano', 'boliviana', 'bolivianos', 'bolivianas', 'cubano', 'cubana', 'cubanos', 'cubanas', 'argentino', 'argentina', 'argentinos', 'argentinas', 'chileno', 'chilena', 'chilenos', 'chilenas', 'colombiano', 'colombiana', 'colombianos', 'colombianas', 'costarricense', 'costarricenses', 'dominicano', 'dominicana', 'dominicanos', 'dominicanas', 'ecuatoriano', 'ecuatoriana', 'ecuatorianos', 'ecuatorianas', 'guatemalteco', 'guatemalteca', 'guatemaltecos', 'guatemaltecas', 'hondureño', 'hondureña', 'hondureños', 'hondureñas', 'mexicano', 'mexicana', 'mexicanos', 'mexicanas', 'nicaragüense', 'nicaragüenses', 'panameño', 'panameña', 'panameños', 'panameñas', 'paraguayo', 'paraguaya', 'paraguayos', 'paraguayas', 'puertorriqueño', 'puertorriqueña', 'puertorriqueños', 'puertorriqueñas', 'peruano', 'peruana', 'peruanos', 'peruanas', 'salvadoreño', 'salvadoreña', 'salvadoreños', 'salvadoreñas', 'uruguayo', 'uruguaya', 'uruguayos', 'uruguayas', 'venezolano', 'venezolana', 'venezolanos', 'venezolanas']
+                    set_text.append(' '.join([token if text_dict[country][idx][2][i] != 'o' and token not in stopwords else '[MASK]' for i, token in enumerate(text_dict[country][idx][0])]))
                 # append first inner list which is the list of the document's token
                 set_text.append(' '.join(text_dict[country][idx][0]))
             except KeyError as e:
                 print(e)
                 set_targets = set_targets[:-1]
+
     
     # # truncate long documents
     # trunc_set_text = truncate_long_documents(set_text, trunc)
@@ -215,6 +224,10 @@ def prep_for_dataset(set_dict: dict, text_dict: dict, model: str, which_country:
 
     # unzip the arrays
     shuffled_set_text, shuffled_set_targets = zip(*zipped_arrays)
+
+    # if group:
+    #     target_dict = {'CU': 'ANT', 'DO': 'ANT', 'PR': 'ANT', 'PA': 'ANT', 'SV': 'MCA', 'NI': 'MCA', 'HN': 'MCA', 'GT': 'GC', 'CR': 'GC', 'CO': 'CV', 'VE': 'CV', 'EC': 'EP', 'PE': 'EP', 'BO': 'EP', 'AR': 'AU', 'UY': 'AU', 'ES': 'ES', 'MX': 'MX', 'CL': 'CL', 'PY': 'PY'}
+    #     shuffled_set_targets = [target_dict[target] for target in shuffled_set_targets]
     
     # transform str targets to integers
     set_targets_int = transform_str_to_int_labels(shuffled_set_targets, which_country)
@@ -226,8 +239,6 @@ def prep_for_dataset(set_dict: dict, text_dict: dict, model: str, which_country:
             batches_text.append(tokenise_data(shuffled_set_text[max(0, i-10):i], model))
             j = i
     
-        print(j)
-        print(len(shuffled_set_text))
         if len(shuffled_set_text) != j:
             batches_text.append(tokenise_data(shuffled_set_text[j:len(shuffled_set_text)], model))
 

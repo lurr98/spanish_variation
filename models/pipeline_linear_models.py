@@ -18,6 +18,8 @@ parser.add_argument('-sit', action='store_true',
                     help='state whether to save indices and targets')
 parser.add_argument('-grid', action='store_true',
                     help='state whether to use grid search to find best parameters')
+parser.add_argument('-group', action='store_true',
+                    help='state whether to group the targets by broader region')
 
 args = parser.parse_args()
 print('The script is running with the following arguments: {}'.format(args))
@@ -32,29 +34,45 @@ else:
 
 # concatenate features
 if args.model == 'none':
-    s_train_features, s_train_targets, s_train_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'train', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-    # s_train_features, s_train_targets, s_train_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/toy_train_dev_test_split.json', 'train', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_train'.format(dir_name), s_train_features)
-    # if no model is to be run, concatenate the dev and test features as well and save everything 
-    s_dev_features, s_dev_targets, s_dev_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'dev', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-    # s_dev_features, s_dev_targets, s_dev_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/toy_train_dev_test_split.json', 'dev', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_dev'.format(dir_name), s_dev_features)
-    s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-    # s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/toy_train_dev_test_split.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)    
-    save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_test'.format(dir_name), s_test_features)
+    if args.group:
+        which_country = ['ANT', 'MCA', 'GC', 'CV', 'EP', 'AU', 'ES', 'MX', 'CL', 'PY']
+        s_train_features, s_train_targets, s_train_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/indices_targets_tdt_split_080101_balanced_grouped.json', 'train', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
+        save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_grouped_train'.format(dir_name), s_train_features)
+        s_dev_features, s_dev_targets, s_dev_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/indices_targets_tdt_split_080101_balanced_grouped.json', 'dev', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
+        save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_grouped_dev'.format(dir_name), s_dev_features)
+        s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/indices_targets_tdt_split_080101_balanced_grouped.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
+        save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_grouped  _test'.format(dir_name), s_test_features)
+    else:
+        s_train_features, s_train_targets, s_train_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'train', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
+        save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_train'.format(dir_name), s_train_features)
+        s_dev_features, s_dev_targets, s_dev_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'dev', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
+        save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_dev'.format(dir_name), s_dev_features)
+        s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
+        save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_test'.format(dir_name), s_test_features)
 
     if args.sit:
         ind_target_dict = {'train': {'indices': s_train_indices, 'targets': s_train_targets}, 'dev': {'indices': s_dev_indices, 'targets': s_dev_targets}, 'test': {'indices': s_test_indices, 'targets': s_test_targets}}
-        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_test2.json', 'w') as jsn:
+        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_grouped.json', 'w') as jsn:
             json.dump(ind_target_dict, jsn)
+        print('Saved JSON file.')
 
 # load the features and targets
 if args.model in ['svm', 'dt', 'rf']:
     start = time.time()
     s_train_features = load_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_train'.format(dir_name))
-    with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced.json', 'r') as jsn:
-        ind_target_dict = json.load(jsn)
+
+    if args.group:  
+        which_country = ['ANT', 'MCA', 'GC', 'CV', 'EP', 'AU', 'ES', 'MX', 'CL', 'PY']
+        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_grouped.json', 'r') as jsn:
+            ind_target_dict = json.load(jsn)
+    else:
+        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced.json', 'r') as jsn:
+            ind_target_dict = json.load(jsn)
     s_train_targets = ind_target_dict['train']['targets']
+
+    # if args.group:
+    #     target_dict = {'CU': 'ANT', 'DO': 'ANT', 'PR': 'ANT', 'PA': 'ANT', 'SV': 'MCA', 'NI': 'MCA', 'HN': 'MCA', 'GT': 'GC', 'CR': 'GC', 'CO': 'CV', 'VE': 'CV', 'EC': 'EP', 'PE': 'EP', 'BO': 'EP', 'AR': 'AU', 'UY': 'AU', 'ES': 'ES', 'MX': 'MX', 'CL': 'CL', 'PY': 'PY'}
+    #     s_train_targets = [target_dict[target] for target in s_train_targets]
     end = time.time()
     print('Loading train features and targets took {} seconds.'.format(end - start))
 
@@ -65,18 +83,27 @@ if args.model == 'svm':
     svm_model = train_SVM(s_train_features, s_train_targets, args.grid)
     end = time.time()
     print('Training SVM model took {} seconds.'.format(end - start))
-    save_model(svm_model, '/projekte/semrel/WORK-AREA/Users/laura/SVM_models/SVM_model_{}_{}_{}'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
+    if args.group:
+        save_model(svm_model, '/projekte/semrel/WORK-AREA/Users/laura/SVM_models/SVM_model_{}_{}_{}_grouped'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
+    else:
+        save_model(svm_model, '/projekte/semrel/WORK-AREA/Users/laura/SVM_models/SVM_model_{}_{}_{}'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
 if args.model == 'dt':
     print('Training DT model.')
     start = time.time()
     dt_model = train_DT(s_train_features, s_train_targets, args.grid)
     end = time.time()
     print('Training DT model took {} seconds.'.format(end - start))
-    save_model(dt_model, '/projekte/semrel/WORK-AREA/Users/laura/DT_models/DT_model_{}_{}_{}'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
+    if args.group:
+        save_model(dt_model, '/projekte/semrel/WORK-AREA/Users/laura/DT_models/DT_model_{}_{}_{}_grouped'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
+    else:
+        save_model(dt_model, '/projekte/semrel/WORK-AREA/Users/laura/DT_models/DT_model_{}_{}_{}'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
 if args.model == 'rf':
     print('Training RF model.')
     start = time.time()
     rf_model = train_RF(s_train_features, s_train_targets, args.grid)
     end = time.time()
     print('Training RF model took {} seconds.'.format(end - start))
-    save_model(rf_model, '/projekte/semrel/WORK-AREA/Users/laura/RF_models/RF_model_{}_{}_{}'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
+    if args.group:
+        save_model(rf_model, '/projekte/semrel/WORK-AREA/Users/laura/RF_models/RF_model_{}_{}_{}_grouped'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
+    else:
+        save_model(rf_model, '/projekte/semrel/WORK-AREA/Users/laura/RF_models/RF_model_{}_{}_{}'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
