@@ -51,25 +51,6 @@ def load_fine_tuned_model(model_path: str) -> AutoModelForSequenceClassification
 
 def predict_labels_transformer(model: AutoModelForSequenceClassification, tokenised_text: Sequence) -> list:
 
-    # predicted_labels, j = [], 0
-    # print(tokenised_text)
-    # for i in range(10, len(list(tokenised_text)), 10):
-    #     # Replace with whatever tokenizer you used
-    #     sliced_tokenised_text = dict(list(tokenised_text.items())[max(0, i-10):i])
-    #     print(sliced_tokenised_text)
-    #     print(max(0, i-10))
-    #     print(i)
-    #     outputs = model(**sliced_tokenised_text)
-    #     predicted_labels.extend(outputs.logits.argmax(-1))
-    #     j = i
-# 
-    # if len(list(tokenised_text)) % 10 != 0:
-    #     sliced_tokenised_text = dict(list(tokenised_text.items())[j:len(list(tokenised_text))])
-    #     print(j)
-    #     print(len(list(tokenised_text)))
-    #     outputs = model(**sliced_tokenised_text)
-    #     predicted_labels.extend(outputs.logits.argmax(-1))
-
     outputs = model(**tokenised_text)
     predicted_labels = outputs.logits.argmax(-1)
 
@@ -80,7 +61,7 @@ def predict_labels_transformer(model: AutoModelForSequenceClassification, tokeni
 #        Both          #
 ########################
 
-def evaluate_predictions(which_evaluation: list, predictions: list, true_labels: list, model: str, features: str, labels: list) -> str:
+def evaluate_predictions(which_evaluation: list, predictions: list, true_labels: list, model: str, labels: list) -> str:
 
     evaluation_str = '----------------------------------\nEVALUATION REPORT\n----------------------------------\n'
 
@@ -90,7 +71,7 @@ def evaluate_predictions(which_evaluation: list, predictions: list, true_labels:
         disp = metrics.ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
         fig, ax = plt.subplots(figsize=(10,10))
         disp.plot(ax=ax)
-        plt.savefig('plots/confusion_matrices/confusion_matrix_{}_{}_plot{}.png'.format(model, features, date.today()))
+        plt.savefig('plots/confusion_matrices/confusion_matrix_{}_plot{}.png'.format(model, date.today()))
 
     if 'class_report' in which_evaluation:
         report = metrics.classification_report(true_labels, predictions)
@@ -121,3 +102,5 @@ def evaluate_grid_search(gridsearch_object: GridSearchCV, axis: str) -> str:
     result_string = results_df[['params', 'rank_test_score', 'mean_test_score', 'std_test_score']].to_string()
 
     return result_string
+
+
