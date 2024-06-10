@@ -22,6 +22,8 @@ Evaluation has to take into account similarity of different dialects, e.g. Venez
 - Andean region (Colombia, Ecuador, Peru, Chile (only Northern), Bolivia, Argentina (only Northwest))
 - River Plate (Argentina, Uruguay, Paraguay (only parts))
 
+:warning: grouping now based on Lipski 2012 (`geo.pdf`)
+
 # Possibly good phenomena
 
 ## *voseo* (keep in mind that *vos* can be used with multiple types of verbal morphology)
