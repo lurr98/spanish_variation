@@ -1,0 +1,27 @@
+The script is running with the following arguments: Namespace(features='ngrams', model='svm', store_path='ngram_features/counts/ngram_frequencies_spmatrix_counts', sit=False, grid=True, group=False)
+Loading train features and targets took 4.583366870880127 seconds.
+Training SVM model.
+Using grid search to find the best parameter combination.
+Paramter options: {"max_iter":[1000], "C":[0.001, 0.01, 0.1, 10]}
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+[CV] END ............................................C=0.01; total time=151.4min
+[CV] END ............................................C=0.01; total time=153.8min
+[CV] END ............................................C=0.01; total time=154.6min
+[CV] END ............................................C=0.01; total time=157.1min
+[CV] END ............................................C=0.01; total time=161.3min
+[CV] END .............................................C=0.1; total time=164.3min
+[CV] END .............................................C=0.1; total time=167.3min
+[CV] END ...........................................C=0.001; total time=167.8min
+[CV] END ...........................................C=0.001; total time=168.7min
+[CV] END .............................................C=0.1; total time=169.7min
+[CV] END ...........................................C=0.001; total time=171.1min
+[CV] END .............................................C=0.1; total time=171.5min
+[CV] END ...........................................C=0.001; total time=172.9min
+[CV] END ...........................................C=0.001; total time=173.3min
+[CV] END .............................................C=0.1; total time=173.3min
+[CV] END ..............................................C=10; total time=186.4min
+[CV] END ..............................................C=10; total time=188.7min
+[CV] END ..............................................C=10; total time=189.1min
+[CV] END ..............................................C=10; total time=190.2min
+[CV] END ..............................................C=10; total time=194.6min
+Training SVM model took 21985.76392006874 seconds.

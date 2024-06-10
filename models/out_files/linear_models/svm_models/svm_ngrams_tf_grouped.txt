@@ -1,0 +1,4 @@
+The script is running with the following arguments: Namespace(features='ngrams', model='svm', store_path='ngram_features/tf/ngram_frequencies_spmatrix_tf', sit=False, grid=False, group=True)
+Loading train features and targets took 5.06130313873291 seconds.
+Training SVM model.
+Training SVM model took 82.68351578712463 seconds.

@@ -3,3 +3,4 @@ Loading train features and targets took 2.3989977836608887 seconds.
 Training DT model.
 Using grid search to find the best parameter combination.
 Paramter options: {"max_depth":[30, 50], "max_features":("sqrt", "log2", None)}
+Training DT model took 36117.30907917023 seconds.

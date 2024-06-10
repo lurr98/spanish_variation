@@ -1,0 +1,391 @@
+The script is running with the following arguments: Namespace(features='tailored', model='none', store_path='tailored_features/tailored_features', sit=True, grid=False, group=True)
+Loading tailored feature dict took 16.492908477783203 seconds.
+tailored
+Working on label ANT
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label MCA
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label GC
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label CV
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label EP
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label AU
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label ES
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label MX
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label CL
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Working on label PY
+Working on document 0 out of 26640
+Working on document 1000 out of 26640
+Working on document 2000 out of 26640
+Working on document 3000 out of 26640
+Working on document 4000 out of 26640
+Working on document 5000 out of 26640
+Working on document 6000 out of 26640
+Working on document 7000 out of 26640
+Working on document 8000 out of 26640
+Working on document 9000 out of 26640
+Working on document 10000 out of 26640
+Working on document 11000 out of 26640
+Working on document 12000 out of 26640
+Working on document 13000 out of 26640
+Working on document 14000 out of 26640
+Working on document 15000 out of 26640
+Working on document 16000 out of 26640
+Working on document 17000 out of 26640
+Working on document 18000 out of 26640
+Working on document 19000 out of 26640
+Working on document 20000 out of 26640
+Working on document 21000 out of 26640
+Working on document 22000 out of 26640
+Working on document 23000 out of 26640
+Working on document 24000 out of 26640
+Working on document 25000 out of 26640
+Working on document 26000 out of 26640
+Concatenation took 90.46768283843994 seconds.
+Loading tailored feature dict took 16.431522369384766 seconds.
+tailored
+Working on label ANT
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label MCA
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label GC
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label CV
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label EP
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label AU
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label ES
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label MX
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label CL
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Working on label PY
+Working on document 0 out of 3331
+Working on document 1000 out of 3331
+Working on document 2000 out of 3331
+Working on document 3000 out of 3331
+Concatenation took 7.111563682556152 seconds.
+Loading tailored feature dict took 16.458545923233032 seconds.
+tailored
+Working on label ANT
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label MCA
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label GC
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label CV
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label EP
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label AU
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label ES
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label MX
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label CL
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Working on label PY
+Working on document 0 out of 3330
+Working on document 1000 out of 3330
+Working on document 2000 out of 3330
+Working on document 3000 out of 3330
+Concatenation took 7.046091318130493 seconds.
+Saved JSON file.

@@ -1,0 +1,4 @@
+The script is running with the following arguments: Namespace(features='tailored', model='dt', store_path='tailored_features/tailored_features_grouped', sit=False, grid=False, group=True)
+Loading train features and targets took 0.11011385917663574 seconds.
+Training DT model.
+Training DT model took 9.767555713653564 seconds.

@@ -1,6 +1,6 @@
-The script is running with the following arguments: Namespace(features='both', model='none', store_path='ngram_features/tf_nofeat/ngram_frequencies_spmatrix_tf_nofeat', sit=False, grid=False)
-Loading tailored feature dict took 30.276896238327026 seconds.
-Loading ngram features took 29.604753494262695 seconds.
+The script is running with the following arguments: Namespace(features='both', model='none', store_path='ngram_features/counts_nofeat/ngram_frequencies_spmatrix_counts_nofeat_nones', sit=False, grid=False)
+Loading tailored feature dict took 25.22288465499878 seconds.
+Loading ngram features took 14.719527244567871 seconds.
 Working on document 0 out of 468980
 Working on document 1000 out of 468980
 Working on document 2000 out of 468980
@@ -470,9 +470,9 @@ Working on document 465000 out of 468980
 Working on document 466000 out of 468980
 Working on document 467000 out of 468980
 Working on document 468000 out of 468980
-Concatenation took 211554.88997507095 seconds.
-Loading tailored feature dict took 29.85867714881897 seconds.
-Loading ngram features took 9.620228290557861 seconds.
+Concatenation took 143578.1577179432 seconds.
+Loading tailored feature dict took 27.133324146270752 seconds.
+Loading ngram features took 8.638212442398071 seconds.
 Working on document 0 out of 58640
 Working on document 1000 out of 58640
 Working on document 2000 out of 58640
@@ -532,9 +532,9 @@ Working on document 55000 out of 58640
 Working on document 56000 out of 58640
 Working on document 57000 out of 58640
 Working on document 58000 out of 58640
-Concatenation took 4447.382893562317 seconds.
-Loading tailored feature dict took 30.011247158050537 seconds.
-Loading ngram features took 9.664218187332153 seconds.
+Concatenation took 3313.522109270096 seconds.
+Loading tailored feature dict took 27.402222871780396 seconds.
+Loading ngram features took 8.74634599685669 seconds.
 Working on document 0 out of 58620
 Working on document 1000 out of 58620
 Working on document 2000 out of 58620
@@ -594,4 +594,4 @@ Working on document 55000 out of 58620
 Working on document 56000 out of 58620
 Working on document 57000 out of 58620
 Working on document 58000 out of 58620
-Concatenation took 4431.204600572586 seconds.
+Concatenation took 3311.7962794303894 seconds.
