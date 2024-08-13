@@ -164,7 +164,7 @@ def ind_article_possessive(text: list, art_poss_count: list) -> list:
     # look for the sequence `indefinite article + possessive + noun`
     # e.g. ~ una mi amiga ~
 
-    pattern = re.compile(r'ARTI\t(PP|DETP)\t(NN|NE)')
+    pattern = re.compile(r'arti\t(pp|detp)\t(nn|ne)')
 
     art_poss_count[0] += len(pattern.findall('\t'.join(text[3])))
 
@@ -176,7 +176,7 @@ def different_tenses(text: list, tense_count: list) -> list:
     # count the different tenses that are annotated (use broader categories)
     # maybe don't take VM into the mix?
 
-    tense_list = ['VM', 'VC', 'VIF', 'VII', 'VIP', 'VIS', 'VIMP', 'VPP', 'VPS', 'VR', 'VSF', 'VSI', 'VSJ', 'VSP']
+    tense_list = ['vm', 'vc', 'vif', 'vii', 'vip', 'vis', 'vimp', 'vpp', 'vps', 'vr', 'vsf', 'vsi', 'vsj', 'vsp']
     # for idx, text in class_data.items():
     for i, tense in enumerate(tense_list):
         pattern = re.compile(r'\b{}\b'.format(tense))
@@ -206,9 +206,9 @@ def diminutives(raw_text: str, diminutive_count: list, spacy_nlp: Language) -> l
     diminutive_endings = ['ico', 'ito', 'illo', 'ingo']
     
     sub_pattern_1 = r'[\w.\-À-ÿ]{2,}'
-    sub_pattern_2 = r'\t[\w.\-À-ÿ]+\tNN'
-    pattern = re.compile(r'({}ico{}|{}ito{}|{}illo{}|{}ingo{})'.format(sub_pattern_1, sub_pattern_2, sub_pattern_1, sub_pattern_2, sub_pattern_1, sub_pattern_2, sub_pattern_1, sub_pattern_2))
-
+    sub_pattern_2 = r'\t[\w.\-À-ÿ]+\tnn'
+    pattern = re.compile(r'({}ic[oa]{}|{}it[oa]{}|{}ill[oa]{}|{}ing[oa]{})'.format(sub_pattern_1, sub_pattern_2, sub_pattern_1, sub_pattern_2, sub_pattern_1, sub_pattern_2, sub_pattern_1, sub_pattern_2))
+    
     finds = pattern.findall(raw_text)
     for find in finds:
         token = ''.join(find.split('\t')[0])
@@ -218,7 +218,7 @@ def diminutives(raw_text: str, diminutive_count: list, spacy_nlp: Language) -> l
         if doc[0].is_oov and '-' not in token:
             # TODO: find out if I can make this more efficient
             for i, ending in enumerate(diminutive_endings):
-                if token.endswith(ending):
+                if token[:-1].endswith(ending[:-1]):
                     diminutive_count[i] += 1
 
     # print('Diminutive count: {}'.format(diminutive_count))
@@ -251,7 +251,7 @@ def muy_and_isimo_peru(text: list, muy_isimo_count: list) -> list:
 def ada_costa_rica(raw_text: str, ada_count: list, spacy_nlp: Language) -> list:
     # look for nouns ending in -ada
 
-    pattern = re.compile(r'[\w.\-À-ÿ]{2,}ada\t\w+\tNN')
+    pattern = re.compile(r'[\w.\-À-ÿ]{2,}ada\t\w+\tnn')
     finds = pattern.findall(raw_text)
 
     for find in finds:
@@ -281,8 +281,8 @@ def different_clitic_pronouns(raw_text: str, clitic_count: list) -> list:
 def ser_or_estar(raw_text: str, ser_estar_count: list) -> list:
     # look for "ser" or "estar" preceeding an adjective
 
-    pattern_ser = re.compile(r'ser(\t[\w.\-À-ÿ]+){2}\n(([\w.\-À-ÿ]+\t){3}[\w.\-À-ÿ]+\n)?([\w.\-À-ÿ]+\t){3}ADJ\n')
-    pattern_estar = re.compile(r'estar(\t[\w.\-À-ÿ]+){2}\n(([\w.\-À-ÿ]+\t){3}[\w.\-À-ÿ]+\n)?([\w.\-À-ÿ]+\t){3}ADJ\n')
+    pattern_ser = re.compile(r'ser(\t[\w.\-À-ÿ]+){2}\n(([\w.\-À-ÿ]+\t){3}[\w.\-À-ÿ]+\n)?([\w.\-À-ÿ]+\t){3}adj\n')
+    pattern_estar = re.compile(r'estar(\t[\w.\-À-ÿ]+){2}\n(([\w.\-À-ÿ]+\t){3}[\w.\-À-ÿ]+\n)?([\w.\-À-ÿ]+\t){3}adj\n')
 
     ser_estar_count[0] += len(pattern_ser.findall(raw_text))
     ser_estar_count[1] += len(pattern_estar.findall(raw_text))
