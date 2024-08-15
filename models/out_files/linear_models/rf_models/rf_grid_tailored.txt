@@ -1,6 +1,0 @@
-The script is running with the following arguments: Namespace(features='tailored', model='rf', store_path='tailored_features/tailored_features', sit=False, grid=True)
-Loading train features and targets took 0.1082918643951416 seconds.
-Training RF model.
-Using grid search to find the best parameter combination.
-Paramter options: {"max_depth":[30, 50], "max_features":("sqrt", "log2", None), "n_estimators":[50, 100]}
-Training RF model took 32966.03088212013 seconds.

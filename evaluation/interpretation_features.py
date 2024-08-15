@@ -1,4 +1,4 @@
-import argparse, json, time, sys
+import argparse, json, time, sys, re, matplotlib
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -49,7 +49,7 @@ def get_coefficients(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, en
         sorted_list = sorted(importance.items(), key = lambda item:item[1], reverse=True)
         n_first, n_last = sorted_list[:25], sorted_list[-25:]
         sorted_importance = {f:i for f, i in n_first+n_last}
-        cols = ['Coefficients']
+        cols = ['Importances']
     if model_type == 'dt':
         # if feature_type == 'both':
         #     importances = model.feature_importances_[-50:]
@@ -57,7 +57,7 @@ def get_coefficients(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, en
         importances = model.feature_importances_
         importance = {f:i for f, i in zip(feature_names, importances)}
         sorted_importance = {f: i for f, i in sorted(importance.items(), key = lambda item:item[1])[-50:]}
-        cols = ['Weights']
+        cols = ['Importances']
     # for RF we also need to compute the standard deviation
     if model_type == 'rf':
         # if feature_type == 'both':
@@ -105,13 +105,39 @@ def get_dt_rules(classifier: tree.DecisionTreeClassifier, feature_names: list) -
 
 def plot_dt(model: tree.DecisionTreeClassifier, feature_names: list, model_path: str) -> None:
 
-    plt.figure(figsize=(30,12))
-    plot_tree(model, feature_names=feature_names, max_depth=3, fontsize=10)
+    def replace_text(obj):
+        if type(obj) == matplotlib.text.Annotation:
+            txt = obj.get_text()
+            txt = re.sub("\nsamples[^$]*]","",txt)
+            obj.set_text(txt)
+        return obj
+    
+    # plt.figure(figsize=(30,12))
+    fig, ax = plt.subplots(figsize=(16,8))
+    plot_tree(model, ax=ax, feature_names=feature_names, max_depth=3, fontsize=10)
+    print(ax.properties())
+    ax.properties()['children'] = [replace_text(i) for i in ax.properties()['children']]
+    print(ax.properties())
     plt.savefig('plots/feature_importances/{}_dt_rules.png'.format(model_path.split('/')[1]))
 
 
 
 def plot_feature_importance(df: pd.DataFrame, model_type: str, model_path: str, perm: str='none') -> None:
+
+    # filter zeros for better readability
+    zeros = False
+    i = 0
+    for imp_value in df.iloc:
+        if df.iloc[i]['Importances'] == 0.0:
+            if not zeros:
+                print('not zeros')
+                df = df.rename(index={imp_value.name: '…'})
+                zeros = True
+            else:
+                print('zeros')
+                df = df.drop([imp_value.name])
+                i -= 1
+        i += 1
 
     if model_type in ['svm', 'dt']:
         df.plot.barh(figsize=(7, 10))
@@ -121,9 +147,16 @@ def plot_feature_importance(df: pd.DataFrame, model_type: str, model_path: str, 
         if args.model_type == 'dt':
             add = 'weights'
         if perm != 'none':
-            plt.title('{} feature {} for class {}'.format(' '.join(model_path.split('/')[1].split('_')[:-1]), add, perm))
+            plt.title('{} feature {} for class {}'.format(' '.join(model_path.split('/')[-1].split('_')[:-1]), add, perm))
         else:
-            plt.title('{} feature {}'.format(' '.join(model_path.split('/')[1].split('_')[:-1]), add))
+            title_name = re.sub(' nofeat tf ', ' ',' '.join( model_path.split('/')[-1].split('_')[:-1]))
+            title_name = re.sub(' nofeat ', ' ', title_name)
+            if 'nones' in title_name:
+                plt.title('{} feature {} without NEs'.format(re.sub('nones', '', title_name), add))
+            elif 'grouped' in title_name:
+                plt.title('{} feature {} on grouped classes'.format(re.sub('grouped', '', title_name), add))
+            else:
+                plt.title('{} feature {}'.format(title_name, add))
         plt.axvline(x=0, color=".5")
         plt.xlabel('Raw {} values'.format(add))
         plt.subplots_adjust(left=0.3)
@@ -134,7 +167,7 @@ def plot_feature_importance(df: pd.DataFrame, model_type: str, model_path: str, 
         fig, ax = plt.subplots()
         if perm != 'none':
             df.plot.barh(figsize=(7, 10))
-            plt.title('{} feature importances for class {}'.format(' '.join(model_path.split('/')[1].split('_')[:-1]), perm))
+            plt.title('{} feature importances for class {}'.format(' '.join(model_path.split('/')[-1].split('_')[:-1]), perm))
             plt.axvline(x=0, color=".5")
             plt.xlabel('Raw importance values')
             plt.subplots_adjust(left=0.3)
@@ -142,7 +175,7 @@ def plot_feature_importance(df: pd.DataFrame, model_type: str, model_path: str, 
             forest_importances = pd.Series(list(df['Weights']), index=list(df.index))
             std = list(df['Standard Deviation'])
             forest_importances.plot.bar(yerr=std, ax=ax, figsize=(10, 7))
-            ax.set_title('Feature importances for {} using MDI'.format(' '.join(model_path.split('/')[1].split('_')[:-1]), add))
+            ax.set_title('Feature importances for {} using MDI'.format(' '.join(model_path.split('/')[-1].split('_')[:-1]), add))
             ax.set_ylabel('Mean decrease in impurity')
             fig.tight_layout()
     

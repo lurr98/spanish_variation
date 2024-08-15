@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 """
 Author: Laura Zeidler
-Last changed: 13.02.2024
+Last changed: 14.08.2024
 
-**description**
+This module provides a variety of functions for processing and analyzing the Corpus del Español.
+
+Key functionalities include:
+- Mapping part-of-speech (POS) tags to a simplified tag set.
+- Computing n-gram frequencies and identifying the most frequent n-grams.
+- Measuring statistical associations such as mutual information, log-likelihood, and Fisher's exact test.
+- Calculating TF-IDF scores for terms within corpora.
+- Comparing corpora based on various statistical measures, including Spearman's rho and cosine similarity.
 """
+
 import math, time, json, nltk, re
 from corpus_reader import CorpusReader
 from collections import Counter
@@ -12,8 +20,9 @@ from nltk import ngrams, FreqDist
 from nltk.corpus import stopwords
 from typing import Type, Tuple, Union
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 from scipy.stats import fisher_exact
-from scipy import sparse
+from scipy import sparse, spatial
 from corpus_similarity import Similarity
 import numpy as np
 import pandas as pd
@@ -152,9 +161,6 @@ def log_likelihood(class_ngrams: dict, ooc_ngrams: dict) -> dict:
     return log_likelihood
 
 
-# TODO: think about whetherit makes sense to compare these stats between all classes in pairs
-
-
 def tf_idf(all_data: dict, gram_type: str, helper: bool=False, n: int=1, k: int=10) -> Union[Tuple[sparse.spmatrix,list],dict]:
     # statistic measure which states how characteristic a term is for a document
 
@@ -210,7 +216,7 @@ def fishers_exact_text(class_ngrams: dict, ooc_ngrams: dict, log_likelihoods: li
 # Comparing Corpora
 # --------------------------------------------------------------------------------------------------------------
 
-# TODO: this is not efficient!
+# TODO: this is not efficient, takes too long!
 def spearmans_rho(all_text_classes: list) -> int:
     # measures the similarity between two corpora by means of the spearman's rank correlation coefficient
     # see kilgarriff
@@ -239,36 +245,83 @@ def cosine_similarity_tfidf(all_data: dict, gram_type: str, n: int) -> Tuple[np.
 
     return (pairwise_similarity.toarray().tolist(), label_indices)
 
+# 
+
+# def cosine_similarity_tailored(feature_dict: dict, id_dict: dict, chosen_feature_name: str=False) -> Tuple[np.ndarray, list]:
+# 
+#     target_dict = {'ANT': ['CU', 'DO', 'PR', 'PA'], 'MCA': ['SV', 'NI', 'HN'], 'GC': ['GT', 'CR'], 'CV': ['CO', 'VE'], 'EP': ['EC', 'PE', 'BO'], 'AU': ['AR', 'UY'], 'ES': ['ES'], 'MX': ['MX'], 'CL': ['CL'], 'PY': ['PY']}
+#     target_list = ['ANT', 'MCA', 'GC', 'CV', 'EP', 'AU', 'ES', 'MX', 'CL', 'PY']
+#     
+#     countrys_matrices, targets = [], []
+#     print('Building matrix')
+#     for country in sorted(target_list):
+#         country_matrix = []
+#         print('Country {}'.format(country))
+#         for tdt_set, ids in id_dict.items(): 
+#             for i, id in enumerate(ids['indices']):
+#                 # if ids['targets'][i] == country:
+#                 if country in ids['targets'][i]:
+#                     feature_list = []
+#                     for feature_name, feature in feature_dict[id[:2].upper()][id].items():
+#                         if chosen_feature_name:
+#                             if chosen_feature_name == feature_name:
+#                                 feature_list += feature
+#                         else:
+#                             feature_list += feature
+# 
+#                     country_matrix.append(feature_list)
+#         countrys_matrices.append(country_matrix)
+#         targets.append(country)
+# 
+#     similarity = []
+#     print('Similarity')
+#     for i, country in enumerate(countrys_matrices):
+#         # print('Country {}'.format(sorted(list(feature_dict.keys()))[i]))
+#         print('Country {}'.format(sorted(target_list)[i]))
+#         country_sims = []
+#         for j, country2 in enumerate(countrys_matrices):
+#             # print('Country {}'.format(sorted(list(feature_dict.keys()))[j])) 
+#             print('Country {}'.format(sorted(target_list)[j]))
+# 
+#             # sim = cosine_similarity(sparse.csr_matrix(country), sparse.csr_matrix(country2), dense_output=False)
+#             sim = cosine_similarity([np.array(country).flatten()], [np.array(country2).flatten()], dense_output=False)
+#             # sim1 = 1 - spatial.distance.cdist(np.asarray(half1_country1), np.asarray(half1_country2), 'cosine')
+#             # sim = 1 - spatial.distance.cdist(np.asarray(country), np.asarray(country2), 'cosine')
+#             print(sim)
+#             country_sims.append(sim[0][0])
+#         similarity.append(country_sims)
+# 
+#     return similarity, targets
+
+
 
 if __name__ == "__main__":
     which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
-    # which_country = ['CU', 'PA']
 
     # initialise dictionary to store results
     stats_dict = {}
 
     start = time.time()
-    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, 'pars', True)
-    # cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', True)
+    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, filter_punct=True, filter_digits=True, lower=True, split_data=False)
     end = time.time()
     print('Corpus reader took {} seconds.'.format(end - start))
 
-    with open('/projekte/semrel/WORK-AREA/Users/laura/stats_dict.json', 'r') as jsn:
+    with open('/projekte/semrel/WORK-AREA/Users/laura/data_analysis/stats_dict_updated.json', 'r') as jsn:
         stats_dict = json.load(jsn)
 
     overall_start = time.time()
 
-    # start = time.time()
-    # lemma_tf_idf_uni = tf_idf(cr.data, 'lemma', False, 1, 10)
-    # lemma_tf_idf_bi = tf_idf(cr.data, 'lemma', False, 2, 10)
-    # end = time.time()
-    # print('TF-IDF for uni- and bigram lemma took {} seconds.'.format(end - start))
+    start = time.time()
+    lemma_tf_idf_uni = tf_idf(cr.data, 'lemma', False, 1, 10)
+    lemma_tf_idf_bi = tf_idf(cr.data, 'lemma', False, 2, 10)
+    end = time.time()
+    print('TF-IDF for uni- and bigram lemma took {} seconds.'.format(end - start))
 
-    # start = time.time()
-    # pos_tf_idf_bi = tf_idf(cr.data, 'pos', False, 2, 10)
-    # pos_tf_idf_tri = tf_idf(cr.data, 'pos', False, 3, 10)
-    # end = time.time()
-    # print('TF-IDF for bi- and trigram POS took {} seconds.'.format(end - start))
+    start = time.time()
+    pos_tf_idf_bi = tf_idf(cr.data, 'pos', False, 2, 10)
+    pos_tf_idf_tri = tf_idf(cr.data, 'pos', False, 3, 10)
+    end = time.time()
+    print('TF-IDF for bi- and trigram POS took {} seconds.'.format(end - start))
 
     label_indices, all_text_classes, all_text_classes_token = [], [], []
 
@@ -281,42 +334,14 @@ if __name__ == "__main__":
         # create dictionary to store results
         stats_dict[label] = {}
 
-        # # get ngram frequencies for LEMMA
-        # lemma_uni_frequencies, all_text_class = get_ngram_frequencies(data, 1, 'lemma', keep_text=True)
-        # all_text_classes.append(all_text_class)
+        # get ngram frequencies for LEMMA
+        lemma_uni_frequencies, all_text_class = get_ngram_frequencies(data, 1, 'lemma', keep_text=True)
+        all_text_classes.append(all_text_class)
 
         # get ngram frequencies for TOKEN
         token_uni_frequencies, all_text_class_token = get_ngram_frequencies(data, 1, 'token', keep_text=True)
         all_text_classes_token.append(all_text_class_token)
         token_frequencies = {''.join(gram): frequency for gram, frequency in token_uni_frequencies.items()}
-
-        with open('/projekte/semrel/WORK-AREA/Users/laura/ngram_frequency_dict.json', 'w') as jsn:
-            json.dump(token_frequencies, jsn)
-
-        # TODO: run this but add spearmans rho!
-            
-        start = time.time()
-        spearmans_rho_token = spearmans_rho(all_text_classes_token)
-        end = time.time()
-        print('Spearmans rho for token took {} seconds.'.format(end - start))
-        print('Spearmans rho matrix using the tokens:')
-        print('Order of labels: {}'.format(label_indices))
-        print('{}\n-------------------------------------------------\n'.format(np.array(spearmans_rho_token)))
-
-        start = time.time()
-        spearmans_rho_lemma = spearmans_rho(all_text_classes)
-        end = time.time()
-        print('Spearmans rho for lemma took {} seconds.'.format(end - start))
-        print('Spearmans rho matrix using the lemmata:')
-        print('Order of labels: {}'.format(label_indices))
-        print('{}\n-------------------------------------------------\n'.format(np.array(spearmans_rho_lemma)))
-
-        stats_dict['all_countries']['spearmans_rho'] = {'token': {'unigrams': (spearmans_rho_token, label_indices)}, 'lemma': {'unigrams': (spearmans_rho_lemma, label_indices)}}
-
-        with open('/projekte/semrel/WORK-AREA/Users/laura/stats_dict_updated.json', 'w') as jsn:
-            json.dump(stats_dict, jsn)
-
-        exit()
 
         noun_lemma_uni_frequencies = get_ngram_frequencies(data, 1, 'lemma', ['NN', 'NE'])
         verb_lemma_uni_frequencies = get_ngram_frequencies(data, 1, 'lemma', ['VM', 'VC', 'VIF', 'VII', 'VIP', 'VIS', 'VIMP', 'VPP', 'VPS', 'VR', 'VSF', 'VSI', 'VSJ', 'VSP'])
@@ -376,16 +401,16 @@ if __name__ == "__main__":
         print('LL took {} seconds.'.format(end - start))
         print('10 unigrams with highest LL score: {}\n-------------------------------------------------\n'.format(lemma_uni_log_likelihood[-10:]))
 
-        # start = time.time()
-        # lemma_uni_fishers_exact_test = fishers_exact_text(lemma_uni_frequencies, lemma_ooc_uni_frequencies, lemma_uni_log_likelihood[-10:])
-        # end = time.time()
-        # stats_dict[label]['fishers_exact_test'] = {'lemma': {'unigrams': lemma_uni_fishers_exact_test}}
-        # print('Fishers exact test took {} seconds.'.format(end - start))
-        # print('Odd ratio and p value for the 3 unigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-1][0]], lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-2][0]], lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-3][0]]))
+        start = time.time()
+        lemma_uni_fishers_exact_test = fishers_exact_text(lemma_uni_frequencies, lemma_ooc_uni_frequencies, lemma_uni_log_likelihood[-10:])
+        end = time.time()
+        stats_dict[label]['fishers_exact_test'] = {'lemma': {'unigrams': lemma_uni_fishers_exact_test}}
+        print('Fishers exact test took {} seconds.'.format(end - start))
+        print('Odd ratio and p value for the 3 unigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-1][0]], lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-2][0]], lemma_uni_fishers_exact_test[lemma_uni_log_likelihood[-3][0]]))
 
-        
+
         # get ngram frequencies for POS
-        
+
         pos_bi_frequencies = get_ngram_frequencies(data, 2, 'pos')
         pos_tri_frequencies = get_ngram_frequencies(data, 3, 'pos')
 
@@ -447,63 +472,31 @@ if __name__ == "__main__":
         print('LL for POS trigrams took {} seconds.'.format(end - start))
         print('10 POS trigrams with highest LL score: {}\n-------------------------------------------------\n'.format(pos_tri_log_likelihood[-10:]))
 
-       # start = time.time()
-       # pos_bi_fishers_exact_test = fishers_exact_text(pos_bi_frequencies, pos_ooc_bi_frequencies, pos_bi_log_likelihood[-10:])
-       # end = time.time()
-       # stats_dict[label]['fishers_exact_test']['pos'] = {'bigrams': pos_bi_fishers_exact_test}
-       # print('Fishers exact test for POS bigrams took {} seconds.'.format(end - start))
-       # print('Odd ratio and p value for the 3 POS bigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(pos_bi_fishers_exact_test[pos_bi_log_likelihood[-1][0]], pos_bi_fishers_exact_test[pos_bi_log_likelihood[-2][0]], pos_bi_fishers_exact_test[pos_bi_log_likelihood[-3][0]]))
 
-       # start = time.time()
-       # pos_tri_fishers_exact_test = fishers_exact_text(pos_tri_frequencies, pos_ooc_tri_frequencies, pos_tri_log_likelihood[-10:])
-       # end = time.time()
-       # stats_dict[label]['fishers_exact_test']['pos'] = {'trigrams': pos_tri_fishers_exact_test}
-       # print('Fishers exact test for POS trigrams took {} seconds.'.format(end - start))
-       # print('Odd ratio and p value for the 3 POS trigrams ranked highest by LL:\n{}\n{}\n{}\n-------------------------------------------------\n'.format(pos_tri_fishers_exact_test[pos_tri_log_likelihood[-1][0]], pos_tri_fishers_exact_test[pos_tri_log_likelihood[-2][0]], pos_tri_fishers_exact_test[pos_tri_log_likelihood[-3][0]]))
+# execute functions that work on all data
+start = time.time()
+cosine_sim_token, label_indices_token = cosine_similarity_tfidf(cr.data, 'token', 1)
+end = time.time()
+print('Cosine similarity of TF-IDF vectors for token took {} seconds.'.format(end - start))
+print('Cosine similarity matrix using the tokens:')
+print('Order of labels: {}'.format(label_indices_token))
+print('{}\n-------------------------------------------------\n'.format(np.array(cosine_sim_token)))
 
+start = time.time()
+cosine_sim_lemma, label_indices_lemma = cosine_similarity_tfidf(cr.data, 'lemma', 1)
+end = time.time()
+print('Cosine similarity of TF-IDF vectors for lemma took {} seconds.'.format(end - start))
+print('Cosine similarity matrix using the lemmata:')
+print('Order of labels: {}'.format(label_indices_lemma))
+print('{}\n-------------------------------------------------\n'.format(np.array(cosine_sim_lemma)))
 
-    # execute functions that work on all data
-    start = time.time()
-    cosine_sim_token, label_indices_token = cosine_similarity_tfidf(cr.data, 'token', 1)
-    end = time.time()
-    print('Cosine similarity of TF-IDF vectors for token took {} seconds.'.format(end - start))
-    print('Cosine similarity matrix using the tokens:')
-    print('Order of labels: {}'.format(label_indices_token))
-    print('{}\n-------------------------------------------------\n'.format(np.array(cosine_sim_token)))
+stats_dict['all_countries'] = {'cosine_similarity_tfidf': {'token': {'unigrams': (cosine_sim_token, label_indices_token)}, 'lemma': {'unigrams': (cosine_sim_lemma, label_indices_lemma)}}}
 
-    start = time.time()
-    cosine_sim_lemma, label_indices_lemma = cosine_similarity_tfidf(cr.data, 'lemma', 1)
-    end = time.time()
-    print('Cosine similarity of TF-IDF vectors for lemma took {} seconds.'.format(end - start))
-    print('Cosine similarity matrix using the lemmata:')
-    print('Order of labels: {}'.format(label_indices_lemma))
-    print('{}\n-------------------------------------------------\n'.format(np.array(cosine_sim_lemma)))
+overall_end = time.time()
 
-    stats_dict['all_countries'] = {'cosine_similarity_tfidf': {'token': {'unigrams': (cosine_sim_token, label_indices_token)}, 'lemma': {'unigrams': (cosine_sim_lemma, label_indices_lemma)}}}
+print('Data Analysis took {} seconds'.format(overall_end-overall_start))
 
-    # start = time.time()
-    # spearmans_rho_token = spearmans_rho(all_text_classes, 'token')
-    # end = time.time()
-    # print('Spearmans rho for token took {} seconds.'.format(end - start))
-    # print('Spearmans rho matrix using the tokens:')
-    # print('Order of labels: {}'.format(label_indices))
-    # print('{}\n-------------------------------------------------\n'.format(np.array(spearmans_rho_token)))
+print(stats_dict)
 
-    start = time.time()
-    spearmans_rho_lemma = spearmans_rho(all_text_classes)
-    end = time.time()
-    print('Spearmans rho for lemma took {} seconds.'.format(end - start))
-    print('Spearmans rho matrix using the lemmata:')
-    print('Order of labels: {}'.format(label_indices))
-    print('{}\n-------------------------------------------------\n'.format(np.array(spearmans_rho_lemma)))
-
-    stats_dict['all_countries']['spearmans_rho'] = {'token': {'unigrams': (spearmans_rho_token, label_indices)}, 'lemma': {'unigrams': (spearmans_rho_lemma, label_indices)}}
-
-    overall_end = time.time()
-
-    print('Data Analysis took {} seconds'.format(overall_end-overall_start))
-
-    print(stats_dict)
-
-    with open('/projekte/semrel/WORK-AREA/Users/laura/test_stats_dict.json', 'w') as jsn:
-        json.dump(stats_dict, jsn)
+with open('/projekte/semrel/WORK-AREA/Users/laura/test_stats_dict.json', 'w') as jsn:
+    json.dump(stats_dict, jsn)

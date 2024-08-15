@@ -1,5 +1,17 @@
+#!/usr/bin/env python3
+"""
+Author: Laura Zeidler
+Last changed: 14.08.2024
+
+Data Preparation and Transformation for Model Training
+
+This module provides functions for preparing and transforming data for machine learning models, including feature concatenation, shuffling, and text preprocessing.
+
+"""
+
 import json, time, sys
 import numpy as np
+from multiprocessing import Pool
 from typing import Tuple, Union
 from random import shuffle
 from scipy.sparse import spmatrix, csr_matrix, hstack, vstack
@@ -68,15 +80,19 @@ def concatenate_features(split_type: str, ngram_features: Union[spmatrix, None],
         # in order to make the different feature types more comparable, I'll use the already shuffled indices and sort the data accordingly
         # this way, the features are all "shuffled" in the same way
         # note that targets remains empty in this case (they are saved alongside the indices)
-        # with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced.json', 'r') as jsn:
-        with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_grouped.json', 'r') as jsn:
-            indices = json.load(jsn)
+        if len(which_country) == 20:
+            with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced.json', 'r') as jsn:
+            # with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_grouped.json', 'r') as jsn:
+                indices = json.load(jsn)
+        else:
+            with open('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_grouped.json', 'r') as jsn:
+                indices = json.load(jsn)
 
         idx_list = indices[split_type]['indices']
         target_list = indices[split_type]['targets']
         for i, idx in enumerate(idx_list):
             if i % 1000 == 0:
-                time.sleep(0.001)
+                # time.sleep(0.001)
                 print('Working on document {} out of {}'.format(i, len(idx_list)))
             all_features_array = concat_helper(idx, target_list[i], all_features_array, ngram_features, ngram_indices, tailored_features, which_features)
 
@@ -116,7 +132,8 @@ def prepare_data_full(data_split: str, split_type: str, which_country: list, fea
     if feature_type in ['tailored', 'both']:
         # load the tailored feature vectors
         start = time.time()
-        with open('/projekte/semrel/WORK-AREA/Users/laura/tailored_features/feature_dict.json', 'r') as jsn:
+        with open('/projekte/semrel/WORK-AREA/Users/laura/tailored_features/feature_dict_updated.json', 'r') as jsn:
+        # with open('/projekte/semrel/WORK-AREA/Users/laura/tailored_features/feature_dict_tf.json', 'r') as jsn:
             features = json.load(jsn)
         end = time.time()
         print('Loading tailored feature dict took {} seconds.'.format(end - start))
@@ -139,12 +156,13 @@ def prepare_data_full(data_split: str, split_type: str, which_country: list, fea
         split_features, split_targets, split_indices = concatenate_features(split_type, ngrams, {}, ngram_indices['indices'], split_dict, which_country, shuffle=shuffle)
     elif feature_type == 'tailored':
         print('tailored')
+        # with Pool(5) as p:
+        #     split_features, split_targets, split_indices = p.map(concatenate_features, split_type, None, features, [], split_dict, which_country, which_features, False, shuffle)
         # obtain the tailored features of the train set and concatenate ngram features and tailored features
         split_features, split_targets, split_indices = concatenate_features(split_type, None, features, [], split_dict, which_country, which_features, shuffle=shuffle)
     elif feature_type == 'both':
-        # sort out redundant features from tailored features
-        # TODO: maybe ask supervisors
-        # which_features = [feature for feature in which_features if not feature in ['voseo', 'clitic_pronouns']]
+        # with Pool(5) as p:
+        #     split_features, split_targets, split_indices = p.map(concatenate_features, [split_type, ngrams, features, ngram_indices['indices'], split_dict, which_country, which_features, True, shuffle])
         # obtain the ngram and tailored features of the train set and concatenate ngram features and tailored features
         split_features, split_targets, split_indices = concatenate_features(split_type, ngrams, features, ngram_indices['indices'], split_dict, which_country, which_features, concat=True, shuffle=shuffle)
     end = time.time()
@@ -198,24 +216,15 @@ def prep_for_dataset(set_dict: dict, text_dict: dict, model: str, which_country:
     set_text, set_targets = [], []
     for country, indices in set_dict.items():
         set_targets.extend([country]*len(indices))
-        # set_indices.extend(indices)
-        # for idx, idx_data in text_dict[country].items():
         for i, idx in enumerate(indices):
             if i % 100 == 0:
                 time.sleep(0.01)
             try:
-                if nones:
-                    stopwords = ['vos', 'tú', 'tí', 'ti', 'vosotros', 'vosotras', 'os', 'usted', 'ustedes', 'yo', 'él', 'ella', 'ello', 'ellos', 'ellas', 'nosotros', 'nosotras', 'lo', 'le', 'les', 'boliviano', 'boliviana', 'bolivianos', 'bolivianas', 'cubano', 'cubana', 'cubanos', 'cubanas', 'argentino', 'argentina', 'argentinos', 'argentinas', 'chileno', 'chilena', 'chilenos', 'chilenas', 'colombiano', 'colombiana', 'colombianos', 'colombianas', 'costarricense', 'costarricenses', 'dominicano', 'dominicana', 'dominicanos', 'dominicanas', 'ecuatoriano', 'ecuatoriana', 'ecuatorianos', 'ecuatorianas', 'guatemalteco', 'guatemalteca', 'guatemaltecos', 'guatemaltecas', 'hondureño', 'hondureña', 'hondureños', 'hondureñas', 'mexicano', 'mexicana', 'mexicanos', 'mexicanas', 'nicaragüense', 'nicaragüenses', 'panameño', 'panameña', 'panameños', 'panameñas', 'paraguayo', 'paraguaya', 'paraguayos', 'paraguayas', 'puertorriqueño', 'puertorriqueña', 'puertorriqueños', 'puertorriqueñas', 'peruano', 'peruana', 'peruanos', 'peruanas', 'salvadoreño', 'salvadoreña', 'salvadoreños', 'salvadoreñas', 'uruguayo', 'uruguaya', 'uruguayos', 'uruguayas', 'venezolano', 'venezolana', 'venezolanos', 'venezolanas']
-                    set_text.append(' '.join([token if text_dict[country][idx][2][i] != 'o' and token not in stopwords else '[MASK]' for i, token in enumerate(text_dict[country][idx][0])]))
-                # append first inner list which is the list of the document's token
-                set_text.append(' '.join(text_dict[country][idx][0]))
+                stopwords = ['vos', 'tú', 'tí', 'ti', 'vosotros', 'vosotras', 'os', 'usted', 'ustedes', 'yo', 'él', 'ella', 'ello', 'ellos', 'ellas', 'nosotros', 'nosotras', 'lo', 'le', 'les']
+                set_text.append(' '.join([token if token not in stopwords else '[pron]' for i, token in enumerate(text_dict[idx[:2].upper()][idx][0])]))
             except KeyError as e:
                 print(e)
                 set_targets = set_targets[:-1]
-
-    
-    # # truncate long documents
-    # trunc_set_text = truncate_long_documents(set_text, trunc)
 
     # shuffle data
     # zip the arrays so that they can be shuffled in the same order
@@ -225,10 +234,6 @@ def prep_for_dataset(set_dict: dict, text_dict: dict, model: str, which_country:
     # unzip the arrays
     shuffled_set_text, shuffled_set_targets = zip(*zipped_arrays)
 
-    # if group:
-    #     target_dict = {'CU': 'ANT', 'DO': 'ANT', 'PR': 'ANT', 'PA': 'ANT', 'SV': 'MCA', 'NI': 'MCA', 'HN': 'MCA', 'GT': 'GC', 'CR': 'GC', 'CO': 'CV', 'VE': 'CV', 'EC': 'EP', 'PE': 'EP', 'BO': 'EP', 'AR': 'AU', 'UY': 'AU', 'ES': 'ES', 'MX': 'MX', 'CL': 'CL', 'PY': 'PY'}
-    #     shuffled_set_targets = [target_dict[target] for target in shuffled_set_targets]
-    
     # transform str targets to integers
     set_targets_int = transform_str_to_int_labels(shuffled_set_targets, which_country)
     

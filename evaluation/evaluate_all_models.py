@@ -1,6 +1,6 @@
 import os
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"]="3"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:32"
 
 import pickle, torch, re
@@ -66,17 +66,29 @@ def evaluate_predictions(which_evaluation: list, predictions: list, true_labels:
     evaluation_str = '----------------------------------\nEVALUATION REPORT\n----------------------------------\n'
 
     if 'confusion_matrix' in which_evaluation:
-        model = re.sub('/', '_', model)
         cm = metrics.confusion_matrix(true_labels, predictions, labels=labels)
         disp = metrics.ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
         fig, ax = plt.subplots(figsize=(10,10))
+        plot_title = re.sub(' nofeat', '', ' '.join(model.split('/')[-1].split('_')[2:-1]))
+        plot_title = re.sub('tf tf', 'tf', plot_title)
+        if 'transformer' in ' '.join(model.split('/')[-1].split('_')[:2]):
+            plt.title('Transformer Model')
+        else:
+            if 'nones' in plot_title:
+                plt.title('{} using {} features without NEs'.format(' '.join(model.split('/')[-1].split('_')[:1]), re.sub(' nones', '', plot_title)))
+            elif 'grouped' in plot_title:
+                plt.title('{} using {} features on grouped classes'.format(' '.join(model.split('/')[-1].split('_')[:1]), re.sub(' grouped', '', plot_title)))
+            else:
+                plt.title('{} using {} features'.format(' '.join(model.split('/')[-1].split('_')[:2]), plot_title))
         disp.plot(ax=ax)
+        model = re.sub('/', '_', model)
         plt.savefig('plots/confusion_matrices/confusion_matrix_{}_plot{}.png'.format(model, date.today()))
 
     if 'class_report' in which_evaluation:
         report = metrics.classification_report(true_labels, predictions)
         evaluation_str += 'CLASSIFICATION REPORT:\n------------------------\n'
         evaluation_str += report
+        evaluation_str += 'All true labels: {}'.format(str(set(true_labels)))
 
     if 'accuracy' in which_evaluation:
         acc = metrics.accuracy_score(true_labels, predictions)

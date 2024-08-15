@@ -42,4 +42,6 @@ if __name__ == "__main__":
     preds_model1 = predictions[args.preds_model1]
     preds_model2 = predictions[args.preds_model2]
 
-    print('p-value for model {} and {} is: {}'.format(args.preds_model1, args.preds_model2, test_statistical_significance(preds_model1, preds_model2, targets).pvalue))
+    pvalue = test_statistical_significance(preds_model1, preds_model2, targets).pvalue
+    print('p-value for model {} and {} is: {}'.format(args.preds_model1, args.preds_model2, pvalue))
+    print('p-value is less than or equal to 0.05: {}'.format(pvalue <= 0.05))

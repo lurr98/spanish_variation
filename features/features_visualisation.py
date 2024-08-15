@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+"""
+Author: Laura Zeidler
+Last changed: 14.08.2024
+
+This script provides tools for visualizing linguistic features across the different Spanish dialects. 
+It includes functions to generate bar charts, stacked bar charts and scatter plots to display the 
+occurrence of dialect-specific features for various countries. These visualizations can be used to compare 
+how features such as "voseo," "clitic pronouns," or "different tenses" vary across regions. The data can 
+be normalized by the number of documents for a more accurate comparison. 
+
+"""
+
 import matplotlib.cm, json
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,13 +25,12 @@ color_list = [matplotlib.colors.rgb2hex(cmap(i)[:3]) for i in range(0, cmap.N, 2
 
 
 def sum_document_values(feature_dict: dict, which_country: list, stat: str) -> Tuple[dict, bool]:
-    # sum the values from all documents and return them in a dicitonary
+    # aggregates feature statistics for the specified countries and returns them in a dictionary format, with an indicator for single-variable features
 
     all_stats = {}
     for country in which_country:    
         for idx, stats in feature_dict[country].items():
             # store whether there are more than 1 variables
-            # print(len(stats[stat]))
             is_one = True if len(stats[stat]) == 1 else False 
             if country in all_stats:
                 all_stats[country] = [old+new for old, new in zip(all_stats[country], stats[stat])]
@@ -41,7 +53,6 @@ def feature_bar_chart(feature_dict: dict, which_country: list, which_stats: list
             is_one = True
         else:
             all_stats, is_one = sum_document_values(feature_dict, which_country, stat)
-        print(all_stats)
 
         if stat == 'voseo':
             all_stats = {key: feature_vector[:3] for key, feature_vector in all_stats.items()}
@@ -52,13 +63,9 @@ def feature_bar_chart(feature_dict: dict, which_country: list, which_stats: list
         # check if there is only one variable per country, if so, create standard bar plot
         if is_one:
             fig = plt.figure(figsize = (10, 5))
-            print('one')
-            print(stat)
             
             # creating the bar plot
             keys = sorted(list(all_stats.keys()))
-            print(keys)
-            print([all_stats[key] for key in keys])
             if normalisation:
             # normalise data by provided values if specifed (mostly data size probably)
                 plt.bar(keys, [all_stats[key][0] / normalisation[key] for key in keys], color=color_list[0], width = 0.4)
@@ -68,14 +75,11 @@ def feature_bar_chart(feature_dict: dict, which_country: list, which_stats: list
         # if not, create grouped bar plot
         else:
             fig = plt.figure(figsize = (15, 5))
-            print('more')
-            print(stat)
             # set width of bars
             bar_width = 0.25
 
             # separate_stats_values = [[] for x in range(len(all_stats['PA']))][:-1]
             separate_stats_values = [[] for x in range(len(all_stats['PA']))]
-            print(separate_stats_values)
             for value_idx in list(range(len(all_stats['PA']))):
             # for value_idx in list(range(len(all_stats['PA'])))[:-1]:
                 for country in which_country:
@@ -92,9 +96,6 @@ def feature_bar_chart(feature_dict: dict, which_country: list, which_stats: list
                 positions = [list(range(len(separate_stats_values[0])))]
             for i in list(range(len(separate_stats_values))):
                 positions.append([prev_position + bar_width for prev_position in positions[-1]])
-
-            print(positions)
-            print(separate_stats_values)
 
             for i, bar in enumerate(separate_stats_values):
                 plt.bar(positions[i], bar, color=color_list[i], width=bar_width, edgecolor='white', label=variable_explanation[stat][i])
@@ -118,7 +119,7 @@ def feature_bar_chart(feature_dict: dict, which_country: list, which_stats: list
 
 
 def feature_stacked_bar_chart(feature_dict: dict, which_country: list, which_stats: list, normalisation: bool | dict =False) -> None:
-    # visualise features with one or not many different variables as a bar chart
+    # visualise features with many different variables as a stacked bar chart
         
     which_country = sorted(which_country)
 
@@ -139,18 +140,7 @@ def feature_stacked_bar_chart(feature_dict: dict, which_country: list, which_sta
         if normalisation:
             df = pd.DataFrame(endings_list,
               columns=['tense', 'VM', 'VC', 'VIF', 'VII', 'VIP', 'VIS', 'VIMP', 'VPP', 'VPS', 'VR', 'VSF', 'VSI', 'VSJ', 'VSP'])
-        print(df.set_index('tense').T.reset_index().rename(columns={'index':'tense'}))
         df = df.set_index('tense').T.reset_index().rename(columns={'index':'tense'})
-        print(df.columns)
-        #     plt.scatter([num+1 for num in list(range(len(all_stats[country])))], [value / normalisation[country] for value in all_stats[country]], c=color_list[i], label=country)
-        # else:
-        #     plt.scatter([num+1 for num in list(range(len(all_stats[country])))], all_stats[country], c=color_list[i], label=country)
-        
-        # plt.xticks([num+1 for num in list(range(len(all_stats['PA'])))], variable_explanation[stat])
-
-        # plt.xlabel('Feature variables')
-        # plt.title('Occurrences of {} per country data'.format(stats_name_dict[stat]))
-        # plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
             
         # plot data in stack manner of bar type
         ax = df.plot(x='tense', kind='bar', stacked=True, title='Occurrences of different tenses and aspects per country data', rot=45, color=color_list)
@@ -201,16 +191,15 @@ def feature_scatter_plot(feature_dict: dict, which_country: list, which_stats: l
 
 if __name__ == "__main__":
 
-    feature_path = '/projekte/semrel/WORK-AREA/Users/laura/tailored_features/feature_dict_tf.json'
+    feature_path = '/projekte/semrel/WORK-AREA/Users/laura/tailored_features/feature_dict_updated.json'
     which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
-    # which_stats = ['voseo', 'overt_subj', 'subj_inf', 'indef_art_poss', 'non_inv_quest', 'diminutives', 'mas_neg', 'muy_isimo', 'ada', 'clitic_pronouns', 'ser_or_estar']
-    which_stats = ['diff_tenses']
+    which_stats = ['voseo', 'overt_subj', 'subj_inf', 'indef_art_poss', 'non_inv_quest', 'diminutives', 'mas_neg', 'muy_isimo', 'ada', 'clitic_pronouns', 'ser_or_estar']
     normalisation_dict = {"DO": 47065, "CL": 71620, "HN": 43227, "ES": 421520, "PA": 29312, "BO": 43293, "NI": 35696, "CO": 184970, "GT": 61434, "PR": 33879, "CR": 33255, "EC": 63160, "AR": 177920, "VE": 112571, "PY": 33301, "CU": 51708, "SV": 38217, "PE": 121814, "UY": 36154, "MX": 286275}
 
     with open(feature_path, 'r') as f:
         feature_dict = json.load(f)
 
-    # feature_bar_chart(feature_dict, which_country, which_stats, normalisation_dict)
+    feature_bar_chart(feature_dict, which_country, which_stats, normalisation_dict)
     feature_stacked_bar_chart(feature_dict, which_country, which_stats, normalisation_dict)
-    # feature_scatter_plot(feature_dict, which_country, which_stats, normalisation_dict)
+    feature_scatter_plot(feature_dict, which_country, which_stats, normalisation_dict)
     

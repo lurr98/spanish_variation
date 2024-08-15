@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+"""
+Author: Laura Zeidler
+Last changed: 14.08.2024
+
+This module provides functionality for training and evaluating a Hugging Face Transformers model 
+for sequence classification tasks. It includes custom dataset handling, metric computation, model initialization
+and training setup using PyTorch and Hugging Face's Trainer class.
+
+"""
+
 import os
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
@@ -7,7 +18,6 @@ import numpy as np
 from transformers import AutoModelForSequenceClassification, BertTokenizer, Trainer, TrainingArguments
 from typing import Sequence
 
-# TODO: find appropriate type hints
 
 class CdEDataset(torch.utils.data.Dataset):
     # build data set from data in order to train a huggingface model on it

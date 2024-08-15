@@ -1,7 +1,21 @@
+#!/usr/bin/env python3
+"""
+Author: Laura Zeidler
+Last changed: 14.08.2024
+
+This script runs a data processing and model training pipeline based on user-specified arguments. The script performs
+the following tasks:
+
+1. **Feature Preparation**: Prepares the feature matrices (either 'ngrams', 'tailored' or 'both') and target labels based on the provided data and feature selection. Data can be grouped by broader regions if specified.
+2. **Model Training**: Trains a specified machine learning model (SVM, Decision Tree) using the selected features and optionally performs grid search for hyperparameter optimization.
+3. **Model Saving**: Saves the trained model and optionally saves the indices and targets in a JSON file.
+
+"""
+
 import json, sys, argparse, time, re
 from datetime import date
-from prepare_for_training import load_sparse_csr, concatenate_features, shuffle_data, prepare_data_full
-from implement_models import train_SVM, train_DT, train_RF, save_model
+from prepare_for_training import load_sparse_csr, prepare_data_full
+from implement_models import train_SVM, train_DT, save_model
 
 sys.path.append("..")
 from basics import save_sparse_csr
@@ -11,7 +25,7 @@ parser = argparse.ArgumentParser(description='Run the pipeline in order to train
 parser.add_argument('features', type=str,
                     help='specify which features will be used (ngrams|tailored|both)')
 parser.add_argument('model', type=str,
-                    help='specify the type of model (svm|dt|rf|none)')
+                    help='specify the type of model (svm|dt|none)')
 parser.add_argument('store_path', type=str,
                     help='specify the path and name of the sparse matrix file (no .npz extension, will be added automatically)')
 parser.add_argument('-sit', action='store_true',
@@ -41,7 +55,7 @@ if args.model == 'none':
         s_dev_features, s_dev_targets, s_dev_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/indices_targets_tdt_split_080101_balanced_grouped.json', 'dev', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
         save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_grouped_dev'.format(dir_name), s_dev_features)
         s_test_features, s_test_targets, s_test_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/indices_targets_tdt_split_080101_balanced_grouped.json', 'test', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
-        save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_grouped  _test'.format(dir_name), s_test_features)
+        save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_grouped_test'.format(dir_name), s_test_features)
     else:
         s_train_features, s_train_targets, s_train_indices = prepare_data_full('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'train', which_country, args.features, which_features, args.store_path, shuffle=args.sit)
         save_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}_train'.format(dir_name), s_train_features)
@@ -70,9 +84,6 @@ if args.model in ['svm', 'dt', 'rf']:
             ind_target_dict = json.load(jsn)
     s_train_targets = ind_target_dict['train']['targets']
 
-    # if args.group:
-    #     target_dict = {'CU': 'ANT', 'DO': 'ANT', 'PR': 'ANT', 'PA': 'ANT', 'SV': 'MCA', 'NI': 'MCA', 'HN': 'MCA', 'GT': 'GC', 'CR': 'GC', 'CO': 'CV', 'VE': 'CV', 'EC': 'EP', 'PE': 'EP', 'BO': 'EP', 'AR': 'AU', 'UY': 'AU', 'ES': 'ES', 'MX': 'MX', 'CL': 'CL', 'PY': 'PY'}
-    #     s_train_targets = [target_dict[target] for target in s_train_targets]
     end = time.time()
     print('Loading train features and targets took {} seconds.'.format(end - start))
 
@@ -97,13 +108,3 @@ if args.model == 'dt':
         save_model(dt_model, '/projekte/semrel/WORK-AREA/Users/laura/DT_models/DT_model_{}_{}_{}_grouped'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
     else:
         save_model(dt_model, '/projekte/semrel/WORK-AREA/Users/laura/DT_models/DT_model_{}_{}_{}'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
-if args.model == 'rf':
-    print('Training RF model.')
-    start = time.time()
-    rf_model = train_RF(s_train_features, s_train_targets, args.grid)
-    end = time.time()
-    print('Training RF model took {} seconds.'.format(end - start))
-    if args.group:
-        save_model(rf_model, '/projekte/semrel/WORK-AREA/Users/laura/RF_models/RF_model_{}_{}_{}_grouped'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))
-    else:
-        save_model(rf_model, '/projekte/semrel/WORK-AREA/Users/laura/RF_models/RF_model_{}_{}_{}'.format(args.features, '_'.join(dir_name.split('/')[-1].split('_')[3:]), date.today()))

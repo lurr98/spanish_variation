@@ -1,6 +1,6 @@
 import os
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"]="3"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:32"
 
 import sys, argparse, json, torch
@@ -33,7 +33,6 @@ parser.add_argument('-save_pred', action='store_true',
 args = parser.parse_args()
 print('The script is running with the following arguments: {}'.format(args))
 
-which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
 # which_country = ['BO', 'CL']
 
 if args.model_type == 'linear':
@@ -45,7 +44,7 @@ if args.model_type == 'linear':
 
     features = load_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}'.format(args.features_path))
 
-    if args.model_path.endswith('grouped'):
+    if args.model_path.split('_')[-2] == 'grouped':
         dict_name = '/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced_grouped.json' 
     else:
         dict_name = '/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced.json'
@@ -65,40 +64,56 @@ if args.model_type == 'linear':
 
 if args.model_type == 'transformer':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = load_fine_tuned_model('/projekte/semrel/WORK-AREA/Users/laura/{}'.format(args.model_path))
-    model = model.to(device)
-
-    # TODO: change for grouped
-    # with open('/projekte/semrel/WORK-AREA/Users/laura/toy_train_dev_test_split.json', 'r') as jsn:
-    with open('/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json', 'r') as jsn:
-        split_dict = json.load(jsn)
-
-    # filter train data for specified labels (countries)
-    split_dict_filtered = {tdt: {label: value for label, value in labels.items() if label in which_country} for tdt, labels in split_dict.items()}
-
-    dev_dict = split_dict_filtered['dev']
-
     # TODO: filter_punct=True?
-    cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, filter_punct=True, split_data=False, sub_sample=False)
+    which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
+    if args.model_path.endswith('nones'):
+        cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, filter_punct=True, filter_digits=True, filter_nes=True, lower=True, split_data=False, sub_sample=False)
+    else:
+        cr = CorpusReader('/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS', which_country, filter_punct=True, filter_digits=True, filter_nes=False, lower=True, split_data=False, sub_sample=False)
     # cr = CorpusReader('/projekte/semrel/WORK-AREA/Users/laura/toy_corpus', which_country, 'pars', filter_punct=True, lower=True, split_data=False, sub_sample=False)
 
     data = cr.data
 
-    if args.model_path.endswith('grouped'):
-        which_country = ['ANT', 'MCA', 'GC', 'CV', 'EP', 'AU', 'ES', 'MX', 'CL', 'PY']
-
     print('initialising tokeniser')
     tokeniser = initialise_tokeniser('dccuchile/bert-base-spanish-wwm-cased')
     print('done with tokeniser')
+
+    evaluation_string = '###############################\nEvaluation Transformer Models\n###############################\n\n'
+    
+    model = load_fine_tuned_model('/projekte/semrel/WORK-AREA/Users/laura/{}'.format(args.model_path))
+    # for ind_model in ['transformer_model_5_epochs_grouped_check']:
+    # # for ind_model in ['transformer_model_5_epochs_nones']:
+    # model = load_fine_tuned_model('/projekte/semrel/WORK-AREA/Users/laura/transformer_models/{}'.format(ind_model))
+    model = model.to(device)
+
+    # TODO: change for grouped
+    # with open('/projekte/semrel/WORK-AREA/Users/laura/toy_train_dev_test_split.json', 'r') as jsn:
+    if args.model_path.split('_')[-2] == 'grouped':
+        group = True
+        filename = '/projekte/semrel/WORK-AREA/Users/laura/data_split/indices_targets_tdt_split_080101_balanced_grouped.json'
+        which_country = ['ANT', 'MCA', 'GC', 'CV', 'EP', 'AU', 'ES', 'MX', 'CL', 'PY']
+    else:
+        group = False
+        filename = '/projekte/semrel/WORK-AREA/Users/laura/data_split/tdt_split_080101_balanced.json'
+        which_country = ['AR', 'BO', 'CL', 'CO', 'CR', 'CU', 'DO', 'EC', 'ES', 'GT', 'HN', 'MX', 'NI', 'PA', 'PE', 'PR', 'PY', 'SV', 'UY', 'VE']
+
+    with open(filename, 'r') as jsn:
+        split_dict = json.load(jsn)
+
+    # filter train data for specified labels (countries)
+    split_dict_filtered = {tdt: {label: value for label, value in labels.items() if label in which_country} for tdt, labels in split_dict.items()}
+    # dev_dict = split_dict_filtered['dev']
+    dev_dict = split_dict_filtered['test']
+
     # get tokenised data and corresponding targets
     # tokenised_train_text, train_targets_int = prep_for_dataset(train_dict, data, args.trunc, tokeniser, which_country)
     print('preparing text and targets')
-    tokenised_dev_texts, targets = prep_for_dataset(dev_dict, data, tokeniser, which_country, batch=True)
+    # tokenised_dev_texts, targets = prep_for_dataset(dev_dict, data, tokeniser, which_country, group, batch=True)
+    tokenised_dev_texts, targets = prep_for_dataset(dev_dict, data, tokeniser, which_country, group, batch=True)
     print('done preparing text and targets')
     # print(targets)
-
     print('predicting labels')
-    # predictions = predict_labels_transformer(model, tokenised_dev_text.to(device))
+    
     predictions = []
     for batch in tokenised_dev_texts:
         predictions.extend(predict_labels_transformer(model, batch.to(device)))
@@ -106,9 +121,19 @@ if args.model_type == 'transformer':
     # print(predictions)
     targets = transform_str_to_int_labels(targets, which_country, reverse=True)
     predictions = transform_str_to_int_labels(list(predictions), which_country, reverse=True)
-
     labels = which_country
-    
+
+    # evaluation_string += evaluate_predictions(args.evaluation_metrics, predictions, targets, ind_model, labels)
+    # if args.save_pred:
+    #     with open('/projekte/semrel/WORK-AREA/Users/laura/evaluation/predictions.json', 'r') as jsn:
+    #         prediction_dict = json.load(jsn)
+    #         
+    #     prediction_dict[args.model_path] = [list(predictions), list(targets)]
+    #     with open('/projekte/semrel/WORK-AREA/Users/laura/evaluation/predictions.json', 'w') as jsn:
+    #         json.dump(prediction_dict, jsn)
+    #     # evaluation_string += '\n\nPredictions: {}\nTargets: {}'.format(str(list(predictions)), str(targets))
+    # with open('/projekte/semrel/WORK-AREA/Users/laura/{}'.format(args.store_path), 'w') as stp:
+    #     stp.write(evaluation_string)
 
 evaluation_string = evaluate_predictions(args.evaluation_metrics, predictions, targets, args.model_path, labels)
 if args.grid:
@@ -117,7 +142,10 @@ if args.grid:
 if args.save_pred:
     with open('/projekte/semrel/WORK-AREA/Users/laura/evaluation/predictions.json', 'r') as jsn:
         prediction_dict = json.load(jsn)
-    prediction_dict[args.model_path.split('/')[-1]] = list(predictions)
+    if args.model_type == 'transformer':
+        prediction_dict[args.model_path.split('/')[-1]] = [list(predictions), list(targets)]
+    else:    
+        prediction_dict[args.model_path.split('/')[-1]] = list(predictions)
 
     with open('/projekte/semrel/WORK-AREA/Users/laura/evaluation/predictions.json', 'w') as jsn:
         json.dump(prediction_dict, jsn)

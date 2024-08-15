@@ -1,3 +1,15 @@
+"""
+This script extracts creates a toy corpus from the Corpus del Español by extracting the first file of every zip file.
+
+**Functionality:**
+- Iterates through all zip files in the `path_to_folder` directory.
+- Filters zip files based on the country code specified in the `which_country` list.
+- For each filtered zip file, extracts the first file within the zip archive.
+- Decodes the file content from bytes to text using 'latin-1' encoding.
+- Saves the decoded content to a specified output folder (`out_folder`).
+
+"""
+
 import os, re, zipfile
 
 path_to_folder = '/projekte/semrel/Resources/Corpora/Corpus-del-Espanol/Lemma-POS'

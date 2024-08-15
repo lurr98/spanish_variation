@@ -53,70 +53,71 @@ For the transformer models, I simply use the preprocessed text and let it be tru
 
 #### Standard Experiments
 
-|                            | SVM  | DT   | RF   | Transformer |
-|----------------------------|------|------|------|-------------|
-| tailored                   | 0.08 | 0.07 | 0.08 |             |
-| ngrams_tf                  | 0.64 | 0.38 |      |             |
-| ngrams_tf_nofeat           | 0.64 | 0.38 |      |             |
-| ngrams_counts              | 0.63 | 0.39 |      |             |
-| ngrams_counts_nofeat       | 0.63 | 0.39 |      |             |
-| both_tf_nofeat             | 0.61 | 0.38 |      |             |
-| both_counts_nofeat         | 0.63 | 0.39 |      |             |
-| on text                    |      |      |      | 0.67        |
+|                            | SVM  | DT   | Transformer |
+|----------------------------|------|------|-------------|
+| tailored                   | 0.08 | 0.07 |             |
+| ngrams_tf                  | 0.64 | 0.38 |             |
+| ngrams_tf_nofeat           | 0.64 | 0.38 |             |
+| ngrams_counts              | 0.63 | 0.39 |             |
+| ngrams_counts_nofeat       | 0.63 | 0.39 |             |
+| both_tf_nofeat             | 0.61 | 0.38 |             |
+| both_counts_nofeat         | 0.63 | 0.39 |             |
+| on text                    |      |      |     0.67    |
 
 
 #### Ablation Study: GROUP
 
-|                            | SVM  | DT   | RF   | Transformer |
-|----------------------------|------|------|------|-------------|
-| tailored_grouped           | 0.15 | 0.14 |      |             |
-| ngrams_tf_nofeat_grouped   | 0.66 | 0.41 |      |             |
-| both_tf_nofeat_grouped     | 0.64 | 0.41 |      |             |
+|                            | SVM  | DT   | Transformer |
+|----------------------------|------|------|-------------|
+| tailored_grouped           | 0.15 | 0.14 |             |
+| ngrams_tf_nofeat_grouped   | 0.66 | 0.41 |             |
+| both_tf_nofeat_grouped     | 0.64 | 0.41 |             |
+| on text                    |      |      |     0.8     |
 
 
 #### Ablation Study: NONES
 
-|                            | SVM  | DT   | RF   | Transformer |
-|----------------------------|------|------|------|-------------|
-| ngrams_counts_nofeat_nones | 0.43 | 0.16 |      |             |
-| ngrams_tf_nofeat_nones     | 0.55 | 0.16 |      |             |
-| both_counts_nofeat_nones   | 0.45 | 0.17 |      |             |
-| both_tf_nofeat_nones       | 0.51 | 0.17 |      |             |
+|                            | SVM  | DT   | Transformer |
+|----------------------------|------|------|-------------|
+| ngrams_counts_nofeat_nones | 0.43 | 0.16 |             |
+| ngrams_tf_nofeat_nones     | 0.55 | 0.16 |             |
+| both_counts_nofeat_nones   | 0.45 | 0.17 |             |
+| both_tf_nofeat_nones       | 0.51 | 0.17 |             |
+| on text                    |      |      |     0.35    |
 
 
 ### MACRO F1
 
 #### Standard Experiments
 
-|                            | SVM   | DT   | RF   | Transformer |
-|----------------------------|-------|------|------|-------------|
-| tailored                   | 0.05  | 0.07 | 0.08 |             |
-| ngrams_tf                  | 0.65  | 0.45 |      |             |
-| ngrams_tf_nofeat           | 0.65  | 0.45 |      |             |
-| ngrams_counts              | 0.64  | 0.45 |      |             |
-| ngrams_counts_nofeat       | 0.64  | 0.45 |      |             |
-| both_tf_nofeat             | 0.6   | 0.45 |      |             |
-| both_counts_nofeat         | 0.64  | 0.45 |      |             |
-| on text                    |       |      |      | 0.67        |
+|                            | SVM   | DT   |
+|----------------------------|-------|------|
+| tailored                   | 0.05  | 0.07 |
+| ngrams_tf                  | 0.65  | 0.45 |
+| ngrams_tf_nofeat           | 0.65  | 0.45 |
+| ngrams_counts              | 0.64  | 0.45 |
+| ngrams_counts_nofeat       | 0.64  | 0.45 |
+| both_tf_nofeat             | 0.6   | 0.45 |
+| both_counts_nofeat         | 0.64  | 0.45 |
 
 
 #### Ablation Study: GROUP
 
-|                            | SVM   | DT   | RF   | Transformer |
-|----------------------------|-------|------|------|-------------|
-| tailored_grouped           | 0.12  | 0.13 |      |             |
-| ngrams_tf_nofeat_grouped   | 0.66  | 0.44 |      |             |
-| both_tf_nofeat_grouped     | 0.64  | 0.44 |      |             |
+|                            | SVM   | DT   |
+|----------------------------|-------|------|
+| tailored_grouped           | 0.12  | 0.13 |
+| ngrams_tf_nofeat_grouped   | 0.66  | 0.44 |
+| both_tf_nofeat_grouped     | 0.64  | 0.44 |
 
 
 #### Ablation Study: NONES
 
-|                            | SVM   | DT   | RF   | Transformer |
-|----------------------------|-------|------|------|-------------|
-| ngrams_counts_nofeat_nones | 0.44  | 0.18 |      |             |
-| ngrams_tf_nofeat_nones     | 0.54  | 0.17 |      |             |
-| both_counts_nofeat_nones   | 0.45  | 0.18 |      |             |
-| both_tf_nofeat_nones       | 0.51  | 0.17 |      |             |
+|                            | SVM   | DT   |
+|----------------------------|-------|------|
+| ngrams_counts_nofeat_nones | 0.44  | 0.18 |
+| ngrams_tf_nofeat_nones     | 0.54  | 0.17 |
+| both_counts_nofeat_nones   | 0.45  | 0.18 |
+| both_tf_nofeat_nones       | 0.51  | 0.17 |
 
 
 ### grouped
