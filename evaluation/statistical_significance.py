@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+"""
+Author: Laura Zeidler
+Last changed: 14.08.2024
+
+This script compares the predictions of two models to determine if there is a statistically significant difference between them. 
+It uses McNemar's test, which is appropriate for comparing the performance of two models on the same dataset, particularly in terms of their classification decisions.
+
+"""
+
 import argparse, json
 from statsmodels.stats.contingency_tables import mcnemar
 

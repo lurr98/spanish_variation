@@ -1,3 +1,30 @@
+#!/usr/bin/env python3
+"""
+Author: Laura Zeidler
+Last changed: 14.08.2024
+
+This script is used for analyzing and interpreting the importance of features in linear models (SVM, Decision Trees). 
+It provides functionality to extract and plot feature importances, generate decision tree rules and visualize the first layers of a decision tree model. 
+
+### Functionality
+
+1. **Model Coefficients Extraction**:
+   - For SVM models, extracts and sorts coefficients to determine feature importance.
+   - For Decision Trees, extracts and sorts feature importances.
+
+2. **Feature Importance Visualization**:
+   - Plots feature importances for SVM and Decision Trees.
+   - Handles different cases including zero importance values and saves the plots with appropriate titles.
+
+3. **Decision Tree Interpretation**:
+   - Extracts and prints decision tree rules for 'dt' models.
+   - Visualizes and saves the decision tree plot.
+
+4. **Most Informative Features for Class**:
+   - For SVM models, identifies and visualizes the most informative features for each class.
+
+"""
+
 import argparse, json, time, sys, re, matplotlib
 import pandas as pd
 import numpy as np
@@ -6,7 +33,6 @@ from typing import Union
 from scipy.sparse import spmatrix, vstack
 from sklearn import svm, tree, ensemble
 from sklearn.tree import export_text, plot_tree
-from sklearn.inspection import permutation_importance
 from evaluate_all_models import load_linear_model
 
 sys.path.append("..")
@@ -36,14 +62,11 @@ def get_feature_names(feature_names_type: str) -> list:
     return feature_names
 
 
-def get_coefficients(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, ensemble.RandomForestClassifier], model_type: str, feature_names_type: str) -> pd.DataFrame:
+def get_coefficients(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier], model_type: str, feature_names_type: str) -> pd.DataFrame:
 
     feature_names = get_feature_names(feature_names_type)
 
     if model_type == 'svm':
-        # if feature_type == 'both':
-        #     importances = model.coef_[0][-50:]
-        # else:
         importances = model.coef_[0]
         importance = {f:i for f, i in zip(feature_names, importances)}
         sorted_list = sorted(importance.items(), key = lambda item:item[1], reverse=True)
@@ -51,40 +74,14 @@ def get_coefficients(model: Union[svm.LinearSVC, tree.DecisionTreeClassifier, en
         sorted_importance = {f:i for f, i in n_first+n_last}
         cols = ['Importances']
     if model_type == 'dt':
-        # if feature_type == 'both':
-        #     importances = model.feature_importances_[-50:]
-        # else:
         importances = model.feature_importances_
         importance = {f:i for f, i in zip(feature_names, importances)}
         sorted_importance = {f: i for f, i in sorted(importance.items(), key = lambda item:item[1])[-50:]}
         cols = ['Importances']
-    # for RF we also need to compute the standard deviation
-    if model_type == 'rf':
-        # if feature_type == 'both':
-        #     importances = model.feature_importances_[-50:]
-        # else:
-        importances = model.feature_importances_
-        std = np.std([tree.feature_importances_ for tree in model.estimators_], axis=0)
-        importance = {f: [i, j] for f, i, j in zip(feature_names, importances, std)}
-        sorted_importance = {f: i for f, i in sorted(importance.items(), key = lambda item:item[1][0])[-50:]}
-        cols = ['Weights', 'Standard Deviation']
-
-    # make sure dict is not too large
 
     coefs = pd.DataFrame.from_dict(sorted_importance, orient='index', columns=cols)
 
     return coefs
-
-
-# code from https://datascience.stackexchange.com/questions/107580/is-there-a-way-to-output-feature-importance-based-on-the-outputted-class
-# TODO: be critical with this, I am not sure, whether this actually makes sense
-def get_feature_importances_permutation(model: Union[tree.DecisionTreeClassifier, ensemble.RandomForestClassifier], features: spmatrix, feature_names: list, targets: list) -> pd.DataFrame:
-    # in order to get the importances per class, just pass features and targets where the prediction was the desired class
-    result = permutation_importance(model, features.toarray(), targets, n_repeats=2, random_state=0)
-    importance = {f:i for f, i in zip(feature_names, result.importances_mean)}
-    sorted_importances = {f: i for f, i in sorted(importance.items(), key = lambda item:item[1])[-50:]}
-    df = pd.DataFrame.from_dict(sorted_importances, orient='index', columns=['Importances'])    
-    return df
 
 
 def most_informative_feature_for_class(classifier: svm.LinearSVC, label: str, feature_names: list) -> pd.DataFrame:
@@ -102,6 +99,7 @@ def get_dt_rules(classifier: tree.DecisionTreeClassifier, feature_names: list) -
     rules = export_text(classifier, feature_names=feature_names)
 
     return rules
+
 
 def plot_dt(model: tree.DecisionTreeClassifier, feature_names: list, model_path: str) -> None:
 
@@ -121,8 +119,7 @@ def plot_dt(model: tree.DecisionTreeClassifier, feature_names: list, model_path:
     plt.savefig('plots/feature_importances/{}_dt_rules.png'.format(model_path.split('/')[1]))
 
 
-
-def plot_feature_importance(df: pd.DataFrame, model_type: str, model_path: str, perm: str='none') -> None:
+def plot_feature_importance(df: pd.DataFrame, model_path: str, perm: str='none') -> None:
 
     # filter zeros for better readability
     zeros = False
@@ -139,45 +136,26 @@ def plot_feature_importance(df: pd.DataFrame, model_type: str, model_path: str, 
                 i -= 1
         i += 1
 
-    if model_type in ['svm', 'dt']:
-        df.plot.barh(figsize=(7, 10))
-        # SVM_models/SVM_model_tailored__2024-05-13
-        if args.model_type == 'svm':
-            add = 'coefficients'
-        if args.model_type == 'dt':
-            add = 'weights'
-        if perm != 'none':
-            plt.title('{} feature {} for class {}'.format(' '.join(model_path.split('/')[-1].split('_')[:-1]), add, perm))
-        else:
-            title_name = re.sub(' nofeat tf ', ' ',' '.join( model_path.split('/')[-1].split('_')[:-1]))
-            title_name = re.sub(' nofeat ', ' ', title_name)
-            if 'nones' in title_name:
-                plt.title('{} feature {} without NEs'.format(re.sub('nones', '', title_name), add))
-            elif 'grouped' in title_name:
-                plt.title('{} feature {} on grouped classes'.format(re.sub('grouped', '', title_name), add))
-            else:
-                plt.title('{} feature {}'.format(title_name, add))
-        plt.axvline(x=0, color=".5")
-        plt.xlabel('Raw {} values'.format(add))
-        plt.subplots_adjust(left=0.3)
-
-    if model_type == 'rf':
+    df.plot.barh(figsize=(7, 10))
+    # SVM_models/SVM_model_tailored__2024-05-13
+    if args.model_type == 'svm':
+        add = 'coefficients'
+    if args.model_type == 'dt':
         add = 'weights'
-
-        fig, ax = plt.subplots()
-        if perm != 'none':
-            df.plot.barh(figsize=(7, 10))
-            plt.title('{} feature importances for class {}'.format(' '.join(model_path.split('/')[-1].split('_')[:-1]), perm))
-            plt.axvline(x=0, color=".5")
-            plt.xlabel('Raw importance values')
-            plt.subplots_adjust(left=0.3)
+    if perm != 'none':
+        plt.title('{} feature {} for class {}'.format(' '.join(model_path.split('/')[-1].split('_')[:-1]), add, perm))
+    else:
+        title_name = re.sub(' nofeat tf ', ' ',' '.join( model_path.split('/')[-1].split('_')[:-1]))
+        title_name = re.sub(' nofeat ', ' ', title_name)
+        if 'nones' in title_name:
+            plt.title('{} feature {} without NEs'.format(re.sub('nones', '', title_name), add))
+        elif 'grouped' in title_name:
+            plt.title('{} feature {} on grouped classes'.format(re.sub('grouped', '', title_name), add))
         else:
-            forest_importances = pd.Series(list(df['Weights']), index=list(df.index))
-            std = list(df['Standard Deviation'])
-            forest_importances.plot.bar(yerr=std, ax=ax, figsize=(10, 7))
-            ax.set_title('Feature importances for {} using MDI'.format(' '.join(model_path.split('/')[-1].split('_')[:-1]), add))
-            ax.set_ylabel('Mean decrease in impurity')
-            fig.tight_layout()
+            plt.title('{} feature {}'.format(title_name, add))
+    plt.axvline(x=0, color=".5")
+    plt.xlabel('Raw {} values'.format(add))
+    plt.subplots_adjust(left=0.3)
     
     if perm != 'none':
         plt.savefig('plots/feature_importances/importances_by_country/{}/{}_feature_importances_{}.png'.format(perm, model_path.split('/')[-1], perm))
@@ -191,7 +169,7 @@ if __name__ == "__main__":
     parser.add_argument('model_path', type=str,
                         help='pass the path to the model to be interpreted')
     parser.add_argument('model_type', type=str,
-                        help='pass the type of model (svm|dt|rf)')
+                        help='pass the type of model (svm|dt)')
     parser.add_argument('feature_names', type=str,
                         help='pass the type of feature names (tailored|ngrams|nofeat|both|nones)')
     parser.add_argument('-ftp','--features_targets_preds', nargs='+', 
@@ -213,7 +191,7 @@ if __name__ == "__main__":
     end = time.time()
     print('Getting coefficients took {} seconds.'.format(end-start))
 
-    plot_feature_importance(coefs, args.model_type, args.model_path)
+    plot_feature_importance(coefs, args.model_path)
 
     if args.features_targets_preds:
 
@@ -229,7 +207,7 @@ if __name__ == "__main__":
                 most_informative_features = most_informative_feature_for_class(model, label, feature_names)
 
                 print('now plotting')
-                plot_feature_importance(most_informative_features, args.model_type, args.model_path, label)
+                plot_feature_importance(most_informative_features, args.model_path, label)
 
         elif args.model_type == 'dt':
             rules = get_dt_rules(model, feature_names)
@@ -237,39 +215,3 @@ if __name__ == "__main__":
 
             with open('/projekte/semrel/WORK-AREA/Users/laura/evaluation/DT_models/{}'.format(args.model_path.split('/')[-1]), 'w') as r:
                 r.write(rules)
-                
-        # else:
-# 
-        #     features = load_sparse_csr('/projekte/semrel/WORK-AREA/Users/laura/{}'.format(args.features_targets_preds[0]))
-        #     with open ('/projekte/semrel/WORK-AREA/Users/laura/indices_targets_tdt_split_080101_balanced.json', 'r') as jsn:
-        #         ind_n_tars = json.load(jsn)
-# 
-        #     targets = ind_n_tars[args.features_targets_preds[0].split('_')[-1]]['targets']
-# 
-        #     for label in list(set(predictions)):
-        #         print('getting coefficients for label {}'.format(label))
-        #         start = time.time()
-        #         indices = [i for i, des_label in enumerate(predictions) if des_label == label]
-        #         print(len(indices))
-        #         label_targets = [targets[i] for i in indices]
-        #         # initialise array
-        #         all_features_array = []
-# 
-        #         for idx in indices:
-        #             if not isinstance(all_features_array, list):
-        #                 # add the ngram feature vector to the other feature vectors
-        #                 all_features_array = vstack([all_features_array, features[idx, :]])
-        #             else:
-        #                 # initialise all_feature_array with the first ngram feature vector
-        #                 all_features_array = features[idx, :]
-# 
-        #         print(len(label_targets))
-        #         print(all_features_array.toarray().shape)
-# 
-        #         fip = get_feature_importances_permutation(model, all_features_array, feature_names, label_targets)
-        #         end = time.time()
-        #         print('getting coefficients took {} seconds'.format(end-start))
-# 
-        #         print('now plotting')
-        #         plot_feature_importance(fip, args.model_type, args.model_path, label)
-# 

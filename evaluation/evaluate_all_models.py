@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+"""
+Author: Laura Zeidler
+Last changed: 14.08.2024
+
+This module provides functions for loading and using linear and transformer models, as well as evaluating their performance using various metrics. 
+The functionalities include loading models, making predictions and generating evaluation reports such as confusion matrices and classification reports.
+
+"""
+
 import os
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"]="0"

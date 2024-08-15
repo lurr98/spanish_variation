@@ -3,9 +3,8 @@
 Author: Laura Zeidler
 Last changed: 14.08.2024
 
-Data Preparation and Transformation for Model Training
-
-This module provides functions for preparing and transforming data for machine learning models, including feature concatenation, shuffling, and text preprocessing.
+This module provides functions for preparing and transforming data for machine learning models, including feature concatenation, shuffling and text preprocessing.
+These functionalities are used by `pipeline_linear_models.py` and `pipeline_transformer.py`.
 
 """
 
@@ -116,7 +115,6 @@ def shuffle_data(all_features_array: spmatrix, targets: list, idx_list: list) ->
     shuffled_features_array = all_features_array[list(shuffled_feature_indices)] 
 
     return shuffled_features_array, shuffled_targets, shuffled_idx_list
-
 
 
 def prepare_data_full(data_split: str, split_type: str, which_country: list, feature_type: str, which_features: list, matrix_name: str='none', shuffle: bool=False) -> Tuple[spmatrix, list, list]:
