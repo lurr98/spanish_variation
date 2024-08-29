@@ -17,7 +17,7 @@ In particular, there are two approaches that I followed:
 
 Both the linguistic features as well as the unigram features can be extracted by simply running the script `features/implement_features.py`. The functions to extract the linguistic features can be found in `features/features_utils.py`.
 
-By running the script the Corpus del Español is read and the features are extracted from the data. If the data has not been split into train, development and test set, this can be done in the same step by …
+By running the script the Corpus del Español is read and the features are extracted from the data. If the data has not been split into train, development and test set, this can be done in the same step by setting the corresponding flag (run `python3 implement_features.py -h` for more information on the arguments of this script).
 
 The extracted tailored features are then stored in a JSON file while the unigram features are stored as a sparse matrix file.
 
@@ -27,5 +27,12 @@ Before training the models, the features of the individual documents need to be 
 
 ### Training Models
 
+To train the traditional machine learning models, one can run the script `models/pipeline_linear_models.py` (run `python3 pipeline_linear_models.py -h` for more information on the arguments of this script).
+
+To fine-tune the BERT model, one can run the script `models/pipeline_transformer.py` (run `python3 pipeline_transformer.py -h` for more information on the arguments of this script).
+
+The trained models will be stored at the given output path for later use.
 
 ### Evaluation 
+
+To evaluate the model, one can either run the script `evaluation/evaluation_pipeline.py` considering the corresponding arguments and flags or simply run the bash script `evaluation/evaluate_models.sh` uncommenting the lines that evaluate the desired models.
